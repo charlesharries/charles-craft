@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "599b8fbd7be3c4a75eadeb5e76d37cee",
+    "content-hash": "6bf7c051f03f7df56e2e291ab875befe",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -69,6 +69,64 @@
                 "source": "https://github.com/cebe/markdown"
             },
             "time": "2018-03-26T11:24:36+00:00"
+        },
+        {
+            "name": "cloudinary/cloudinary_php",
+            "version": "1.20.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cloudinary/cloudinary_php.git",
+                "reference": "2a8e6ed5bc6cf024022c6fcc03b69e1ce92ccaab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/2a8e6ed5bc6cf024022c6fcc03b69e1ce92ccaab",
+                "reference": "2a8e6ed5bc6cf024022c6fcc03b69e1ce92ccaab",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "ext-zip": "*",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src"
+                ],
+                "files": [
+                    "src/Helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cloudinary",
+                    "homepage": "https://github.com/cloudinary/cloudinary_php/graphs/contributors"
+                }
+            ],
+            "description": "Cloudinary PHP SDK",
+            "homepage": "https://github.com/cloudinary/cloudinary_php",
+            "keywords": [
+                "cdn",
+                "cloud",
+                "cloudinary",
+                "image management",
+                "sdk"
+            ],
+            "support": {
+                "email": "info@cloudinary.com",
+                "issues": "https://github.com/cloudinary/cloudinary_php/issues",
+                "source": "https://github.com/cloudinary/cloudinary_php/tree/1.20.0"
+            },
+            "time": "2021-01-13T18:40:23+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -1210,6 +1268,53 @@
                 "source": "https://github.com/elvanto/litemoji/tree/3.0.1"
             },
             "time": "2020-11-27T05:08:33+00:00"
+        },
+        {
+            "name": "enl/flysystem-cloudinary",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/enl/flysystem-cloudinary.git",
+                "reference": "85a0911bafe0a81f7b262314960fee51ee24cfc9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/enl/flysystem-cloudinary/zipball/85a0911bafe0a81f7b262314960fee51ee24cfc9",
+                "reference": "85a0911bafe0a81f7b262314960fee51ee24cfc9",
+                "shasum": ""
+            },
+            "require": {
+                "cloudinary/cloudinary_php": "^1.8.0",
+                "ext-fileinfo": "*",
+                "league/flysystem": "^1.0.26",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6",
+                "squizlabs/php_codesniffer": "^2.3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Enl\\Flysystem\\Cloudinary\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Panshin",
+                    "email": "deadyaga@gmail.com"
+                }
+            ],
+            "description": "Cloudinary adapter for Flysystem.",
+            "support": {
+                "issues": "https://github.com/enl/flysystem-cloudinary/issues",
+                "source": "https://github.com/enl/flysystem-cloudinary/tree/master"
+            },
+            "time": "2020-08-20T11:45:49+00:00"
         },
         {
             "name": "enshrined/svg-sanitize",
@@ -4893,6 +4998,61 @@
                 }
             ],
             "time": "2021-11-28T15:25:38+00:00"
+        },
+        {
+            "name": "timkelty/craft3-cloudinary",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timkelty/craft3-cloudinary.git",
+                "reference": "38fadb6a4fd3f2e3c7b2bc68e60ba879b7ce0c7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timkelty/craft3-cloudinary/zipball/38fadb6a4fd3f2e3c7b2bc68e60ba879b7ce0c7e",
+                "reference": "38fadb6a4fd3f2e3c7b2bc68e60ba879b7ce0c7e",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-beta.24",
+                "enl/flysystem-cloudinary": "^1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Cloudinary",
+                "handle": "cloudinary",
+                "changelogUrl": "https://raw.githubusercontent.com/timkelty/craft3-cloudinary/master/CHANGELOG.md",
+                "downloadUrl": "https://github.com/timkelty/craft3-cloudinary/archive/master.zip"
+            },
+            "autoload": {
+                "psr-4": {
+                    "craft\\cloudinary\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Kelty",
+                    "homepage": "https://github.com/timkelty"
+                }
+            ],
+            "description": "Cloudinary integration for Craft CMS",
+            "keywords": [
+                "Flysystem",
+                "cloudinary",
+                "cms",
+                "craftcms",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/timkelty/craft3-cloudinary/issues",
+                "source": "https://github.com/timkelty/craft3-cloudinary/tree/master"
+            },
+            "abandoned": true,
+            "time": "2017-11-22T17:08:25+00:00"
         },
         {
             "name": "true/punycode",
