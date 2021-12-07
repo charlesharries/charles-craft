@@ -1,4 +1,5 @@
 <?php
+
 /**
  * General Configuration
  *
@@ -29,9 +30,9 @@ return [
     // Whether Dev Mode should be enabled (see https://craftcms.com/guides/what-dev-mode-does)
     'devMode' => $isDev,
 
-    // Whether administrative changes should be allowed
-    'allowAdminChanges' => $isDev,
+    // I can always make Settings changes, regardless of environment
+    'allowAdminChanges' => true,
 
-    // Whether crawlers should be allowed to index pages and following links
-    'disallowRobots' => !$isProd,
+    // Crawlers shouldn't be crawling this site.
+    'disallowRobots' => true,
 ];
