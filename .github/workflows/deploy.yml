@@ -16,4 +16,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: cd ${{ secrets.DIRECTORY }} && git pull origin main
+        script: cd ${{ secrets.DIRECTORY }} && composer install && git pull origin main
