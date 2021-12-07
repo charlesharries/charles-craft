@@ -1,5 +1,5 @@
 fieldLayouts:
-  920f6a88-c483-4f81-aa94-2ab302fdb03a:
+  9b2b59e9-b88b-4712-938b-c7f9c6fb70e4:
     tabs:
       -
         elements:
@@ -23,18 +23,10 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\AssetTitleField
+            type: craft\fieldlayoutelements\TitleField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: local
-hasUrls: true
-name: Local
-settings:
-  path: assets
-sortOrder: 1
-titleTranslationKeyFormat: null
-titleTranslationMethod: null
-type: craft\volumes\Local
-url: /assets
+handle: tags
+name: Tags

@@ -27,7 +27,18 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ea5aefda-6f68-4615-9cb3-81aae425e54c # Tags
             instructions: null
             label: null
             required: false
@@ -37,9 +48,9 @@ fieldLayouts:
             width: 100
           -
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
-            instructions: null
-            label: null
-            required: false
+            instructions: ''
+            label: ''
+            required: ''
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
