@@ -6,16 +6,23 @@ email:
 meta:
   __names__:
     0d74ed0f-b46b-4094-9038-b30e655c7b30: Default # Default
+    4b7c4f12-4502-4174-8b81-4a28b231036e: Meta # Meta
     6dcb6011-4fe4-4cab-8aa4-2307909c8d66: 'Charles Harries' # Charles Harries
     9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de: Body # Body
     72c0aa82-0cdf-4f69-9188-fea54b5c34a4: 'Charles Harries' # Charles Harries
     75f81d9a-3f3c-4479-9949-7a535abd7e37: Stream # Stream
-    98e705a6-d7c8-48c1-b096-b2deaf9283df: Local # Local
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
     61727a0a-6742-4674-930c-0a3f6a9fe2a1: Default # Default
     071255ac-4fb5-404c-b125-46fa49417bc2: Posts # Posts
+    83376ba5-3763-41bb-b41b-a716bed11d0e: Cloudinary # Cloudinary
     72753318-2e64-40d2-bbb0-f64f138ab9f7: Common # Common
+    c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
+    ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
 plugins:
+  cloudinary:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   element-api:
     edition: standard
     enabled: true
@@ -32,8 +39,9 @@ system:
   edition: solo
   live: true
   name: 'Charles Harries'
+  retryDuration: null
   schemaVersion: 3.7.8
-  timeZone: America/Los_Angeles
+  timeZone: Europe/London
 users:
   allowPublicRegistration: false
   defaultGroup: null
