@@ -1,0 +1,20 @@
+columnSuffix: emwkejao
+contentColumnType: smallint(1)
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: rating
+instructions: ''
+name: Rating
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: 5
+  min: 1
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: stars
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
