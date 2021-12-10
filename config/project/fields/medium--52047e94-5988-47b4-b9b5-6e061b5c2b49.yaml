@@ -1,0 +1,46 @@
+columnSuffix: mnriylds
+contentColumnType: string
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: medium
+instructions: ''
+name: Medium
+searchable: false
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Kindle
+        -
+          - value
+          - kindle
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Physical
+        -
+          - value
+          - physical
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Audiobook
+        -
+          - value
+          - audiobook
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown
