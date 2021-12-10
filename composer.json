@@ -3,6 +3,7 @@
     "craftcms/cms": "^3.6.4",
     "craftcms/element-api": "^2.8",
     "craftcms/redactor": "^2.8",
+    "ether/tags": "^1.0",
     "mmikkel/retcon": "^2.3",
     "timkelty/craft3-cloudinary": "^1.0",
     "vlucas/phpdotenv": "^3.4.0"
