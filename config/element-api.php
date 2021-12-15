@@ -9,6 +9,7 @@ class Post
     {
         return [
             'title' => $entry->title,
+            'created_at' => $entry->dateCreated,
             'body' => Retcon::$plugin->retcon->srcset(
                 $entry->body,
                 [['width' => 275], ['width' => 900]],
