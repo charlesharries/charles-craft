@@ -25,7 +25,10 @@ class Stream extends Post
     {
         $data = parent::transform($entry);
         $assets = array_map(function (Asset $asset) {
-            return 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450/' . $asset->filename;
+            return [
+                'alt' => $asset->title,
+                'url' => 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450/' . $asset->filename,
+            ];
         }, $entry->featuredImage->all());
 
         return array_merge($data, [
