@@ -20,6 +20,14 @@ class Post
 
 class Stream extends Post
 {
+    public static function transform(Entry $entry)
+    {
+        $data = parent::transform($entry);
+
+        return array_merge($data, [
+            'featured_image' => $entry->featuredImage,
+        ]);
+    }
 }
 
 return [
