@@ -1,5 +1,6 @@
 <?php
 
+use craft\elements\Asset;
 use craft\elements\Entry;
 use mmikkel\retcon\Retcon;
 
@@ -23,9 +24,12 @@ class Stream extends Post
     public static function transform(Entry $entry)
     {
         $data = parent::transform($entry);
+        $assets = array_map(function (Asset $asset) {
+            return 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450/' . $asset->filename;
+        }, $entry->featuredImage->all());
 
         return array_merge($data, [
-            'featured_image' => $entry->featuredImage,
+            'featured_image' => $assets,
         ]);
     }
 }
