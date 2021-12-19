@@ -27,7 +27,7 @@ class Stream extends Post
         $assets = array_map(function (Asset $asset) {
             return [
                 'alt' => $asset->title,
-                'url' => 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450/' . $asset->filename,
+                'url' => 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450,f_auto/' . $asset->filename,
             ];
         }, $entry->featuredImage->all());
 
