@@ -9,15 +9,16 @@ settings:
   allowLimit: false
   allowMultipleSources: false
   allowSelfRelations: false
+  branchLimit: '1'
   limit: null
   localizeRelations: false
-  selectionLabel: ''
+  selectionLabel: 'Add a writer'
   showSiteMenu: true
-  source: 'taggroup:ad4febb7-733d-4e16-818e-aec623f4b582' # Writers
+  source: 'group:8c4a8cd9-3f50-49e9-aed5-f46067c94fb9' # Writer
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
 translationKeyFormat: null
 translationMethod: site
-type: craft\fields\Tags
+type: craft\fields\Categories
