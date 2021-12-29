@@ -11,7 +11,8 @@
   ],
   "plugins": [
     "fullscreen",
-    "table"
+    "table",
+    "inlinestyle"
   ],
   "linkNewTab": true,
   "toolbarFixed": true
