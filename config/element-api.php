@@ -9,9 +9,9 @@ trait HasImages
     public static function widths()
     {
         return [
-            ['width' => 400],
-            ['width' => 900],
-            ['width' => 1500]
+            'sm',
+            'md',
+            'lg',
         ];
     }
 }
