@@ -29,7 +29,7 @@ return [
         'stream.json' => function () {
             return [
                 'elementType' => Entry::class,
-                'criteria' => ['section' => ['stream', 'books']],
+                'criteria' => ['section' => ['stream']],
                 'cache' => null,
                 'transformer' => function (Entry $entry) {
                     return Stream::transform($entry);
