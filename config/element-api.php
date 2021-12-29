@@ -9,7 +9,7 @@ return [
         'posts.json' => function () {
             return [
                 'elementType' => Entry::class,
-                'criteria' => ['section' => 'posts', 'orderBy' => 'dateCreated desc'],
+                'criteria' => ['section' => 'posts', 'orderBy' => 'postDate desc'],
                 'cache' => null,
                 'transformer' => function (Entry $entry) {
                     return Post::transformForIndex($entry);

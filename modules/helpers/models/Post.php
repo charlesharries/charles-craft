@@ -15,7 +15,7 @@ class Post
     {
         return [
             'title' => $entry->title,
-            'created_at' => $entry->dateCreated->format('Y-m-d H:i'),
+            'created_at' => $entry->postDate->format('Y-m-d H:i'),
             'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
         ];
     }
@@ -25,7 +25,7 @@ class Post
         return [
             'title' => $entry->title,
             'slug' => $entry->slug,
-            'created_at' => $entry->dateCreated->format('Y-m-d H:i'),
+            'created_at' => $entry->postDate->format('Y-m-d H:i'),
             'summary' => $entry->summary,
         ];
     }
