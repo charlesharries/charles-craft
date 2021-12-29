@@ -14,7 +14,8 @@
   "autoload": {
     "psr-4": {
       "modules\\": "modules/",
-      "deploy\\": "modules/deploy/"
+      "deploy\\": "modules/deploy/",
+      "helpers\\": "modules/helpers/"
     }
   },
   "config": {
