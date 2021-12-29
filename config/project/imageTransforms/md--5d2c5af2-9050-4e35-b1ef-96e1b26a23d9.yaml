@@ -1,9 +1,9 @@
 format: jpg
-handle: small
+handle: md
 height: null
 interlace: none
 mode: crop
-name: 450w
+name: 900w
 position: center-center
 quality: null
-width: 450
+width: 900

@@ -32,7 +32,7 @@ fieldLayouts:
 handle: writer
 name: Writer
 siteSettings:
-  6dcb6011-4fe4-4cab-8aa4-2307909c8d66:
+  6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries
     hasUrls: true
     template: null
     uriFormat: 'writer/{slug}'
