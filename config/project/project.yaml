@@ -1,4 +1,4 @@
-dateModified: 1640794696
+dateModified: 1640796589
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -10,27 +10,29 @@ meta:
     4b7c4f12-4502-4174-8b81-4a28b231036e: Meta # Meta
     4c827962-66cf-4542-b561-aa8650e5f2de: Default # Default
     4ff40bad-6fd2-4bdc-9feb-65a47931998d: Length # Length
+    5d2c5af2-9050-4e35-b1ef-96e1b26a23d9: 900w # 900w
     7f5084cc-0fc8-472f-bcdf-9c5db26a3001: 'Featured image' # Featured image
     8c4a8cd9-3f50-49e9-aed5-f46067c94fb9: Writer # Writer
     9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de: Body # Body
     69d1b4e6-4981-4ef6-ac2d-34691c18c906: 'Date read' # Date read
     72c0aa82-0cdf-4f69-9188-fea54b5c34a4: 'Charles Harries' # Charles Harries
+    74da0e66-e6c9-4eb8-a3fd-c603fdb2e1f3: 1500w # 1500w
     75f81d9a-3f3c-4479-9949-7a535abd7e37: Stream # Stream
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
     52047e94-5988-47b4-b9b5-6e061b5c2b49: Medium # Medium
     61727a0a-6742-4674-930c-0a3f6a9fe2a1: Default # Default
     071255ac-4fb5-404c-b125-46fa49417bc2: Posts # Posts
-    83376ba5-3763-41bb-b41b-a716bed11d0e: Cloudinary # Cloudinary
     72753318-2e64-40d2-bbb0-f64f138ab9f7: Common # Common
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
+    e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
 plugins:
   cloudinary:
     edition: standard
-    enabled: true
+    enabled: false
     schemaVersion: 1.0.0
   element-api:
     edition: standard
