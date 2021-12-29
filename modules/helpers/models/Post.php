@@ -13,10 +13,11 @@ class Post
 
     public static function transform(Entry $entry)
     {
+        $withSrcset = Retcon::$plugin->retcon->srcset($entry->body, self::widths());
         return [
             'title' => $entry->title,
             'created_at' => $entry->postDate->format('Y-m-d H:i'),
-            'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
+            'body' => Retcon::$plugin->retcon->attr($withSrcset, 'figure', ['class' => 'Image']),
         ];
     }
 
