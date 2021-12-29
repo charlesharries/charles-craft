@@ -9,11 +9,21 @@ return [
         'posts.json' => function () {
             return [
                 'elementType' => Entry::class,
-                'criteria' => ['section' => 'posts'],
+                'criteria' => ['section' => 'posts', 'orderBy' => 'dateCreated desc'],
                 'cache' => null,
                 'transformer' => function (Entry $entry) {
-                    return Post::transform($entry);
+                    return Post::transformForIndex($entry);
                 },
+            ];
+        },
+        'posts/<slug>.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['slug' => $slug],
+                'one' => true,
+                'transformer' => function (Entry $entry) {
+                    return Post::transform($entry);
+                }
             ];
         },
         'stream.json' => function () {
