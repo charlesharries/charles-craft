@@ -1,5 +1,5 @@
 fieldLayouts:
-  b46bda5b-18bc-4735-af12-8b64ab8bf3cb:
+  129ea2ce-a101-476b-9ab4-32287ebc600a:
     tabs:
       -
         elements:
@@ -28,17 +28,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: cloudinary
+handle: local
 hasUrls: true
-name: Cloudinary
+name: Local
 settings:
-  apiKey: '521931841136364'
-  apiSecret: 4cfeY1Q-zW8Nnl3-KvV1pN1ACKg
-  cloudName: dnz9qbnn1
-  overwrite: true
-  subfolder: ''
-sortOrder: 2
+  path: '@webroot/assets'
+sortOrder: 3
 titleTranslationKeyFormat: null
 titleTranslationMethod: null
-type: craft\cloudinary\Volume
-url: 'https://res.cloudinary.com/dnz9qbnn1/image/upload/'
+type: craft\volumes\Local
+url: '@web/assets'

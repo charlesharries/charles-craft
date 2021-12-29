@@ -11,12 +11,12 @@ settings:
   allowedKinds: null
   defaultUploadLocationSource: 'volume:83376ba5-3763-41bb-b41b-a716bed11d0e' # Cloudinary
   defaultUploadLocationSubpath: ''
-  limit: '1'
+  limit: '2'
   localizeRelations: false
   previewMode: full
   restrictFiles: ''
   selectionLabel: 'Add a featured image'
-  showSiteMenu: false
+  showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   singleUploadLocationSource: 'volume:83376ba5-3763-41bb-b41b-a716bed11d0e' # Cloudinary

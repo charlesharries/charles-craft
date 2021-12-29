@@ -1,5 +1,6 @@
+defaultPlacement: end
 fieldLayouts:
-  a68f2d89-37a1-449c-832e-7873ae81da42:
+  3abd3970-56db-4aca-948b-1055a43bc3f2:
     tabs:
       -
         elements:
@@ -28,5 +29,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: writers
-name: Writers
+handle: writer
+name: Writer
+siteSettings:
+  6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries
+    hasUrls: true
+    template: null
+    uriFormat: 'writer/{slug}'
+structure:
+  maxLevels: 1
+  uid: 2d7739db-01a8-4c18-9df0-a4136ce219ab
