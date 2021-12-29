@@ -14,7 +14,7 @@ class Book
     {
         return [
             'title' => $entry->title,
-            'created_at' => $entry->dateCreated->format('Y-m-d H:i'),
+            'created_at' => $entry->postDate->format('Y-m-d H:i'),
             'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
             'rating' => $entry->rating,
             'writer' => $entry->writer->first()->title,
