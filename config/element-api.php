@@ -4,17 +4,28 @@ use craft\elements\Asset;
 use craft\elements\Entry;
 use mmikkel\retcon\Retcon;
 
+trait HasImages
+{
+    public static function widths()
+    {
+        return [
+            ['width' => 400],
+            ['width' => 900],
+            ['width' => 1500]
+        ];
+    }
+}
+
 class Post
 {
+    use HasImages;
+
     public static function transform(Entry $entry)
     {
         return [
             'title' => $entry->title,
             'created_at' => $entry->dateCreated,
-            'body' => Retcon::$plugin->retcon->srcset(
-                $entry->body,
-                [['width' => 275], ['width' => 900]],
-            ),
+            'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
         ];
     }
 }
@@ -24,12 +35,15 @@ class Stream extends Post
     public static function transform(Entry $entry)
     {
         $data = parent::transform($entry);
+        $images = $entry->featuredImage ? $entry->featuredImage->all() : [];
         $assets = array_map(function (Asset $asset) {
+            $tag = '<img src="' . $asset->getUrl() . '" alt="' . $asset->title . '" />';
             return [
                 'alt' => $asset->title,
-                'url' => 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450,f_auto/' . $asset->filename,
+                'url' => $asset->getUrl(),
+                'tag' => Retcon::$plugin->retcon->srcset($tag, self::widths()),
             ];
-        }, $entry->featuredImage->all());
+        }, $images);
 
         return array_merge($data, [
             'featured_image' => $assets,
