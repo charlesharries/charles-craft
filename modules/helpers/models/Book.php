@@ -14,11 +14,11 @@ class Book
     {
         return [
             'title' => $entry->title,
-            'created_at' => $entry->dateCreated,
+            'created_at' => $entry->dateCreated->format('Y-m-d H:i'),
             'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
             'rating' => $entry->rating,
             'writer' => $entry->writer->first()->title,
-            'date_read' => $entry->readAt,
+            'date_read' => $entry->readAt->format('Y-m-d H:i'),
             'length' => $entry->length,
             'publication_year' => $entry->publicationYear,
             'medium' => $entry->medium->label,
