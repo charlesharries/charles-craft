@@ -24,12 +24,13 @@ class Stream extends Post
     public static function transform(Entry $entry)
     {
         $data = parent::transform($entry);
+        $images = $entry->featuredImage ?? [];
         $assets = array_map(function (Asset $asset) {
             return [
                 'alt' => $asset->title,
                 'url' => 'https://res.cloudinary.com/dnz9qbnn1/image/upload/w_450,f_auto/' . $asset->filename,
             ];
-        }, $entry->featuredImage->all());
+        }, $images);
 
         return array_merge($data, [
             'featured_image' => $assets,
