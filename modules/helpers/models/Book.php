@@ -17,7 +17,7 @@ class Book
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
             'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
             'rating' => $entry->rating,
-            'writer' => $entry->writer->first()->title,
+            'writer' => $entry->writer->one()->title,
             'date_read' => $entry->readAt->format('Y-m-d\TH:i'),
             'length' => $entry->length,
             'publication_year' => $entry->publicationYear,
