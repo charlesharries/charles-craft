@@ -1,0 +1,41 @@
+fieldLayouts:
+  0810f3f5-9ebd-4538-ad5e-9f73bb5727cc:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 63cba1d3-5981-4c1d-8adb-8ccbe7d55f35 # Number
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: mountains
+name: Mountains

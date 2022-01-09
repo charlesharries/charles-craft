@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: mountains
+instructions: ''
+name: Mountains
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add a mountain'
+  showSiteMenu: false
+  source: 'taggroup:59ce730c-2dc9-446d-bd6c-828a58fedaa9' # Mountains
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

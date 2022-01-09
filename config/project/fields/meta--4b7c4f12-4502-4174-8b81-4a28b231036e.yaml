@@ -1,58 +1,16 @@
 columnSuffix: mxxqdoes
-contentColumnType: text
+contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: meta
 instructions: ''
 name: Meta
 searchable: false
 settings:
-  addRowLabel: 'Add a metadata item'
-  columnType: text
-  columns:
-    __assoc__:
-      -
-        - col1
-        -
-          __assoc__:
-            -
-              - heading
-              - Key
-            -
-              - handle
-              - key
-            -
-              - width
-              - ''
-            -
-              - type
-              - singleline
-      -
-        - col2
-        -
-          __assoc__:
-            -
-              - heading
-              - Value
-            -
-              - handle
-              - value
-            -
-              - width
-              - ''
-            -
-              - type
-              - singleline
-  defaults:
-    -
-      __assoc__:
-        -
-          - col1
-          - ''
-        -
-          - col2
-          - ''
-  maxRows: ''
-  minRows: ''
+  contentTable: '{{%matrixcontent_meta}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
 translationKeyFormat: null
-translationMethod: none
-type: craft\fields\Table
+translationMethod: site
+type: craft\fields\Matrix
