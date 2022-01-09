@@ -1,0 +1,134 @@
+field: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
+fieldLayouts:
+  c486fc0b-6541-40a2-8335-5d22acae5ac9:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 95d4c83b-f847-4f8c-9a88-4b31430507fd # Timings
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1e3b399d-bfe5-42e0-b366-6f9ecaaaed86 # Total Walking Time
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ad520050-ff35-4676-9b37-b1fbe96575b0 # Strava
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1e3b399d-bfe5-42e0-b366-6f9ecaaaed86: # Total Walking Time
+    columnSuffix: sddqeezk
+    contentColumnType: text
+    fieldGroup: null
+    handle: totalWalkingTime
+    instructions: ''
+    name: 'Total Walking Time'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  95d4c83b-f847-4f8c-9a88-4b31430507fd: # Timings
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: timings
+    instructions: ''
+    name: Timings
+    searchable: false
+    settings:
+      addRowLabel: 'Add a milestone'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Location
+                -
+                  - handle
+                  - location
+                -
+                  - width
+                  - 75%
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Reached At'
+                -
+                  - handle
+                  - reached_at
+                -
+                  - width
+                  - 25%
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+      maxRows: ''
+      minRows: '2'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  ad520050-ff35-4676-9b37-b1fbe96575b0: # Strava
+    columnSuffix: qxtdrqaa
+    contentColumnType: string(255)
+    fieldGroup: null
+    handle: strava
+    instructions: ''
+    name: Strava
+    searchable: false
+    settings:
+      maxLength: '255'
+      placeholder: null
+      types:
+        - url
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Url
+handle: walk
+name: 'About the walk'
+sortOrder: 1

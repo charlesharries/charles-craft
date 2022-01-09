@@ -1,0 +1,20 @@
+columnSuffix: qorazqgf
+contentColumnType: integer(10)
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: number
+instructions: ''
+name: Number
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: 1
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
