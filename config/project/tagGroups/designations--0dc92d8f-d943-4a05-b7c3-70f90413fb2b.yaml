@@ -1,5 +1,5 @@
 fieldLayouts:
-  0810f3f5-9ebd-4538-ad5e-9f73bb5727cc:
+  40d4804e-581f-466b-b68d-e577ef4065c7:
     tabs:
       -
         elements:
@@ -26,16 +26,7 @@ fieldLayouts:
             type: craft\fieldlayoutelements\TitleField
             warning: null
             width: 100
-          -
-            fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
         name: Content
         sortOrder: 1
-handle: mountains
-name: Mountains
+handle: designations
+name: Designations
