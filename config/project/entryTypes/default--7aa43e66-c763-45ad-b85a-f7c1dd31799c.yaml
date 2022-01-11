@@ -1,5 +1,5 @@
 fieldLayouts:
-  ebe2f2fd-8ea5-4c20-96ea-11774d6a5ea1:
+  5278af1d-8722-4a3e-9006-3960fc8cdb0a:
     tabs:
       -
         elements:
@@ -27,15 +27,6 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
             fieldUid: 9a56c3ed-c9b0-4a12-a02e-8ab2559b748e # Mountains
             instructions: null
             label: null
@@ -45,7 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 31c45503-813a-4655-b6fd-01408609c555 # Bags
+            fieldUid: 63cba1d3-5981-4c1d-8adb-8ccbe7d55f35 # Number
             instructions: null
             label: null
             required: false
@@ -54,18 +45,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            type: craft\fieldlayoutelements\HorizontalRule
-          -
-            fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
+            fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
             instructions: null
             label: null
             required: false
@@ -76,10 +56,10 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 handle: default
-hasTitleField: true
+hasTitleField: false
 name: Default
-section: 6c3aa333-495e-4f08-af06-2176eb4d7a3a # Walks
+section: 50d39a93-8605-4001-81f0-d9852cf865e5 # Bags
 sortOrder: 1
-titleFormat: null
+titleFormat: '{mountains[0].title} - {designations[0].title} #{number}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

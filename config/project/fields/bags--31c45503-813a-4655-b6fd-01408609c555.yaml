@@ -1,0 +1,22 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: bags
+instructions: 'Climbed any mountains of note?'
+name: Bags
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: 'Add a bag'
+  showSiteMenu: false
+  source: null
+  sources:
+    - 'section:50d39a93-8605-4001-81f0-d9852cf865e5' # Bags
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: designations
+instructions: ''
+name: Designations
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add a designation'
+  showSiteMenu: true
+  source: 'taggroup:0dc92d8f-d943-4a05-b7c3-70f90413fb2b' # Designations
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

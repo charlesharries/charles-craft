@@ -35,7 +35,7 @@ fieldLayouts:
         sortOrder: 1
 fields:
   1e3b399d-bfe5-42e0-b366-6f9ecaaaed86: # Total Walking Time
-    columnSuffix: sddqeezk
+    columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: totalWalkingTime
@@ -114,7 +114,7 @@ fields:
     translationMethod: none
     type: craft\fields\Table
   ad520050-ff35-4676-9b37-b1fbe96575b0: # Strava
-    columnSuffix: qxtdrqaa
+    columnSuffix: null
     contentColumnType: string(255)
     fieldGroup: null
     handle: strava
