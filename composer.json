@@ -1,6 +1,6 @@
 {
   "require": {
-    "craftcms/cms": "^3.6.4",
+    "craftcms/cms": "3.7.30.1",
     "craftcms/element-api": "^2.8",
     "craftcms/redactor": "^2.8",
     "ether/tags": "^1.0",
