@@ -32,7 +32,7 @@ return [
                 'criteria' => ['section' => ['stream']],
                 'cache' => null,
                 'transformer' => function (Entry $entry) {
-                    return Stream::transform($entry);
+                    return Stream::transformForIndex($entry);
                 },
             ];
         },

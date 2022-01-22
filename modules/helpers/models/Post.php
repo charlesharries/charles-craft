@@ -17,6 +17,7 @@ class Post
         return [
             'title' => $entry->title,
             'slug' => $entry->slug,
+            'summary' => $entry->summary ?? null,
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
             'body' => Retcon::$plugin->retcon->attr($withSrcset, 'figure', ['class' => 'Image']),
         ];
