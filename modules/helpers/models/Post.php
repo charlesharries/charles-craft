@@ -16,6 +16,7 @@ class Post
         $withSrcset = Retcon::$plugin->retcon->srcset($entry->body, self::widths());
         return [
             'title' => $entry->title,
+            'slug' => $entry->slug,
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
             'body' => Retcon::$plugin->retcon->attr($withSrcset, 'figure', ['class' => 'Image']),
         ];

@@ -35,6 +35,16 @@ return [
                     return Stream::transform($entry);
                 },
             ];
-        }
+        },
+        'stream/<slug>.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['slug' => $slug],
+                'one' => true,
+                'transformer' => function (Entry $entry) {
+                    return Stream::transform($entry);
+                },
+            ];
+        },
     ]
 ];
