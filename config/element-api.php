@@ -2,6 +2,7 @@
 
 use craft\elements\Entry;
 use helpers\models\Post;
+use helpers\models\Project;
 use helpers\models\Stream;
 
 return [
@@ -46,5 +47,16 @@ return [
                 },
             ];
         },
+        'projects/<slug>.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['slug' => $slug],
+                'one' => true,
+                'cache' => null,
+                'transformer' => function (Entry $entry) {
+                    return Project::transform($entry);
+                },
+            ];
+        }
     ]
 ];
