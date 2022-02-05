@@ -31,6 +31,15 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
+          -
+            fieldUid: baa13c65-0a57-43bf-8c5b-5dc010d1cd1c # Songs
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
 fields:
@@ -83,6 +92,65 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\redactor\Field
+  baa13c65-0a57-43bf-8c5b-5dc010d1cd1c: # Songs
+    columnSuffix: uutyfzav
+    contentColumnType: text
+    fieldGroup: null
+    handle: songs
+    instructions: ''
+    name: Songs
+    searchable: false
+    settings:
+      addRowLabel: 'Add a song'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - Label
+                -
+                  - handle
+                  - label
+                -
+                  - width
+                  - '60'
+                -
+                  - type
+                  - singleline
+          -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - ID
+                -
+                  - handle
+                  - id
+                -
+                  - width
+                  - '40'
+                -
+                  - type
+                  - singleline
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - 'Song title'
+            -
+              - col3
+              - 'Song ID'
+      maxRows: ''
+      minRows: '1'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
   f2f7b225-26f3-426a-8678-c089918dacf9: # Year
     columnSuffix: null
     contentColumnType: integer(10)
