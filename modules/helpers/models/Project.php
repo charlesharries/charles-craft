@@ -3,12 +3,13 @@
 namespace helpers\models;
 
 use craft\elements\Entry;
+use helpers\spotify\Track;
 
 class Project
 {
     public static function transform(Entry $entry)
     {
-        $getTrack = fn ($track) => ['id' => $track['id'], 'label' => $track['label']];
+        $getTrack = fn ($track) => (new Track($track['id']))->transform();
 
         $body = array_map(function ($block) use ($getTrack) {
             return [
