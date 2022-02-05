@@ -8,11 +8,14 @@ class Project
 {
     public static function transform(Entry $entry)
     {
-        $body = array_map(function ($block) {
+        $getTrack = fn ($track) => ['id' => $track['id'], 'label' => $track['label']];
+
+        $body = array_map(function ($block) use ($getTrack) {
             return [
                 'heading' => $block->heading,
                 'year' => $block->year,
-                'body' => $block->body
+                'body' => $block->body,
+                'tracks' => array_map($getTrack, $block->songs),
             ];
         }, $entry->flexibleContent->all());
 
