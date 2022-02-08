@@ -1,8 +1,8 @@
 {
   "require": {
-    "craftcms/cms": "3.7.30.1",
+    "craftcms/cms": "^3.7.30.1",
     "craftcms/element-api": "^2.8",
-    "craftcms/redactor": "2.9.0",
+    "craftcms/redactor": "^2.9.0",
     "ether/tags": "^1.0",
     "guzzlehttp/guzzle": "^7.4",
     "mmikkel/retcon": "^2.3",
