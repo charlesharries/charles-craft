@@ -20,7 +20,7 @@ class Stream extends Post
             $tag = '<img src="' . $asset->getUrl() . '" alt="' . $asset->title . '" />';
             return [
                 'alt' => $asset->title,
-                'url' => $asset->getUrl(),
+                'url' => $asset->getUrl('md'),
                 'tag' => Retcon::$plugin->retcon->srcset($tag, self::widths()),
             ];
         }, $images);
