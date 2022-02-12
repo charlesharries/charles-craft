@@ -17,10 +17,30 @@ return [
                 },
             ];
         },
+        'sam-posts.json' => function () {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => 'samPosts', 'orderBy' => 'postDate desc'],
+                'cache' => null,
+                'transformer' => function (Entry $entry) {
+                    return Post::transformForIndex($entry);
+                },
+            ];
+        },
         'posts/<slug>.json' => function ($slug) {
             return [
                 'elementType' => Entry::class,
                 'criteria' => ['slug' => $slug],
+                'one' => true,
+                'transformer' => function (Entry $entry) {
+                    return Post::transform($entry);
+                }
+            ];
+        },
+        'sam-posts/<slug>.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => 'samPosts', 'slug' => $slug],
                 'one' => true,
                 'transformer' => function (Entry $entry) {
                     return Post::transform($entry);
