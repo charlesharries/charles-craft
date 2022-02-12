@@ -3,6 +3,7 @@
 use craft\elements\Entry;
 use craft\elements\Tag;
 use helpers\models\Post;
+use helpers\models\PostTag;
 use helpers\models\Project;
 use helpers\models\Stream;
 
