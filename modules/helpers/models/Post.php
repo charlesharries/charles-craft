@@ -50,4 +50,9 @@ class Post
 
         return $data;
     }
+
+    public static function toTag(Tag $tag)
+    {
+        return ['title' => $tag->title, 'id' => $tag->id];
+    }
 }

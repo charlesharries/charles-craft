@@ -1,4 +1,4 @@
-dateModified: 1644669267
+dateModified: 1644953944
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -84,7 +84,7 @@ system:
   live: true
   name: 'Charles Harries'
   retryDuration: null
-  schemaVersion: 3.7.8
+  schemaVersion: 3.7.33
   timeZone: Europe/London
 users:
   allowPublicRegistration: false
