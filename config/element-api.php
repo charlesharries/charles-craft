@@ -2,10 +2,12 @@
 
 use craft\elements\Entry;
 use craft\elements\Tag;
+use craft\helpers\App;
 use helpers\models\Post;
 use helpers\models\PostTag;
 use helpers\models\Project;
 use helpers\models\Stream;
+use helpers\models\Walk;
 
 function withTagQuery($criteria)
 {
@@ -27,7 +29,7 @@ return [
             return [
                 'elementType' => Entry::class,
                 'criteria' => withTagQuery(['section' => 'posts', 'orderBy' => 'postDate desc']),
-                'cache' => null,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Post::transformForIndex($entry);
                 },
@@ -37,7 +39,7 @@ return [
             return [
                 'elementType' => Entry::class,
                 'criteria' => ['section' => 'samPosts', 'orderBy' => 'postDate desc'],
-                'cache' => null,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Post::transformForIndex($entry);
                 },
@@ -48,6 +50,7 @@ return [
                 'elementType' => Entry::class,
                 'criteria' => ['slug' => $slug],
                 'one' => true,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Post::transform($entry);
                 }
@@ -58,6 +61,7 @@ return [
                 'elementType' => Entry::class,
                 'criteria' => ['section' => 'samPosts', 'slug' => $slug],
                 'one' => true,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Post::transform($entry);
                 }
@@ -67,7 +71,7 @@ return [
             return [
                 'elementType' => Entry::class,
                 'criteria' => ['section' => ['stream']],
-                'cache' => null,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Stream::transformForIndex($entry);
                 },
@@ -78,6 +82,7 @@ return [
                 'elementType' => Entry::class,
                 'criteria' => ['slug' => $slug],
                 'one' => true,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Stream::transform($entry);
                 },
@@ -88,11 +93,32 @@ return [
                 'elementType' => Entry::class,
                 'criteria' => ['slug' => $slug],
                 'one' => true,
-                'cache' => null,
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Project::transform($entry);
                 },
             ];
-        }
+        },
+        'walks.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => ['walks']],
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
+                'transformer' => function (Entry $entry) {
+                    return Walk::transformForIndex($entry);
+                },
+            ];
+        },
+        'walks/<slug>.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => 'walks', 'slug' => $slug],
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
+                'one' => true,
+                'transformer' => function (Entry $entry) {
+                    return Walk::transform($entry);
+                },
+            ];
+        },
     ]
 ];
