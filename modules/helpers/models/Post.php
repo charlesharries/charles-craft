@@ -38,6 +38,7 @@ class Post
         $withTag = fn (Tag $tag) => self::toTag($tag);
 
         $data = [
+            'type' => $entry->section->handle,
             'title' => $entry->title,
             'slug' => $entry->slug,
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
