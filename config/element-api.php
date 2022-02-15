@@ -99,10 +99,10 @@ return [
                 },
             ];
         },
-        'walks.json' => function ($slug) {
+        'walks.json' => function () {
             return [
                 'elementType' => Entry::class,
-                'criteria' => ['section' => ['walks']],
+                'criteria' => ['section' => 'walks'],
                 'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
                 'transformer' => function (Entry $entry) {
                     return Walk::transformForIndex($entry);

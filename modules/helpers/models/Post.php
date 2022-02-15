@@ -15,7 +15,7 @@ class Post
 
     public static function transform(Entry $entry)
     {
-        $withTag = fn (Tag $tag) => ['title' => $tag->title, 'slug' => $tag->slug];
+        $withTag = fn (Tag $tag) => self::toTag($tag);
         $withSrcset = Retcon::$plugin->retcon->srcset($entry->body, self::widths());
 
         $data = [
@@ -35,7 +35,7 @@ class Post
 
     public static function transformForIndex(Entry $entry)
     {
-        $withTag = fn (Tag $tag) => ['title' => $tag->title, 'slug' => $tag->slug];
+        $withTag = fn (Tag $tag) => self::toTag($tag);
 
         $data = [
             'title' => $entry->title,
@@ -53,6 +53,6 @@ class Post
 
     public static function toTag(Tag $tag)
     {
-        return ['title' => $tag->title, 'id' => $tag->id];
+        return ['title' => $tag->title, 'id' => $tag->id, 'slug' => $tag->slug];
     }
 }
