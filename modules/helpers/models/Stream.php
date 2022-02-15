@@ -21,6 +21,8 @@ class Stream extends Post
             return [
                 'alt' => $asset->title,
                 'url' => $asset->getUrl('md'),
+                'width' => $asset->getWidth('md'),
+                'height' => $asset->getHeight('md'),
                 'tag' => Retcon::$plugin->retcon->srcset($tag, self::widths()),
             ];
         }, $images);
