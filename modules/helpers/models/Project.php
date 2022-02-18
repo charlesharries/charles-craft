@@ -16,14 +16,17 @@ class Project
         $getTrack = fn ($track) => (new Track($track['id']))->transform();
 
         $body = array_map(function ($block) use ($getTrack) {
-            $image = '<img src="' . $block->image->one()->getUrl() . '" alt="' . $block->image->one()->title . '" />';
+            $image = null;
+            if ($asset = $block->image->one()) {
+                $image = '<img src="' . $asset->getUrl() . '" alt="' . $asset->title . '" />';
+            }
 
             return [
                 'heading' => $block->heading,
                 'year' => $block->year,
                 'body' => $block->body,
                 'tracks' => array_map($getTrack, $block->songs),
-                'image' => Retcon::$plugin->retcon->srcset($image, self::widths()),
+                'image' => $image ? Retcon::$plugin->retcon->srcset($image, self::widths()) : null,
             ];
         }, $entry->flexibleContent->all());
 
