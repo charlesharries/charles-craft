@@ -1,4 +1,4 @@
-dateModified: 1644953944
+dateModified: 1645209647
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -56,6 +56,7 @@ meta:
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
     f2f7b225-26f3-426a-8678-c089918dacf9: Year # Year
+    f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316: Image # Image
     f80a59cb-81cf-4e9c-9048-061317fa43ff: Mountain # Mountain
     faf9797f-b632-4e47-8a8b-e676d6cd03f2: 'About the walk' # About the walk
 plugins:
