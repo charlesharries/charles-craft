@@ -3,6 +3,7 @@
 use craft\elements\Entry;
 use craft\elements\Tag;
 use craft\helpers\App;
+use helpers\models\Book;
 use helpers\models\Post;
 use helpers\models\PostTag;
 use helpers\models\Project;
@@ -117,6 +118,27 @@ return [
                 'one' => true,
                 'transformer' => function (Entry $entry) {
                     return Walk::transform($entry);
+                },
+            ];
+        },
+        'books.json' => function () {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => 'books'],
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
+                'transformer' => function (Entry $entry) {
+                    return Book::transformForIndex($entry);
+                },
+            ];
+        },
+        'books/<slug>.json' => function ($slug) {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => 'books', 'slug' => $slug],
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
+                'one' => true,
+                'transformer' => function (Entry $entry) {
+                    return Book::transform($entry);
                 },
             ];
         },
