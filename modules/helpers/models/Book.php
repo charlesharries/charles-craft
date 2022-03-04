@@ -6,7 +6,7 @@ use craft\elements\Entry;
 use helpers\traits\HasImages;
 use mmikkel\retcon\Retcon;
 
-class Book
+class Book extends Post
 {
     use HasImages;
 
