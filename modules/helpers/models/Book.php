@@ -10,6 +10,18 @@ class Book extends Post
 {
     use HasImages;
 
+    public static function transformForIndex(Entry $entry)
+    {
+        $data = parent::transformForIndex($entry);
+
+        return array_merge($data, [
+            'writer' => $entry->writer->one()->title,
+            'publication_year' => $entry->publicationYear,
+            'length' => $entry->length,
+            'rating' => $entry->rating,
+        ]);
+    }
+
     public static function transform(Entry $entry)
     {
         return [
