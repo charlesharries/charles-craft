@@ -40,6 +40,7 @@ class Book extends Post
         return [
             'title' => $entry->title,
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
+            'slug' => $entry->slug,
             'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
             'rating' => $entry->rating,
             'writer' => $entry->writer->one()->title,
