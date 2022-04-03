@@ -36,7 +36,7 @@ class Walk extends Post
                         return self::toAboutTheWalk($block);
                     }
                 }),
-            'designation' => (new Collection($entry->designations->all()))
+            'designations' => (new Collection($entry->designations->all()))
                 ->map(fn (Tag $des) => self::toTag($des)),
         ];
     }
