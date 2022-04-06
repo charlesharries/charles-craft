@@ -35,4 +35,7 @@ return [
 
     // Crawlers shouldn't be crawling this site.
     'disallowRobots' => true,
+
+    // Don't transform gifs, causes timeouts
+    'transformGifs' => false,
 ];
