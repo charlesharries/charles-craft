@@ -17,7 +17,8 @@ class Project
 
         return [
             'title' => $entry->title,
-            'created_at' => $entry->createdAt,
+            'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
+            'custom_created_at' => $entry->createdAt,
             'summary' => $entry->summary,
             'external_url' => $entry->externalURL,
             'featured_image' => $image ? $image->getUrl() : null,
