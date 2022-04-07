@@ -13,12 +13,14 @@ class Project
 
     public static function transformForIndex(Entry $entry)
     {
+        $image = $entry->featuredImage->one();
+
         return [
             'title' => $entry->title,
             'created_at' => $entry->createdAt,
             'summary' => $entry->summary,
             'external_url' => $entry->externalURL,
-            'featured_image' => $entry->featuredImage->one()->getUrl(),
+            'featured_image' => $image ? $image->getUrl() : null,
         ];
     }
 
