@@ -89,6 +89,16 @@ return [
                 },
             ];
         },
+        'projects.json' => function () {
+            return [
+                'elementType' => Entry::class,
+                'criteria' => ['section' => ['projects']],
+                'cache' => App::env('ENVIRONMENT') === 'dev' ? null : true,
+                'transformer' => function (Entry $entry) {
+                    return Project::transformForIndex($entry);
+                },
+            ];
+        },
         'projects/<slug>.json' => function ($slug) {
             return [
                 'elementType' => Entry::class,

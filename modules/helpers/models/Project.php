@@ -11,6 +11,17 @@ class Project
 {
     use HasImages;
 
+    public static function transformForIndex(Entry $entry)
+    {
+        return [
+            'title' => $entry->title,
+            'created_at' => $entry->createdAt,
+            'summary' => $entry->summary,
+            'external_url' => $entry->externalURL,
+            'featured_image' => $entry->featuredImage->one()->getUrl(),
+        ];
+    }
+
     public static function transform(Entry $entry)
     {
         $getTrack = fn ($track) => (new Track($track['id']))->transform();
@@ -32,6 +43,10 @@ class Project
 
         return [
             'title' => $entry->title,
+            'created_at' => $entry->createdAt,
+            'summary' => $entry->summary,
+            'external_url' => $entry->externalURL,
+            'featured_image' => $entry->featuredImage->one()->getUrl(),
             'flexible_content' => $body,
         ];
     }
