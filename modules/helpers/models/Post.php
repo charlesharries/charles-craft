@@ -16,7 +16,11 @@ class Post
     public static function transform(Entry $entry)
     {
         $withTag = fn (Tag $tag) => self::toTag($tag);
-        $withSrcset = Retcon::$plugin->retcon->srcset($entry->body, self::widths());
+        $withSrcset = Retcon::$plugin->retcon->srcset(
+            $entry->body,
+            self::widths(),
+            'img:not([src$=".gif"])'
+        );
 
         $data = [
             'title' => $entry->title,
