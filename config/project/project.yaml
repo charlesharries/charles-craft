@@ -1,4 +1,4 @@
-dateModified: 1649004854
+dateModified: 1649327910
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -46,12 +46,14 @@ meta:
     a6bc0ba6-f818-4766-8477-b5bbb2cedfc5: Number # Number
     a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: Default # Default
     ad520050-ff35-4676-9b37-b1fbe96575b0: Strava # Strava
+    ae766d71-5a92-43ba-9546-3a8225552940: 'Created At' # Created At
     baa13c65-0a57-43bf-8c5b-5dc010d1cd1c: Songs # Songs
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c81a3f77-a578-4c95-89b9-c944f705bb9d: Designation # Designation
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
     d84dc500-3212-4518-89ad-70a547974d1b: Projects # Projects
+    e2a68e7e-3943-41fe-b93e-45fc4ddac1e7: 'External URL' # External URL
     e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
