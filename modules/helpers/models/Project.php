@@ -21,6 +21,7 @@ class Project
             'custom_created_at' => $entry->createdAt,
             'summary' => $entry->summary,
             'external_url' => $entry->externalURL,
+            'github_url' => $entry->githubLink,
             'featured_image' => $image ? $image->getUrl() : null,
         ];
     }
