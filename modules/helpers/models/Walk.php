@@ -18,7 +18,11 @@ class Walk extends Post
         return [
             'title' => $entry->title,
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
-            'body' => Retcon::$plugin->retcon->srcset($entry->body, self::widths()),
+            'body' => Retcon::$plugin->retcon->srcset(
+                $entry->body,
+                self::widths(),
+                'img:not([src$=".gif"])',
+            ),
             'summary' => $entry->summary,
             'mountains' => (new Collection($entry->mountains->all()))
                 ->map(fn (Tag $mtn) => self::toTag($mtn)),
