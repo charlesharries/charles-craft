@@ -15,5 +15,7 @@
     "inlinestyle"
   ],
   "linkNewTab": true,
-  "toolbarFixed": true
+  "toolbarFixed": true,
+  "removeNewLines": false,
+  "preSpaces": false
 }
