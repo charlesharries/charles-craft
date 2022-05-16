@@ -52,7 +52,16 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             warning: null
-            width: 100
+            width: 50
+          -
+            fieldUid: 72c1a424-d0c3-423d-b7d7-a07cffee8ee2 # GitHub Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
           -
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
             instructions: null

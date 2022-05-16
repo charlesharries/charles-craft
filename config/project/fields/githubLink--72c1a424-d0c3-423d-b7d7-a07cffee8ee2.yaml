@@ -1,0 +1,15 @@
+columnSuffix: zcmocqse
+contentColumnType: string(255)
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: githubLink
+instructions: ''
+name: 'GitHub Link'
+searchable: false
+settings:
+  maxLength: '255'
+  placeholder: null
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Url
