@@ -1,4 +1,4 @@
-dateModified: 1649327910
+dateModified: 1649438517
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -27,6 +27,7 @@ meta:
     63cba1d3-5981-4c1d-8adb-8ccbe7d55f35: Number # Number
     69d1b4e6-4981-4ef6-ac2d-34691c18c906: 'Date read' # Date read
     72c0aa82-0cdf-4f69-9188-fea54b5c34a4: 'Charles Harries' # Charles Harries
+    72c1a424-d0c3-423d-b7d7-a07cffee8ee2: 'GitHub Link' # GitHub Link
     73c0a488-cfd0-483b-8bf9-f13b716fd0df: Designations # Designations
     74da0e66-e6c9-4eb8-a3fd-c603fdb2e1f3: 1500w # 1500w
     75b63475-a9cc-45aa-b67e-de085416e457: Heading # Heading
