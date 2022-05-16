@@ -1,4 +1,4 @@
-dateModified: 1649438517
+dateModified: 1652734884
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -8,6 +8,7 @@ meta:
     0be8bfd9-86e6-48dd-8142-9020d3adb154: Rating # Rating
     0d74ed0f-b46b-4094-9038-b30e655c7b30: Default # Default
     0dc92d8f-d943-4a05-b7c3-70f90413fb2b: Designations # Designations
+    1ac502c3-2ca1-43a0-a4bf-2d13883aa576: 'Show title?' # Show title?
     1e3b399d-bfe5-42e0-b366-6f9ecaaaed86: 'Total Walking Time' # Total Walking Time
     4b7c4f12-4502-4174-8b81-4a28b231036e: Meta # Meta
     4c827962-66cf-4542-b561-aa8650e5f2de: Default # Default

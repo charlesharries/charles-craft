@@ -28,6 +28,7 @@ class Stream extends Post
         }, $images);
 
         return array_merge($data, [
+            'show_title' => $entry->showTitle,
             'featured_image' => $assets,
         ]);
     }
