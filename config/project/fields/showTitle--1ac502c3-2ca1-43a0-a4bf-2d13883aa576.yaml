@@ -1,0 +1,14 @@
+columnSuffix: qkpdkevb
+contentColumnType: boolean
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: showTitle
+instructions: ''
+name: 'Show title?'
+searchable: false
+settings:
+  default: true
+  offLabel: Hide
+  onLabel: Show
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch
