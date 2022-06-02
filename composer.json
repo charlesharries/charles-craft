@@ -8,7 +8,6 @@
     "illuminate/collections": "^9.1",
     "mmikkel/retcon": "^2.3",
     "scrivo/highlight.php": "v9.18.1.9",
-    "timkelty/craft3-cloudinary": "^1.0",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
