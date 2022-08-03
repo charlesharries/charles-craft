@@ -1,0 +1,8 @@
+{% extends "_layout.twig" %}
+
+{% block content %}
+{% set entry = craft.entries.slug(slug).first() %}
+<h1>{{ entry.title }}</h1>
+
+{{ entry.body }}
+{% endblock content %}

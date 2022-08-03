@@ -1,0 +1,8 @@
+siteUid: null
+sortOrder: 1
+template: _entry.twig
+uriParts:
+  1:
+    - slug
+    - '[^\/]+'
+uriPattern: '<slug:[^\/]+>'

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ craft.app.language }}">
+    <head>
+        <meta charset="utf-8"/>
+        <title>{{ siteName }}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <link href="/style.css" rel="stylesheet">
+    </head>
+    <body class="ltr">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>RSS</li>
+                </ul>
+            </nav>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
