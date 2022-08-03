@@ -4,7 +4,7 @@
 <h1>Charles Harries</h1>
 
 <ul>
-    {% for entry in craft.entries.section(["stream", "posts"]).order("dateCreated desc") %}
+    {% for entry in craft.entries.section(["stream", "posts"]).all() %}
         <li>
             <a href="/{{ entry.slug }}">
                 {{ entry.title }}
