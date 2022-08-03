@@ -1,3 +1,18 @@
 body {
     font-family: "Georgia", sans-serif;
+    background-color: hsl(97, 80%, 5%);
+    color: hsl(97, 20%, 85%);
+}
+
+a {
+    color: currentColor;
+}
+
+a:visited {
+    color: hsl(97, 20%, 60%);
+}
+
+img {
+    width: 100%;
+    display: block;
 }
