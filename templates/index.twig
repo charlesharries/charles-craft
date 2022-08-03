@@ -1,15 +1,22 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-<h1>Charles Harries</h1>
+<main class="container">
+    <h1>Charles Harries</h1>
 
-<ul>
-    {% for entry in craft.entries.section(["stream", "posts"]).all() %}
-        <li>
-            <a href="/{{ entry.slug }}">
-                {{ entry.title }}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
+    <ul role="list">
+        {% for entry in craft.entries.section(["stream", "posts"]).all() %}
+            <li>
+                <a href="/{{ entry.slug }}">
+                    <small class="monospace">
+                        {{ entry.postDate|date("d M 'y", locale="en-US") }}
+                    </small>
+                    <span class="ml-sm">
+                        {{ entry.title }}
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
 {% endblock content %}
