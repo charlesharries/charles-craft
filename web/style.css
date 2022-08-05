@@ -26,6 +26,7 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
+    margin: 0;
 }
 
 html {
@@ -74,10 +75,11 @@ h2 {
     font-size: var(--font-lg);
 }
 
+h1, h2, h3 { line-height: 1.2; }
+
 h1, h2, h3, h4, h5, h6 {
     margin-block: 0;
     font-weight: 200;
-    line-height: 1.2;
 }
 
 b,
@@ -131,14 +133,19 @@ code,
 
 .ml-sm { margin-left: 0.5rem; }
 .mt-sm { margin-top: 0.5rem; }
+.mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 2rem; }
 
 .text-2xl { font-size: var(--font-2xl); line-height: 1.2; }
 .text-xl { font-size: var(--font-xl); line-height: 1.2; }
 .text-lg { font-size: var(--font-lg); line-height: 1.25; }
 .text-md { font-size: var(--font-md); line-height: 1.4; }
+.text-sm { font-size: var(--font-sm); }
 
-.d-flex { display: flex; }
+.flex { display: flex; }
+.inline-block { display: inline-block; }
+
+.caps { text-transform: uppercase; }
 
 .container {
     margin-left: auto;
@@ -166,9 +173,8 @@ code,
     --stack-spacing: 2.5rem;
 }
 
-.faded {
-    color: var(--lightish);
-}
+.lightish { color: var(--lightish); }
+.darkish { color: var(--darkish); }
 
 .entry h2 {
     margin-top: 2rem;
@@ -181,7 +187,7 @@ code,
     margin-inline: -2rem;
 }
 
-.Posts .faded {
+.Posts .lightish {
     color: inherit;
 }
 
