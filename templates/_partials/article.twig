@@ -1,12 +1,14 @@
 <article class="{{ entry.section }}">
 	<small class="lightish">
-		<time>{{ entry.postDate|date("d M Y g:i a") }}</time>
+		<time datetime="{{ entry.postDate|date("Y-m-d") }}">
+			{{ entry.postDate|date("d M Y g:i a") }}
+		</time>
 		{% if entry.tags.exists() %}
 			|
 			{{ entry.tags.all()|join(', ')}}
 		{% endif %}
 	</small>
-	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }}">
+	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs">
 		<a href="/writing/{{ entry.slug }}">
 			{{ entry.title }}
 		</a>
