@@ -1,22 +1,66 @@
 :root {
-    --dark: hsl(97, 80%, 5%);
-    --light: hsl(97, 20%, 85%);
-    --faded: hsl(97, 20%, 60%);
+    /* --primary: 97; */
+    --secondary: 37;
+    --dark: hsl(var(--primary), 80%, 5%);
+    --light: hsl(var(--primary), 20%, 90%);
+    --faded: hsl(var(--primary), 30%, 70%);
+    --offset: hsl(var(--secondary), 95%, 53%);
+}
+
+@font-face {
+	src: url('/fonts/Lupino_v0.2_Serif_Variable.woff2') format('woff2');
+	font-family: 'Lupino Serif';
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    border: 1rem solid var(--faded);
+    font-size: 18px;
 }
 
 body {
     font-family: "Georgia", sans-serif;
     background-color: var(--dark);
     color: var(--light);
+    line-height: 1.6;
+    font-weight: 200;
+    padding-block: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    body { margin: 0.5rem; }
+}
+
+::selection {
+    background: var(--offset);
+    color: var(--dark);
+}
+
+hr {
+    margin-block: 0;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background-color: var(--faded);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+}
+
+b,
+strong,
+.bold {
+    font-weight: 600;
 }
 
 a {
     color: currentColor;
     text-decoration: none;
-}
-
-a:visited {
-    color: var(--faded);
 }
 
 p, ul {
@@ -34,8 +78,11 @@ ul[role="list"] {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-top: 1em;
-    margin-bottom: 0.3em;
+    margin-block: 0;
+}
+
+a, .link {
+    border-bottom: 1px solid var(--faded);
 }
 
 blockquote {
@@ -49,17 +96,58 @@ figure {
     margin-inline: 0;
 }
 
-.monospace {
-    font-family: monospace;
+figcaption {
+    margin-top: 3px;
+    color: var(--faded);
+    font-size: 0.85rem;
 }
 
-.ml-sm { margin-left: 5px; }
+pre,
+code,
+.monospace {
+    font-family: ui-monospace;
+}
+
+.ml-sm { margin-left: 0.5rem; }
+.mt-sm { margin-top: 0.5rem; }
+.mt-lg { margin-top: 2rem; }
+
+.text-xl { font-size: 3rem; line-height: 1.2 }
+.text-lg { font-size: 2rem; line-height: 1.25; }
+.text-md { font-size: 1.25rem; line-height: 1.4; }
+
+.d-flex { display: flex; }
 
 .container {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 80ch;
+    max-width: 70ch;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.stack {
+    --stack-spacing: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.stack > * + * {
+    width: 100%;
+    margin-top: var(--stack-spacing);
+}
+
+.stack[data-stack-size="lg"] {
+    --stack-spacing: 2.5rem;
+}
+
+.faded {
+    color: var(--faded);
+}
+
+.entry h2 {
+    margin-top: 2rem;
 }

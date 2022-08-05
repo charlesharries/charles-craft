@@ -1,10 +1,10 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-{% set entry = craft.entries.slug(slug).first() %}
-<main class="container">
-    <h1>{{ entry.title }}</h1>
+	{% set entry = craft.entries.slug(slug).first() %}
+	<main class="entry container mt-lg">
+		<h1>{{ entry.title }}</h1>
 
-    {{ entry.body }}
-</main>
+		{{ entry.body }}
+	</main>
 {% endblock content %}
