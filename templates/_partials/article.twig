@@ -1,4 +1,4 @@
-<article>
+<article class="{{ entry.section }}">
 	<small class="faded">
 		<time>{{ entry.postDate|date("d M Y g:i a") }}</time>
 		{% if entry.tags.exists() %}

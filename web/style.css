@@ -1,10 +1,14 @@
 :root {
-    /* --primary: 97; */
-    --secondary: 37;
+    --primary: 97;
+    --secondary: calc(var(--primary) - 120);
+
     --dark: hsl(var(--primary), 80%, 5%);
     --light: hsl(var(--primary), 20%, 90%);
     --faded: hsl(var(--primary), 30%, 70%);
-    --offset: hsl(var(--secondary), 95%, 53%);
+
+    --secondary-dark: hsl(var(--secondary), 80%, 5%);
+    --secondary-light: hsl(var(--secondary), 20%, 90%);
+    --secondary-faded: hsl(var(--secondary), 30%, 70%);
 }
 
 @font-face {
@@ -36,7 +40,7 @@ body {
 }
 
 ::selection {
-    background: var(--offset);
+    background: var(--secondary-faded);
     color: var(--dark);
 }
 
@@ -150,4 +154,20 @@ code,
 
 .entry h2 {
     margin-top: 2rem;
+}
+
+.Posts {
+    background-color: var(--secondary-faded);
+    color: var(--secondary-dark);
+    padding: 2rem;
+    margin-inline: -2rem;
+}
+
+.Posts .faded {
+    color: inherit;
+}
+
+.Posts a,
+.Posts .link {
+    border-color: var(--secondary-dark);
 }
