@@ -6,7 +6,7 @@
 			{{ entry.tags.all()|join(', ')}}
 		{% endif %}
 	</small>
-	<h2 class="{{ entry.section == "Posts" ? "text-lg" : "" }}">
+	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }}">
 		<a href="/writing/{{ entry.slug }}">
 			{{ entry.title }}
 		</a>
@@ -18,7 +18,7 @@
 		</div>
 	{% else %}
 		<div class="mt-sm">
-			<div class="text-md">
+			<div class="text-lg">
 				{{ entry.summary }}
 			</div>
 		</div>

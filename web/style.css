@@ -3,12 +3,20 @@
     --secondary: calc(var(--primary) - 120);
 
     --dark: hsl(var(--primary), 80%, 5%);
+    --darkish: hsl(var(--primary), 30%, 40%);
     --light: hsl(var(--primary), 20%, 90%);
-    --faded: hsl(var(--primary), 30%, 70%);
+    --lightish: hsl(var(--primary), 30%, 70%);
 
     --secondary-dark: hsl(var(--secondary), 80%, 5%);
     --secondary-light: hsl(var(--secondary), 20%, 90%);
     --secondary-faded: hsl(var(--secondary), 30%, 70%);
+
+    --font-xs: clamp(0.64rem, -0.34vw + 0.72rem, 0.56rem);
+    --font-sm: clamp(0.8rem, -0.02vw + 0.8rem, 0.8rem);
+    --font-md: clamp(1rem, 0.54vw + 0.86rem, 1.13rem);
+    --font-lg: clamp(1.25rem, 1.48vw + 0.88rem, 1.59rem);
+    --font-xl: clamp(1.56rem, 2.99vw + 0.82rem, 2.25rem);
+    --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
 }
 
 @font-face {
@@ -22,8 +30,14 @@
 
 html {
     min-height: 100%;
-    border: 1rem solid var(--faded);
-    font-size: 18px;
+    border: 1rem solid var(--lightish);
+    font-size: var(--font-md);
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        border-width: 0.3rem;
+    }
 }
 
 body {
@@ -36,7 +50,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    body { margin: 0.5rem; }
+    body { margin: 0.65rem; }
 }
 
 ::selection {
@@ -49,11 +63,21 @@ hr {
     border: 0;
     height: 1px;
     width: 100%;
-    background-color: var(--faded);
+    background-color: var(--darkish);
+}
+
+h1 {
+    font-size: var(--font-xl);
+}
+
+h2 {
+    font-size: var(--font-lg);
 }
 
 h1, h2, h3, h4, h5, h6 {
+    margin-block: 0;
     font-weight: 200;
+    line-height: 1.2;
 }
 
 b,
@@ -65,6 +89,7 @@ strong,
 a {
     color: currentColor;
     text-decoration: none;
+    border-bottom: 1px solid var(--darkish);
 }
 
 p, ul {
@@ -81,16 +106,8 @@ ul[role="list"] {
     padding-left: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-block: 0;
-}
-
-a, .link {
-    border-bottom: 1px solid var(--faded);
-}
-
 blockquote {
-    border-left: 1px solid var(--faded);
+    border-left: 1px solid var(--lightish);
     margin-inline: 0;
     padding-inline: 40px;
     font-style: italic;
@@ -102,8 +119,8 @@ figure {
 
 figcaption {
     margin-top: 3px;
-    color: var(--faded);
-    font-size: 0.85rem;
+    color: var(--lightish);
+    font-size: var(--font-sm);
 }
 
 pre,
@@ -116,9 +133,10 @@ code,
 .mt-sm { margin-top: 0.5rem; }
 .mt-lg { margin-top: 2rem; }
 
-.text-xl { font-size: 3rem; line-height: 1.2 }
-.text-lg { font-size: 2rem; line-height: 1.25; }
-.text-md { font-size: 1.25rem; line-height: 1.4; }
+.text-2xl { font-size: var(--font-2xl); line-height: 1.2; }
+.text-xl { font-size: var(--font-xl); line-height: 1.2; }
+.text-lg { font-size: var(--font-lg); line-height: 1.25; }
+.text-md { font-size: var(--font-md); line-height: 1.4; }
 
 .d-flex { display: flex; }
 
@@ -149,7 +167,7 @@ code,
 }
 
 .faded {
-    color: var(--faded);
+    color: var(--lightish);
 }
 
 .entry h2 {
