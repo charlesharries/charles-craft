@@ -164,10 +164,8 @@ code,
     align-items: flex-start;
 }
 
-.stack > * + * {
-    width: 100%;
-    margin-top: var(--stack-spacing);
-}
+.stack > * { width: 100%; }
+.stack > * + * { margin-top: var(--stack-spacing); }
 
 .stack[data-stack-size="lg"] {
     --stack-spacing: 2.5rem;
