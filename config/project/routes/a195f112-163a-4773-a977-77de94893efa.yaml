@@ -1,8 +1,9 @@
 siteUid: null
 sortOrder: 1
-template: _entry.twig
+template: writing/_entry.twig
 uriParts:
-  1:
+  - writing/
+  -
     - slug
     - '[^\/]+'
-uriPattern: '<slug:[^\/]+>'
+uriPattern: 'writing/<slug:[^\/]+>'

@@ -1,7 +1,7 @@
 {% extends "_layout.twig" %}
 
 {% block content %}
-	{% set entry = craft.entries.slug(slug).first() %}
+	{% set entry = craft.entries.slug(slug).one() %}
 	<main class="entry container mt-lg">
 		<h1>{{ entry.title }}</h1>
 
