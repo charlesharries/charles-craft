@@ -9,7 +9,7 @@
 		<hr class="mt-lg"/>
 
 		<ul role="list" class="stack mt-lg" data-stack-size="lg">
-			{% for entry in craft.entries.section(["stream", "posts"]).all() %}
+			{% for entry in craft.entries.section(["stream", "posts"]).limit(20).all() %}
 				<li>
 					{% include "_partials/article.twig" with {'entry': entry} only %}
 				</li>
