@@ -1,5 +1,7 @@
 {% extends "_layout.twig" %}
 
+{%- set postsToShow = 12 -%}
+
 {% block content %}
 	<main class="container">
 		<h1 class="text-2xl mt-lg">Charles Harries</h1>
@@ -9,11 +11,24 @@
 		<hr class="mt-lg"/>
 
 		<ul role="list" class="stack mt-lg" data-stack-size="lg">
-			{% for entry in craft.entries.section(["stream", "posts"]).limit(20).all() %}
+			{% for entry in craft.entries.section(["stream", "posts"]).limit(postsToShow).all() %}
 				<li>
 					{% include "_partials/article.twig" with {'entry': entry} only %}
 				</li>
 			{% endfor %}
 		</ul>
+
+		<hr class="mt-lg"/>
+
+		<h2 class="text-xl mt-lg">Earlier</h2>
+		<div class="stack mt-md">
+			{%- set remainingEntries = craft.entries.section(["stream", "posts"]).offset(postsToShow).all() -%}
+			{% for year, months in sortByYear(remainingEntries) %}
+				{% include "_partials/year.twig" with {
+					'year': year,
+					'months': months
+				} only %}
+			{% endfor %}
+		</div>
 	</main>
 {% endblock content %}
