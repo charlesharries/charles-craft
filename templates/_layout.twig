@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ craft.app.language }}">
-    <head>
-        <meta charset="utf-8"/>
-        <title>{{ siteName }}</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <link href="/style.css" rel="stylesheet">
-    </head>
-    <body class="ltr">
-        <header class="container">
-            <nav>
-                <ul role="list">
-                    <li><a href="/">Home</a></li>
-                    <li>RSS</li>
-                </ul>
-            </nav>
-        </header>
+<html lang="{{ craft.app.language }}" style="--primary: {{ percentThroughDay() * 360 }}">
+	<head>
+		<meta charset="utf-8"/>
+		<title>{{ siteName }}</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<link href="/style.css" rel="stylesheet">
+	</head>
+	<body class="ltr">
+		<header class="container">
+			<nav>
+				<ul role="list" class="d-flex">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li class="ml-sm">
+						<a href="https://charlesharri.es/feed.xml">RSS</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-        {% block content %}
-        {% endblock %}
-    </body>
+		{% block content %}{% endblock %}
+	</body>
 </html>

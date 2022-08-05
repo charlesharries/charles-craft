@@ -24,6 +24,7 @@ return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
         'deploy' => deploy\Module::class,
+        'extensions' => extensions\Module::class,
     ],
-    'bootstrap' => ['deploy'],
+    'bootstrap' => ['deploy', 'extensions'],
 ];

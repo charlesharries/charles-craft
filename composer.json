@@ -17,7 +17,8 @@
     "psr-4": {
       "modules\\": "modules/",
       "deploy\\": "modules/deploy/",
-      "helpers\\": "modules/helpers/"
+      "helpers\\": "modules/helpers/",
+      "extensions\\": "modules/extensions/"
     }
   },
   "config": {
