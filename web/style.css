@@ -152,6 +152,10 @@ code,
 .inline-block { display: inline-block; }
 
 .caps { text-transform: uppercase; }
+.no-decoration {
+    text-decoration: none;
+    border-bottom: none;
+}
 
 .container {
     margin-left: auto;
