@@ -2,7 +2,7 @@
 	<small class="lightish">
 		{% include "_partials/postmeta.twig" with {'entry': entry} only %}
 	</small>
-	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs">
+	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs" id="{{ entry.slug }}">
 		<a href="/writing/{{ entry.slug }}">
 			{{ entry.title }}
 		</a>
