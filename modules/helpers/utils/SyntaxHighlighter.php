@@ -1,12 +1,12 @@
 <?php
 
-namespace helpers\traits;
+namespace helpers\utils;
 
 use mmikkel\retcon\library\RetconDom;
 
-trait HasSyntaxHighlighting
+class SyntaxHighlighter
 {
-    public static function syntaxHighlight(string $body)
+    public static function highlight(string $body)
     {
         $dom = new RetconDom($body);
         $doc = $dom->getDoc();

@@ -3,6 +3,8 @@
 namespace extensions;
 
 use craft\elements\Entry;
+use helpers\utils\SyntaxHighlighter;
+use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class TwigExtension extends \Twig\Extension\AbstractExtension
@@ -22,6 +24,13 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         ];
     }
 
+    public function getFilters()
+    {
+        return [
+            new TwigFilter('syntaxHighlight', [$this, 'syntaxHighlight']),
+        ];
+    }
+
     /**
      * @param Entry[] $entries
      */
@@ -38,5 +47,14 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         }
 
         return $hash;
+    }
+
+    public function syntaxHighlight($string)
+    {
+        if (empty($string)) {
+            return $string;
+        }
+
+        return SyntaxHighlighter::highlight($string);
     }
 }
