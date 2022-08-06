@@ -2,13 +2,13 @@
 
 {%- set postsToShow = 12 -%}
 {%- set isFiltered = section is defined -%}
-{%- set isTagged = craft.request.getQueryParam('tags') is not empty -%}
+{%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
 {%- set section = isFiltered ? section : ["stream", "posts", "books"] -%}
 {%- set entries = craft.entries.section(section).limit(postsToShow) %}
 {%- set remainingEntries = craft.entries.section(section).offset(postsToShow) -%}
 
 {% if isTagged %}
-	{%- set tags = craft.tags.slug(craft.request.getQueryParam('tags')|split(",")) -%}
+	{%- set tags = craft.tags.slug(craft.app.request.getQueryParam('tags')|split(",")) -%}
 	{%- set entries = entries.relatedTo(tags) %}
 	{%- set remainingEntries = remainingEntries.relatedTo(tags) -%}
 {% endif %}

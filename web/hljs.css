@@ -1,0 +1,101 @@
+:root {
+    --comments: #676f7d;
+    --properties: #c678dd;
+    --strings: #e5c07b;
+    --operators: #e06c75;
+    --keywords: #e06c75;
+    --functions: #98c379;
+    --variables: #abb2bf;
+    --types: #56b6c2;
+    --classes: #61afef;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--comments);
+}
+
+.hljs-name {
+  color: var(--operators);
+}
+
+.hljs-tag,
+.hljs-attribute {
+  color: var(--variables);
+}
+
+/* Atelier-Cave Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attr,
+.hljs-regexp,
+.hljs-link,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: var(--functions);
+}
+
+/* Atelier-Cave Orange */
+.hljs-number,
+.hljs-meta,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: var(--properties);
+}
+
+
+.hljs-built_in {
+  color: var(--classes);
+}
+
+/* Atelier-Cave Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--strings);
+}
+
+/* Atelier-Cave Blue */
+.hljs-title,
+.hljs-section {
+  color: #576ddb;
+}
+
+/* Atelier-Cave Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: var(--types);
+}
+
+.hljs-deletion,
+.hljs-addition {
+  color: #19171c;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #be4678;
+}
+
+.hljs-addition {
+  background-color: #2a9292;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #19171c;
+  color: var(--text);
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

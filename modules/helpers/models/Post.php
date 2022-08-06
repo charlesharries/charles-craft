@@ -5,7 +5,7 @@ namespace helpers\models;
 use craft\elements\Entry;
 use craft\elements\Tag;
 use helpers\traits\HasImages;
-use helpers\traits\HasSyntaxHighlighting;
+use helpers\utils\SyntaxHighlighter;
 use mmikkel\retcon\library\RetconDom;
 use mmikkel\retcon\Retcon;
 
@@ -14,7 +14,6 @@ use mmikkel\retcon\Retcon;
 class Post
 {
     use HasImages;
-    use HasSyntaxHighlighting;
 
     public static function transform(Entry $entry)
     {
@@ -30,7 +29,7 @@ class Post
             'slug' => $entry->slug,
             'summary' => $entry->summary ?? null,
             'created_at' => $entry->postDate->format('Y-m-d\TH:i'),
-            'body' => Retcon::$plugin->retcon->attr(self::syntaxHighlight($withSrcset), 'figure', ['class' => 'Image']),
+            'body' => Retcon::$plugin->retcon->attr(SyntaxHighlighter::highlight($withSrcset), 'figure', ['class' => 'Image']),
         ];
 
         if ($entry->tags) {

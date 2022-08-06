@@ -10,7 +10,7 @@
 
 	{% if entry.section == "Stream" %}
 		<div class="mt-sm stack">
-			{{ entry.body }}
+			{{ entry.body|syntaxHighlight }}
 		</div>
 	{% else %}
 		<div class="mt-sm">
@@ -19,7 +19,7 @@
 			{% endif %}
 
 			<div class="text-lg">
-				{{ entry.summary }}
+				{{ entry.summary|syntaxHighlight }}
 			</div>
 		</div>
 	{% endif %}

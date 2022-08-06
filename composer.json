@@ -18,6 +18,7 @@
       "modules\\": "modules/",
       "deploy\\": "modules/deploy/",
       "helpers\\": "modules/helpers/",
+      "utils\\": "modules/utils/",
       "extensions\\": "modules/extensions/"
     }
   },
