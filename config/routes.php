@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Site URL Rules
  *
@@ -19,5 +20,5 @@
  */
 
 return [
-
+    'only:<section>' => ['template' => 'index'],
 ];

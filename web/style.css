@@ -134,6 +134,7 @@ code,
 }
 
 .ml-sm { margin-left: 0.5rem; }
+.ml-md { margin-left: 1rem; }
 .mt-xs { margin-top: 0.25rem; }
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
@@ -169,10 +170,17 @@ code,
 
 .stack > * { width: 100%; }
 .stack > * + * { margin-top: var(--stack-spacing); }
+.stack[data-stack-size="lg"] { --stack-spacing: 2.5rem; }
 
-.stack[data-stack-size="lg"] {
-    --stack-spacing: 2.5rem;
+.cluster {
+    --cluster-spacing: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: calc(-1 * var(--cluster-spacing));
 }
+
+.cluster > * { margin-left: var(--cluster-spacing); }
 
 .lightish { color: var(--lightish); }
 .darkish { color: var(--darkish); }
@@ -181,18 +189,20 @@ code,
     margin-top: 2rem;
 }
 
-.Posts {
+.Posts,
+.Books {
     background-color: var(--secondary-faded);
     color: var(--secondary-dark);
     padding: 2rem;
     margin-inline: -2rem;
 }
 
-.Posts .lightish {
+.Posts .lightish,
+.Books .lightish {
     color: inherit;
 }
 
-.Posts a,
-.Posts .link {
+:is(.Books, .Posts) a,
+:is(.Books, .Posts) .link {
     border-color: var(--secondary-dark);
 }
