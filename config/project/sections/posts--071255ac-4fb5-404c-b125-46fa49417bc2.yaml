@@ -7,6 +7,6 @@ siteSettings:
   6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries
     enabledByDefault: true
     hasUrls: true
-    template: posts/_entry
-    uriFormat: 'posts/{slug}'
+    template: writing/_entry.twig
+    uriFormat: 'writing/{slug}'
 type: channel

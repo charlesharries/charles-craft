@@ -1,6 +1,8 @@
 {% extends "_layout.twig" %}
 
 {%- set postsToShow = 12 -%}
+{%- set isFiltered = section is defined -%}
+{%- set section = isFiltered ? section : ["stream", "posts", "books"] -%}
 
 {% block content %}
 	<main class="container">
@@ -8,10 +10,19 @@
 
 		<p class="mt-sm">Hey! You've found my secret secondary website. It's all the same data with none of the JavaScript framework.</p>
 
+		<p class="cluster mt-lg">
+			{% if isFiltered %}
+				<a href="/">All</a>
+			{% endif %}
+			<a href="/only:posts">Posts</a>
+			<a href="/only:stream">Stream</a>
+			<a href="/only:books">Books</a>
+		</p>
+
 		<hr class="mt-lg"/>
 
 		<ul role="list" class="stack mt-lg" data-stack-size="lg">
-			{% for entry in craft.entries.section(["stream", "posts"]).limit(postsToShow).all() %}
+			{% for entry in craft.entries.section(section).limit(postsToShow).all() %}
 				<li>
 					{% include "_partials/article.twig" with {'entry': entry} only %}
 				</li>
@@ -20,15 +31,17 @@
 
 		<hr class="mt-lg"/>
 
-		<h2 class="text-xl mt-lg">Earlier</h2>
-		<div class="stack mt-md">
-			{%- set remainingEntries = craft.entries.section(["stream", "posts"]).offset(postsToShow).all() -%}
-			{% for year, months in sortByYear(remainingEntries) %}
-				{% include "_partials/year.twig" with {
-					'year': year,
-					'months': months
-				} only %}
-			{% endfor %}
-		</div>
+		{%- set remainingEntries = craft.entries.section(section).offset(postsToShow).all() -%}
+		{% if remainingEntries is not empty %}
+			<h2 class="text-xl mt-lg">Earlier</h2>
+			<div class="stack mt-md">
+				{% for year, months in sortByYear(remainingEntries) %}
+					{% include "_partials/year.twig" with {
+						'year': year,
+						'months': months
+					} only %}
+				{% endfor %}
+			</div>
+		{% endif %}
 	</main>
 {% endblock content %}
