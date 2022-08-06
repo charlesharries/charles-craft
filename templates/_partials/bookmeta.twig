@@ -8,8 +8,7 @@
 		{{ entry.length }}
 		pages
 	</span>
-	<span class="ml-sm lightish">
-		{{ entry.rating }}
-		/ 5 stars
+	<span class="ml-sm lightish mt-xs">
+		{% include "_partials/stars" with {'count': entry.rating} only %}
 	</span>
 </small>

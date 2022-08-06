@@ -17,6 +17,8 @@
     --font-lg: clamp(1.25rem, 1.48vw + 0.88rem, 1.59rem);
     --font-xl: clamp(1.56rem, 2.99vw + 0.82rem, 2.25rem);
     --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
+
+    --space-2xs: 0.15rem;
 }
 
 @font-face {
@@ -181,6 +183,7 @@ code,
 }
 
 .cluster > * { margin-left: var(--cluster-spacing); }
+.cluster[data-cluster-size="2xs"] { --cluster-spacing: var(--space-2xs); }
 
 .lightish { color: var(--lightish); }
 .darkish { color: var(--darkish); }
