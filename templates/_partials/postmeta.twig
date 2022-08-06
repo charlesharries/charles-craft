@@ -3,7 +3,13 @@
 </time>
 |
 {% if entry.tags and entry.tags.exists() %}
-	{{ entry.tags.all()|join(', ')}}
+	{% for tag in entry.tags.all() %}
+		<a href="/?tags={{ tag.slug }}" class="no-decoration">
+			{{ tag.title }}{{loop.last ? "" : ", " }}
+		</a>
+	{% endfor %}
 {% else %}
-	{{ entry.section }}
+	<a href="/only:{{ entry.section.handle }}" class="no-decoration">
+		{{ entry.section }}
+	</a>
 {% endif %}

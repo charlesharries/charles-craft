@@ -4,10 +4,12 @@
 		Published
 		{{ entry.publicationYear }}
 	</span>
-	<span class="ml-sm lightish">
-		{{ entry.length }}
-		pages
-	</span>
+	{% if entry.length is not empty %}
+		<span class="ml-sm lightish">
+			{{ entry.length }}
+			pages
+		</span>
+	{% endif %}
 	<span class="ml-sm lightish mt-xs">
 		{% include "_partials/stars" with {'count': entry.rating} only %}
 	</span>
