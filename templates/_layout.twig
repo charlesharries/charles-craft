@@ -2,7 +2,10 @@
 <html lang="{{ craft.app.language }}" style="--primary: {{ percentThroughDay() * 360 }}">
 	<head>
 		<meta charset="utf-8"/>
-		<title>{{ siteName }}</title>
+		<title>
+			{% block title %}{% endblock %}
+			&bull;
+			{{ siteName }}</title>
 		<meta content="width=device-width, initial-scale=1.0" name="viewport">
 		<link href="/style.css" rel="stylesheet">
 		<link href="/hljs.css" rel="stylesheet">
