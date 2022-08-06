@@ -1,12 +1,6 @@
 <article class="{{ entry.section }}">
 	<small class="lightish">
-		<time datetime="{{ entry.postDate|date("Y-m-d") }}">
-			{{ entry.postDate|date("d M Y g:i a") }}
-		</time>
-		{% if entry.tags.exists() %}
-			|
-			{{ entry.tags.all()|join(', ')}}
-		{% endif %}
+		{% include "_partials/postmeta.twig" with {'entry': entry} only %}
 	</small>
 	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs">
 		<a href="/writing/{{ entry.slug }}">

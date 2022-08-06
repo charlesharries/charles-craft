@@ -3,9 +3,12 @@
 {% block content %}
 	{% set entry = craft.entries.slug(slug).one() %}
 	<main class="entry container mt-lg">
-		<h1>{{ entry.title }}</h1>
+		<small class="lightish">
+			{% include "_partials/postmeta.twig" with {'entry': entry} only %}
+		</small>
+		<h1 class="mt-xs">{{ entry.title }}</h1>
 
-		<div class="stack">
+		<div class="stack mt-sm">
 			{{ entry.body }}
 		</div>
 	</main>

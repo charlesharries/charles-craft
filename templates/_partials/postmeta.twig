@@ -1,0 +1,7 @@
+<time datetime="{{ entry.postDate|date("Y-m-d") }}">
+	{{ entry.postDate|date("d M Y g:i a") }}
+</time>
+{% if entry.tags.exists() %}
+	|
+	{{ entry.tags.all()|join(', ')}}
+{% endif %}
