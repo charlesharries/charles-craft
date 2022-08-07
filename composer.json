@@ -6,6 +6,7 @@
     "ether/tags": "^1.0",
     "guzzlehttp/guzzle": "^7.4",
     "illuminate/collections": "^9.1",
+    "knplabs/knp-snappy": "^1.4",
     "mmikkel/retcon": "^2.3",
     "scrivo/highlight.php": "v9.18.1.9",
     "vlucas/phpdotenv": "^3.4.0"

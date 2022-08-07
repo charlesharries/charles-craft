@@ -13,11 +13,11 @@
 			{{ entry.body|syntaxHighlight }}
 		</div>
 	{% else %}
-		<div class="mt-sm">
-			{% if entry.section == "Books" %}
-				{% include "_partials/bookmeta.twig" with {'entry': entry} only %}
-			{% endif %}
+		{% if entry.section == "Books" %}
+			{% include "_partials/bookmeta.twig" with {'entry': entry} only %}
+		{% endif %}
 
+		<div class="mt-sm">
 			<div class="text-lg">
 				{{ entry.summary|syntaxHighlight }}
 			</div>

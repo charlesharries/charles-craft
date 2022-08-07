@@ -23,8 +23,9 @@ use craft\helpers\App;
 return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
+        'api' => modules\api\Module::class,
         'deploy' => deploy\Module::class,
         'extensions' => extensions\Module::class,
     ],
-    'bootstrap' => ['deploy', 'extensions'],
+    'bootstrap' => ['api', 'deploy', 'extensions'],
 ];

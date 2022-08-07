@@ -1,16 +1,11 @@
 :root {
     --primary: 97;
-    --secondary: calc(var(--primary) - 120);
 
     --dark: hsl(var(--primary), 80%, 5%);
     --darker: hsl(var(--primary), 40%, 15%);
     --darkish: hsl(var(--primary), 30%, 40%);
     --light: hsl(var(--primary), 20%, 90%);
     --lightish: hsl(var(--primary), 30%, 70%);
-
-    --secondary-dark: hsl(var(--secondary), 80%, 5%);
-    --secondary-light: hsl(var(--secondary), 20%, 90%);
-    --secondary-faded: hsl(var(--secondary), 30%, 70%);
 
     --font-monospace: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
     --font-serif: Georgia, serif;
@@ -32,7 +27,7 @@
 
 html {
     min-height: 100%;
-    border: 1rem solid var(--lightish);
+    border: 0.75rem solid var(--lightish);
     font-size: var(--font-md);
 }
 
@@ -56,7 +51,7 @@ body {
 }
 
 ::selection {
-    background: var(--secondary-faded);
+    background: var(--lightish);
     color: var(--dark);
 }
 
@@ -220,8 +215,8 @@ code {
 
 .Posts,
 .Books {
-    background-color: var(--secondary-faded);
-    color: var(--secondary-dark);
+    background-color: var(--lightish);
+    color: var(--dark);
     padding: 2rem;
     margin-inline: -2rem;
 }
@@ -233,5 +228,5 @@ code {
 
 :is(.Books, .Posts) a,
 :is(.Books, .Posts) .link {
-    border-color: var(--secondary-dark);
+    border-color: var(--dark);
 }

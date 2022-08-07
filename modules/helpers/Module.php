@@ -1,6 +1,6 @@
 <?php
 
-namespace deploy;
+namespace helpers;
 
 use Craft;
 use craft\events\RegisterComponentTypesEvent;
