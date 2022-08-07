@@ -1,13 +1,7 @@
 <html>
 	<head>
 		<style>
-			html {
-				--dark: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
-				--darker: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 40%, 15%);
-				--darkish: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 40%);
-				--light: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
-				--lightish: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
-			}
+			{% include "api/georgia.twig" %}
 
 			* {
 				margin: 0;
@@ -60,6 +54,7 @@
 				margin-top: 15px;
 				font-size: 96px;
 			}
+
 		</style>
 	</head>
 
