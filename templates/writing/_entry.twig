@@ -4,6 +4,26 @@
 	{{ entry.title }}
 {% endblock %}
 
+{% block head %}
+	{%- set title = entry.title -%}
+	{%- set description = entry.summary -%}
+	{%- set image = url(url() ~ "api/post-images/" ~ entry.slug) -%}
+	{%- set url = url() -%}
+	<meta property="og:description" key="og:description" content="{{ description }}"/>
+	<meta property="og:image" key="og:image" content="{{ image }}"/>
+	<meta property="og:locale" key="og:locale" content="en_GB"/>
+	<meta property="og:site_name" key="og:site_name" content="{{ title }}"/>
+	<meta property="og:title" key="og:title" content="{{ title }}"/>
+	<meta property="og:type" key="og:type" content="website"/>
+	<meta property="og:url" key="og:url" content="{{ url }}"/>
+	<meta name="twitter:card" key="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:site" key="twitter:site" content="{{ url }}"/>
+	<meta name="twitter:title" key="twitter:title" content="{{ title }}"/>
+	<meta name="twitter:description" key="twitter:description" content="{{ description }}"/>
+	<meta name="twitter:creator" key="twitter:creator" content="@charlesharries"/>
+	<meta name="twitter:image:src" key="twitter:image:src" content="{{ image }}"/>
+{% endblock %}
+
 {% block content %}
 	<main class="entry container mt-lg">
 		<small class="lightish">
