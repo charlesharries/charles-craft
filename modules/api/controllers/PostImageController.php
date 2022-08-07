@@ -21,8 +21,9 @@ class PostImageController extends Controller
         }
 
         $output = Craft::$app->cache->getOrSet(['postimage', $slug], function () use ($entry) {
+            $wkHtmlToImage = Craft::$app->config->general->wkhtmltoimagePath;
             $html = Craft::$app->getView()->renderTemplate("api/postimage.twig", compact('entry'));
-            $snappy = new \Knp\Snappy\Image('/usr/local/bin/wkhtmltoimage');
+            $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
             return $snappy->getOutputFromHtml($html);
         }, 5);
 
