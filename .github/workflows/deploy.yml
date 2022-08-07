@@ -17,3 +17,11 @@ jobs:
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
         script: cd ${{ secrets.DIRECTORY }} && git pull origin main && composer install
+    - name: Set version string
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.KEY }}
+        port: ${{ secrets.PORT }}
+        script: cd ${{ secrets.DIRECTORY }} && grep -rl '{|{VERSION}|}' . | xargs sed -i 's/{|{VERSION}|}/${{ github.GITHUB_RUN_NUMBER }}/g'
