@@ -20,12 +20,13 @@ class PostImageController extends Controller
             throw new NotFoundHttpException;
         }
 
+        // Cache is good for a week.
         $output = Craft::$app->cache->getOrSet(['postimage', $slug], function () use ($entry) {
             $wkHtmlToImage = Craft::$app->config->general->wkhtmltoimagePath;
             $html = Craft::$app->getView()->renderTemplate("api/postimage.twig", compact('entry'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
             return $snappy->getOutputFromHtml($html);
-        }, 5);
+        }, 60 * 60 * 24 * 7);
 
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;
