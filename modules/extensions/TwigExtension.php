@@ -3,6 +3,7 @@
 namespace extensions;
 
 use craft\elements\Entry;
+use DateTime;
 use helpers\utils\SyntaxHighlighter;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -12,16 +13,22 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('percentThroughDay', function () {
-                $start = strtotime("today");
-                $end = strtotime("tomorrow");
-                $now = time();
-                $secondstoday = $end - $start;
-                $secondselapsed = $now - $start;
-                return $secondselapsed / $secondstoday;
-            }),
+            new TwigFunction('percentThroughDay', [$this, 'percentThroughDay']),
             new TwigFunction('sortByYear', [$this, 'sortByYear']),
         ];
+    }
+
+    public function percentThroughDay($time = null)
+    {
+        $start = strtotime("today");
+        $end = strtotime("tomorrow");
+        $now = time();
+        if ($time) {
+            $now = (new DateTime($time))->format('U');
+        }
+        $secondstoday = $end - $start;
+        $secondselapsed = $now - $start;
+        return $secondselapsed / $secondstoday;
     }
 
     public function getFilters()

@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<style>
+			html {
+				--dark: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
+				--darker: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 40%, 15%);
+				--darkish: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 40%);
+				--light: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
+				--lightish: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+			}
+
+			* {
+				margin: 0;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				font-weight: 200;
+			}
+
+			body {
+				font-family: "Georgia", serif;
+			}
+
+			.container {
+				width: 1200px;
+				height: 630px;
+				position: relative;
+				background-color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
+				color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
+				border: 26px solid hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: column;
+				-moz-box-orient: vertical;
+				-moz-box-direction: normal;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-webkit-box-pack: justify;
+				-webkit-justify-content: space-between;
+				-moz-box-pack: justify;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+				padding: 50px;
+			}
+
+			.heading {
+				font-size: 64px;
+			}
+
+			.meta {
+				color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				font-size: 44px;
+			}
+
+			.title {
+				margin-top: 15px;
+				font-size: 96px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<h4 class="heading">Charles Harries</h4>
+			<div class="text">
+				<p class="meta">
+					<time datetime="{{ entry.postDate|date("Y-m-d") }}">
+						{{ entry.postDate|date("j M Y g:i a") }}
+					</time>
+					|
+					{% if entry.tags and entry.tags.exists() %}
+						{% for tag in entry.tags.all() %}
+							<span>
+								{{ tag.title }}{{loop.last ? "" : ", " }}
+							</span>
+						{% endfor %}
+					{% else %}
+						<span>
+							{{ entry.section }}
+						</span>
+					{% endif %}
+				</p>
+				<h1 class="title">{{ entry.title }}</h1>
+			</p>
+		</div>
+	</body>
+</html>
