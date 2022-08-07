@@ -24,4 +24,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: cd ${{ secrets.DIRECTORY }} && git checkout -- ./templates && grep -rl '{|{VERSION}|}' ./templates | xargs sed -i 's/{|{VERSION}|}/${{ env.GITHUB_RUN_NUMBER }}/g'
+        script: cd ${{ secrets.DIRECTORY }} && git checkout -- ./templates && grep -rl '{|{VERSION}|}' ./templates | xargs sed -i 's/{|{VERSION}|}/${{ github.run_number }}/g'
