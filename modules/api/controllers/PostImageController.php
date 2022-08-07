@@ -10,6 +10,8 @@ use yii\web\Response;
 
 class PostImageController extends Controller
 {
+    public $allowAnonymous = true;
+
     public function actionGet(string $slug): Response
     {
         $entry = Entry::find()
