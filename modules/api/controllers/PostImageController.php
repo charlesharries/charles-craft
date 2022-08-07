@@ -26,7 +26,7 @@ class PostImageController extends Controller
             $html = Craft::$app->getView()->renderTemplate("api/postimage.twig", compact('entry'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
             return $snappy->getOutputFromHtml($html);
-        }, 2);
+        }, 60 * 60 * 24 * 7);
 
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;
