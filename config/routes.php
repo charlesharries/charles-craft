@@ -21,5 +21,5 @@
 
 return [
     'only:<section>' => ['template' => 'index'],
-    'api/post-images/<slug>.jpeg' => 'api/post-image/get',
+    'api/post-images/<slug>' => 'api/post-image/get',
 ];
