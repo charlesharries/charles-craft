@@ -8,5 +8,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: writing/_entry.twig
-    uriFormat: 'writing/{slug}'
+    uriFormat: 'books/{slug}'
 type: channel
