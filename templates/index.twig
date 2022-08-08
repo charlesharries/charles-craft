@@ -3,7 +3,7 @@
 {%- set postsToShow = 12 -%}
 {%- set isFiltered = section is defined -%}
 {%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
-{%- set section = isFiltered ? section : ["stream", "posts", "books"] -%}
+{%- set section = isFiltered ? section : ["stream", "posts", "books", "walks"] -%}
 {%- set entries = craft.entries.section(section).limit(postsToShow) %}
 {%- set remainingEntries = craft.entries.section(section).offset(postsToShow) -%}
 
@@ -27,6 +27,7 @@
 			<a href="/only:posts">Posts</a>
 			<a href="/only:stream">Stream</a>
 			<a href="/only:books">Books</a>
+			<a href="/only:walks">Walks</a>
 			{% if isFiltered or isTagged %}
 				<span class="darkish">&bull;</span>
 				<a href="/">Clear filters</a>
