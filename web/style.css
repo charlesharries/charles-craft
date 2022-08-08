@@ -5,7 +5,14 @@
     --darker: hsl(var(--primary), 40%, 15%);
     --darkish: hsl(var(--primary), 30%, 40%);
     --light: hsl(var(--primary), 20%, 90%);
+    --lighter: hsl(var(--primary), 25%, 80%);
     --lightish: hsl(var(--primary), 30%, 70%);
+
+    --background: var(--dark);
+    --callout-background: var(--darker);
+    --accents: var(--darkish);
+    --text: var(--light);
+    --muted: var(--lightish);
 
     --font-monospace: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
     --font-serif: Georgia, serif;
@@ -20,6 +27,14 @@
     --space-2xs: 0.15rem;
 }
 
+html.light {
+    --background: var(--light);
+    --callout-background: var(--lighter);
+    --accents: var(--lightish);
+    --text: var(--dark);
+    --muted: var(--darker);
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +42,7 @@
 
 html {
     min-height: 100%;
-    border: 0.75rem solid var(--lightish);
+    border: 0.75rem solid var(--muted);
     font-size: var(--font-md);
 }
 
@@ -39,8 +54,8 @@ html {
 
 body {
     font-family: var(--font-serif);
-    background-color: var(--dark);
-    color: var(--light);
+    background-color: var(--background);
+    color: var(--text);
     line-height: 1.6;
     font-weight: 200;
     padding-block: 2rem;
@@ -51,8 +66,8 @@ body {
 }
 
 ::selection {
-    background: var(--lightish);
-    color: var(--dark);
+    background: var(--muted);
+    color: var(--text);
 }
 
 hr {
@@ -60,7 +75,7 @@ hr {
     border: 0;
     height: 1px;
     width: 100%;
-    background-color: var(--darkish);
+    background-color: var(--accents);
 }
 
 h1 {
@@ -87,7 +102,7 @@ strong,
 a {
     color: currentColor;
     text-decoration: none;
-    border-bottom: 1px solid var(--darkish);
+    border-bottom: 1px solid var(--accents);
 }
 
 p, ul {
@@ -105,7 +120,7 @@ ul[role="list"] {
 }
 
 blockquote {
-    border-left: 1px solid var(--lightish);
+    border-left: 1px solid var(--muted);
     margin-inline: 0;
     padding-inline: 40px;
     font-style: italic;
@@ -119,7 +134,7 @@ figure {
 
 figcaption {
     margin-top: 3px;
-    color: var(--lightish);
+    color: var(--muted);
     font-size: var(--font-sm);
 }
 
@@ -133,6 +148,7 @@ code,
 
 pre {
     background-color: var(--darker);
+    color: var(--light);
     padding: 1rem;
     width: 100%;
     overflow-x: auto;
@@ -146,10 +162,19 @@ pre code {
 }
 
 code {
-    background: var(--darker);
-    box-shadow: 0 1px 0 var(--darkish);
+    background: var(--callout-background);
+    box-shadow: 0 1px 0 var(--accents);
     border-radius: 2px;
     padding: 2px 4px;
+}
+
+button {
+    appearance: none;
+    border: none;
+    background: none;
+    font-family: inherit;
+    color: currentColor;
+    font-size: inherit;
 }
 
 .ml-sm { margin-left: 0.5rem; }
@@ -167,6 +192,7 @@ code {
 
 .flex { display: flex; }
 .inline-block { display: inline-block; }
+.space-between { justify-content: space-between; }
 
 .caps { text-transform: uppercase; }
 .no-decoration {
@@ -206,8 +232,8 @@ code {
 .cluster > * { margin-left: var(--cluster-spacing); }
 .cluster[data-cluster-size="2xs"] { --cluster-spacing: var(--space-2xs); }
 
-.lightish { color: var(--lightish); }
-.darkish { color: var(--darkish); }
+.lightish { color: var(--muted); }
+.darkish { color: var(--accents); }
 
 .entry h2 {
     margin-top: 2rem;
@@ -215,8 +241,8 @@ code {
 
 .Posts,
 .Books {
-    background-color: var(--lightish);
-    color: var(--dark);
+    background-color: var(--muted);
+    color: var(--background);
     padding: 2rem;
     margin-inline: -2rem;
 }
@@ -228,5 +254,5 @@ code {
 
 :is(.Books, .Posts) a,
 :is(.Books, .Posts) .link {
-    border-color: var(--dark);
+    border-color: var(--background);
 }
