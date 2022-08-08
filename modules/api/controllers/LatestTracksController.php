@@ -23,25 +23,29 @@ class LatestTracksController extends Controller
             throw new \yii\web\ServerErrorHttpException("no credentials");
         }
 
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request("GET", $this->baseURL, [
-            "query" => [
-                "method" => "user.getrecenttracks",
-                "user" => $user,
-                "api_key" => $apiKey,
-                "format" => "json",
-                "limit" => 5,
-            ]
-        ]);
+        $tracks = Craft::$app->cache->getOrSet("latest-track", function () use ($user, $apiKey) {
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request("GET", $this->baseURL, [
+                "query" => [
+                    "method" => "user.getrecenttracks",
+                    "user" => $user,
+                    "api_key" => $apiKey,
+                    "format" => "json",
+                    "limit" => 5,
+                ]
+            ]);
 
-        if (!$response->getStatusCode() > 399) {
-            throw new \yii\web\ServerErrorHttpException("error from lastfm");
-        }
+            if (!$response->getStatusCode() > 399) {
+                throw new \yii\web\ServerErrorHttpException("error from lastfm");
+            }
+
+            return $response->getBody()->getContents();
+        }, 300);
 
         $headers = Craft::$app->response->headers;
         $headers->add('Content-Type', 'application/json');
         $headers->add("Cache-Control", "public, max-age=60, stale-while-revalidate=30");
 
-        return $this->asRaw($response->getBody());
+        return $this->asRaw($tracks);
     }
 }
