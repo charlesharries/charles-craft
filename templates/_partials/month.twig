@@ -2,7 +2,7 @@
 	<h4 class="caps">{{ month }}</h4>
 	<p>
 		{% for entry in entries %}
-			<a href="/writing/{{entry.slug}}">{{ entry.title }}</a>
+			<a href="{{ entry.url }}">{{ entry.title }}</a>
 			{% if not loop.last %}
 				<span class="darkish">&bull;</span>
 			{% endif %}

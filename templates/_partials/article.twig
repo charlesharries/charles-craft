@@ -5,7 +5,7 @@
 		{% include "_partials/postmeta.twig" with {'entry': entry} only %}
 	</small>
 	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs" id="{{ entry.slug }}">
-		<a href="/writing/{{ entry.slug }}">
+		<a href="{{ entry.url }}">
 			{{ entry.title }}
 		</a>
 	</h2>
