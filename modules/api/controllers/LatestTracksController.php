@@ -40,7 +40,7 @@ class LatestTracksController extends Controller
 
         $headers = Craft::$app->response->headers;
         $headers->add('Content-Type', 'application/json');
-        $headers->add("Cache-Control", "public, s-maxage=60, stale-while-revalidate=30");
+        $headers->add("Cache-Control", "public, max-age=60, stale-while-revalidate=30");
 
         return $this->asRaw($response->getBody());
     }
