@@ -1,3 +1,5 @@
+{% import "_partials/walks" as walks %}
+
 <article class="{{ entry.section }}">
 	<small class="lightish">
 		{% include "_partials/postmeta.twig" with {'entry': entry} only %}
@@ -17,8 +19,12 @@
 			{% include "_partials/bookmeta.twig" with {'entry': entry} only %}
 		{% endif %}
 
+		{% if entry.section == "Walks" %}
+			{{ walks.meta(entry) }}
+		{% endif %}
+
 		<div class="mt-sm">
-			<div class="text-lg">
+			<div class="{{ entry.section in ["Posts", "Books"] ? "text-lg" : "" }}">
 				{{ entry.summary|syntaxHighlight }}
 			</div>
 		</div>

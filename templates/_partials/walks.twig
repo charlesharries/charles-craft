@@ -1,0 +1,32 @@
+{% macro meta(entry) %}
+	{%- set hasDesignations = entry.designations.exists() -%}
+	{%- set hasMountains = entry.mountains.exists() -%}
+
+	<small class="cluster mt-sm">
+		{% if hasDesignations %}
+			<span>
+				{{ entry.designations.all()|join(', ') }}
+			</span>
+		{% endif %}
+
+		{% if hasDesignations and hasMountains %}
+			<span class="darkish">&bull;</span>
+		{% endif %}
+
+		{% if hasMountains %}
+			<span class="lightish">
+				<span>
+					{{ entry.mountains.all()|join(', ') }}
+				</span>
+			</span>
+		{% endif %}
+	</small>
+{% endmacro %}
+
+{% macro timings(entry) %}
+	<ol>
+		{% for timing in entry.timings %}
+			{{ timing }}
+		{% endfor %}
+	</ol>
+{% endmacro %}

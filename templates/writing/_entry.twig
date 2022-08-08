@@ -1,3 +1,5 @@
+{% import "_partials/walks" as walks %}
+
 {% extends "_layout.twig" %}
 
 {% block title %}
@@ -41,5 +43,9 @@
 		<div class="stack mt-sm">
 			{{ entry.body|syntaxHighlight }}
 		</div>
+
+		{% if entry.section == "Walks" %}
+			{{ walks.timings(entry) }}
+		{% endif %}
 	</main>
 {% endblock content %}
