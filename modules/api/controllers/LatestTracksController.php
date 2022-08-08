@@ -40,7 +40,7 @@ class LatestTracksController extends Controller
             }
 
             return $response->getBody()->getContents();
-        }, 300);
+        }, 60);
 
         $headers = Craft::$app->response->headers;
         $headers->add('Content-Type', 'application/json');
