@@ -152,6 +152,7 @@ pre {
     padding: 1rem;
     width: 100%;
     overflow-x: auto;
+    tab-size: 2;
 }
 
 pre code {
