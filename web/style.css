@@ -190,6 +190,8 @@ button {
 .text-md { font-size: var(--font-md); line-height: 1.4; }
 .text-sm { font-size: var(--font-sm); }
 
+.text-right { text-align: right; }
+
 .flex { display: flex; }
 .flex-1 { flex: 1; }
 .inline-block { display: inline-block; }
