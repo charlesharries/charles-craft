@@ -191,13 +191,20 @@ button {
 .text-sm { font-size: var(--font-sm); }
 
 .flex { display: flex; }
+.flex-1 { flex: 1; }
 .inline-block { display: inline-block; }
-.space-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
 
 .caps { text-transform: uppercase; }
 .no-decoration {
     text-decoration: none;
     border-bottom: none;
+}
+.rounded {
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .container {
