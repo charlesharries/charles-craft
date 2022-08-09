@@ -191,8 +191,6 @@ button {
 .text-md { font-size: var(--font-md); line-height: 1.4; }
 .text-sm { font-size: var(--font-sm); }
 
-.text-right { text-align: right; }
-
 .flex { display: flex; }
 .flex-1 { flex: 1; }
 .inline-block { display: inline-block; }
@@ -265,4 +263,23 @@ button {
 :is(.Books, .Posts) a,
 :is(.Books, .Posts) .link {
     border-color: var(--background);
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer_right {
+    margin-top: 1rem;
+}
+
+@media screen and (min-width: 789px) {
+    .footer { flex-direction: row; }
+
+    .footer_right {
+        text-align: right;
+        margin-top: 0;
+    }
 }
