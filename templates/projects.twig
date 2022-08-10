@@ -1,0 +1,60 @@
+{% import "_partials/head.twig" as head %}
+{% import "_partials/icons.twig" as icons %}
+
+{% extends "_layout.twig" %}
+
+{%- set projects = craft.entries.section("projects").all() -%}
+
+{% block title %}
+	Side projects
+{% endblock %}
+
+{% block head %}
+	{{ head.meta(
+        "Projects",
+        "Code sutff I've made on the side, mostly as experiments with new frameworks",
+        url(url() ~ "projects")
+    ) }}
+{% endblock %}
+
+{% block content %}
+	<main class="projects container mt-lg">
+		<h1>Side projects</h1>
+
+		<ul class="grid mt-lg" data-grid-columns="3" role="list">
+			{% for project in projects %}
+				<li>
+					<article>
+						<hr/>
+						<div class="rounded mt-sm">
+							<img src="{{ project.featuredImage.one().getUrl('sm') }}" alt="{{ project.featuredImage.one().title }}"/>
+						</div>
+						<div>
+							<h2 class="inline-block">
+								<a href="{{ project.externalURL }}" class="text-md">
+									{{ project.title }}
+								</a>
+							</h2>
+							<small class="ml-sm">
+								{{ project.createdAt }}
+							</small>
+						</div>
+						<p class="mt-sm text-sm">{{ project.summary }}</p>
+						<p class="cluster text-sm mt-sm">
+							<a href="{{ project.externalURL }}">View site</a>
+							{% if project.githubLink %}
+								<span>&bull;</span>
+								<a href="{{ project.githubLink }}">
+									<span class="align-middle">
+										{{ icons.github() }}
+									</span>
+									<span class="ml-xs">GitHub</span>
+								</a>
+							{% endif %}
+						</p>
+					</p>
+				</li>
+			</article>
+		</li>
+	{% endfor %}
+</ul></main>{% endblock %}
