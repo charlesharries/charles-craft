@@ -29,16 +29,14 @@
 						<div class="rounded mt-sm">
 							<img src="{{ project.featuredImage.one().getUrl('sm') }}" alt="{{ project.featuredImage.one().title }}"/>
 						</div>
-						<div>
-							<h2 class="inline-block">
-								<a href="{{ project.externalURL }}" class="text-md">
-									{{ project.title }}
-								</a>
-							</h2>
-							<small class="ml-sm">
-								{{ project.createdAt }}
-							</small>
-						</div>
+						<p class="mt-sm text-sm lightish">
+							{{ project.createdAt }}
+						</p>
+						<h2>
+							<a href="{{ project.externalURL }}" class="text-md">
+								{{ project.title }}
+							</a>
+						</h2>
 						<p class="mt-sm text-sm">{{ project.summary }}</p>
 						<p class="cluster text-sm mt-sm" data-size="sm">
 							<a href="{{ project.externalURL }}">View site</a>
