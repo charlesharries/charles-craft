@@ -3,28 +3,26 @@
 {%- set entries = craft.entries.section(sections).limit(postsToShow).all() %}
 
 <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-	<channel>
-		<title>
-			<![CDATA[ Charles Harries | Blog ]]>
-		</title>
-		<description>
-			<![CDATA[ Charles Harries | Blog ]]>
-		</description>
-		<link>https://charlesharri.es</link>
-	<generator>CraftCMS</generator>
-	<lastBuildDate>{{ now|rss }}</lastBuildDate>
-	<atom:link href="https://charlesharri.es/feed.xml" rel="self" type="application/rss+xml"/>
+    <channel>
+        <title>
+            <![CDATA[ Charles Harries | Blog ]]>
+        </title>
+        <description>
+            <![CDATA[ Charles Harries | Blog ]]>
+        </description>
+        <link>https://charlesharri.es</link>
+        <generator>CraftCMS</generator>
+        <lastBuildDate>{{ now|rss }}</lastBuildDate>
+        <atom:link href="https://charlesharri.es/feed.xml" rel="self" type="application/rss+xml"/>
 
-	{% for entry in entries %}
-		<item>
-			<title>
-				<![CDATA[ {{ entry.title }} ]]>
-			</title>
-			<description>
-				<![CDATA[ {{ entry.body }} ]]>
-			</description>
-			<link>{{ entry.url }}</link>
-		<guid isPermalink="true">{{ entry.url }}</guid>
-		<pubDate>{{ entry.postDate|rss }}</pubDate>
-	</item>
-{% endfor %}</channel></rss>
+        {% for entry in entries %}
+            <item>
+                <title><![CDATA[ {{ entry.title }} ]]></title>
+                <description><![CDATA[ {{ entry.body }} ]]></description>
+                <link>{{ entry.url }}</link>
+                <guid isPermalink="true">{{ entry.url }}</guid>
+                <pubDate>{{ entry.postDate|rss }}</pubDate>
+            </item>
+        {% endfor %}
+    </channel>
+</rss>
