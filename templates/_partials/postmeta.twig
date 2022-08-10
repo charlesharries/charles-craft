@@ -1,5 +1,5 @@
 <time datetime="{{ entry.postDate|date("Y-m-d") }}">
-	{{ entry.postDate|date("j M Y g:i a") }}
+	{{ entry.postDate|date("l, j M Y g:i a") }}
 </time>
 |
 {% if entry.tags and entry.tags.exists() %}
