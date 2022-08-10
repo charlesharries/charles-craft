@@ -25,6 +25,7 @@
     --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
 
     --space-2xs: 0.15rem;
+    --space-sm: 0.5rem;
 }
 
 html.light {
@@ -228,7 +229,7 @@ button {
 
 .stack > * { width: 100%; }
 .stack > * + * { margin-top: var(--stack-spacing); }
-.stack[data-stack-size="lg"] { --stack-spacing: 2.5rem; }
+.stack[data-size="lg"] { --stack-spacing: 2.5rem; }
 
 .cluster {
     --cluster-spacing: 1rem;
@@ -239,7 +240,8 @@ button {
 }
 
 .cluster > * { margin-left: var(--cluster-spacing); }
-.cluster[data-cluster-size="2xs"] { --cluster-spacing: var(--space-2xs); }
+.cluster[data-size="sm"] { --cluster-spacing: var(--space-sm); }
+.cluster[data-size="2xs"] { --cluster-spacing: var(--space-2xs); }
 
 .lightish { color: var(--muted); }
 .darkish { color: var(--accents); }
