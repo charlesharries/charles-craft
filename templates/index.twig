@@ -36,7 +36,7 @@
 
 		<hr class="mt-lg"/>
 
-		<ul role="list" class="stack mt-lg" data-stack-size="lg">
+		<ul role="list" class="stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
 				<li>
 					{% include "_partials/article.twig" with {'entry': entry} only %}
