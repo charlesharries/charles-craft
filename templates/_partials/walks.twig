@@ -2,7 +2,7 @@
 	{%- set hasDesignations = entry.designations.exists() -%}
 	{%- set hasMountains = entry.mountains.exists() -%}
 
-	<small class="cluster mt-sm">
+	<small class="cluster mt-sm" data-size="sm">
 		{% if hasDesignations %}
 			<span>
 				{{ entry.designations.all()|join(', ') }}
