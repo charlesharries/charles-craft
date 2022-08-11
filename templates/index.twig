@@ -17,11 +17,19 @@
 	{{ isFiltered ? section|capitalize : "All Posts" }}
 {% endblock %}
 
+{% block head %}
+	<link rel="stylesheet" href="/animatedname.css">
+{% endblock %}
+
 {% block content %}
 	<main class="container">
-		<h1 class="text-2xl mt-lg">Charles Harries</h1>
+		<div class="stack mt-lg" data-size="lg">
+			<p>Hi! My name's</p>
 
-		{% include "_partials/about.twig" %}
+			{% include "_partials/animatedname.twig" %}
+
+			{% include "_partials/about.twig" %}
+		</div>
 
 		<p class="cluster mt-lg">
 			<a href="/only:posts">Posts</a>
