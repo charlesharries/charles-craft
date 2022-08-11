@@ -41,7 +41,7 @@
 		{% endif %}
 
 		<div class="stack mt-sm">
-			{{ entry.body|syntaxHighlight }}
+			{{ entry.body|syntaxHighlight|srcset }}
 		</div>
 
 		{% if entry.section == "Walks" %}
