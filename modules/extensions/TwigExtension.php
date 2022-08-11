@@ -5,6 +5,7 @@ namespace extensions;
 use craft\elements\Entry;
 use DateTime;
 use helpers\utils\SyntaxHighlighter;
+use mmikkel\retcon\Retcon;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
 
@@ -35,6 +36,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
     {
         return [
             new TwigFilter('syntaxHighlight', [$this, 'syntaxHighlight']),
+            new TwigFilter('srcset', [$this, 'srcset']),
         ];
     }
 
@@ -63,5 +65,18 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         }
 
         return SyntaxHighlighter::highlight($string);
+    }
+
+    public function srcset($string)
+    {
+        if (empty($string)) {
+            return $string;
+        }
+
+        return Retcon::$plugin->retcon->srcset(
+            $string,
+            ['sm', 'md', 'lg'],
+            'img:not([src$=".gif"])'
+        );
     }
 }

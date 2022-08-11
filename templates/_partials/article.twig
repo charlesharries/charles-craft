@@ -12,7 +12,7 @@
 
 	{% if entry.section == "Stream" %}
 		<div class="mt-sm stack">
-			{{ entry.body|syntaxHighlight }}
+			{{ entry.body|syntaxHighlight|srcset }}
 		</div>
 	{% else %}
 		{% if entry.section == "Books" %}
@@ -25,7 +25,7 @@
 
 		<div class="mt-sm">
 			<div class="{{ entry.section in ["Posts", "Books"] ? "text-lg" : "" }}">
-				{{ entry.summary|syntaxHighlight }}
+				{{ entry.summary|syntaxHighlight|srcset }}
 			</div>
 		</div>
 	{% endif %}
