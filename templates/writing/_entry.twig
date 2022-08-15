@@ -1,4 +1,5 @@
 {% import "_partials/walks" as walks %}
+{% import "_partials/posts" as posts %}
 
 {% extends "_layout.twig" %}
 
@@ -29,7 +30,7 @@
 {% block content %}
 	<main class="entry container mt-lg">
 		<small class="lightish">
-			{% include "_partials/postmeta.twig" with {'entry': entry} only %}
+			{{ posts.meta(entry) }}
 		</small>
 
 		<h1 class="mt-xs">{{ entry.title }}</h1>
@@ -40,7 +41,9 @@
 			</div>
 		{% endif %}
 
-		<div class="stack mt-sm">
+		{{ posts.featuredImage(entry) }}
+
+		<div class="stack mt-md">
 			{{ entry.body|syntaxHighlight|srcset }}
 		</div>
 

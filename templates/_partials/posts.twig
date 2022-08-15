@@ -1,0 +1,26 @@
+{% macro meta(entry) %}
+	<time datetime="{{ entry.postDate|date("Y-m-d") }}">
+		{{ entry.postDate|date("l, j M Y g:i a") }}
+	</time>
+	|
+	{% if entry.tags and entry.tags.exists() %}
+		{% for tag in entry.tags.all() %}
+			<a href="/?tags={{ tag.slug }}" class="no-decoration">
+				{{ tag.title }}{{loop.last ? "" : ", " }}
+			</a>
+		{% endfor %}
+	{% else %}
+		<a href="/only:{{ entry.section.handle }}" class="no-decoration">
+			{{ entry.section }}
+		</a>
+	{% endif %}
+{% endmacro %}
+
+{% macro featuredImage(entry) %}
+	{% if entry.featuredImage is not empty and entry.featuredImage.all() is not empty %}
+		{%- set image = entry.featuredImage.first() -%}
+		<div class="mt-md">
+			<img src="{{ image.url }}" alt="{{ image.title }}" srcset="{{ image.getUrl('sm')}} 450w, {{ image.getUrl('md')}} 900w, {{ image.getUrl('lg')}} 1500w" sizes="100w">
+		</div>
+	{% endif %}
+{% endmacro %}

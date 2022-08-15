@@ -1,8 +1,9 @@
 {% import "_partials/walks" as walks %}
+{% import "_partials/posts" as posts %}
 
 <article class="{{ entry.section }}">
 	<small class="lightish">
-		{% include "_partials/postmeta.twig" with {'entry': entry} only %}
+		{{ posts.meta(entry) }}
 	</small>
 	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs" id="{{ entry.slug }}">
 		<a href="{{ entry.url }}">
