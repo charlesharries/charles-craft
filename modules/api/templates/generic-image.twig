@@ -18,9 +18,9 @@
 				width: 1200px;
 				height: 630px;
 				position: relative;
-				background-color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
-				color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
-				border: 26px solid hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				background-color: hsl(180, 80%, 5%);
+				color: hsl(180, 20%, 90%);
+				border: 26px solid hsl(180, 30%, 70%);
 				display: -webkit-box;
 				display: -webkit-flex;
 				display: -moz-box;
@@ -45,11 +45,6 @@
 				font-size: 64px;
 			}
 
-			.meta {
-				color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
-				font-size: 44px;
-			}
-
 			.title {
 				margin-top: 5px;
 				font-size: 96px;
@@ -60,26 +55,9 @@
 
 	<body>
 		<div class="container">
-			<h4 class="heading">Charles Harries</h4>
+            <div></div>
 			<div class="text">
-				<p class="meta">
-					<time datetime="{{ entry.postDate|date("Y-m-d") }}">
-						{{ entry.postDate|date("j M Y g:i a") }}
-					</time>
-					|
-					{% if entry.tags and entry.tags.exists() %}
-						{% for tag in entry.tags.all() %}
-							<span>
-								{{ tag.title }}{{loop.last ? "" : ", " }}
-							</span>
-						{% endfor %}
-					{% else %}
-						<span>
-							{{ entry.section }}
-						</span>
-					{% endif %}
-				</p>
-				<h1 class="title">{{ entry.title }}</h1>
+				<h1 class="title">Charles Harries</h1>
 			</p>
 		</div>
 	</body>
