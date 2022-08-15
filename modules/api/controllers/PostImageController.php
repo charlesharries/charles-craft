@@ -12,23 +12,27 @@ class PostImageController extends Controller
 {
     public $allowAnonymous = true;
 
-    public function actionGet(string $slug): Response
+    public function actionGet($slug = null): Response
     {
-        $entry = Entry::find()
-            ->slug($slug)
-            ->one();
+        $entry = null;
+
+        if ($slug) {
+            $entry = Entry::find()->slug($slug)->one();
+        }
+
+        $template = "api/postimage.twig";
 
         if (!$entry) {
-            throw new NotFoundHttpException;
+            $template = "api/generic-image.twig";
         }
 
         // Cache is good for a week.
-        $output = Craft::$app->cache->getOrSet(['postimage', $slug], function () use ($entry) {
+        $output = Craft::$app->cache->getOrSet(['postimage', $slug], function () use ($entry, $template) {
             $wkHtmlToImage = Craft::$app->config->general->wkhtmltoimagePath;
-            $html = Craft::$app->getView()->renderTemplate("api/postimage.twig", compact('entry'));
+            $html = Craft::$app->getView()->renderTemplate($template, compact('entry'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
             return $snappy->getOutputFromHtml($html);
-        }, 60 * 60 * 24 * 7);
+        }, 0);
 
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;
