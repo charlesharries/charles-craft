@@ -19,6 +19,24 @@
 
 {% block head %}
 	<link rel="stylesheet" href="/animatedname.css">
+
+	{%- set title = "Charles Harries" -%}
+	{%- set description = "I'm a software developer working on the web in the North East of England." -%}
+	{%- set image = url(url() ~ "api/post-images") -%}
+	{%- set url = url() -%}
+	<meta property="og:description" content="{{ description }}"/>
+	<meta property="og:image" content="{{ image }}"/>
+	<meta property="og:locale" content="en_GB"/>
+	<meta property="og:site_name" content="{{ title }}"/>
+	<meta property="og:title" content="{{ title }}"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="{{ url }}"/>
+	<meta name="twitter:card" content="summary_large_image"/>
+	<meta name="twitter:site" content="{{ url }}"/>
+	<meta name="twitter:title" content="{{ title }}"/>
+	<meta name="twitter:description" content="{{ description }}"/>
+	<meta name="twitter:creator" content="@charlesharries"/>
+	<meta name="twitter:image:src" content="{{ image }}"/>
 {% endblock %}
 
 {% block content %}
