@@ -32,7 +32,7 @@ class PostImageController extends Controller
             $html = Craft::$app->getView()->renderTemplate($template, compact('entry'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
             return $snappy->getOutputFromHtml($html);
-        }, 0);
+        }, 60 * 60 * 24 * 7);
 
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;
