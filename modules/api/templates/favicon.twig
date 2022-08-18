@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<style>
+			html,
+			body {
+				margin: 0;
+				display: inline-block;
+			}
+
+			.icon {
+				box-sizing: border-box;
+				height: {{size}}px;
+				width: {{size}}px;
+				border-radius: 100%;
+				background-color: hsl({{percentThroughDay(date) * 360}}, 80%, 5%);
+				border: {{(size / 8)|round}}px solid hsl({{percentThroughDay(date) * 360}}, 30%, 70%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="icon"></div>
+	</body>
+</html>
