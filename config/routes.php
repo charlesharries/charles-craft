@@ -24,5 +24,5 @@ return [
     'api/post-images' => 'api/post-image/get',
     'api/post-images/<slug>' => 'api/post-image/get',
     'api/latest-tracks' => 'api/latest-tracks/get',
-    'images/favicon.png' => 'api/favicon/get',
+    'images/favicon' => 'api/favicon/get',
 ];
