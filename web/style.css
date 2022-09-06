@@ -271,7 +271,7 @@ button {
 .lightish { color: var(--muted); }
 .darkish { color: var(--accents); }
 
-.entry h2 {
+.entry h2:not(:first-child) {
     margin-top: var(--space-xl);
 }
 
