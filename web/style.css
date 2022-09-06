@@ -134,6 +134,10 @@ ul[role="list"] {
     padding-left: 0;
 }
 
+li + li {
+    margin-top: var(--space-sm);
+}
+
 blockquote {
     border-left: 1px solid var(--accents);
     color: var(--muted);
@@ -254,7 +258,10 @@ button {
     margin-left: calc(-1 * var(--cluster-spacing));
 }
 
-.cluster > * { margin-left: var(--cluster-spacing); }
+.cluster > * {
+    margin-left: var(--cluster-spacing);
+    margin-top: 0;
+}
 .cluster[data-size="sm"] { --cluster-spacing: var(--space-sm); }
 .cluster[data-size="2xs"] { --cluster-spacing: var(--space-2xs); }
 
