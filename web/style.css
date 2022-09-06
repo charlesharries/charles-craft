@@ -40,6 +40,9 @@
 
     --space-2xs: 0.15rem;
     --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
 }
 
 html.light {
@@ -105,7 +108,7 @@ h1, h2, h3 { line-height: 1.15; }
 
 h1, h2, h3, h4, h5, h6 {
     margin-block: 0;
-    font-weight: 200;
+    font-weight: 600;
 }
 
 b,
@@ -269,7 +272,7 @@ button {
 .darkish { color: var(--accents); }
 
 .entry h2 {
-    margin-top: 2rem;
+    margin-top: var(--space-xl);
 }
 
 .Posts,
