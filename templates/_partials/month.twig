@@ -1,7 +1,7 @@
 {%- set streamItems = entries|filter((e) => e.section == 'Stream') -%}
 
 <div class="month">
-	<h4 class="caps lightish regular">{{ month }}</h4>
+	<h4 class="caps lightish regular mt-md">{{ month }}</h4>
 	<div class="stack" data-size="sm">
 		{% for entry in entries if entry.section != 'Stream' %}
 			<article>
