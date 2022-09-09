@@ -17,13 +17,14 @@
 				<p class="mt-xs">{{ entry.summary }}</p>
 			</article>
 		{% endfor %}
+
+		<p class="mt-sm">
+			{% for entry in streamItems %}
+				<a href="{{ entry.url }}">{{ entry.title }}</a>
+				{% if not loop.last %}
+					<span class="darkish">&bull;</span>
+				{% endif %}
+			{% endfor %}
+		</p>
 	</div>
-	<p class="mt-sm">
-		{% for entry in streamItems %}
-			<a href="{{ entry.url }}">{{ entry.title }}</a>
-			{% if not loop.last %}
-				<span class="darkish">&bull;</span>
-			{% endif %}
-		{% endfor %}
-	</p>
 </div>
