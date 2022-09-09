@@ -1,7 +1,25 @@
+{%- set streamItems = entries|filter((e) => e.section == 'Stream') -%}
+
 <div class="month">
-	<h4 class="caps">{{ month }}</h4>
-	<p>
-		{% for entry in entries %}
+	<h4 class="caps lightish regular">{{ month }}</h4>
+	<div class="stack" data-size="sm">
+		{% for entry in entries if entry.section != 'Stream' %}
+			<article>
+				<h5>
+					<a href="{{ entry.url }}">
+						{{ entry.title }}
+					</a>
+				</h5>
+				{% if entry.section == "Books" %}
+					{% include "_partials/bookmeta.twig" with {'entry': entry} only %}
+				{% endif %}
+
+				<p class="mt-xs">{{ entry.summary }}</p>
+			</article>
+		{% endfor %}
+	</div>
+	<p class="mt-sm">
+		{% for entry in streamItems %}
 			<a href="{{ entry.url }}">{{ entry.title }}</a>
 			{% if not loop.last %}
 				<span class="darkish">&bull;</span>

@@ -105,6 +105,7 @@ h2 {
 }
 
 h1, h2, h3 { line-height: 1.15; }
+h5, h6 { font-size: var(--font-md); }
 
 h1, h2, h3, h4, h5, h6 {
     margin-block: 0;
@@ -116,6 +117,8 @@ strong,
 .bold {
     font-weight: 600;
 }
+
+.regular { font-weight: 200; }
 
 a {
     color: currentColor;
@@ -204,7 +207,7 @@ button {
 
 .ml-sm { margin-left: 0.5rem; }
 .ml-md { margin-left: 1rem; }
-.mt-xs { margin-top: 0.25rem; }
+.mt-xs { margin-top: 0.25rem !important; }
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 2rem; }
@@ -252,6 +255,7 @@ button {
 
 .stack > * { width: 100%; }
 .stack > * + * { margin-top: var(--stack-spacing); }
+.stack[data-size="md"] { --stack-spacing: var(--space-md); }
 .stack[data-size="lg"] { --stack-spacing: 2.5rem; }
 
 .cluster {
