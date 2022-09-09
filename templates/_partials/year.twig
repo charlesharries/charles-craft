@@ -1,6 +1,6 @@
 <div class="year">
 	<h3 class="text-lg">{{ year }}</h3>
-	<div class="stack mt-md">
+	<div class="stack mt-md" data-size="md">
 		{% for month, entries in months %}
 			{% include "_partials/month.twig" with {
                 'month': month,

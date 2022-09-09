@@ -1,6 +1,6 @@
 {% extends "_layout.twig" %}
 
-{%- set postsToShow = 12 -%}
+{%- set postsToShow = 5 -%}
 {%- set isFiltered = section is defined -%}
 {%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
 {%- set section = isFiltered ? section : ["stream", "posts", "books", "walks"] -%}
@@ -74,7 +74,7 @@
 
 		{%- set remainingEntries = remainingEntries.all() -%}
 		{% if remainingEntries is not empty %}
-			<h2 class="text-xl mt-lg">Earlier</h2>
+			<h2 class="text-xl mt-lg">Archive</h2>
 			<div class="stack mt-md">
 				{% for year, months in sortByYear(remainingEntries) %}
 					{% include "_partials/year.twig" with {
