@@ -343,7 +343,7 @@ img:not(.no-lightbox) {
 .tag {
     font-size: var(--font-sm);
     background-color: var(--callout-background);
-    padding: var(--space-2xs) var(--space-xs);
+    padding: var(--space-2xs) var(--space-xs) var(--space-xs);
     border-bottom: 0;
 }
 
