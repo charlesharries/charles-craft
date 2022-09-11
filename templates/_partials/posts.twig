@@ -3,17 +3,9 @@
 		{{ entry.postDate|date("l, j M Y g:i a") }}
 	</time>
 	|
-	{% if entry.tags and entry.tags.exists() %}
-		{% for tag in entry.tags.all() %}
-			<a href="/?tags={{ tag.slug }}" class="no-decoration">
-				{{ tag.title }}{{loop.last ? "" : ", " }}
-			</a>
-		{% endfor %}
-	{% else %}
-		<a href="/only:{{ entry.section.handle }}" class="no-decoration">
-			{{ entry.section }}
-		</a>
-	{% endif %}
+	<a href="/only:{{ entry.section.handle }}" class="no-decoration">
+		{{ entry.section }}
+	</a>
 {% endmacro %}
 
 {% macro featuredImage(entry) %}
@@ -22,5 +14,17 @@
 		<div class="mt-md">
 			<img src="{{ image.url }}" alt="{{ image.title }}" srcset="{{ image.getUrl('sm')}} 450w, {{ image.getUrl('md')}} 900w, {{ image.getUrl('lg')}} 1500w" sizes="100w">
 		</div>
+	{% endif %}
+{% endmacro %}
+
+{% macro tags(entry) %}
+	{% if entry.tags and entry.tags.exists() %}
+		<p class="cluster" data-size="sm">
+			{% for tag in entry.tags.all() %}
+				<a href="/?tags={{ tag.slug }}" class="tag">
+					{{ tag.title }}
+				</a>
+			{% endfor %}
+		</p>
 	{% endif %}
 {% endmacro %}

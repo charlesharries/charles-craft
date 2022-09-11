@@ -52,5 +52,9 @@
 		{% if entry.section == "Walks" %}
 			{{ walks.timings(entry) }}
 		{% endif %}
+
+		<div class="mt-md">
+			{{ posts.tags(entry) }}
+		</div>
 	</main>
 {% endblock content %}
