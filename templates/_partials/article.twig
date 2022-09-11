@@ -24,7 +24,7 @@
 			{{ walks.meta(entry) }}
 		{% endif %}
 
-		<div class="mt-sm">
+		<div class="mt-md">
 			<div class="{{ entry.section in ["Posts", "Books"] ? "text-lg" : "" }}">
 				{{ entry.summary|syntaxHighlight|srcset }}
 			</div>
