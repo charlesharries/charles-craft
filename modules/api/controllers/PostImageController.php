@@ -10,7 +10,7 @@ use yii\web\Response;
 
 class PostImageController extends Controller
 {
-    public $allowAnonymous = true;
+    protected array|bool|int $allowAnonymous = self::ALLOW_ANONYMOUS_LIVE;
 
     public function actionGet($slug = null): Response
     {
