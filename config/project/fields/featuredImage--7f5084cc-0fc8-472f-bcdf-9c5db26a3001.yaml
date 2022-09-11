@@ -2,29 +2,32 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: featuredImage
-instructions: ''
+instructions: null
 name: 'Featured image'
 searchable: false
 settings:
   allowSelfRelations: false
+  allowSubfolders: false
   allowUploads: true
   allowedKinds: null
   defaultUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
-  defaultUploadLocationSubpath: ''
-  limit: '2'
+  defaultUploadLocationSubpath: null
   localizeRelations: false
+  maxRelations: 2
+  minRelations: null
   previewMode: full
-  restrictFiles: ''
+  restrictFiles: false
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
+  restrictedLocationSubpath: null
   selectionLabel: 'Add a featured image'
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  singleUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
-  singleUploadLocationSubpath: ''
   source: null
   sources: '*'
   targetSiteId: null
-  useSingleFolder: false
   validateRelatedElements: false
   viewMode: large
 translationKeyFormat: null

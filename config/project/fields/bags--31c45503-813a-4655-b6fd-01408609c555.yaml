@@ -7,8 +7,9 @@ name: Bags
 searchable: false
 settings:
   allowSelfRelations: false
-  limit: ''
   localizeRelations: false
+  maxRelations: null
+  minRelations: null
   selectionLabel: 'Add a bag'
   showSiteMenu: false
   source: null

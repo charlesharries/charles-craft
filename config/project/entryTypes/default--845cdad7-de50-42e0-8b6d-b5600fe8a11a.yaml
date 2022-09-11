@@ -2,6 +2,7 @@ fieldLayouts:
   ebe2f2fd-8ea5-4c20-96ea-11774d6a5ea1:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,66 +26,90 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 14d07d47-2a66-4de5-be7a-fb046c956f3c
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 176b1230-dfca-450c-8885-e0333863a706
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9a56c3ed-c9b0-4a12-a02e-8ab2559b748e # Mountains
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: f6b61dc3-e109-4a63-9397-8035c97ebf30
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 31c45503-813a-4655-b6fd-01408609c555 # Bags
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 611588c7-cddf-46c8-af88-40004ab6e1e0
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 719cdd53-f36f-4f4c-ac7b-c5f5ab56b02e
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: fd295e97-232d-4e02-8978-9652b19f2a8f
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
+            uid: f99ec2b8-55a0-4df1-afe1-632017c0fe72
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 848c83c0-2ad7-4e36-9939-783f901cdacb
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 99266336-2086-4078-adc8-88e588fc6297
+        userCondition: null
 handle: default
 hasTitleField: true
 name: Default

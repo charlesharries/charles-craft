@@ -2,6 +2,7 @@ fieldLayouts:
   40d4804e-581f-466b-b68d-e577ef4065c7:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,9 +26,12 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\TitleField
+            uid: e15df783-18f3-449c-9993-04d14cce6777
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 5f72fb76-5942-4e37-917b-a81006a596a7
+        userCondition: null
 handle: designations
 name: Designations

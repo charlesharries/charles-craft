@@ -2,16 +2,16 @@ columnSuffix: hwfqthil
 contentColumnType: string(1020)
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: createdAt
-instructions: ''
+instructions: null
 name: 'Created At'
 searchable: false
 settings:
   byteLimit: null
   charLimit: 255
-  code: ''
+  code: false
   columnType: null
-  initialRows: '4'
-  multiline: ''
+  initialRows: 4
+  multiline: false
   placeholder: null
   uiMode: normal
 translationKeyFormat: null

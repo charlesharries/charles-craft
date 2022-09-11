@@ -2,13 +2,14 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: testPosts
-instructions: ''
+instructions: null
 name: 'Test posts'
 searchable: false
 settings:
   allowSelfRelations: false
-  limit: '1'
   localizeRelations: false
+  maxRelations: 1
+  minRelations: null
   selectionLabel: 'Add a post'
   showSiteMenu: false
   source: null

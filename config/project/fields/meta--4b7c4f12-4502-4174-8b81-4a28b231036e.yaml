@@ -2,13 +2,13 @@ columnSuffix: mxxqdoes
 contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: meta
-instructions: ''
+instructions: null
 name: Meta
 searchable: false
 settings:
   contentTable: '{{%matrixcontent_meta}}'
-  maxBlocks: ''
-  minBlocks: ''
+  maxBlocks: null
+  minBlocks: null
   propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null

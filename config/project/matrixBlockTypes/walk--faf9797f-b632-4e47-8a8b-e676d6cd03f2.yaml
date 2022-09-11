@@ -3,52 +3,63 @@ fieldLayouts:
   c486fc0b-6541-40a2-8335-5d22acae5ac9:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 95d4c83b-f847-4f8c-9a88-4b31430507fd # Timings
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: e9f7545e-7bc9-495c-a7f1-24a9f7da419b
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 1e3b399d-bfe5-42e0-b366-6f9ecaaaed86 # Total Walking Time
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 49c0a26d-f878-4682-aec9-97a341af4392
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: ad520050-ff35-4676-9b37-b1fbe96575b0 # Strava
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 9f6691bd-9b4f-4e22-bcf8-5663a9711ca5
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 2a83cd40-37b1-41c4-82da-a93a7f1d5bfd
+        userCondition: null
 fields:
   1e3b399d-bfe5-42e0-b366-6f9ecaaaed86: # Total Walking Time
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: totalWalkingTime
-    instructions: ''
+    instructions: null
     name: 'Total Walking Time'
     searchable: false
     settings:
       byteLimit: null
       charLimit: null
-      code: ''
+      code: false
       columnType: null
-      initialRows: '4'
-      multiline: ''
+      initialRows: 4
+      multiline: false
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
@@ -59,7 +70,7 @@ fields:
     contentColumnType: text
     fieldGroup: null
     handle: timings
-    instructions: ''
+    instructions: null
     name: Timings
     searchable: false
     settings:
@@ -108,8 +119,8 @@ fields:
             -
               - col2
               - ''
-      maxRows: ''
-      minRows: '2'
+      maxRows: null
+      minRows: 2
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Table
@@ -118,12 +129,11 @@ fields:
     contentColumnType: string(255)
     fieldGroup: null
     handle: strava
-    instructions: ''
+    instructions: null
     name: Strava
     searchable: false
     settings:
-      maxLength: '255'
-      placeholder: null
+      maxLength: 255
       types:
         - url
     translationKeyFormat: null

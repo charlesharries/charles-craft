@@ -2,6 +2,7 @@ fieldLayouts:
   cd19ec3a-fe7e-4973-988f-321c6798bc5b:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,30 +26,42 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 106e92d0-d048-421f-aa50-c90d2dd6f4b6
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
+            uid: b8aa8a87-7e90-4c1b-b953-9f5ef2b7e159
+            userCondition: null
           -
+            elementCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 3939b050-6b9c-4a82-bd6a-700dd304c8c3
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: acd1acd7-28d3-4cc4-8553-ee9a5ee7e1f7
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 937be67c-eb48-4045-9ac4-20b862d00940
+        userCondition: null
 handle: default
 hasTitleField: true
 name: Default
