@@ -347,10 +347,6 @@ img:not(.no-lightbox) {
     border-bottom: 0;
 }
 
-.tag:hover {
-    background-color: 
-}
-
 @media screen and (min-width: 550px) {
     .grid[data-grid-columns="3"] {
         grid-template-columns: repeat(2, 1fr);
