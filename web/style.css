@@ -39,6 +39,7 @@
     --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
 
     --space-2xs: 0.15rem;
+    --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 2rem;
@@ -337,6 +338,17 @@ img:not(.no-lightbox) {
 .grid {
     display: grid;
     gap: 1rem;
+}
+
+.tag {
+    font-size: var(--font-sm);
+    background-color: var(--callout-background);
+    padding: var(--space-2xs) var(--space-xs);
+    border-bottom: 0;
+}
+
+.tag:hover {
+    background-color: 
 }
 
 @media screen and (min-width: 550px) {
