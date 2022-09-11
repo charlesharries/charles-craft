@@ -10,7 +10,7 @@ use yii\web\Response;
 
 class LatestTracksController extends Controller
 {
-    public $allowAnonymous = true;
+    protected array|bool|int $allowAnonymous = self::ALLOW_ANONYMOUS_LIVE;
 
     private $baseURL = "http://ws.audioscrobbler.com/2.0/";
 
