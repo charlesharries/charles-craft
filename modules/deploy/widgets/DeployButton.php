@@ -12,7 +12,7 @@ class DeployButton extends Widget
         return Craft::t('app', 'Deploy frontend');
     }
 
-    public static function icon()
+    public static function icon(): ?string
     {
         return Craft::getAlias('@appicons/play.svg');
     }
@@ -22,7 +22,7 @@ class DeployButton extends Widget
         return Craft::t('app', 'Deploy frontend');
     }
 
-    public function getBodyHtml()
+    public function getBodyHtml(): ?string
     {
         $view = Craft::$app->getView();
 
