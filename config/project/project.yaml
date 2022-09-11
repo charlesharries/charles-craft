@@ -1,4 +1,4 @@
-dateModified: 1662936584
+dateModified: 1662937088
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -77,10 +77,6 @@ plugins:
   cloudinary:
     edition: standard
     enabled: false
-    schemaVersion: 1.0.0
-  craft-lexical:
-    edition: standard
-    enabled: true
     schemaVersion: 1.0.0
   element-api:
     edition: standard
