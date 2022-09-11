@@ -2,16 +2,17 @@ columnSuffix: yvcicctm
 contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: writer
-instructions: ''
+instructions: null
 name: Writer
 searchable: false
 settings:
   allowLimit: false
   allowMultipleSources: false
   allowSelfRelations: false
-  branchLimit: '1'
-  limit: null
+  branchLimit: 1
   localizeRelations: false
+  maxRelations: null
+  minRelations: null
   selectionLabel: 'Add a writer'
   showSiteMenu: true
   source: 'group:8c4a8cd9-3f50-49e9-aed5-f46067c94fb9' # Writer

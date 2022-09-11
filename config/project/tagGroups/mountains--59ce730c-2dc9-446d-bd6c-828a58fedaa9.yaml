@@ -2,6 +2,7 @@ fieldLayouts:
   0810f3f5-9ebd-4538-ad5e-9f73bb5727cc:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,18 +26,24 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\TitleField
+            uid: b3c61322-33e3-492b-a1e4-ca6907f8e18d
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a0003750-aa7a-43fe-ba3f-35ae819dac59
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 6c14113c-806a-47df-9fa4-7843ee55f09c
+        userCondition: null
 handle: mountains
 name: Mountains

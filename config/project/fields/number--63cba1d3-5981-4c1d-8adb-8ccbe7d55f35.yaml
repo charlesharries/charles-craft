@@ -2,7 +2,7 @@ columnSuffix: qorazqgf
 contentColumnType: integer(10)
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: number
-instructions: ''
+instructions: null
 name: Number
 searchable: false
 settings:
@@ -11,7 +11,7 @@ settings:
   max: null
   min: 1
   prefix: null
-  previewCurrency: ''
+  previewCurrency: null
   previewFormat: decimal
   size: null
   suffix: null

@@ -2,6 +2,7 @@ fieldLayouts:
   5976e0d7-98bb-4c1d-a607-c72e6bceff44:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,64 +26,85 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: b53e6346-83d0-4412-893e-35c5b4649542
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: ae766d71-5a92-43ba-9546-3a8225552940 # Created At
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 619d2517-f9ce-46f8-8081-1c1b53c64e88
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 0121e2dc-7413-4d85-bc24-85303844b284
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: e2a68e7e-3943-41fe-b93e-45fc4ddac1e7 # External URL
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 28f69163-9ae8-487f-9b2f-4994e71caeec
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 72c1a424-d0c3-423d-b7d7-a07cffee8ee2 # GitHub Link
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: a0c6f5b9-eee7-4d62-8324-435897ea67a0
+            userCondition: null
             warning: null
             width: 50
           -
+            elementCondition: null
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 8eb183fe-8576-44a1-94cb-f72bfce4202e
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 09b22790-fc34-440b-89f6-36254ec3cbfa # Flexible Content
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 8841a98a-ee32-4362-8830-7e4a45001dd9
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 61fd5845-0207-47f8-9515-c6d69513e7d7
+        userCondition: null
 handle: default
 hasTitleField: true
 name: Default

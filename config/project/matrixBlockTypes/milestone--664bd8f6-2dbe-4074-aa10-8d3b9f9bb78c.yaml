@@ -3,70 +3,87 @@ fieldLayouts:
   551eea73-02a6-480a-b2cf-294e61f5d217:
     tabs:
       -
+        elementCondition: null
         elements:
           -
+            elementCondition: null
             fieldUid: 75b63475-a9cc-45aa-b67e-de085416e457 # Heading
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 88a4830b-e0ce-4ed2-94ff-fd913f9bbd27
+            userCondition: null
             warning: null
             width: 75
           -
+            elementCondition: null
             fieldUid: f2f7b225-26f3-426a-8678-c089918dacf9 # Year
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 117ec339-98dd-4a55-bc6e-f1ff0591b80d
+            userCondition: null
             warning: null
             width: 25
           -
+            elementCondition: null
             fieldUid: 75c64953-510f-4b4b-997c-5e015e3cb084 # Body
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 96a3b174-cea0-4815-b9ca-33d47ddc568e
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: baa13c65-0a57-43bf-8c5b-5dc010d1cd1c # Songs
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 7af28439-6e08-4898-9e2d-5a93c9f6987e
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316 # Image
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: c4960bba-c573-442d-80dd-b998e99bc5f3
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: e8a801d0-1191-4788-b7ab-e604611f6a32
+        userCondition: null
 fields:
   75b63475-a9cc-45aa-b67e-de085416e457: # Heading
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
     handle: heading
-    instructions: ''
+    instructions: null
     name: Heading
     searchable: false
     settings:
       byteLimit: null
       charLimit: null
-      code: ''
+      code: false
       columnType: null
-      initialRows: '4'
-      multiline: ''
+      initialRows: 4
+      multiline: false
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
@@ -77,7 +94,7 @@ fields:
     contentColumnType: text
     fieldGroup: null
     handle: body
-    instructions: ''
+    instructions: null
     name: Body
     searchable: false
     settings:
@@ -87,13 +104,13 @@ fields:
       configSelectionMode: choose
       defaultTransform: ''
       manualConfig: ''
-      purifierConfig: ''
-      purifyHtml: '1'
-      redactorConfig: ''
-      removeEmptyTags: '1'
-      removeInlineStyles: '1'
-      removeNbsp: '1'
-      showHtmlButtonForNonAdmins: ''
+      purifierConfig: null
+      purifyHtml: true
+      redactorConfig: null
+      removeEmptyTags: true
+      removeInlineStyles: true
+      removeNbsp: true
+      showHtmlButtonForNonAdmins: false
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
       uiMode: enlarged
@@ -105,7 +122,7 @@ fields:
     contentColumnType: text
     fieldGroup: null
     handle: songs
-    instructions: ''
+    instructions: null
     name: Songs
     searchable: false
     settings:
@@ -154,8 +171,8 @@ fields:
             -
               - col3
               - 'Song ID'
-      maxRows: ''
-      minRows: '1'
+      maxRows: null
+      minRows: 1
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Table
@@ -164,7 +181,7 @@ fields:
     contentColumnType: integer(10)
     fieldGroup: null
     handle: year
-    instructions: ''
+    instructions: null
     name: Year
     searchable: false
     settings:
@@ -173,7 +190,7 @@ fields:
       max: null
       min: 1990
       prefix: null
-      previewCurrency: ''
+      previewCurrency: null
       previewFormat: none
       size: null
       suffix: null
@@ -185,31 +202,34 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: image
-    instructions: ''
+    instructions: null
     name: Image
     searchable: false
     settings:
       allowSelfRelations: false
+      allowSubfolders: false
       allowUploads: true
       allowedKinds:
         - image
         - video
       defaultUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
-      defaultUploadLocationSubpath: ''
-      limit: '1'
+      defaultUploadLocationSubpath: null
       localizeRelations: false
+      maxRelations: 1
+      minRelations: null
       previewMode: full
-      restrictFiles: '1'
+      restrictFiles: true
+      restrictLocation: false
+      restrictedDefaultUploadSubpath: null
+      restrictedLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
+      restrictedLocationSubpath: null
       selectionLabel: 'Add an image'
       showSiteMenu: false
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      singleUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
-      singleUploadLocationSubpath: ''
       source: null
       sources: '*'
       targetSiteId: null
-      useSingleFolder: false
       validateRelatedElements: false
       viewMode: large
     translationKeyFormat: null

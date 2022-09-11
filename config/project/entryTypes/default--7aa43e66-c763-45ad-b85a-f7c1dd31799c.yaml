@@ -2,6 +2,7 @@ fieldLayouts:
   5278af1d-8722-4a3e-9006-3960fc8cdb0a:
     tabs:
       -
+        elementCondition: null
         elements:
           -
             autocapitalize: true
@@ -9,6 +10,7 @@ fieldLayouts:
             autocorrect: true
             class: null
             disabled: false
+            elementCondition: null
             id: null
             instructions: null
             label: null
@@ -24,37 +26,49 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 5a184482-de52-496d-930f-d036428aa40c
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 9a56c3ed-c9b0-4a12-a02e-8ab2559b748e # Mountains
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: 0dfb8629-7926-4ce8-aee6-6268cff00031
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 63cba1d3-5981-4c1d-8adb-8ccbe7d55f35 # Number
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: badd15a0-9e52-4eec-8f46-fd53bfe33c89
+            userCondition: null
             warning: null
             width: 100
           -
+            elementCondition: null
             fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
+            uid: b511c44e-13ab-4ba4-933f-d02182a1fca2
+            userCondition: null
             warning: null
             width: 100
         name: Content
-        sortOrder: 1
+        uid: 6778b7a9-057a-4046-89a3-8824d052cfb1
+        userCondition: null
 handle: default
 hasTitleField: false
 name: Default

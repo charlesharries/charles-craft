@@ -2,16 +2,17 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: tags
-instructions: ''
+instructions: null
 name: Tags
 searchable: false
 settings:
   allowLimit: false
   allowMultipleSources: false
   allowSelfRelations: false
-  limit: null
   localizeRelations: false
-  selectionLabel: ''
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
   showSiteMenu: true
   source: 'taggroup:c1f54edf-7fb1-43d0-af35-bdf0579d236c' # Tags
   sources: '*'

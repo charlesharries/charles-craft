@@ -2,13 +2,13 @@ columnSuffix: null
 contentColumnType: string
 fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: flexibleContent
-instructions: ''
+instructions: null
 name: 'Flexible Content'
 searchable: false
 settings:
   contentTable: '{{%matrixcontent_flexiblecontent}}'
-  maxBlocks: ''
-  minBlocks: ''
+  maxBlocks: null
+  minBlocks: null
   propagationKeyFormat: null
   propagationMethod: all
 translationKeyFormat: null
