@@ -1,9 +1,10 @@
 {%- set streamItems = entries|filter((e) => e.section == 'Stream') -%}
+{%- set theRest = entries|filter((e) => e.section != "Stream") -%}
 
 <div class="month">
 	<h4 class="caps lightish regular mt-md">{{ month }}</h4>
 	<div class="stack" data-size="sm">
-		{% for entry in entries if entry.section != 'Stream' %}
+		{% for entry in theRest %}
 			<article>
 				<h5>
 					<a href="{{ entry.url }}">
