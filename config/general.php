@@ -38,7 +38,4 @@ return [
 
     // Don't transform gifs, causes timeouts
     'transformGifs' => false,
-
-    // Set path to wkhtmltoiamge for image transforms
-    'wkhtmltoimagePath' => App::env('WKHTMLTOIMAGE_PATH'),
 ];

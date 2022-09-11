@@ -1,8 +1,16 @@
-dateModified: 1659970099
+dateModified: 1662934139
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
   transportType: craft\mail\transportadapters\Sendmail
+fs:
+  local:
+    hasUrls: true
+    name: Local
+    settings:
+      path: '@webroot/assets'
+    type: craft\fs\Local
+    url: '@web/assets'
 meta:
   __names__:
     0be8bfd9-86e6-48dd-8142-9020d3adb154: Rating # Rating
@@ -20,6 +28,7 @@ meta:
     7aa43e66-c763-45ad-b85a-f7c1dd31799c: Default # Default
     7f5084cc-0fc8-472f-bcdf-9c5db26a3001: 'Featured image' # Featured image
     8c4a8cd9-3f50-49e9-aed5-f46067c94fb9: Writer # Writer
+    8de275a1-a732-4e8f-8125-268dac0f3a37: 'Public Schema' # Public Schema
     9a56c3ed-c9b0-4a12-a02e-8ab2559b748e: Mountains # Mountains
     09b22790-fc34-440b-89f6-36254ec3cbfa: 'Flexible Content' # Flexible Content
     9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de: Body # Body
@@ -90,10 +99,11 @@ system:
   live: true
   name: 'Charles Harries'
   retryDuration: null
-  schemaVersion: 3.7.33
+  schemaVersion: 4.0.0.9
   timeZone: Europe/London
 users:
   allowPublicRegistration: false
+  deactivateByDefault: false
   defaultGroup: null
   photoSubpath: null
   photoVolumeUid: null

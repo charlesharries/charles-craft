@@ -19,7 +19,7 @@ class FaviconController extends Controller
 
         // Cache is good for a week.
         $output = Craft::$app->cache->getOrSet(['postimage', $date], function () use ($date) {
-            $wkHtmlToImage = Craft::$app->config->general->wkhtmltoimagePath;
+            $wkHtmlToImage = Craft::$app->config->custom->wkhtmltoimagePath;
             $size = 180;
             $html = Craft::$app->getView()->renderTemplate("api/favicon.twig", compact('date', 'size'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage, [

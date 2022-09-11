@@ -28,7 +28,7 @@ class PostImageController extends Controller
 
         // Cache is good for a week.
         $output = Craft::$app->cache->getOrSet(['postimage', $slug], function () use ($entry, $template) {
-            $wkHtmlToImage = Craft::$app->config->general->wkhtmltoimagePath;
+            $wkHtmlToImage = Craft::$app->config->custom->wkhtmltoimagePath;
             $html = Craft::$app->getView()->renderTemplate($template, compact('entry'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
             return $snappy->getOutputFromHtml($html);
