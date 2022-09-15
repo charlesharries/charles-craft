@@ -20,6 +20,7 @@
  */
 
 return [
+    'assets/s3/<rest:.*>' => 'api/assets/s3',
     'only:<section>' => ['template' => 'index'],
     'api/post-images' => 'api/post-image/get',
     'api/post-images/<slug>' => 'api/post-image/get',
