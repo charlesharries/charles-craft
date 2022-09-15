@@ -15,6 +15,9 @@ class Module extends \yii\base\Module
 
         parent::init();
 
+        // Set the controllerNamespace
+        $this->controllerNamespace = 'api';
+
         // Base template directory
         Event::on(
             View::class,
