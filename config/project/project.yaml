@@ -1,44 +1,4 @@
-dateModified: 1662937282
-elementSources:
-  craft\elements\Entry:
-    -
-      disabled: false
-      key: '*'
-      tableAttributes:
-        - section
-        - 'field:ea5aefda-6f68-4615-9cb3-81aae425e54c' # Tags
-        - postDate
-        - link
-      type: native
-    -
-      heading: Channels
-      type: heading
-    -
-      key: 'section:50d39a93-8605-4001-81f0-d9852cf865e5' # Bags
-      type: native
-    -
-      key: 'section:01ea27f8-8ac3-4d82-9d54-ed3faca4000b' # Books
-      type: native
-    -
-      key: 'section:071255ac-4fb5-404c-b125-46fa49417bc2' # Posts
-      type: native
-    -
-      key: 'section:d84dc500-3212-4518-89ad-70a547974d1b' # Projects
-      type: native
-    -
-      key: 'section:63230075-57c8-4786-aaa2-f1c58f46dbf5' # Sam Posts
-      type: native
-    -
-      disabled: false
-      key: 'section:75f81d9a-3f3c-4479-9949-7a535abd7e37' # Stream
-      tableAttributes:
-        - 'field:ea5aefda-6f68-4615-9cb3-81aae425e54c' # Tags
-        - postDate
-        - link
-      type: native
-    -
-      key: 'section:6c3aa333-495e-4f08-af06-2176eb4d7a3a' # Walks
-      type: native
+dateModified: 1663245337
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
