@@ -1,4 +1,4 @@
-dateModified: 1662937088
+dateModified: 1663245337
 email:
   fromEmail: charles@harries.me
   fromName: 'Charles Harries'
@@ -11,6 +11,25 @@ fs:
       path: '@webroot/assets'
     type: craft\fs\Local
     url: '@web/assets'
+  s3:
+    hasUrls: true
+    name: S3
+    settings:
+      addSubfolderToRootUrl: true
+      autoFocalPoint: false
+      bucket: charles-craft
+      bucketSelectionMode: choose
+      cfDistributionId: ''
+      cfPrefix: ''
+      expires: ''
+      keyId: $AWS_ACCESS_KEY_ID
+      makeUploadsPublic: false
+      region: eu-west-2
+      secret: $AWS_SECRET_ACCESS_KEY
+      storageClass: ''
+      subfolder: development
+    type: craft\awss3\Fs
+    url: '@web/assets/s3/'
 meta:
   __names__:
     0be8bfd9-86e6-48dd-8142-9020d3adb154: Rating # Rating
@@ -64,6 +83,7 @@ meta:
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c81a3f77-a578-4c95-89b9-c944f705bb9d: Designation # Designation
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
+    d0712102-fc48-4fea-8c60-7701419b40e4: S3 # S3
     d84dc500-3212-4518-89ad-70a547974d1b: Projects # Projects
     e2a68e7e-3943-41fe-b93e-45fc4ddac1e7: 'External URL' # External URL
     e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
@@ -74,6 +94,10 @@ meta:
     f80a59cb-81cf-4e9c-9048-061317fa43ff: Mountain # Mountain
     faf9797f-b632-4e47-8a8b-e676d6cd03f2: 'About the walk' # About the walk
 plugins:
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '2.0'
   cloudinary:
     edition: standard
     enabled: false
