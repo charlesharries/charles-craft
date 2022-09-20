@@ -2,9 +2,13 @@
 
 namespace extensions;
 
+use Craft;
+use craft\elements\Asset;
 use craft\elements\Entry;
 use DateTime;
+use extensions\library\ImageNode;
 use helpers\utils\SyntaxHighlighter;
+use mmikkel\retcon\library\RetconDom;
 use mmikkel\retcon\Retcon;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -73,10 +77,20 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             return $string;
         }
 
-        return Retcon::$plugin->retcon->srcset(
-            $string,
-            ['sm', 'md', 'lg'],
-            'img:not([src$=".gif"])'
-        );
+        $dom = new RetconDom($string);
+        $elements = $dom->filter('img');
+
+        foreach ($elements as $element) {
+            $image = new ImageNode($element);
+            $asset = $image->getAsset();
+
+            if (!$asset) {
+                continue;
+            }
+
+            $image->processNode($asset);
+        }
+
+        return $dom->getHtml();
     }
 }
