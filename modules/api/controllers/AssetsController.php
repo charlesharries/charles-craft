@@ -4,6 +4,7 @@ namespace modules\api\controllers;
 
 use Craft;
 use craft\awss3\S3Client;
+use craft\elements\Asset;
 use craft\web\Controller;
 
 class AssetsController extends Controller
