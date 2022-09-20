@@ -2,16 +2,14 @@
 
 namespace modules\api\controllers;
 
-use Aws\AwsClient;
 use Craft;
 use craft\awss3\S3Client;
-use craft\helpers\App;
 use craft\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\web\Response;
 
 class AssetsController extends Controller
 {
+    protected array|bool|int $allowAnonymous = self::ALLOW_ANONYMOUS_LIVE;
+
     public function actionS3(string $rest)
     {
         $aws = new S3Client(['region' => 'eu-west-2', 'version' => '2006-03-01']);
