@@ -1,4 +1,4 @@
-dateModified: 1662937282
+dateModified: 1663613465
 elementSources:
   craft\elements\Entry:
     -
@@ -20,7 +20,12 @@ elementSources:
       key: 'section:01ea27f8-8ac3-4d82-9d54-ed3faca4000b' # Books
       type: native
     -
+      disabled: false
       key: 'section:071255ac-4fb5-404c-b125-46fa49417bc2' # Posts
+      tableAttributes:
+        - postDate
+        - 'field:526bb8da-d5c2-4a46-b9ac-a969de860ce5' # Summary
+        - link
       type: native
     -
       key: 'section:d84dc500-3212-4518-89ad-70a547974d1b' # Projects
@@ -67,7 +72,7 @@ fs:
       region: eu-west-2
       secret: $AWS_SECRET_ACCESS_KEY
       storageClass: ''
-      subfolder: development
+      subfolder: $ENVIRONMENT
     type: craft\awss3\Fs
     url: '@web/assets/s3/'
 meta:
@@ -106,6 +111,7 @@ meta:
     95d4c83b-f847-4f8c-9a88-4b31430507fd: Timings # Timings
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
     664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c: Milestone # Milestone
+    763fc5b6-7451-4ddc-969c-f16d0c2b6245: S3 # S3
     845cdad7-de50-42e0-8b6d-b5600fe8a11a: Default # Default
     1623a46f-6c10-445a-b3c5-c6c2b1cea84b: 'Test posts' # Test posts
     52047e94-5988-47b4-b9b5-6e061b5c2b49: Medium # Medium
@@ -123,7 +129,6 @@ meta:
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c81a3f77-a578-4c95-89b9-c944f705bb9d: Designation # Designation
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
-    d0712102-fc48-4fea-8c60-7701419b40e4: S3 # S3
     d84dc500-3212-4518-89ad-70a547974d1b: Projects # Projects
     e2a68e7e-3943-41fe-b93e-45fc4ddac1e7: 'External URL' # External URL
     e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
