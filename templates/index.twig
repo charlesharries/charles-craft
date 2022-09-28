@@ -62,27 +62,29 @@
 
 		<hr class="mt-lg"/>
 
-		<ul role="list" class="stack mt-lg" data-size="lg">
-			{% for entry in entries.limit(postsToShow).all() %}
-				<li>
-					{% include "_partials/article.twig" with {'entry': entry} only %}
-				</li>
-			{% endfor %}
-		</ul>
-
-		<hr class="mt-lg"/>
-
-		{%- set remainingEntries = remainingEntries.all() -%}
-		{% if remainingEntries is not empty %}
-			<h2 class="text-xl mt-lg">Archive</h2>
-			<div class="stack mt-md">
-				{% for year, months in sortByYear(remainingEntries) %}
-					{% include "_partials/year.twig" with {
-						'year': year,
-						'months': months
-					} only %}
+		{% cache %}
+			<ul role="list" class="stack mt-lg" data-size="lg">
+				{% for entry in entries.limit(postsToShow).all() %}
+					<li>
+						{% include "_partials/article.twig" with {'entry': entry} only %}
+					</li>
 				{% endfor %}
-			</div>
-		{% endif %}
+			</ul>
+
+			<hr class="mt-lg"/>
+
+			{%- set remainingEntries = remainingEntries.all() -%}
+			{% if remainingEntries is not empty %}
+				<h2 class="text-xl mt-lg">Archive</h2>
+				<div class="stack mt-md">
+					{% for year, months in sortByYear(remainingEntries) %}
+						{% include "_partials/year.twig" with {
+								'year': year,
+								'months': months
+							} only %}
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endcache %}
 	</main>
 {% endblock content %}
