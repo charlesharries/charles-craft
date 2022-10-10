@@ -142,7 +142,7 @@ ul[role="list"] {
     padding-left: 0;
 }
 
-:not(.grid, .cluster) > li + li {
+:not(.grid, .cluster, .stack) > li + li {
     margin-top: var(--space-sm);
 }
 
