@@ -28,3 +28,39 @@
 		</p>
 	{% endif %}
 {% endmacro %}
+
+{% macro nextPrev(entry) %}
+	{%- set nextPost = craft.entries()	
+		.section(entry.section)
+		.after(entry.postDate)
+		.orderBy("postDate")
+		.id(["not", entry.id])
+		.one() -%}
+
+	{%- set prevPost = craft.entries()
+		.section(entry.section)
+		.before(entry.postDate)
+		.orderBy("postDate desc")
+		.id(["not", entry.id])
+		.one() -%}
+	<div class="grid mt-lg" data-columns="2">
+		<div>
+			{% if nextPost %}
+				<p class="text-sm muted">Next</p>
+				<p>
+					<a href="{{ nextPost.url }}" class="font-bold">{{ nextPost.title }}</a>
+				</p>
+				<p class="text-sm text-muted">{{ nextPost.summary }}</p>
+			{% endif %}
+		</div>
+		<div class="md:text-right">
+			{% if prevPost %}
+				<p class="text-sm muted">Previous</p>
+				<p>
+					<a href="{{ prevPost.url }}" class="font-bold">{{ prevPost.title }}</a>
+				</p>
+				<p class="text-sm text-muted">{{ prevPost.summary }}</p>
+			{% endif %}
+		</div>
+	</div>
+{% endmacro %}
