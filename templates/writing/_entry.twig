@@ -29,7 +29,7 @@
 
 {% block content %}
 	<main class="entry container mt-lg">
-		<small class="lightish">
+		<small class="muted">
 			{{ posts.meta(entry) }}
 		</small>
 
@@ -56,5 +56,7 @@
 		<div class="mt-md">
 			{{ posts.tags(entry) }}
 		</div>
+
+		{{ posts.nextPrev(entry) }}
 	</main>
 {% endblock content %}

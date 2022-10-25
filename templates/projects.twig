@@ -21,7 +21,7 @@
 	<main class="projects container mt-lg">
 		<h1>Side projects</h1>
 
-		<ul class="grid mt-lg" data-grid-columns="3" role="list">
+		<ul class="grid mt-lg" data-columns="3" role="list">
 			{% for project in projects %}
 				<li>
 					<article>
@@ -29,7 +29,7 @@
 						<div class="rounded mt-sm">
 							<img src="{{ project.featuredImage.one().getUrl('sm') }}" alt="{{ project.featuredImage.one().title }}"/>
 						</div>
-						<p class="mt-sm text-sm lightish">
+						<p class="mt-sm text-sm muted">
 							{{ project.createdAt ? project.createdAt : project.postDate|date("M 'y")}}
 						</p>
 						<h2>

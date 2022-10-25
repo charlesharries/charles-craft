@@ -3,17 +3,17 @@
 	{{ entry.writer.one().title }}
 </p>
 <small class="cluster mt-xs">
-	<span class="lightish">
+	<span class="muted">
 		Published
 		{{ entry.publicationYear }}
 	</span>
 	{% if entry.length is not empty %}
-		<span class="ml-sm lightish">
+		<span class="ml-sm muted">
 			{{ entry.length }}
 			pages
 		</span>
 	{% endif %}
-	<span class="ml-sm lightish mt-xs">
+	<span class="ml-sm muted mt-xs">
 		{% include "_partials/stars" with {'count': entry.rating} only %}
 	</span>
 </small>
