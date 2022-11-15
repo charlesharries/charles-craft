@@ -351,16 +351,15 @@ img:not(.no-lightbox) {
     --grid-min-item-size: clamp(13rem, 50vw, 15rem);
 }
 
-.grid[data-rows="masonry"] {
-    align-items: start;
-    grid-template-rows: masonry;
-}
-
 .tag {
     font-size: var(--font-sm);
     background-color: var(--callout-background);
-    padding: var(--space-2xs) var(--space-xs) var(--space-xs);
+    padding: var(--space-2xs) var(--space-sm) var(--space-xs);
     border-bottom: 0;
+}
+
+[id^="fn"] {
+    font-size: var(--font-sm);
 }
 
 @media screen and (min-width: 599px) {
