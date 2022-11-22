@@ -1,6 +1,6 @@
 {% extends "_layout.twig" %}
 
-{%- set postsToShow = 5 -%}
+{%- set postsToShow = 1 -%}
 {%- set isFiltered = section is defined -%}
 {%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
 {%- set section = isFiltered ? section : ["stream", "posts", "books", "walks"] -%}
@@ -40,28 +40,7 @@
 {% endblock %}
 
 {% block content %}
-	<main class="container">
-		<div class="stack mt-lg" data-size="lg">
-			<p>Hi! My name's</p>
-
-			{% include "_partials/animatedname.twig" %}
-
-			{% include "_partials/about.twig" %}
-		</div>
-
-		<p class="cluster mt-lg">
-			<a href="/only:posts">Posts</a>
-			<a href="/only:stream">Stream</a>
-			<a href="/only:books">Books</a>
-			<a href="/only:walks">Walks</a>
-			{% if isFiltered or isTagged %}
-				<span class="darkish">&bull;</span>
-				<a href="/">Clear filters</a>
-			{% endif %}
-		</p>
-
-		<hr class="mt-lg"/>
-
+	<main class="container mt-huge">
 		<ul role="list" class="stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
 				<li>
@@ -75,12 +54,12 @@
 		{%- set remainingEntries = remainingEntries.all() -%}
 		{% if remainingEntries is not empty %}
 			<h2 class="text-xl mt-lg">Archive</h2>
-			<div class="stack mt-md">
+			<div class="stack mt-md" data-size="lg">
 				{% for year, months in sortByYear(remainingEntries) %}
 					{% include "_partials/year.twig" with {
-							'year': year,
-							'months': months
-						} only %}
+						'year': year,
+						'months': months
+					} only %}
 				{% endfor %}
 			</div>
 		{% endif %}

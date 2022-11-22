@@ -1,18 +1,6 @@
 .AnimatedName {
-    width: 300px;
+    width: 120px;
     height: auto;
-}
-
-@media screen and (min-width: 769px) {
-    .AnimatedName {
-        width: 375px;
-    }
-}
-
-@media screen and (min-width: 851px) {
-    .AnimatedName {
-        transform: translateX(-50px);
-    }
 }
 
 .stroke {
