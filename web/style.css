@@ -213,6 +213,7 @@ button {
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 2rem; }
+.mt-huge { margin-top: 10rem; }
 
 .text-2xl { font-size: var(--font-2xl); line-height: 1.2; }
 .text-xl { font-size: var(--font-xl); line-height: 1.2; }
@@ -226,6 +227,7 @@ button {
 .inline-block { display: inline-block; }
 .justify-start { justify-content: flex-start; }
 .justify-between { justify-content: space-between; }
+.align-start { align-items: flex-start; }
 .align-center { align-items: center; }
 .align-middle { vertical-align: middle; }
 
@@ -356,10 +358,18 @@ img:not(.no-lightbox) {
     background-color: var(--callout-background);
     padding: var(--space-2xs) var(--space-sm) var(--space-xs);
     border-bottom: 0;
+    border-radius: 3px;
 }
 
 [id^="fn"] {
     font-size: var(--font-sm);
+}
+
+hr.dots {
+    align-self: flex-end;
+    margin: 0 7px 6px;
+    background-color: transparent;
+    border-bottom: 1px dotted var(--accents);
 }
 
 @media screen and (min-width: 599px) {

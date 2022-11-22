@@ -2,10 +2,6 @@
 	<time datetime="{{ entry.postDate|date("Y-m-d") }}">
 		{{ entry.postDate|date("l, j M Y g:i a") }}
 	</time>
-	|
-	<a href="/only:{{ entry.section.handle }}" class="no-decoration">
-		{{ entry.section }}
-	</a>
 {% endmacro %}
 
 {% macro featuredImage(entry) %}
