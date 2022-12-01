@@ -1,5 +1,6 @@
 {% import "_partials/walks" as walks %}
 {% import "_partials/posts" as posts %}
+{% import "_partials/entrycontent" as entrycontent %}
 
 {% extends "_layout.twig" %}
 
@@ -29,34 +30,6 @@
 
 {% block content %}
 	<main class="entry container mt-lg">
-		<small class="muted">
-			{{ posts.meta(entry) }}
-		</small>
-
-		<h1 class="mt-xs">{{ entry.title }}</h1>
-
-		{% if entry.section == "Books" %}
-			<div class="mt-xs">
-				{% include "_partials/bookmeta.twig" with {'entry': entry} only %}
-			</div>
-		{% endif %}
-
-		<p class="text-md mt-md">{{ entry.summary }}</p>
-
-		{{ posts.featuredImage(entry) }}
-
-		<div class="stack mt-md">
-			{{ entry.body|syntaxHighlight|srcset }}
-		</div>
-
-		{% if entry.section == "Walks" %}
-			{{ walks.timings(entry) }}
-		{% endif %}
-
-		<div class="mt-md">
-			{{ posts.tags(entry) }}
-		</div>
-
-		{{ posts.nextPrev(entry) }}
+		{{ entrycontent.content(entry) }}
 	</main>
 {% endblock content %}

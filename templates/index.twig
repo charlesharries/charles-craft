@@ -1,4 +1,5 @@
 {% extends "_layout.twig" %}
+{% import "_partials/entrycontent" as entrycontent %}
 
 {%- set postsToShow = 1 -%}
 {%- set isFiltered = section is defined -%}
@@ -18,8 +19,6 @@
 {% endblock %}
 
 {% block head %}
-	<link rel="stylesheet" href="/animatedname.css">
-
 	{%- set title = "Charles Harries" -%}
 	{%- set description = "I'm a software developer working on the web in the North East of England." -%}
 	{%- set image = url(url() ~ "api/post-images") -%}
@@ -44,7 +43,7 @@
 		<ul role="list" class="stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
 				<li>
-					{% include "_partials/article.twig" with {'entry': entry} only %}
+					{{ entrycontent.content(entry) }}
 				</li>
 			{% endfor %}
 		</ul>
@@ -54,7 +53,19 @@
 		{%- set remainingEntries = remainingEntries.all() -%}
 		{% if remainingEntries is not empty %}
 			<h2 class="text-xl mt-lg">Archive</h2>
-			<div class="stack mt-md" data-size="lg">
+
+			<p class="cluster mt-sm">
+				<a href="/only:posts">Posts</a>
+				<a href="/only:stream">Stream</a>
+				<a href="/only:books">Books</a>
+				<a href="/only:walks">Walks</a>
+				{% if isFiltered or isTagged %}
+					<span class="darkish">&bull;</span>
+					<a href="/">Clear filters</a>
+				{% endif %}
+			</p>
+
+			<div class="stack mt-lg" data-size="lg">
 				{% for year, months in sortByYear(remainingEntries) %}
 					{% include "_partials/year.twig" with {
 						'year': year,

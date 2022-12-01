@@ -7,7 +7,14 @@
 		{% for entry in entries %}
 			<li>
 				<a href="{{ entry.url }}" class="flex justify-between no-decoration">
-					<span class="underline">{{ entry.title }}</span>
+					<span class="underline flex align-center">
+						<span>{{ entry.title }}</span>
+						{% if entry.rating %}
+							<span class="ml-sm muted mt-xs">
+								{% include "_partials/stars" with {'count': entry.rating} only %}
+							</span>
+						{% endif %}
+					</span>
 					<hr class="dots flex-1"/>
 					<span class="underline">{{ entry.postDate|date("d/m") }}</span>
 				</a>
