@@ -213,7 +213,7 @@ button {
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 2rem; }
-.mt-huge { margin-top: 10rem; }
+.mt-huge { margin-top: 20vh; }
 
 .text-2xl { font-size: var(--font-2xl); line-height: 1.2; }
 .text-xl { font-size: var(--font-xl); line-height: 1.2; }
@@ -375,7 +375,7 @@ hr.dots {
     align-self: flex-end;
     margin: 0 7px;
     background-color: transparent;
-    border-bottom: 1px dotted var(--accents);
+    border-bottom: 1px dotted var(--callout-background);
 }
 
 @media screen and (min-width: 599px) {

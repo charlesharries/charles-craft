@@ -4,7 +4,8 @@
 }
 
 .stroke {
-    --coefficient: 1800;
+    /* Speed: higher is faster */
+    --coefficient: 3000;
     
     animation: draw calc(var(--length) * 1s / var(--coefficient)) linear;
     animation-delay: calc(1s * var(--before) / var(--coefficient));
