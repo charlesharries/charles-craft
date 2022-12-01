@@ -2,7 +2,10 @@
 {%- set theRest = entries|filter((e) => e.section != "Stream") -%}
 
 <div class="month">
-	<h4 class="caps muted regular mt-md text-right">{{ month }}</h4>
+	<h4 class="caps muted regular mt-md text-right">
+		{{ month }}
+		{{ year }}
+	</h4>
 	<ul role="list" class="mt-xs">
 		{% for entry in entries %}
 			<li>
