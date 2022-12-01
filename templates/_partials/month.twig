@@ -2,14 +2,14 @@
 {%- set theRest = entries|filter((e) => e.section != "Stream") -%}
 
 <div class="month">
-	<h4 class="caps muted regular mt-md">{{ month }}</h4>
-	<ul role="list">
+	<h4 class="caps muted regular mt-md text-right">{{ month }}</h4>
+	<ul role="list" class="mt-xs">
 		{% for entry in entries %}
 			<li>
 				<a href="{{ entry.url }}" class="flex justify-between no-decoration">
-					<span>{{ entry.title }}</span>
+					<span class="underline">{{ entry.title }}</span>
 					<hr class="dots flex-1"/>
-					<span>{{ entry.postDate|date("d/m") }}</span>
+					<span class="underline">{{ entry.postDate|date("d/m") }}</span>
 				</a>
 			</li>
 		{% endfor %}

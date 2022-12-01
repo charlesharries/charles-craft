@@ -26,21 +26,10 @@
 
 	<body class="ltr">
 		<header class="container">
-			<h1 class="text-md" id="title">
-				<a href="/">Charles Harries</a>
-			</h1>
-			<nav class="flex justify-between">
-				<ul role="list" class="cluster">
-					<li>
-						<a href="/">Home</a>
-					</li>
-					<li>
-						<a href="/about">About</a>
-					</li>
-					<li>
-						<a href="/projects">Projects</a>
-					</li>
-				</ul>
+			<nav class="flex justify-between align-start">
+				<a href="/" aria-label="Charles Harries" class="no-decoration">
+					{% include "_partials/animatedname.twig" %}
+				</a>
 
 				<button id="theme-toggle"></button>
 			</nav>
