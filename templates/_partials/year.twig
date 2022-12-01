@@ -3,6 +3,7 @@
 	<div class="stack" data-size="md">
 		{% for month, entries in months %}
 			{% include "_partials/month.twig" with {
+				'year': year,
                 'month': month,
                 'entries': entries
             } only %}

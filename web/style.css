@@ -231,7 +231,11 @@ button {
 .align-center { align-items: center; }
 .align-middle { vertical-align: middle; }
 
-.caps { text-transform: uppercase; }
+.caps {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .no-decoration {
     text-decoration: none;
     border-bottom: none;
