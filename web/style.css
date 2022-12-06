@@ -147,6 +147,11 @@ em,
     font-size: 1.05em;
 }
 
+sup {
+    display: inline-block;
+    margin-top: -0.3em;
+}
+
 img {
     width: 100%;
     height: auto;
