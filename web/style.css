@@ -186,6 +186,8 @@ figcaption {
     margin-top: 3px;
     color: var(--muted);
     font-size: var(--font-sm);
+    font-family: "Fira Sans";
+    font-style: italic;
 }
 
 pre,
