@@ -12,6 +12,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "Fira Sans";
+    src: url("/fonts/FiraSans-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
 :root {
     --primary: 97;
 
@@ -132,6 +139,14 @@ p, ul {
     margin-top: 0;
 }
 
+em,
+.italic {
+    font-style: italic;
+    font-family: "Fira Sans";
+    color: var(--muted);
+    font-size: 1.05em;
+}
+
 img {
     width: 100%;
     height: auto;
@@ -154,7 +169,8 @@ blockquote {
     padding-inline: 40px;
     padding-left: 1rem;
     padding-right: 0;
-
+    font-family: "Fira Sans";
+    font-style: italic;
 }
 
 figure {
