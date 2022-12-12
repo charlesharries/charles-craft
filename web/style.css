@@ -242,7 +242,7 @@ button {
 .text-2xl { font-size: var(--font-2xl); line-height: 1.2; }
 .text-xl { font-size: var(--font-xl); line-height: 1.2; }
 .text-lg { font-size: var(--font-lg); line-height: 1.25; }
-.text-md { font-size: var(--font-md); line-height: 1.4; }
+.text-md { font-size: var(--font-md); }
 .text-sm { font-size: var(--font-sm); }
 .text-right { text-align: right; }
 
