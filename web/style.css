@@ -145,6 +145,7 @@ em,
     font-family: "Fira Sans";
     color: var(--muted);
     font-size: 1.05em;
+    line-height: calc(1 / 1.05);
 }
 
 sup {
