@@ -45,6 +45,8 @@
     --font-xl: clamp(1.56rem, 2.99vw + 0.82rem, 2.25rem);
     --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
 
+    --shadow: 0 4px 8px rgba(0 0 0 / 60%);
+
     --space-2xs: 0.15rem;
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
@@ -60,6 +62,8 @@ html.light {
     --accents: var(--lightish);
     --text: var(--dark);
     --muted: var(--darker);
+
+    --shadow: 0 4px 8px rgba(0 0 0 / 15%);
 }
 
 *, *::before, *::after {
@@ -404,6 +408,87 @@ hr.dots {
     margin: 0 7px;
     background-color: transparent;
     border-bottom: 1px dotted var(--callout-background);
+}
+
+#search {
+    background-color: var(--background);
+    border: 1px solid var(--accents);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+    max-width: 660px;
+    padding: 0;
+    border-radius: 8px;
+    color: var(--text);
+}
+
+#search form {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+}
+
+#search form:has(~ ul:not(:empty)) {
+    border-bottom: 1px solid var(--callout-background);
+}
+
+#search input {
+    background-color: transparent;
+    border: none;
+    font-size: var(--font-md);
+    font-family: "Fira Sans", sans;
+    width: 100%;
+    padding: var(--space-md);
+    color: inherit;
+}
+
+#search input:active,
+#search input:focus {
+    outline: none;
+}
+
+#search input::placeholder {
+    color: var(--accents);
+}
+
+dialog::backdrop {
+    background-color: hsla(var(--primary), 80%, 5%, 0.8);
+}
+
+#search ul:not(:empty) {
+    list-style: none;
+    padding: var(--space-md) 0;
+    max-height: 300px;
+    overflow: auto;
+}
+
+#search ul mark {
+    background-color: var(--muted);
+}
+
+#search ul li {
+    margin-top: 0;
+    padding: var(--space-md);
+    margin-block: calc(-1 * var(--space-md));
+}
+
+#search ul li:not(:first-child) {
+    margin-block: calc(-1.5 * var(--space-md)); /* bein cheeky here */
+}
+
+#search ul li a {
+    display: block;
+    border-bottom: none;
+    padding: var(--space-sm);
+    margin: calc(-1 * var(--space-xs));
+}
+
+#search ul li[aria-selected="true"] a {
+    border-radius: 4px;
+    background-color: var(--callout-background);
 }
 
 @media screen and (min-width: 599px) {

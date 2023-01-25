@@ -27,7 +27,7 @@ class SearchResult
         $this->title = $entry->title;
         $this->postDate = $entry->postDate->format("l, j M Y g:i a");
         $this->url = $entry->url;
-        $this->summary = $entry->summary;
+        $this->summary = $entry->summary ?? "";
         $this->searchTerm = $searchTerm;
         $this->tags = $this->getTags($entry);
         $this->result = $this->highlight($entry->body);
@@ -38,18 +38,24 @@ class SearchResult
         if (!$body) return "";
 
         $found = "";
+        $match = "";
         $dom = new RetconDom($body);
-        $elements = $dom->filter('p, blockquote, ul, ol');
+        $elements = $dom->filter('p, blockquote, ul, ol, figcaption');
         foreach ($elements as $element) {
-            if (\str_contains($element->textContent, $this->searchTerm)) {
+            if (\str_contains(strtolower($element->textContent), strtolower($this->searchTerm))) {
+                $match = \substr(\stristr($element->textContent, $this->searchTerm), 0, strlen($this->searchTerm));
                 $found = $element->textContent;
                 break;
             }
         }
 
+        if ($found === "") {
+            return $this->summary;
+        }
+
         return str_replace(
-            $this->searchTerm,
-            '<mark>' . $this->searchTerm . '</mark>',
+            $match,
+            '<mark>' . $match . '</mark>',
             $found
         );
     }
@@ -70,7 +76,10 @@ class SearchController extends Controller
 
     public function actionGet($q): Response
     {
-        $entries = new Collection(Entry::find()->search('"' . $q . '"')->all());
+        $entries = new Collection(Entry::find()
+            ->section("not projects")
+            ->search('"' . $q . '"')
+            ->all());
 
         return $this->asJson($entries->map(function (Entry $entry) use ($q) {
             return new SearchResult($entry, $q);
