@@ -38,6 +38,7 @@ function Search() {
         window.addEventListener("keydown", (event) => {
             if (event.key === "k" && (event.ctrlKey || event.metaKey)) {
                 dialog.showModal();
+                searchField.focus();
             }
 
             if (["ArrowDown", "ArrowUp", "Enter"].includes(event.key)) {
