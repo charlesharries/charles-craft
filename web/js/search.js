@@ -117,7 +117,9 @@ function Search() {
             select(selected.previousElementSibling);
         }
 
-        function navigate() {
+        function navigate(event) {
+            event.preventDefault();
+            
             if (!selected) return;
             const to = selected.querySelector("a");
             if (!to) return;
@@ -127,7 +129,7 @@ function Search() {
 
         if (event.key === "ArrowDown") scrollDown();
         else if (event.key === "ArrowUp") scrollUp();
-        else if (selected && event.key === "Enter") navigate();
+        else if (selected && event.key === "Enter") navigate(event);
     }
 }
 
