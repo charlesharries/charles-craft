@@ -28,24 +28,35 @@ function Search() {
     /** @type {HTMLUListElement} */
     const results = document.createElement("ul");
 
+    /** @type {HTMLTemplateElement} */
+    const resultTemplate = document.getElementById("searchResult");
+
     initListeners();
     initResults();
 
     function initListeners() {
-        document.addEventListener("keydown", (event) => {
+        window.addEventListener("keydown", (event) => {
             if (event.key === "k" && (event.ctrlKey || event.metaKey)) {
                 dialog.showModal();
             }
-            
-            if (event.key === "Esc" && dialog.open) {
-                dialog.close();
+
+            if (["ArrowDown", "ArrowUp", "Enter"].includes(event.key)) {
+                handleResultNav(event);
             }
         });
 
+        dialog.addEventListener("close", (event) => {
+            clearResults();
+            searchForm.reset();
+        })
+
         searchField.addEventListener("input", Utils.debounce(async (event) => {
             clearResults();
-            const results = await search();
-        }, 500));
+            const searchResults = await search();
+            searchResults.forEach(result => {
+                results.appendChild(newResult(result));
+            })
+        }, 250));
     }
 
     function initResults() {
@@ -57,9 +68,11 @@ function Search() {
     }
 
     function newResult(result) {
-        const el = document.createElement("li");
-        el.textContent = result;
-        return el;
+        const li = resultTemplate.content.cloneNode(true);
+        li.querySelector(".searchResult_title").textContent = result.title;
+        li.querySelector(".searchResult_body").innerHTML = result.result;
+        li.querySelector("a").href = result.url;
+        return li;
     }
 
     async function search() {
@@ -68,9 +81,53 @@ function Search() {
             headers: { Accept: "application/json" }
         }).then(r => r.json());
 
-        console.log({ results });
-
         return results;
+    }
+
+    function selectedResult() {
+        return results.querySelector("[aria-selected='true']");
+    }
+
+    /** @param {KeyboardEvent} event */
+    function handleResultNav(event) {
+        const selected = selectedResult()
+
+        /** @param {HTMLLIElement} element */
+        function select(element) {
+            if (selected) selected.removeAttribute("aria-selected");
+            element.setAttribute("aria-selected", "true");
+            element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function scrollDown() {
+            if (!selected || selected === results.lastElementChild) {
+                select(results.firstElementChild);
+                return;
+            }
+
+            select(selected.nextElementSibling);
+        }
+
+        function scrollUp() {
+            if (!selected || selected === results.firstElementChild) {
+                select(results.lastElementChild);
+                return
+            }
+
+            select(selected.previousElementSibling);
+        }
+
+        function navigate() {
+            if (!selected) return;
+            const to = selected.querySelector("a");
+            if (!to) return;
+
+            to.click();
+        }
+
+        if (event.key === "ArrowDown") scrollDown();
+        else if (event.key === "ArrowUp") scrollUp();
+        else if (selected && event.key === "Enter") navigate();
     }
 }
 
