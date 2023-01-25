@@ -439,7 +439,8 @@ hr.dots {
     background-color: transparent;
     border: none;
     font-size: var(--font-md);
-    font-family: "Fira Sans", sans;
+    font-family: "Fira Sans";
+    font-style: italic;
     width: 100%;
     padding: var(--space-md);
     color: inherit;
@@ -466,7 +467,10 @@ dialog::backdrop {
 }
 
 #search ul mark {
-    background-color: var(--muted);
+    color: var(--muted);
+    font-family: "Fira Sans";
+    font-style: italic;
+    background-color: transparent;
 }
 
 #search ul li {
