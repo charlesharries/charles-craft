@@ -30,23 +30,34 @@ class SearchResult
         $this->summary = $entry->summary;
         $this->searchTerm = $searchTerm;
         $this->tags = $this->getTags($entry);
-        $this->highlight($entry->body);
+        $this->result = $this->highlight($entry->body);
     }
 
-    private function highlight(string $body)
+    private function highlight(?string $body)
     {
+        if (!$body) return "";
+
+        $found = "";
         $dom = new RetconDom($body);
         $elements = $dom->filter('p, blockquote, ul, ol');
         foreach ($elements as $element) {
             if (\str_contains($element->textContent, $this->searchTerm)) {
-                $this->result = $element->textContent;
-                return;
+                $found = $element->textContent;
+                break;
             }
         }
+
+        return str_replace(
+            $this->searchTerm,
+            '<mark>' . $this->searchTerm . '</mark>',
+            $found
+        );
     }
 
     private function getTags(Entry $entry)
     {
+        if (!$entry->tags) return new Collection();
+
         return (new Collection($entry->tags->all()))->map(function (Tag $tag) {
             return $tag->title;
         });
@@ -59,7 +70,7 @@ class SearchController extends Controller
 
     public function actionGet($q): Response
     {
-        $entries = new Collection(Entry::find()->search($q)->all());
+        $entries = new Collection(Entry::find()->search('"' . $q . '"')->all());
 
         return $this->asJson($entries->map(function (Entry $entry) use ($q) {
             return new SearchResult($entry, $q);
