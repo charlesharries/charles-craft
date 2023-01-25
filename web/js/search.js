@@ -37,6 +37,7 @@ function Search() {
     function initListeners() {
         window.addEventListener("keydown", (event) => {
             if (event.key === "k" && (event.ctrlKey || event.metaKey)) {
+                event.preventDefault();
                 dialog.showModal();
                 searchField.focus();
             }
