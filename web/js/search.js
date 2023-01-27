@@ -52,6 +52,8 @@ function Search() {
             searchForm.reset();
         })
 
+        searchForm.addEventListener("submit", (e) => e.preventDefault());
+
         searchField.addEventListener("input", Utils.debounce(async (event) => {
             clearResults();
             const searchResults = await search();
