@@ -6,7 +6,11 @@
 		{{ posts.meta(entry) }}
 	</small>
 
-	<h1 class="mt-xs">{{ entry.title }}</h1>
+	<h1 class="mt-xs">
+		<a href="{{ entry.url }}">
+			{{ entry.title }}
+		</a>
+	</h1>
 
 	{% if entry.section == "Books" %}
 		<div class="mt-xs">
