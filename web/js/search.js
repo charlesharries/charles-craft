@@ -31,6 +31,11 @@ function Search() {
     /** @type {HTMLTemplateElement} */
     const resultTemplate = document.getElementById("searchResult");
 
+    /** @type {HTMLTemplateElement} */
+    const blankResultTemplate = document.getElementById("blankSearchResult");
+
+    const SEARCH_DEBOUNCE = 200;
+
     initListeners();
     initResults();
 
@@ -56,11 +61,18 @@ function Search() {
 
         searchField.addEventListener("input", Utils.debounce(async (event) => {
             clearResults();
+            if (searchField.value.length < 3) return;
+            
             const searchResults = await search();
+            if (searchResults.length == 0 && searchField.value.length > 0) {
+                results.appendChild(newBlankResult("No search results."));
+                return;
+            }
+
             searchResults.forEach(result => {
                 results.appendChild(newResult(result));
             })
-        }, 250));
+        }, SEARCH_DEBOUNCE));
     }
 
     function initResults() {
@@ -75,7 +87,12 @@ function Search() {
         const li = resultTemplate.content.cloneNode(true);
         li.querySelector(".searchResult_title").textContent = result.title;
         li.querySelector(".searchResult_body").innerHTML = result.result;
-        li.querySelector("a").href = result.url;
+        return li;
+    }
+
+    function newBlankResult(label) {
+        const li = blankResultTemplate.content.cloneNode(true);
+        li.querySelector(".searchResult_body").innerHTML = label;
         return li;
     }
 

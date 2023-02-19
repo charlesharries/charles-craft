@@ -183,6 +183,10 @@ blockquote {
     font-style: italic;
 }
 
+blockquote > * + * {
+    margin-block-start: 1rem;
+}
+
 figure {
     margin-inline: 0;
 }
@@ -411,18 +415,29 @@ hr.dots {
 }
 
 #search {
+    display: block;
     background-color: var(--background);
     border: 1px solid var(--accents);
     box-shadow: var(--shadow);
     position: fixed;
     top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-inline: auto;
     width: calc(100% - 20px);
     max-width: 660px;
     padding: 0;
     border-radius: 8px;
     color: var(--text);
+    pointer-events: none;
+    scale: 0.97;
+    transform: translateY(10px);
+    transition: all 0.15s ease;
+    opacity: 0;
+}
+
+#search[open] {
+    scale: 1;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #search form {
