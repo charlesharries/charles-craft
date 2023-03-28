@@ -87,6 +87,7 @@ function Search() {
         const li = resultTemplate.content.cloneNode(true);
         li.querySelector(".searchResult_title").textContent = result.title;
         li.querySelector(".searchResult_body").innerHTML = result.result;
+        li.querySelector(".searchResult_link").setAttribute("href", result.url);
         return li;
     }
 
