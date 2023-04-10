@@ -35,6 +35,10 @@
     --text: var(--light);
     --muted: var(--lightish);
 
+    /* Testing borderless, see how I feel */
+    /* --border: max(1vw, 0.3rem); */
+    --border: 0;
+
     --font-monospace: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
     --font-serif: "Lupino Serif", Georgia, serif;
 
@@ -73,14 +77,8 @@ html.light {
 
 html {
     min-height: 100%;
-    border: 0.75rem solid var(--muted);
+    border: var(--border) solid var(--muted);
     font-size: var(--font-md);
-}
-
-@media screen and (max-width: 768px) {
-    html {
-        border-width: 0.3rem;
-    }
 }
 
 body {
