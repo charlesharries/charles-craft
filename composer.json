@@ -37,11 +37,5 @@
     ]
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../../code/craft-lexical"
-    }
-  ]
+  "prefer-stable": true
 }
