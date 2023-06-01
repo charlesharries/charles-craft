@@ -19,6 +19,20 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("/fonts/IBMPlexSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "IBM Plex Sans";
+    src: url("/fonts/IBMPlexSans-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
 :root {
     --primary: 97;
 
@@ -41,6 +55,7 @@
 
     --font-monospace: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
     --font-serif: "Lupino Serif", Georgia, serif;
+    --font-sans: "IBM Plex Sans", "Fira Sans", sans-serif;
 
     --font-xs: clamp(0.64rem, -0.34vw + 0.72rem, 0.56rem);
     --font-sm: clamp(0.8rem, -0.02vw + 0.8rem, 0.8rem);
@@ -144,10 +159,14 @@ p, ul {
 em,
 .italic {
     font-style: italic;
-    font-family: "Fira Sans";
+    font-family: var(--font-sans);
     color: var(--muted);
     font-size: 1.05em;
     line-height: calc(1 / 1.05);
+}
+
+.sans {
+    font-family: var(--font-sans);
 }
 
 sup {
@@ -177,8 +196,8 @@ blockquote {
     padding-inline: 40px;
     padding-left: 1rem;
     padding-right: 0;
-    font-family: "Fira Sans";
     font-style: italic;
+    font-family: var(--font-sans);
 }
 
 blockquote > * + * {
@@ -193,7 +212,7 @@ figcaption {
     margin-top: 3px;
     color: var(--muted);
     font-size: var(--font-sm);
-    font-family: "Fira Sans";
+    font-family: var(--font-sans);
     font-style: italic;
 }
 
@@ -452,7 +471,7 @@ hr.dots {
     background-color: transparent;
     border: none;
     font-size: var(--font-md);
-    font-family: "Fira Sans";
+    font-family: var(--font-sans);
     font-style: italic;
     width: 100%;
     padding: var(--space-md);
@@ -481,7 +500,7 @@ dialog::backdrop {
 
 #search ul mark {
     color: var(--muted);
-    font-family: "Fira Sans";
+    font-family: var(--sans);
     font-style: italic;
     background-color: transparent;
 }
