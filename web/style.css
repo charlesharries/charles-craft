@@ -101,7 +101,7 @@ body {
     background-color: var(--background);
     color: var(--text);
     line-height: 1.6;
-    font-weight: 200;
+    font-weight: 400;
     padding-block: 2rem;
 }
 
@@ -144,7 +144,7 @@ strong,
     font-weight: 600;
 }
 
-.regular { font-weight: 200; }
+.regular { font-weight: 400; }
 
 a {
     color: currentColor;
