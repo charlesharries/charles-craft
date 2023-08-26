@@ -18,7 +18,9 @@
 		</div>
 	{% endif %}
 
-	<p class="text-md mt-md bold">{{ entry.summary }}</p>
+	{% if entry.summary %}
+		<p class="text-md mt-md bold">{{ entry.summary }}</p>
+	{% endif %}
 
 	{{ posts.featuredImage(entry) }}
 
