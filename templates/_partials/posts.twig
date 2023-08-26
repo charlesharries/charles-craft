@@ -26,15 +26,13 @@
 {% endmacro %}
 
 {% macro nextPrev(entry) %}
-	{%- set nextPost = craft.entries()	
-		.section(entry.section)
+	{%- set nextPost = craft.entries()
 		.after(entry.postDate)
 		.orderBy("postDate")
 		.id(["not", entry.id])
 		.one() -%}
 
 	{%- set prevPost = craft.entries()
-		.section(entry.section)
 		.before(entry.postDate)
 		.orderBy("postDate desc")
 		.id(["not", entry.id])
