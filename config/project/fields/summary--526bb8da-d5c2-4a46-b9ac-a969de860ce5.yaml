@@ -4,7 +4,7 @@ fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: summary
 instructions: null
 name: Summary
-searchable: true
+searchable: false
 settings:
   byteLimit: null
   charLimit: 255
