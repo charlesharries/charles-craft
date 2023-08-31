@@ -6,17 +6,15 @@ instructions: null
 name: Writer
 searchable: false
 settings:
-  allowLimit: false
-  allowMultipleSources: false
   allowSelfRelations: false
-  branchLimit: 1
+  branchLimit: null
   localizeRelations: false
+  maintainHierarchy: true
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a writer'
   showSiteMenu: true
   source: 'group:8c4a8cd9-3f50-49e9-aed5-f46067c94fb9' # Writer
-  sources: '*'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
