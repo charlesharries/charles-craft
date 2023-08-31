@@ -34,7 +34,7 @@ function Search() {
     /** @type {HTMLTemplateElement} */
     const blankResultTemplate = document.getElementById("blankSearchResult");
 
-    const SEARCH_DEBOUNCE = 200;
+    const SEARCH_DEBOUNCE = 100;
 
     initListeners();
     initResults();
