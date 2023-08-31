@@ -34,7 +34,7 @@ function Search() {
     /** @type {HTMLTemplateElement} */
     const blankResultTemplate = document.getElementById("blankSearchResult");
 
-    const SEARCH_DEBOUNCE = 100;
+    const SEARCH_DEBOUNCE = 200;
 
     initListeners();
     initResults();
@@ -86,7 +86,8 @@ function Search() {
     function newResult(result) {
         const li = resultTemplate.content.cloneNode(true);
         li.querySelector(".searchResult_title").textContent = result.title;
-        li.querySelector(".searchResult_body").innerHTML = result.result;
+        li.querySelector(".searchResult_date").textContent = result.postDate;
+        // li.querySelector(".searchResult_body").innerHTML = result.result;
         li.querySelector(".searchResult_link").setAttribute("href", result.url);
         return li;
     }
