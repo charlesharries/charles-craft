@@ -424,7 +424,7 @@ hr.dots {
     align-self: flex-end;
     margin: 0 7px;
     background-color: transparent;
-    border-bottom: 1px dotted var(--callout-background);
+    border-bottom: 2px dotted var(--callout-background);
 }
 
 #search {
