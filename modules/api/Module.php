@@ -5,6 +5,7 @@ namespace modules\api;
 use Craft;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
+use modules\api\jobs\NotifyUmami;
 use yii\base\Event;
 
 class Module extends \yii\base\Module
