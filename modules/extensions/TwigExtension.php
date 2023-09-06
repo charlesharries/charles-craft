@@ -45,6 +45,10 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             return;
         }
 
+        if (Craft::$app->user) {
+            return;
+        }
+
         \craft\helpers\Queue::push(new NotifyUmami([
             "url" => Craft::$app->request->url,
         ]));
