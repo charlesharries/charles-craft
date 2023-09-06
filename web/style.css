@@ -485,7 +485,7 @@ hr.dots {
 }
 
 dialog::backdrop {
-    background-color: hsla(var(--primary), 80%, 5%, 0.8);
+    background-color: hsla(var(--primary), var(--saturation, 80%), 5%, 0.8);
 }
 
 #search ul:not(:empty) {
