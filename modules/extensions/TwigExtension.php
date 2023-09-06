@@ -5,7 +5,9 @@ namespace extensions;
 use Craft;
 use craft\elements\Asset;
 use craft\elements\Entry;
+use craft\helpers\App;
 use DateTime;
+use extensions\jobs\NotifyUmami;
 use extensions\library\ImageNode;
 use helpers\utils\SyntaxHighlighter;
 use mmikkel\retcon\library\RetconDom;
@@ -20,6 +22,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         return [
             new TwigFunction('percentThroughDay', [$this, 'percentThroughDay']),
             new TwigFunction('sortByYear', [$this, 'sortByYear']),
+            new TwigFunction('trackPageview', [$this, 'trackPageview']),
         ];
     }
 
@@ -34,6 +37,17 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         $secondstoday = $end - $start;
         $secondselapsed = $now - $start;
         return $secondselapsed / $secondstoday;
+    }
+
+    public function trackPageview()
+    {
+        if (App::env('ENVIRONMENT') === 'dev') {
+            return;
+        }
+
+        \craft\helpers\Queue::push(new NotifyUmami([
+            "url" => Craft::$app->request->url,
+        ]));
     }
 
     public function getFilters()
