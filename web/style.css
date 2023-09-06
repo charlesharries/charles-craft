@@ -53,7 +53,7 @@
     /* --border: max(1vw, 0.3rem); */
     --border: 0;
 
-    --font-monospace: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
+    --font-monospace: "MonoLisa", "Cascadia Mono", ui-monospace, "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
     --font-serif: "Lupino Serif", Georgia, serif;
     --font-sans: "IBM Plex Sans", "Fira Sans", sans-serif;
 
