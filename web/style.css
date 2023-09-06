@@ -534,4 +534,8 @@ dialog::backdrop {
         text-align: right;
         margin-top: 0;
     }
+
+    .month_items {
+        margin-left: 0.5rem;
+    }
 }
