@@ -8,8 +8,10 @@ function darkMode() {
     const LIGHT = "light";
     const STORAGE_KEY = "theme";
     const toggle = document.getElementById("theme-toggle");
+    const colorToggle = document.getElementById("color-theme-toggle");
 
     function setTheme(isDark) {
+
         if (isDark) {
             localStorage.setItem(STORAGE_KEY, DARK);
             document.documentElement.classList.remove(LIGHT);
