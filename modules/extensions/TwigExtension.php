@@ -45,7 +45,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             return;
         }
 
-        if (Craft::$app->user) {
+        if (Craft::$app->user->identity) {
             return;
         }
 
