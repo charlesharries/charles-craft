@@ -250,6 +250,7 @@ button {
     font-family: inherit;
     color: currentColor;
     font-size: inherit;
+    padding: 0;
 }
 
 .ml-sm { margin-left: 0.5rem; }
