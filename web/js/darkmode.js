@@ -11,7 +11,6 @@ function darkMode() {
     const colorToggle = document.getElementById("color-theme-toggle");
 
     function setTheme(isDark) {
-
         if (isDark) {
             localStorage.setItem(STORAGE_KEY, DARK);
             document.documentElement.classList.remove(LIGHT);
@@ -23,6 +22,16 @@ function darkMode() {
             toggle.innerHTML = "☀️";
             toggle.setAttribute("aria-label", "enable dark theme");
         }
+
+        toggleColorLabel(isDark)
+    }
+
+    function toggleColorLabel(isDark) {
+        console.log(ColorMode.getColor());
+
+        if (ColorMode.getColor() !== ColorMode.BW) return;
+
+        ColorMode.toggle.innerHTML = isDark ? "🏴" : "🏳"
     }
 
     function toggleTheme() {
@@ -46,6 +55,8 @@ function darkMode() {
     });
 
     setTheme(localStorage.getItem(STORAGE_KEY) === "dark");
+
+    return { DARK, LIGHT, STORAGE_KEY, toggle };
 }
 
-darkMode();
+const DarkMode = darkMode();

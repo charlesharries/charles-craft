@@ -1,9 +1,7 @@
 /**
- * Dark mode, freely cribbed from Jordan Scales.
- * 
- * @link https://notes.jordanscales.com/40ecf234
+ * Color mode, freely cribbed from my dark mode.
  */
-function darkMode() {
+function colorMode() {
     const COLOR = "color";
     const BW = "bw";
     const STORAGE_KEY = "color_theme";
@@ -15,13 +13,13 @@ function darkMode() {
         const isColor = theme == COLOR
 
         if (isColor) {
-            toggle.innerHTML = "🏴";
             document.documentElement.style.removeProperty("--saturation")
+            toggle.innerHTML = "🌈";
             toggle.setAttribute("aria-label", "enable black/white theme");
         } else {
             localStorage.setItem(STORAGE_KEY, BW);
+            toggle.innerHTML = "🏴";
             document.documentElement.style.setProperty("--saturation", "0%")
-            toggle.innerHTML = "🌈";
             toggle.setAttribute("aria-label", "enable color theme");
         }
     }
@@ -34,6 +32,10 @@ function darkMode() {
         }
     }
 
+    function getColor() {
+        return localStorage.getItem(STORAGE_KEY);
+    }
+
     if (!localStorage.getItem(STORAGE_KEY)) {
         localStorage.setItem(STORAGE_KEY, COLOR);
     }
@@ -44,6 +46,8 @@ function darkMode() {
     });
 
     setTheme(localStorage.getItem(STORAGE_KEY));
+
+    return { COLOR, BW, STORAGE_KEY, toggle, getColor }
 }
 
-darkMode();
+const ColorMode = colorMode();
