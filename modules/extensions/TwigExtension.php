@@ -54,7 +54,24 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             "ip" => Craft::$app->request->userIP,
             "userAgent" => Craft::$app->request->userAgent,
             "referrer" => Craft::$app->request->referrer,
+            "host" => Craft::$app->request->hostName,
+            "screen" => $this->getViewport(),
         ]));
+    }
+
+    protected function getViewport()
+    {
+        $mobileDetect = new \Detection\MobileDetect();
+
+        if ($mobileDetect->isTablet()) {
+            return "768x1024";
+        }
+
+        if ($mobileDetect->isMobile()) {
+            return "375×812";
+        }
+
+        return "1920x1280";
     }
 
     public function getFilters()

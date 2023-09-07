@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2a77c2c54653fb46743b8dfd2cbf121",
+    "content-hash": "ea024fcca3ebf1c93a4e9bce6e819dbe",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2955,6 +2955,67 @@
             "time": "2023-08-05T12:09:49+00:00"
         },
         {
+            "name": "leowebguy/device-detect",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leowebguy/devicedetect.git",
+                "reference": "c23ed68d5b15cc935fa9806895c4fb21c5a15451"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leowebguy/devicedetect/zipball/c23ed68d5b15cc935fa9806895c4fb21c5a15451",
+                "reference": "c23ed68d5b15cc935fa9806895c4fb21c5a15451",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0",
+                "mobiledetect/mobiledetectlib": "^2.8",
+                "php": "^8.0.2"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "craftcms/rector": "dev-main"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Device Detect",
+                "handle": "device-detect",
+                "class": "leowebguy\\devicedetect\\Detect"
+            },
+            "autoload": {
+                "psr-4": {
+                    "leowebguy\\devicedetect\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Leo",
+                    "homepage": "https://github.com/leowebguy"
+                }
+            ],
+            "description": "Craft plugin for detecting devices, OS, bots and more",
+            "keywords": [
+                "Devices",
+                "android",
+                "browsers",
+                "detect",
+                "iphone",
+                "mobile",
+                "tablets"
+            ],
+            "support": {
+                "issues": "https://github.com/leowebguy/devicedetect/issues",
+                "source": "https://github.com/leowebguy/devicedetect/tree/2.0.1"
+            },
+            "time": "2023-03-24T04:24:48+00:00"
+        },
+        {
             "name": "masterminds/html5",
             "version": "2.8.1",
             "source": {
@@ -3131,6 +3192,62 @@
                 "source": "https://github.com/mmikkel/Retcon-Craft/tree/2.7.3"
             },
             "time": "2023-08-01T14:25:35+00:00"
+        },
+        {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.8.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "fc9cccd4d3706d5a7537b562b59cc18f9e4c0cb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/fc9cccd4d3706d5a7537b562b59cc18f9e4c0cb1",
+                "reference": "fc9cccd4d3706d5a7537b562b59cc18f9e4c0cb1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8.35||~5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Detection": "namespaced/"
+                },
+                "classmap": [
+                    "Mobile_Detect.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://mobiledetect.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "support": {
+                "issues": "https://github.com/serbanghita/Mobile-Detect/issues",
+                "source": "https://github.com/serbanghita/Mobile-Detect/tree/2.8.41"
+            },
+            "time": "2022-11-08T18:31:26+00:00"
         },
         {
             "name": "moneyphp/money",

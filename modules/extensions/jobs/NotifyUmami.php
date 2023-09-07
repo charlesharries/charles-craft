@@ -11,6 +11,8 @@ class NotifyUmami extends \craft\queue\BaseJob
     public $ip;
     public $userAgent;
     public $referrer;
+    public $host;
+    public $screen;
 
     protected ?\GuzzleHttp\Client $client = null;
 
@@ -49,10 +51,12 @@ class NotifyUmami extends \craft\queue\BaseJob
             "http_errors" => false,
             "json" => [
                 "payload" => [
+                    "hostname" => $this->host,
                     "url" => $this->url,
                     "website" => App::env("UMAMI_SITE_ID"),
                     "name" => "pageview",
                     "referrer" => $this->referrer,
+                    "screen" => $this->screen,
                 ],
                 "type" => "pageview"
             ],

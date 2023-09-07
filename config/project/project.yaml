@@ -1,4 +1,4 @@
-dateModified: 1694000950
+dateModified: 1694127869
 elementSources:
   craft\elements\Entry:
     -
@@ -144,6 +144,10 @@ plugins:
     enabled: true
     schemaVersion: '2.0'
   cloudinary:
+    edition: standard
+    enabled: false
+    schemaVersion: 1.0.0
+  device-detect:
     edition: standard
     enabled: false
     schemaVersion: 1.0.0
