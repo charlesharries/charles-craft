@@ -11,16 +11,13 @@
 	{% set exclusions = [] %}
 
 	{# Sections that we shouldn't iterate over #}
-	{% set section_exclusions = ['projects'] %}
-
-	{# Get all sections (singles, channels, and structures) #}
-	{% set sections = craft.app.sections.allSections|filter(s => s.handle not in section_exclusions) %}
+	{% set sections = ["stream", "posts", "books", "walks"] %}
 
 	{# Loop through each section #}
 	{% for section in sections %}
 
 		{# Get all entries of this section type, but only if they're published and have a URL #}
-		{% set entries = craft.entries.sectionId(section.id).status("live").uri("not ''").all() %}
+		{% set entries = craft.entries.section(section).status("live").uri("not ''").all() %}
 
 		{# Merge these entries into the main list #}
 		{% set entry_list = entry_list|merge(entries) %}
