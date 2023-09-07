@@ -21,7 +21,7 @@ class NotifyUmami extends \craft\queue\BaseJob
 
     protected function defaultDescription(): string
     {
-        return Craft::t("app", "Notify Umami of a pageview");
+        return Craft::t("app", "umami.pageview");
     }
 
     private function getClient()
