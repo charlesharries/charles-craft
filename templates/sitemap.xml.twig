@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://charlesharri.es</loc>
+	</url>
+
+	{# Create an empty array for all published entries #}
+	{% set entry_list = [] %}
+
+	{# Create a URI exclusion list for entries you don't want in the sitemap #}
+	{% set exclusions = [] %}
+
+	{# Sections that we shouldn't iterate over #}
+	{% set section_exclusions = ['projects'] %}
+
+	{# Get all sections (singles, channels, and structures) #}
+	{% set sections = craft.app.sections.allSections|filter(s => s.handle not in section_exclusions) %}
+
+	{# Loop through each section #}
+	{% for section in sections %}
+
+		{# Get all entries of this section type, but only if they're published and have a URL #}
+		{% set entries = craft.entries.sectionId(section.id).status("live").uri("not ''").all() %}
+
+		{# Merge these entries into the main list #}
+		{% set entry_list = entry_list|merge(entries) %}
+
+	{% endfor %}
+
+	{% for entry in entry_list|filter(e => e.uri not in exclusions) %}
+		<url>
+			<loc>{{ entry.url }}</loc>
+			<lastmod>{{ entry.dateUpdated|date("c") }}</lastmod>
+		</url>
+	{% endfor %}
+
+</urlset>
