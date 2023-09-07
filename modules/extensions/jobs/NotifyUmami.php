@@ -46,6 +46,7 @@ class NotifyUmami extends \craft\queue\BaseJob
                 "User-Agent" => $this->userAgent,
                 "x-client-ip" => $this->ip,
             ],
+            "http_errors" => false,
             "json" => [
                 "payload" => [
                     "url" => $this->url,
