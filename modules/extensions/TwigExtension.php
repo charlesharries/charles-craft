@@ -51,6 +51,9 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
 
         \craft\helpers\Queue::push(new NotifyUmami([
             "url" => Craft::$app->request->url,
+            "ip" => Craft::$app->request->userIP,
+            "userAgent" => Craft::$app->request->userAgent,
+            "referrer" => Craft::$app->request->referrer,
         ]));
     }
 

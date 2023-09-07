@@ -8,6 +8,9 @@ use craft\helpers\App;
 class NotifyUmami extends \craft\queue\BaseJob
 {
     public $url;
+    public $ip;
+    public $userAgent;
+    public $referrer;
 
     protected ?\GuzzleHttp\Client $client = null;
 
@@ -40,15 +43,15 @@ class NotifyUmami extends \craft\queue\BaseJob
             "headers" => [
                 "Authorization" => "Bearer $this->accessToken",
                 "Content-Type" => "application/json",
-                "User-Agent" => Craft::$app->request->userAgent,
-                "x-client-ip" => Craft::$app->request->userIP,
+                "User-Agent" => $this->userAgent,
+                "x-client-ip" => $this->ip,
             ],
             "json" => [
                 "payload" => [
                     "url" => $this->url,
                     "website" => App::env("UMAMI_SITE_ID"),
                     "name" => "pageview",
-                    "referrer" => Craft::$app->request->referrer,
+                    "referrer" => $this->referrer,
                 ],
                 "type" => "pageview"
             ],
