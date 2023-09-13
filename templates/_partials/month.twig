@@ -22,7 +22,7 @@
 					<span class="underline">{{ entry.postDate|date("j") }}</span>
 				</a>
 				{% if entry.section.handle == 'posts' %}
-					<p class="text-sm ml-sm mt-xs">{{ entry.summary }}</p>
+					<p class="text-sm ml-sm mt-xs muted">{{ entry.summary }}</p>
 				{% endif %}
 			</li>
 		{% endfor %}
