@@ -27,8 +27,6 @@ function darkMode() {
     }
 
     function toggleColorLabel(isDark) {
-        console.log(ColorMode.getColor());
-
         if (ColorMode.getColor() !== ColorMode.BW) return;
 
         ColorMode.toggle.innerHTML = isDark ? "🏴" : "🏳"

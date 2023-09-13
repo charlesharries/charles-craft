@@ -8,8 +8,7 @@ function Lightbox() {
 
     function openLightbox(event) {
         clearLightbox();
-        console.log('opening lightbox');
-
+        
         const img = document.createElement('img');
         img.src = event.target.src;
         img.alt = event.target.alt;
