@@ -40,6 +40,12 @@ function darkMode() {
         }
     }
 
+    function getTheme() {
+        return localStorage.getItem(STORAGE_KEY) === DARK
+            ? DARK
+            : LIGHT;
+    }
+
     if (!localStorage.getItem(STORAGE_KEY)) {
         const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
             ? DARK
@@ -54,7 +60,7 @@ function darkMode() {
 
     setTheme(localStorage.getItem(STORAGE_KEY) === "dark");
 
-    return { DARK, LIGHT, STORAGE_KEY, toggle };
+    return { DARK, LIGHT, STORAGE_KEY, toggle, getTheme };
 }
 
 const DarkMode = darkMode();
