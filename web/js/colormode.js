@@ -24,7 +24,9 @@ function colorMode() {
         } else {
             document.documentElement.style.setProperty("--saturation", "0%")
             document.documentElement.classList.add("bw")
-            toggle.innerHTML = "🏴";
+            toggle.innerHTML = DarkMode.getTheme() === DarkMode.DARK
+                ? "🏴"
+                : "🏳";
             toggle.setAttribute("aria-label", "enable color theme");
         }
     }
