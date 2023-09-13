@@ -52,6 +52,10 @@ function colorMode() {
         toggleTheme();
     });
 
+    EventBus.on("darkmode.toggle", (event) => {
+        toggle.innerHTML = event.isDark ? "🏴" : "🏳"
+    });
+
     setTheme(localStorage.getItem(STORAGE_KEY));
 
     return { COLOR, BW, STORAGE_KEY, toggle, getColor }
