@@ -23,7 +23,7 @@ function darkMode() {
             toggle.setAttribute("aria-label", "enable dark theme");
         }
 
-        toggleColorLabel(isDark)
+        EventBus.emit("darkmode.toggle", { isDark })
     }
 
     function toggleColorLabel(isDark) {
