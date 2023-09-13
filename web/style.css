@@ -152,8 +152,11 @@ p, ul {
     margin-top: 0;
 }
 
-em,
 .italic {
+    font-style: italic;
+}
+
+em {
     font-style: italic;
     font-family: var(--font-sans);
     color: var(--muted);
