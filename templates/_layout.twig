@@ -23,7 +23,11 @@
 
 		<style>
 			::backdrop {
-				--primary: {{ percentThroughDay() * 360 }}
+				--primary: {{ percentThroughDay() * 360 }};
+			}
+
+			.bw ::backdrop {
+				--saturation: 0%;
 			}
 		</style>
 
@@ -104,11 +108,11 @@
 			</template>
 		</dialog>
 
+		<script src="/js/colormode.js?v={|{VERSION}|}" type="text/javascript"></script>
 		<script src="/js/darkmode.js?v={|{VERSION}|}" type="text/javascript"></script>
 		<script src="/js/latesttrack.js" type="text/javascript"></script>
 		<script src="/js/lightbox.js" type="text/javascript"></script>
 		<script src="/js/search.js?v={|{VERSION}|}" type="text/javascript"></script>
-		<script src="/js/colormode.js?v={|{VERSION}|}" type="text/javascript"></script>
 
 		{{ trackPageview() }}
 	</body>

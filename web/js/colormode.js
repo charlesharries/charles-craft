@@ -8,18 +8,23 @@ function colorMode() {
     const toggle = document.getElementById("color-theme-toggle");
 
     function setTheme(theme) {
-        console.log("setting theme", theme);
         localStorage.setItem(STORAGE_KEY, theme);
         const isColor = theme == COLOR
 
+        document.documentElement.classList.remove("color", "bw");
+
         if (isColor) {
             document.documentElement.style.removeProperty("--saturation")
+            document.documentElement.classList.add("color")
+            document.querySelectorAll("dialog::backdrop").forEach((d) => {
+                d.style.removeProperty("--saturation");
+            })
             toggle.innerHTML = "🌈";
             toggle.setAttribute("aria-label", "enable black/white theme");
         } else {
-            localStorage.setItem(STORAGE_KEY, BW);
-            toggle.innerHTML = "🏴";
             document.documentElement.style.setProperty("--saturation", "0%")
+            document.documentElement.classList.add("bw")
+            toggle.innerHTML = "🏴";
             toggle.setAttribute("aria-label", "enable color theme");
         }
     }
