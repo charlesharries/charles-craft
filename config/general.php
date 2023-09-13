@@ -33,7 +33,7 @@ return [
     // I can always make Settings changes, regardless of environment
     'allowAdminChanges' => true,
 
-    // Crawlers shouldn't be crawling this site.
+    // Allow crawlers
     'disallowRobots' => false,
 
     // Don't transform gifs, causes timeouts
