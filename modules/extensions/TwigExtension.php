@@ -116,7 +116,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         }
 
         $dom = new RetconDom($string);
-        $elements = $dom->filter('img');
+        $elements = $dom->filter('img:not([src$=".gif"])');
 
         foreach ($elements as $element) {
             $image = new ImageNode($element);
