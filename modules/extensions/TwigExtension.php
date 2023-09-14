@@ -68,7 +68,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         }
 
         if ($mobileDetect->isMobile()) {
-            return "375×812";
+            return "375x812";
         }
 
         return "1920x1280";
