@@ -426,9 +426,13 @@ img:not(.no-lightbox) {
 }
 
 .gallery {
+    --offset: calc((100vw - var(--container)) / -8);
+
     display: flex;
     gap: var(--space-md);
     align-items: center;
+    margin-inline: min(0px, var(--offset));
+    width: max(100%, calc(100% + (-2 * var(--offset))));
 }
 
 [id^="fn"] {
