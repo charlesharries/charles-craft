@@ -20,8 +20,8 @@
 
 	{{ posts.featuredImage(entry) }}
 
-	<div class="stack mt-md">
-		{{ entry.body|syntaxHighlight|srcset }}
+	<div class="content stack mt-md">
+		{{ entry.body|syntaxHighlight|srcset|groupFigures }}
 	</div>
 
 	{% if entry.section == "Walks" %}
