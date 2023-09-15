@@ -431,6 +431,10 @@ img:not(.no-lightbox) {
     display: flex;
     gap: var(--space-md);
     align-items: center;
+}
+
+/* Extend the margins for galleries with multiple images */
+.gallery:has(figure:nth-child(2)) {
     margin-inline: min(0px, var(--offset));
     width: max(100%, calc(100% + (-2 * var(--offset))));
 }
