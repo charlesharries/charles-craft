@@ -79,6 +79,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         return [
             new TwigFilter('syntaxHighlight', [$this, 'syntaxHighlight']),
             new TwigFilter('srcset', [$this, 'srcset']),
+            new TwigFilter('groupFigures', [$this, 'groupFigures']),
         ];
     }
 
@@ -127,6 +128,34 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             }
 
             $image->processNode($asset);
+        }
+
+        return $dom->getHtml();
+    }
+
+    public function groupFigures($string)
+    {
+        if (empty($string)) {
+            return $string;
+        }
+
+        $dom = new RetconDom($string);
+        $elements = $dom->filter("retcon > * ");
+        $parent = $dom->filter("retcon")[0];
+        $wrapperNode = null;
+        foreach ($elements as $node) {
+            if ($node->nodeName !== "figure") {
+                $wrapperNode = null;
+                continue;
+            }
+
+            if (!$wrapperNode) {
+                $wrapperNode = $dom->getDoc()->createElement("div");
+                $wrapperNode->setAttribute("class", "gallery");
+                $parent->insertBefore($wrapperNode, $node);
+            }
+
+            $wrapperNode->appendChild($node);
         }
 
         return $dom->getHtml();

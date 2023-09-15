@@ -425,6 +425,12 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
+.gallery {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
 [id^="fn"] {
     font-size: var(--font-sm);
 }
