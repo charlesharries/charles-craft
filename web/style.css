@@ -184,7 +184,8 @@ img {
     display: block;
 }
 
-ul[role="list"] {
+ul[role="list"],
+ol[role="list"] {
     list-style: none;
     padding-left: 0;
 }
