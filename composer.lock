@@ -62,16 +62,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.280.1",
+            "version": "3.281.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2b2bb8cc5be21e252fb5803d229f1d7fbbec0222"
+                "reference": "9d466efae67d5016ed132fd4ffa1566a7d4cab98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2b2bb8cc5be21e252fb5803d229f1d7fbbec0222",
-                "reference": "2b2bb8cc5be21e252fb5803d229f1d7fbbec0222",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9d466efae67d5016ed132fd4ffa1566a7d4cab98",
+                "reference": "9d466efae67d5016ed132fd4ffa1566a7d4cab98",
                 "shasum": ""
             },
             "require": {
@@ -151,9 +151,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.280.1"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.281.11"
             },
-            "time": "2023-08-31T18:56:31+00:00"
+            "time": "2023-09-20T19:16:24+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -434,16 +434,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.5.8",
+            "version": "2.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "4c516146167d1392c8b9b269bb7c24115d262164"
+                "reference": "ff477832e6d838a736556d4a39a3b80f4412abfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/4c516146167d1392c8b9b269bb7c24115d262164",
-                "reference": "4c516146167d1392c8b9b269bb7c24115d262164",
+                "url": "https://api.github.com/repos/composer/composer/zipball/ff477832e6d838a736556d4a39a3b80f4412abfd",
+                "reference": "ff477832e6d838a736556d4a39a3b80f4412abfd",
                 "shasum": ""
             },
             "require": {
@@ -451,23 +451,23 @@
                 "composer/class-map-generator": "^1.0",
                 "composer/metadata-minifier": "^1.0",
                 "composer/pcre": "^2.1 || ^3.1",
-                "composer/semver": "^3.0",
+                "composer/semver": "^3.2.5",
                 "composer/spdx-licenses": "^1.5.7",
                 "composer/xdebug-handler": "^2.0.2 || ^3.0.3",
                 "justinrainbow/json-schema": "^5.2.11",
                 "php": "^7.2.5 || ^8.0",
                 "psr/log": "^1.0 || ^2.0 || ^3.0",
-                "react/promise": "^2.8",
+                "react/promise": "^2.8 || ^3",
                 "seld/jsonlint": "^1.4",
                 "seld/phar-utils": "^1.2",
                 "seld/signal-handler": "^2.0",
-                "symfony/console": "^5.4.11 || ^6.0.11",
-                "symfony/filesystem": "^5.4 || ^6.0",
-                "symfony/finder": "^5.4 || ^6.0",
+                "symfony/console": "^5.4.11 || ^6.0.11 || ^7",
+                "symfony/filesystem": "^5.4 || ^6.0 || ^7",
+                "symfony/finder": "^5.4 || ^6.0 || ^7",
                 "symfony/polyfill-php73": "^1.24",
                 "symfony/polyfill-php80": "^1.24",
                 "symfony/polyfill-php81": "^1.24",
-                "symfony/process": "^5.4 || ^6.0"
+                "symfony/process": "^5.4 || ^6.0 || ^7"
             },
             "require-dev": {
                 "phpstan/phpstan": "^1.9.3",
@@ -475,7 +475,7 @@
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1",
                 "phpstan/phpstan-symfony": "^1.2.10",
-                "symfony/phpunit-bridge": "^6.0"
+                "symfony/phpunit-bridge": "^6.0 || ^7"
             },
             "suggest": {
                 "ext-openssl": "Enabling the openssl extension allows you to access https URLs for repositories and packages",
@@ -488,7 +488,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "2.5-dev"
+                    "dev-main": "2.6-dev"
                 },
                 "phpstan": {
                     "includes": [
@@ -498,7 +498,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Composer\\": "src/Composer"
+                    "Composer\\": "src/Composer/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -527,7 +527,8 @@
             "support": {
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.5.8"
+                "security": "https://github.com/composer/composer/security/policy",
+                "source": "https://github.com/composer/composer/tree/2.6.3"
             },
             "funding": [
                 {
@@ -543,7 +544,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-09T15:13:21+00:00"
+            "time": "2023-09-15T07:38:22+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -978,16 +979,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.5.3",
+            "version": "4.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "43ee7a72b0aeeb08ddd14f3efd492752c128a489"
+                "reference": "906e011df5c248174770050ee598f620005f6623"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/43ee7a72b0aeeb08ddd14f3efd492752c128a489",
-                "reference": "43ee7a72b0aeeb08ddd14f3efd492752c128a489",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/906e011df5c248174770050ee598f620005f6623",
+                "reference": "906e011df5c248174770050ee598f620005f6623",
                 "shasum": ""
             },
             "require": {
@@ -1090,7 +1091,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2023-08-29T18:59:05+00:00"
+            "time": "2023-09-15T04:55:07+00:00"
         },
         {
             "name": "craftcms/element-api",
@@ -1210,23 +1211,23 @@
         },
         {
             "name": "craftcms/html-field",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/html-field.git",
-                "reference": "7ecccab102b4e86abb5526411e96594f430f2bb5"
+                "reference": "4797c9cb0397e6d69d25d9716a75f7b47c69fd3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/html-field/zipball/7ecccab102b4e86abb5526411e96594f430f2bb5",
-                "reference": "7ecccab102b4e86abb5526411e96594f430f2bb5",
+                "url": "https://api.github.com/repos/craftcms/html-field/zipball/4797c9cb0397e6d69d25d9716a75f7b47c69fd3a",
+                "reference": "4797c9cb0397e6d69d25d9716a75f7b47c69fd3a",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^4.0.0-alpha.1",
                 "php": "^8.0.2"
             },
             "require-dev": {
+                "craftcms/cms": "4.0.0-RC1",
                 "craftcms/ecs": "dev-main",
                 "craftcms/phpstan": "dev-main",
                 "craftcms/rector": "dev-main"
@@ -1255,7 +1256,7 @@
                 "rss": "https://github.com/craftcms/html-field/commits/main.atom",
                 "source": "https://github.com/craftcms/html-field"
             },
-            "time": "2023-04-21T16:52:18+00:00"
+            "time": "2023-09-17T11:24:51+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -1374,16 +1375,16 @@
         },
         {
             "name": "craftcms/server-check",
-            "version": "2.1.5",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/server-check.git",
-                "reference": "a099ba05adf6424298aa5177ca17084e616a5690"
+                "reference": "97c09a55cee207cb0a79243606354d9783d693d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/server-check/zipball/a099ba05adf6424298aa5177ca17084e616a5690",
-                "reference": "a099ba05adf6424298aa5177ca17084e616a5690",
+                "url": "https://api.github.com/repos/craftcms/server-check/zipball/97c09a55cee207cb0a79243606354d9783d693d8",
+                "reference": "97c09a55cee207cb0a79243606354d9783d693d8",
                 "shasum": ""
             },
             "type": "library",
@@ -1412,7 +1413,7 @@
                 "rss": "https://github.com/craftcms/server-check/releases.atom",
                 "source": "https://github.com/craftcms/server-check"
             },
-            "time": "2023-05-26T20:43:59+00:00"
+            "time": "2023-09-20T01:56:57+00:00"
         },
         {
             "name": "creocoder/yii2-nested-sets",
@@ -2544,16 +2545,16 @@
         },
         {
             "name": "knplabs/knp-snappy",
-            "version": "v1.4.2",
+            "version": "v1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/snappy.git",
-                "reference": "b66f79334421c26d9c244427963fa2d92980b5d3"
+                "reference": "3db13fe45d12a7bccb2b83f622e5a90f7e40b111"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/b66f79334421c26d9c244427963fa2d92980b5d3",
-                "reference": "b66f79334421c26d9c244427963fa2d92980b5d3",
+                "url": "https://api.github.com/repos/KnpLabs/snappy/zipball/3db13fe45d12a7bccb2b83f622e5a90f7e40b111",
+                "reference": "3db13fe45d12a7bccb2b83f622e5a90f7e40b111",
                 "shasum": ""
             },
             "require": {
@@ -2564,8 +2565,8 @@
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16||^3.0",
                 "pedrotroller/php-cs-custom-fixer": "^2.19",
-                "phpstan/phpstan": "^0.12.7",
-                "phpstan/phpstan-phpunit": "^0.12.6",
+                "phpstan/phpstan": "^1.0.0",
+                "phpstan/phpstan-phpunit": "^1.0.0",
                 "phpunit/phpunit": "~7.4||~8.5"
             },
             "suggest": {
@@ -2612,22 +2613,22 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/snappy/issues",
-                "source": "https://github.com/KnpLabs/snappy/tree/v1.4.2"
+                "source": "https://github.com/KnpLabs/snappy/tree/v1.4.4"
             },
-            "time": "2023-03-17T14:47:54+00:00"
+            "time": "2023-09-13T12:18:19+00:00"
         },
         {
             "name": "league/flysystem",
-            "version": "3.15.1",
+            "version": "3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "a141d430414fcb8bf797a18716b09f759a385bed"
+                "reference": "4fdf372ca6b63c6e281b1c01a624349ccb757729"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a141d430414fcb8bf797a18716b09f759a385bed",
-                "reference": "a141d430414fcb8bf797a18716b09f759a385bed",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4fdf372ca6b63c6e281b1c01a624349ccb757729",
+                "reference": "4fdf372ca6b63c6e281b1c01a624349ccb757729",
                 "shasum": ""
             },
             "require": {
@@ -2636,6 +2637,8 @@
                 "php": "^8.0.2"
             },
             "conflict": {
+                "async-aws/core": "<1.19.0",
+                "async-aws/s3": "<1.14.0",
                 "aws/aws-sdk-php": "3.209.31 || 3.210.0",
                 "guzzlehttp/guzzle": "<7.0",
                 "guzzlehttp/ringphp": "<1.1.1",
@@ -2655,7 +2658,7 @@
                 "microsoft/azure-storage-blob": "^1.1",
                 "phpseclib/phpseclib": "^3.0.14",
                 "phpstan/phpstan": "^0.12.26",
-                "phpunit/phpunit": "^9.5.11",
+                "phpunit/phpunit": "^9.5.11|^10.0",
                 "sabre/dav": "^4.3.1"
             },
             "type": "library",
@@ -2690,7 +2693,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.15.1"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.16.0"
             },
             "funding": [
                 {
@@ -2702,20 +2705,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-04T09:04:26+00:00"
+            "time": "2023-09-07T19:22:17+00:00"
         },
         {
             "name": "league/flysystem-aws-s3-v3",
-            "version": "3.15.0",
+            "version": "3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
-                "reference": "d8de61ee10b6a607e7996cff388c5a3a663e8c8a"
+                "reference": "ded9ba346bb01cb9cc4cc7f2743c2c0e14d18e1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/d8de61ee10b6a607e7996cff388c5a3a663e8c8a",
-                "reference": "d8de61ee10b6a607e7996cff388c5a3a663e8c8a",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/ded9ba346bb01cb9cc4cc7f2743c2c0e14d18e1c",
+                "reference": "ded9ba346bb01cb9cc4cc7f2743c2c0e14d18e1c",
                 "shasum": ""
             },
             "require": {
@@ -2756,7 +2759,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem-aws-s3-v3/issues",
-                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.15.0"
+                "source": "https://github.com/thephpleague/flysystem-aws-s3-v3/tree/3.16.0"
             },
             "funding": [
                 {
@@ -2768,20 +2771,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-02T20:02:14+00:00"
+            "time": "2023-08-30T10:14:57+00:00"
         },
         {
             "name": "league/flysystem-local",
-            "version": "3.15.0",
+            "version": "3.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-local.git",
-                "reference": "543f64c397fefdf9cfeac443ffb6beff602796b3"
+                "reference": "ec7383f25642e6fd4bb0c9554fc2311245391781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/543f64c397fefdf9cfeac443ffb6beff602796b3",
-                "reference": "543f64c397fefdf9cfeac443ffb6beff602796b3",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/ec7383f25642e6fd4bb0c9554fc2311245391781",
+                "reference": "ec7383f25642e6fd4bb0c9554fc2311245391781",
                 "shasum": ""
             },
             "require": {
@@ -2816,7 +2819,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem-local/issues",
-                "source": "https://github.com/thephpleague/flysystem-local/tree/3.15.0"
+                "source": "https://github.com/thephpleague/flysystem-local/tree/3.16.0"
             },
             "funding": [
                 {
@@ -2828,7 +2831,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-05-02T20:02:14+00:00"
+            "time": "2023-08-30T10:23:59+00:00"
         },
         {
             "name": "league/fractal",
@@ -3801,16 +3804,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.23.1",
+            "version": "1.24.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "846ae76eef31c6d7790fac9bc399ecee45160b26"
+                "reference": "9f854d275c2dbf84915a5c0ec9a2d17d2cd86b01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/846ae76eef31c6d7790fac9bc399ecee45160b26",
-                "reference": "846ae76eef31c6d7790fac9bc399ecee45160b26",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/9f854d275c2dbf84915a5c0ec9a2d17d2cd86b01",
+                "reference": "9f854d275c2dbf84915a5c0ec9a2d17d2cd86b01",
                 "shasum": ""
             },
             "require": {
@@ -3842,9 +3845,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.23.1"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.24.1"
             },
-            "time": "2023-08-03T16:32:59+00:00"
+            "time": "2023-09-18T12:18:02+00:00"
         },
         {
             "name": "pixelandtonic/imagine",
@@ -4317,23 +4320,24 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.10.0",
+            "version": "v3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38"
+                "reference": "c86753c76fd3be465d93b308f18d189f01a22be4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38",
-                "reference": "f913fb8cceba1e6644b7b90c4bfb678ed8a3ef38",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/c86753c76fd3be465d93b308f18d189f01a22be4",
+                "reference": "c86753c76fd3be465d93b308f18d189f01a22be4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=7.1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.5 || ^5.7 || ^4.8.36"
+                "phpstan/phpstan": "1.10.20 || 1.4.10",
+                "phpunit/phpunit": "^9.5 || ^7.5"
             },
             "type": "library",
             "autoload": {
@@ -4377,7 +4381,7 @@
             ],
             "support": {
                 "issues": "https://github.com/reactphp/promise/issues",
-                "source": "https://github.com/reactphp/promise/tree/v2.10.0"
+                "source": "https://github.com/reactphp/promise/tree/v3.0.0"
             },
             "funding": [
                 {
@@ -4385,7 +4389,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2023-05-02T15:15:43+00:00"
+            "time": "2023-07-11T16:12:49+00:00"
         },
         {
             "name": "samdark/yii2-psr-log-target",
@@ -4696,16 +4700,16 @@
         },
         {
             "name": "seld/signal-handler",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/signal-handler.git",
-                "reference": "f69d119511dc0360440cdbdaa71829c149b7be75"
+                "reference": "04a6112e883ad76c0ada8e4a9f7520bbfdb6bb98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/signal-handler/zipball/f69d119511dc0360440cdbdaa71829c149b7be75",
-                "reference": "f69d119511dc0360440cdbdaa71829c149b7be75",
+                "url": "https://api.github.com/repos/Seldaek/signal-handler/zipball/04a6112e883ad76c0ada8e4a9f7520bbfdb6bb98",
+                "reference": "04a6112e883ad76c0ada8e4a9f7520bbfdb6bb98",
                 "shasum": ""
             },
             "require": {
@@ -4751,9 +4755,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/signal-handler/issues",
-                "source": "https://github.com/Seldaek/signal-handler/tree/2.0.1"
+                "source": "https://github.com/Seldaek/signal-handler/tree/2.0.2"
             },
-            "time": "2022-07-20T18:31:45+00:00"
+            "time": "2023-09-03T09:24:00+00:00"
         },
         {
             "name": "symfony/console",
@@ -8367,16 +8371,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.11.20",
+            "version": "v0.11.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "0fa27040553d1d280a67a4393194df5228afea5b"
+                "reference": "bcb22101107f3bf770523b65630c9d547f60c540"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0fa27040553d1d280a67a4393194df5228afea5b",
-                "reference": "0fa27040553d1d280a67a4393194df5228afea5b",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/bcb22101107f3bf770523b65630c9d547f60c540",
+                "reference": "bcb22101107f3bf770523b65630c9d547f60c540",
                 "shasum": ""
             },
             "require": {
@@ -8406,6 +8410,10 @@
             "extra": {
                 "branch-alias": {
                     "dev-main": "0.11.x-dev"
+                },
+                "bamarni-bin": {
+                    "bin-links": false,
+                    "forward-command": false
                 }
             },
             "autoload": {
@@ -8437,9 +8445,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.11.20"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.11.21"
             },
-            "time": "2023-07-31T14:32:22+00:00"
+            "time": "2023-09-17T21:15:54+00:00"
         },
         {
             "name": "yiisoft/yii2-shell",
@@ -8514,5 +8522,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }
