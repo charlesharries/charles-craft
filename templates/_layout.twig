@@ -43,6 +43,9 @@
 				</a>
 
 				<ul role="list" class="cluster">
+					{% if currentUser %}
+						<li><a href="/admin/entries" class="sans">Control Panel</a></li>
+					{% endif %}
 					<li>
 						<a href="/about">About</a>
 					</li>

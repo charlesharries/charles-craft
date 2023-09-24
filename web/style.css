@@ -170,6 +170,7 @@ em {
 }
 
 .sans {
+    font-style: italic;
     font-family: var(--font-sans);
 }
 
