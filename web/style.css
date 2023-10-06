@@ -432,7 +432,7 @@ img:not(.no-lightbox) {
 
     display: flex;
     gap: var(--space-md);
-    align-items: center;
+    align-items: flex-start;
 }
 
 /* Extend the margins for galleries with multiple images */
