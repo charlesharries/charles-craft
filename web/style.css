@@ -441,6 +441,10 @@ img:not(.no-lightbox) {
     width: max(100%, calc(100% + (-2 * var(--offset))));
 }
 
+.gallery img {
+    border-radius: 3px;
+}
+
 [id^="fn"] {
     font-size: var(--font-sm);
 }
