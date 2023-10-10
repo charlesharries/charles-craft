@@ -120,6 +120,8 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         $elements = $dom->filter('img:not([src$=".gif"])');
 
         foreach ($elements as $element) {
+            $element->setAttribute("loading", "lazy");
+
             $image = new ImageNode($element);
             $asset = $image->getAsset();
 
