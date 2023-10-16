@@ -161,7 +161,7 @@ p, ul {
     font-style: italic;
 }
 
-em {
+em, i {
     font-style: italic;
     font-family: var(--font-sans);
     color: var(--muted);
