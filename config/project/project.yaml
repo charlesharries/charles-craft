@@ -1,4 +1,4 @@
-dateModified: 1695158642
+dateModified: 1697458891
 elementSources:
   craft\elements\Entry:
     -
@@ -87,6 +87,7 @@ meta:
     4c827962-66cf-4542-b561-aa8650e5f2de: Default # Default
     4ff40bad-6fd2-4bdc-9feb-65a47931998d: Length # Length
     5d2c5af2-9050-4e35-b1ef-96e1b26a23d9: 900w # 900w
+    5ecf9283-524b-4a3f-a7a1-d27adb6f28e9: Extended # Extended
     6c3aa333-495e-4f08-af06-2176eb4d7a3a: Walks # Walks
     6dcb6011-4fe4-4cab-8aa4-2307909c8d66: 'Charles Harries' # Charles Harries
     7aa43e66-c763-45ad-b85a-f7c1dd31799c: Default # Default
@@ -123,6 +124,7 @@ meta:
     a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: Default # Default
     ad520050-ff35-4676-9b37-b1fbe96575b0: Strava # Strava
     ae766d71-5a92-43ba-9546-3a8225552940: 'Created At' # Created At
+    b73342c0-9657-40f5-b802-e3ad79e55eaa: Simple # Simple
     baa13c65-0a57-43bf-8c5b-5dc010d1cd1c: Songs # Songs
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
@@ -140,6 +142,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: '2.0'
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   cloudinary:
     edition: standard
     enabled: false
