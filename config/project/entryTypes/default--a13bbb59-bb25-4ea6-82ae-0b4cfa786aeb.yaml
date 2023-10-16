@@ -66,6 +66,9 @@ handle: default
 hasTitleField: true
 name: Default
 section: 63230075-57c8-4786-aaa2-f1c58f46dbf5 # Sam Posts
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

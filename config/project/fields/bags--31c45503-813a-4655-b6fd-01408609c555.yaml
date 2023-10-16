@@ -7,12 +7,13 @@ name: Bags
 searchable: false
 settings:
   allowSelfRelations: false
+  branchLimit: null
   localizeRelations: false
+  maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a bag'
   showSiteMenu: false
-  source: null
   sources:
     - 'section:50d39a93-8605-4001-81f0-d9852cf865e5' # Bags
   targetSiteId: null

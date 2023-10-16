@@ -73,6 +73,9 @@ handle: default
 hasTitleField: false
 name: Default
 section: 50d39a93-8605-4001-81f0-d9852cf865e5 # Bags
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: '{mountains[0].title} - {designations[0].title} #{number}'
 titleTranslationKeyFormat: null

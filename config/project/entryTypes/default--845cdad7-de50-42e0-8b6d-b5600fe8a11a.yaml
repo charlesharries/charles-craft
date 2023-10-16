@@ -114,6 +114,9 @@ handle: default
 hasTitleField: true
 name: Default
 section: 6c3aa333-495e-4f08-af06-2176eb4d7a3a # Walks
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
