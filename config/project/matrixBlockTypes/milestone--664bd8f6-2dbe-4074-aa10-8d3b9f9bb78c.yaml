@@ -173,6 +173,7 @@ fields:
               - 'Song ID'
       maxRows: null
       minRows: 1
+      staticRows: false
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Table
@@ -212,9 +213,11 @@ fields:
       allowedKinds:
         - image
         - video
+      branchLimit: null
       defaultUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
       defaultUploadLocationSubpath: null
       localizeRelations: false
+      maintainHierarchy: false
       maxRelations: 1
       minRelations: null
       previewMode: full
@@ -227,7 +230,6 @@ fields:
       showSiteMenu: false
       showUnpermittedFiles: false
       showUnpermittedVolumes: false
-      source: null
       sources: '*'
       targetSiteId: null
       validateRelatedElements: false

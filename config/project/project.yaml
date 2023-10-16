@@ -1,4 +1,4 @@
-dateModified: 1694127869
+dateModified: 1695158642
 elementSources:
   craft\elements\Entry:
     -
@@ -120,14 +120,12 @@ meta:
     876291c4-dc5a-4b83-ada0-560a467fdc59: Default # Default
     63230075-57c8-4786-aaa2-f1c58f46dbf5: 'Sam Posts' # Sam Posts
     72753318-2e64-40d2-bbb0-f64f138ab9f7: Common # Common
-    a6bc0ba6-f818-4766-8477-b5bbb2cedfc5: Number # Number
     a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: Default # Default
     ad520050-ff35-4676-9b37-b1fbe96575b0: Strava # Strava
     ae766d71-5a92-43ba-9546-3a8225552940: 'Created At' # Created At
     baa13c65-0a57-43bf-8c5b-5dc010d1cd1c: Songs # Songs
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
-    c81a3f77-a578-4c95-89b9-c944f705bb9d: Designation # Designation
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
     d84dc500-3212-4518-89ad-70a547974d1b: Projects # Projects
     e2a68e7e-3943-41fe-b93e-45fc4ddac1e7: 'External URL' # External URL
@@ -136,7 +134,6 @@ meta:
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
     f2f7b225-26f3-426a-8678-c089918dacf9: Year # Year
     f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316: Image # Image
-    f80a59cb-81cf-4e9c-9048-061317fa43ff: Mountain # Mountain
     faf9797f-b632-4e47-8a8b-e676d6cd03f2: 'About the walk' # About the walk
 plugins:
   aws-s3:
@@ -149,7 +146,7 @@ plugins:
     schemaVersion: 1.0.0
   device-detect:
     edition: standard
-    enabled: false
+    enabled: true
     schemaVersion: 1.0.0
   element-api:
     edition: standard

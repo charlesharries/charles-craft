@@ -90,6 +90,9 @@ handle: default
 hasTitleField: true
 name: Default
 section: 071255ac-4fb5-404c-b125-46fa49417bc2 # Posts
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

@@ -133,6 +133,9 @@ handle: default
 hasTitleField: true
 name: Default
 section: 01ea27f8-8ac3-4d82-9d54-ed3faca4000b # Books
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

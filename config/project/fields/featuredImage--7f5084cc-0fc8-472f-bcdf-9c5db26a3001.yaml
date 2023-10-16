@@ -10,9 +10,11 @@ settings:
   allowSubfolders: false
   allowUploads: true
   allowedKinds: null
+  branchLimit: null
   defaultUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
   defaultUploadLocationSubpath: null
   localizeRelations: false
+  maintainHierarchy: false
   maxRelations: 2
   minRelations: null
   previewMode: full
@@ -25,7 +27,6 @@ settings:
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  source: null
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false

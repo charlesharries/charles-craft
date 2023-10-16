@@ -6,16 +6,15 @@ instructions: null
 name: Mountains
 searchable: false
 settings:
-  allowLimit: false
-  allowMultipleSources: false
   allowSelfRelations: false
+  branchLimit: null
   localizeRelations: false
+  maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a mountain'
   showSiteMenu: false
   source: 'taggroup:59ce730c-2dc9-446d-bd6c-828a58fedaa9' # Mountains
-  sources: '*'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: null
