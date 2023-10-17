@@ -317,7 +317,7 @@ button {
 }
 
 .stack {
-    --stack-spacing: 1rem;
+    --stack-spacing: 1em;
 
     display: flex;
     flex-direction: column;
