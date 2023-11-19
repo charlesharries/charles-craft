@@ -1,0 +1,9 @@
+{%- set section = ["stream", "posts", "books", "walks"] -%}
+{%- set entries = craft.entries.section(section).offset(1) -%}
+
+{% for year, months in sortByYear(entries) %}
+	{% include "_partials/year.twig" with {
+        'year': year,
+        'months': months
+    } only %}
+{% endfor %}

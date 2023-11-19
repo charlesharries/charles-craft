@@ -2,11 +2,13 @@
 {% import "_partials/entrycontent" as entrycontent %}
 
 {%- set postsToShow = 1 -%}
+{%- set archivedPostsToShow = 19 %}
 {%- set isFiltered = section is defined -%}
 {%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
+{%- set lastMonth = date("1 month ago")|date -%}
 {%- set section = isFiltered ? section : ["stream", "posts", "books", "walks"] -%}
 {%- set entries = craft.entries.section(section).limit(postsToShow) %}
-{%- set remainingEntries = craft.entries.section(section).offset(postsToShow) -%}
+{%- set remainingEntries = craft.entries.section(section).offset(postsToShow).limit(archivedPostsToShow) -%}
 
 {% if isTagged %}
 	{%- set tags = craft.tags.slug(craft.app.request.getQueryParam('tags')|split(",")) -%}
@@ -48,6 +50,8 @@
 			{% endfor %}
 		</ul>
 
+		{{ lastMonth }}
+
 		<hr class="mt-lg"/>
 
 		{%- set remainingEntries = remainingEntries.all() -%}
@@ -65,13 +69,22 @@
 				{% endif %}
 			</p>
 
-			<div class="stack mt-lg" data-size="lg">
+			<div id="archive" class="stack mt-lg" data-size="lg">
 				{% for year, months in sortByYear(remainingEntries) %}
 					{% include "_partials/year.twig" with {
 						'year': year,
 						'months': months
 					} only %}
 				{% endfor %}
+			</div>
+
+			<div class="mt-lg text-right" id="loadall">
+				<p>
+					<small class="muted sans">Currently showing latest
+						{{archivedPostsToShow+1}}
+						posts</small>
+				</p>
+				<button type="button" class="button mt-sm" id="loadall_btn">Load all posts</button>
 			</div>
 		{% endif %}
 	</main>
