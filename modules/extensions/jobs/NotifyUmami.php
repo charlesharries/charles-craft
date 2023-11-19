@@ -19,7 +19,7 @@ class NotifyUmami extends \craft\queue\BaseJob
     protected string $accessToken;
 
     private $authEndpoint = "/api/auth/login";
-    private $endpoint = "/api/collect";
+    private $endpoint = "/api/send";
 
     protected function defaultDescription(): string
     {
@@ -39,11 +39,10 @@ class NotifyUmami extends \craft\queue\BaseJob
 
     public function execute($queue): void
     {
-        $this->accessToken = $this->getAccessToken();
+        // $this->accessToken = $this->getAccessToken();
 
         $this->getClient()->request("POST", $this->endpoint, [
             "headers" => [
-                "Authorization" => "Bearer $this->accessToken",
                 "Content-Type" => "application/json",
                 "User-Agent" => $this->userAgent,
                 "x-client-ip" => $this->ip,
@@ -54,18 +53,17 @@ class NotifyUmami extends \craft\queue\BaseJob
                     "hostname" => $this->host,
                     "url" => $this->url,
                     "website" => App::env("UMAMI_SITE_ID"),
-                    "name" => "pageview",
                     "referrer" => $this->referrer,
                     "screen" => $this->screen,
                 ],
-                "type" => "pageview"
+                "type" => "event"
             ],
         ]);
     }
 
     private function getAccessToken()
     {
-        $res = $this->getClient()->get($this->authEndpoint, [
+        $res = $this->getClient()->post($this->authEndpoint, [
             "form_params" => [
                 "username" => App::env("UMAMI_USERNAME"),
                 "password" => App::env("UMAMI_PASSWORD"),
