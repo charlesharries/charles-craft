@@ -344,6 +344,19 @@ button {
 .cluster[data-size="sm"] { --cluster-spacing: var(--space-sm); }
 .cluster[data-size="2xs"] { --cluster-spacing: var(--space-2xs); }
 
+.button {
+    background-color: transparent;
+    border: 1px solid var(--muted);
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--callout-background);
+}
+
 .muted { color: var(--muted); }
 .darkish { color: var(--accents); }
 
