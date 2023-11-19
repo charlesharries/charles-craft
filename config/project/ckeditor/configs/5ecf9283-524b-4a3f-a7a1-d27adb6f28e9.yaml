@@ -12,6 +12,7 @@ toolbar:
   - '|'
   - bold
   - italic
+  - code
   - superscript
   - blockQuote
   - insertImage
