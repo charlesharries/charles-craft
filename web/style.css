@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: "Fira Sans";
-    src: url("/fonts/FiraSans-Italic.woff2") format("woff2");
+    src: url("/fonts/FiraSans-LightItalic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
