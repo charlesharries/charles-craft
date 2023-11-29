@@ -43,20 +43,20 @@
 	<div class="grid mt-lg" data-columns="2">
 		<div>
 			{% if nextPost %}
-				<p class="text-sm muted monospace">Next</p>
+				<p class="text-sm muted sans">Next</p>
 				<p>
 					<a href="{{ nextPost.url }}" class="font-bold">{{ nextPost.title }}</a>
 				</p>
-				<p class="text-sm text-muted">{{ nextPost.summary }}</p>
+				<p class="text-sm sans">{{ nextPost.summary }}</p>
 			{% endif %}
 		</div>
 		<div class="md:text-right">
 			{% if prevPost %}
-				<p class="text-sm muted monospace">Previous</p>
+				<p class="text-sm muted sans">Previous</p>
 				<p>
 					<a href="{{ prevPost.url }}" class="font-bold">{{ prevPost.title }}</a>
 				</p>
-				<p class="text-sm text-muted">{{ prevPost.summary }}</p>
+				<p class="text-sm sans">{{ prevPost.summary }}</p>
 			{% endif %}
 		</div>
 	</div>

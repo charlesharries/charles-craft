@@ -14,9 +14,17 @@
     font-display: swap;
 }
 
+/* @font-face {
+    font-family: "Fira Sans";
+    src: url("/fonts/FiraSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+} */
+
 @font-face {
     font-family: "Fira Sans";
-    src: url("/fonts/FiraSans-LightItalic.woff2") format("woff2");
+    src: url("/fonts/FiraSans-Italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -157,10 +165,6 @@ p, ul {
     margin-top: 0;
 }
 
-.italic {
-    font-style: italic;
-}
-
 em, i {
     font-style: italic;
     font-family: var(--font-sans);
@@ -173,6 +177,9 @@ em, i {
     font-style: italic;
     font-family: var(--font-sans);
 }
+
+.italic { font-style: italic; }
+.normal { font-style: normal; }
 
 sup {
     display: inline-block;
@@ -345,10 +352,12 @@ button {
 .cluster[data-size="2xs"] { --cluster-spacing: var(--space-2xs); }
 
 .button {
+    font-family: var(--font-sans);
+    font-style: italic;
     background-color: transparent;
     border: 1px solid var(--muted);
     border-radius: 4px;
-    padding: 4px 10px;
+    padding: 8px 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -434,8 +443,10 @@ img:not(.no-lightbox) {
 
 .tag {
     font-size: var(--font-sm);
+    font-family: var(--font-sans);
+    font-style: italic;
     background-color: var(--callout-background);
-    padding: var(--space-2xs) var(--space-sm) var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
     border-bottom: 0;
     border-radius: 3px;
 }
