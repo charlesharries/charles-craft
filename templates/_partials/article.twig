@@ -2,9 +2,9 @@
 {% import "_partials/posts" as posts %}
 
 <article class="{{ entry.section }}">
-	<small class="muted monospace">
+	<p class="muted sans">
 		{{ posts.meta(entry) }}
-	</small>
+	</p>
 	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs" id="{{ entry.slug }}">
 		<a href="{{ entry.url }}">
 			{{ entry.title }}
