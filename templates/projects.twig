@@ -26,9 +26,9 @@
 				<li>
 					<article>
 						<hr/>
-						<div class="rounded mt-sm">
+						{# <div class="rounded mt-sm">
 							<img src="{{ project.featuredImage.one().getUrl('sm') }}" alt="{{ project.featuredImage.one().title }}"/>
-						</div>
+						</div> #}
 						<p class="mt-sm text-sm muted">
 							{{ project.createdAt ? project.createdAt : project.postDate|date("M 'y")}}
 						</p>
