@@ -3,6 +3,8 @@
 		<style>
 			{% include "api/lupino-serif.twig" %}
 
+			{% set featuredImage = entry.featuredImage.one() %}
+
 			* {
 				margin: 0;
 				-moz-box-sizing: border-box;
@@ -18,9 +20,16 @@
 				width: 1200px;
 				height: 630px;
 				position: relative;
-				background-color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
-				color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
-				border: 26px solid hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				{% if featuredImage %}
+					background-image: url({{featuredImage.url}});
+					background-fit: cover;
+					background-position: center center;
+					color: white;
+				{% else %}
+					background-color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
+					color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
+					border: 26px solid hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				{% endif %}
 				display: -webkit-box;
 				display: -webkit-flex;
 				display: -moz-box;
@@ -45,8 +54,30 @@
 				font-size: 64px;
 			}
 
+			.text {
+				position: relative;
+				z-index: 10;
+			}
+
+			{% if featuredImage %}
+				.container::after {
+					position: absolute;
+					content: '';
+					height: 50%;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0,0.6)));
+					z-index: 1;
+				}
+			{% endif %}
+
 			.meta {
-				color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				{% if featuredImage %}
+					color: white;
+				{% else %}
+					color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				{% endif %}
 				font-size: 44px;
 			}
 
@@ -61,7 +92,7 @@
 
 	<body>
 		<div class="container">
-			<h4 class="heading">Charles Harries</h4>
+			<h4 class="heading"></h4>
 			<div class="text">
 				<p class="meta">
 					<time datetime="{{ entry.postDate|date("Y-m-d") }}">
