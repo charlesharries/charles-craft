@@ -537,7 +537,10 @@ hr.dots {
 }
 
 dialog::backdrop {
-    background-color: hsla(var(--primary), var(--saturation, 80%), 5%, 0.8);
+    --lightness: 5%;
+    background-color: hsla(var(--primary), var(--saturation, 80%), var(--lightness), 0.8);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 #search ul:not(:empty) {
@@ -567,7 +570,7 @@ dialog::backdrop {
 #search ul li a {
     display: block;
     border-bottom: none;
-    padding: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm) var(--space-sm);
     margin: calc(-1 * var(--space-xs));
 }
 
