@@ -1,4 +1,5 @@
-{%- set section = ["stream", "posts", "books", "walks"] -%}
+{%- set isFiltered = section is not null -%}
+{%- set section = isFiltered ? section : ["stream", "posts", "books", "walks"] -%}
 {%- set entries = craft.entries.section(section).offset(1) -%}
 
 {% for year, months in sortByYear(entries) %}
