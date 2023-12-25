@@ -4,7 +4,14 @@ function loadAll() {
     const $container = document.getElementById("archive");
 
     async function load() {
-        const data = await fetch("/actions/api/posts").then(r => r.text());
+        let endpoint = "/actions/api/posts";
+        const url = new URL(window.location);
+        if (url.pathname.includes("only:")) {
+            endpoint += `?section=${url.pathname.split("only:")[1]}`;
+        }
+        
+
+        const data = await fetch(endpoint).then(r => r.text());
         $container.innerHTML = data;
 
         $trigger.removeEventListener("click", load);

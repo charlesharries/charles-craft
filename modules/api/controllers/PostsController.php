@@ -12,6 +12,8 @@ class PostsController extends Controller
 
     public function actionIndex()
     {
-        return $this->renderTemplate("api/all-posts.twig");
+        $section = Craft::$app->request->queryParams['section'] ?? null;
+
+        return $this->renderTemplate("api/all-posts.twig", compact('section'));
     }
 }
