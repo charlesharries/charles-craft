@@ -139,7 +139,7 @@ h2 {
     font-size: var(--font-lg);
 }
 
-h1, h2, h3 { line-height: 1.15; }
+h1, h2, h3 { line-height: 1.15; letter-spacing: -0.03em; }
 h5, h6 { font-size: var(--font-md); }
 
 h1, h2, h3, h4, h5, h6 {
