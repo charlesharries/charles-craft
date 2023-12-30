@@ -20,7 +20,7 @@
 
 	{# {{ posts.featuredImage(entry) }} #}
 
-	<div class="content stack prose mt-md" data-size="lg">
+	<div class="content stack mt-md" data-size="lg">
 		{{ entry.body|syntaxHighlight|srcset|groupFigures }}
 	</div>
 
@@ -28,7 +28,7 @@
 		{{ walks.timings(entry) }}
 	{% endif %}
 
-	<div class="mt-md">
+	<div class="mt-lg">
 		{{ posts.tags(entry) }}
 	</div>
 
