@@ -272,6 +272,7 @@ button {
 
 .ml-sm { margin-left: 0.5rem; }
 .ml-md { margin-left: 1rem; }
+.mr-xs { margin-right: 0.25rem; }
 .mt-xs { margin-top: 0.25rem !important; }
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
