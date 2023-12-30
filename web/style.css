@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
     font-family: "Lupino Serif";
     src: url("/fonts/Lupino_v0.2_Serif-Light.woff2") format("woff2");
     font-weight: 400;
@@ -10,6 +10,30 @@
     font-family: "Lupino Serif";
     src: url("/fonts/Lupino_v0.2_Serif-Semibold.woff2") format("woff2");
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: 'Bitter';
+    src: url('/fonts/Bitter-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter';
+    src: url('/fonts/Bitter-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bitter';
+    src: url('/fonts/Bitter-Bold.woff2') format('woff2');
+    font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
@@ -67,12 +91,12 @@
     --border: 0;
 
     --font-monospace: "MonoLisa", "Cascadia Mono", ui-monospace, "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
-    --font-serif: "Lupino Serif", Georgia, serif;
+    --font-serif: "Bitter", Georgia, serif;
     --font-sans: "Fira Sans", sans-serif;
 
     --font-xs: clamp(0.64rem, -0.34vw + 0.72rem, 0.56rem);
     --font-sm: clamp(0.8rem, -0.02vw + 0.8rem, 0.8rem);
-    --font-md: clamp(1rem, 0.54vw + 0.86rem, 1.13rem);
+    --font-md: clamp(0.95rem, 0.54vw + 0.86rem, 1.08rem);
     --font-lg: clamp(1.25rem, 1.48vw + 0.88rem, 1.59rem);
     --font-xl: clamp(1.56rem, 2.99vw + 0.82rem, 2.25rem);
     --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
@@ -139,7 +163,13 @@ h2 {
     font-size: var(--font-lg);
 }
 
-h1, h2, h3 { line-height: 1.15; letter-spacing: -0.03em; }
+h1, h2, h3 {
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    font-family: var(--font-sans);
+    font-style: italic;
+}
+
 h5, h6 { font-size: var(--font-md); }
 
 h1, h2, h3, h4, h5, h6 {
@@ -161,14 +191,19 @@ a {
     border-bottom: 1px solid var(--accents);
 }
 
+a:focus-visible {
+    background-color: var(--callout-background);
+    outline: 2px solid var(--text);
+}
+
 p, ul {
     margin-top: 0;
 }
 
 em, i {
     font-style: italic;
-    font-family: var(--font-sans);
-    color: var(--muted);
+    /* font-family: var(--font-sans); */
+    /* color: var(--muted); */
     font-size: 1.05em;
     line-height: calc(1 / 1.05);
 }
