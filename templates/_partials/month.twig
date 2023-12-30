@@ -1,6 +1,8 @@
 {%- set streamItems = entries|filter((e) => e.section == 'Stream') -%}
 {%- set theRest = entries|filter((e) => e.section != "Stream") -%}
 
+{%- set icons = {'walks': '👟', 'books': '📚'} -%}
+
 <div class="month">
 	<h4 class="sans muted mt-md regular">
 		{{ month }}
@@ -11,7 +13,12 @@
 			<li>
 				<a href="{{ entry.url }}" class="flex justify-between no-decoration">
 					<span class="underline flex align-center">
-						<span>{{ entry.title }}</span>
+						<span>
+							{% if icons[entry.section.handle] is defined %}
+								<span class="mr-xs">{{ icons[entry.section.handle] }}</span>
+							{% endif %}
+							{{ entry.title }}
+						</span>
 						{% if entry.rating %}
 							<span class="ml-sm muted mt-xs">
 								{% include "_partials/stars" with {'count': entry.rating} only %}
