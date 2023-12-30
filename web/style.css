@@ -507,6 +507,11 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
+.gallery:not(:first-child),
+.gallery + * {
+    margin-top: var(--space-lg);
+}
+
 [id^="fn"] {
     font-size: var(--font-sm);
 }
