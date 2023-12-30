@@ -337,6 +337,8 @@ button {
 .stack[data-size="md"] { --stack-spacing: var(--space-md); }
 .stack[data-size="lg"] { --stack-spacing: 2.5rem; }
 
+.prose p + p { margin-top: 0; text-indent: var(--space-xl); }
+
 .cluster {
     --cluster-spacing: 1rem;
     display: flex;
