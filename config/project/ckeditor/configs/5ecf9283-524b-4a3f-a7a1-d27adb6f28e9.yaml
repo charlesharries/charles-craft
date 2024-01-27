@@ -7,6 +7,15 @@ headingLevels:
   - 6
 listPlugin: DocumentList
 name: Extended
+options:
+  htmlSupport:
+    allow:
+      -
+        attributes: true
+        key: p
+      -
+        attributes: true
+        key: li
 toolbar:
   - heading
   - '|'
