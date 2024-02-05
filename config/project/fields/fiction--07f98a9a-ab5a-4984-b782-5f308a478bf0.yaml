@@ -1,0 +1,14 @@
+columnSuffix: nvpnlhme
+contentColumnType: boolean
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: fiction
+instructions: null
+name: 'Fiction?'
+searchable: false
+settings:
+  default: true
+  offLabel: Nonfiction
+  onLabel: Fiction
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch
