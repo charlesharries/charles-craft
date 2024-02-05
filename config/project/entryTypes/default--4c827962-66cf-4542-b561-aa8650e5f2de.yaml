@@ -29,7 +29,7 @@ fieldLayouts:
             uid: 6942b6db-1e4b-4258-8a53-45ad3f540366
             userCondition: null
             warning: null
-            width: 75
+            width: 100
           -
             elementCondition: null
             fieldUid: eb252ecb-0d63-4fff-aca5-fd61b5e729d2 # Writer
@@ -41,7 +41,19 @@ fieldLayouts:
             uid: 38d16b1e-3a85-460f-9de1-503cf89f6ef1
             userCondition: null
             warning: null
-            width: 25
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 07f98a9a-ab5a-4984-b782-5f308a478bf0 # Fiction?
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 836b1725-a991-44b7-9d9b-1334bc6d65a4
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image

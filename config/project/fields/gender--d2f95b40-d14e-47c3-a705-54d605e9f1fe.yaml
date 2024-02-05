@@ -1,0 +1,46 @@
+columnSuffix: rzvlgzzn
+contentColumnType: string(6)
+fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
+handle: gender
+instructions: null
+name: Gender
+searchable: false
+settings:
+  columnType: null
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Male
+        -
+          - value
+          - male
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Female
+        -
+          - value
+          - female
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Other
+        -
+          - value
+          - other
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

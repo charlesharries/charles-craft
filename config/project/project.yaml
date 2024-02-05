@@ -1,4 +1,4 @@
-dateModified: 1706398763
+dateModified: 1706399043
 elementSources:
   craft\elements\Entry:
     -
@@ -91,6 +91,7 @@ meta:
     6c3aa333-495e-4f08-af06-2176eb4d7a3a: Walks # Walks
     6dcb6011-4fe4-4cab-8aa4-2307909c8d66: 'Charles Harries' # Charles Harries
     7aa43e66-c763-45ad-b85a-f7c1dd31799c: Default # Default
+    07f98a9a-ab5a-4984-b782-5f308a478bf0: 'Fiction?' # Fiction?
     7f5084cc-0fc8-472f-bcdf-9c5db26a3001: 'Featured image' # Featured image
     8c4a8cd9-3f50-49e9-aed5-f46067c94fb9: Writer # Writer
     8de275a1-a732-4e8f-8125-268dac0f3a37: 'Public Schema' # Public Schema
@@ -129,6 +130,7 @@ meta:
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
+    d2f95b40-d14e-47c3-a705-54d605e9f1fe: Gender # Gender
     d84dc500-3212-4518-89ad-70a547974d1b: Projects # Projects
     e2a68e7e-3943-41fe-b93e-45fc4ddac1e7: 'External URL' # External URL
     e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
