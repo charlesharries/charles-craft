@@ -90,7 +90,7 @@
     /* --border: max(1vw, 0.3rem); */
     --border: 0;
 
-    --font-monospace: "MonoLisa", "Cascadia Mono", ui-monospace, "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
+    --font-monospace: "JetBrains Mono", ui-monospace, "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
     --font-serif: "Bitter", Georgia, serif;
     --font-sans: "Fira Sans", sans-serif;
 

@@ -10,11 +10,12 @@ class SyntaxHighlighter
     {
         $dom = new RetconDom($body);
         $doc = $dom->getDoc();
-        $nodes = $dom->filter("pre");
+        $nodes = $dom->filter("pre[class], code[class]");
         $hl = new \Highlight\Highlighter();
 
         foreach ($nodes as $node) {
             $language = str_replace("lang-", "", $node->getAttribute('class'));
+            $language = str_replace("language-", "", $language);
             $highlighted = $hl->highlight($language ?: "html", $node->nodeValue);
             $fragment = $doc->createDocumentFragment();
             $fragment->appendXML($highlighted->value);
