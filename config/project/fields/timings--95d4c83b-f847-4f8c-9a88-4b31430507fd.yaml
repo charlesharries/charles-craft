@@ -1,0 +1,56 @@
+columnSuffix: null
+handle: timings
+instructions: null
+name: 'Meta - About the walk - Timings'
+searchable: false
+settings:
+  addRowLabel: 'Add a milestone'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Location
+            -
+              - handle
+              - location
+            -
+              - width
+              - 75%
+            -
+              - type
+              - singleline
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Reached At'
+            -
+              - handle
+              - reached_at
+            -
+              - width
+              - 25%
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+  maxRows: null
+  minRows: 2
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

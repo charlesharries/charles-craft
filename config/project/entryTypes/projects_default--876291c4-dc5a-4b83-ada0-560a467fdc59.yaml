@@ -105,10 +105,9 @@ fieldLayouts:
         name: Content
         uid: 61fd5845-0207-47f8-9515-c6d69513e7d7
         userCondition: null
-handle: default
+handle: projects_default
 hasTitleField: true
-name: Default
-section: d84dc500-3212-4518-89ad-70a547974d1b # Projects
+name: 'Projects - Default'
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

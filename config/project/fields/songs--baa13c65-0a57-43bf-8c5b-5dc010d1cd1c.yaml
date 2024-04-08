@@ -1,0 +1,56 @@
+columnSuffix: null
+handle: songs
+instructions: null
+name: 'Flexible Content - Milestone - Songs'
+searchable: false
+settings:
+  addRowLabel: 'Add a song'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Label
+            -
+              - handle
+              - label
+            -
+              - width
+              - '60'
+            -
+              - type
+              - singleline
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - ID
+            -
+              - handle
+              - id
+            -
+              - width
+              - '40'
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - 'Song title'
+        -
+          - col3
+          - 'Song ID'
+  maxRows: null
+  minRows: 1
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

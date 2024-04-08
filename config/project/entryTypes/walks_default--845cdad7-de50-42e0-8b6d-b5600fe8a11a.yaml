@@ -1,5 +1,5 @@
 fieldLayouts:
-  d03205f5-9d96-4497-a345-c22567b54a60:
+  ebe2f2fd-8ea5-4c20-96ea-11774d6a5ea1:
     tabs:
       -
         elementCondition: null
@@ -26,106 +26,75 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 6942b6db-1e4b-4258-8a53-45ad3f540366
+            uid: 14d07d47-2a66-4de5-be7a-fb046c956f3c
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: eb252ecb-0d63-4fff-aca5-fd61b5e729d2 # Writer
+            fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 38d16b1e-3a85-460f-9de1-503cf89f6ef1
+            uid: 176b1230-dfca-450c-8885-e0333863a706
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9a56c3ed-c9b0-4a12-a02e-8ab2559b748e # Mountains
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f6b61dc3-e109-4a63-9397-8035c97ebf30
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 31c45503-813a-4655-b6fd-01408609c555 # Bags
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 611588c7-cddf-46c8-af88-40004ab6e1e0
             userCondition: null
             warning: null
             width: 50
           -
             elementCondition: null
-            fieldUid: 07f98a9a-ab5a-4984-b782-5f308a478bf0 # Fiction?
+            fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 836b1725-a991-44b7-9d9b-1334bc6d65a4
+            uid: 719cdd53-f36f-4f4c-ac7b-c5f5ab56b02e
             userCondition: null
             warning: null
             width: 50
           -
             elementCondition: null
-            fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
+            fieldUid: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 62a98f3a-15ec-47cd-b145-49377384f243
+            uid: fd295e97-232d-4e02-8978-9652b19f2a8f
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
             elementCondition: null
-            fieldUid: 69d1b4e6-4981-4ef6-ac2d-34691c18c906 # Date read
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: addb321c-d6bf-4e83-ac38-3207a110bce5
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: f99ec2b8-55a0-4df1-afe1-632017c0fe72
             userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d # Publication year
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d924a0b4-e77a-4da3-ab81-6e186101ad46
-            userCondition: null
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: 4ff40bad-6fd2-4bdc-9feb-65a47931998d # Length
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 51f7bf35-b708-473a-8383-855d06ff2545
-            userCondition: null
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: 52047e94-5988-47b4-b9b5-6e061b5c2b49 # Medium
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: c3ca9891-9dc3-40b6-b852-985f16950cc3
-            userCondition: null
-            warning: null
-            width: 25
-          -
-            elementCondition: null
-            fieldUid: 0be8bfd9-86e6-48dd-8142-9020d3adb154 # Rating
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 194ffd06-734d-4c06-8825-7f1ced3ef27e
-            userCondition: null
-            warning: null
-            width: 25
           -
             elementCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
@@ -134,17 +103,16 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: dfeb5a2f-0b06-448e-b91f-47c465d595b3
+            uid: 848c83c0-2ad7-4e36-9939-783f901cdacb
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 335adbae-7914-48f2-9fc2-5494eab9b34c
+        uid: 99266336-2086-4078-adc8-88e588fc6297
         userCondition: null
-handle: default
+handle: walks_default
 hasTitleField: true
-name: Default
-section: 01ea27f8-8ac3-4d82-9d54-ed3faca4000b # Books
+name: 'Walks - Default'
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

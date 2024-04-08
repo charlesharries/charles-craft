@@ -1,17 +1,16 @@
-columnSuffix: qorazqgf
-contentColumnType: integer(10)
-handle: number
+columnSuffix: null
+handle: year
 instructions: null
-name: Number
+name: 'Flexible Content - Milestone - Year'
 searchable: false
 settings:
   decimals: 0
   defaultValue: null
   max: null
-  min: 1
+  min: 1990
   prefix: null
   previewCurrency: null
-  previewFormat: decimal
+  previewFormat: none
   size: null
   suffix: null
 translationKeyFormat: null

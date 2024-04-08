@@ -1,16 +1,17 @@
 columnSuffix: null
 contentColumnType: string
-fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: flexibleContent
 instructions: null
 name: 'Flexible Content'
 searchable: false
 settings:
-  contentTable: '{{%matrixcontent_flexiblecontent}}'
-  maxBlocks: null
-  minBlocks: null
+  entryTypes:
+    - 664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

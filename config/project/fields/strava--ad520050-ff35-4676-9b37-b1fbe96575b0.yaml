@@ -1,8 +1,7 @@
-columnSuffix: wfmbdipo
-contentColumnType: string(255)
-handle: externalURL
+columnSuffix: null
+handle: strava
 instructions: null
-name: 'External URL'
+name: 'Meta - About the walk - Strava'
 searchable: false
 settings:
   maxLength: 255

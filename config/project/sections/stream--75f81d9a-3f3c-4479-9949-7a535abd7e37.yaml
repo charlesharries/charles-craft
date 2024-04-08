@@ -1,7 +1,19 @@
 defaultPlacement: end
 enableVersioning: true
+entryTypes:
+  - 0d74ed0f-b46b-4094-9038-b30e655c7b30 # Default
 handle: stream
+maxAuthors: 1
 name: Stream
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
 propagationMethod: all
 siteSettings:
   6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries

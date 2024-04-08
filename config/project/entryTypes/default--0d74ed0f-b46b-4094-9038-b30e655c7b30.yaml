@@ -101,7 +101,6 @@ fieldLayouts:
 handle: default
 hasTitleField: true
 name: Default
-section: 75f81d9a-3f3c-4479-9949-7a535abd7e37 # Stream
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

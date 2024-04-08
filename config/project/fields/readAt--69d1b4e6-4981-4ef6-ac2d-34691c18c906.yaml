@@ -1,6 +1,5 @@
 columnSuffix: aettekyu
 contentColumnType: datetime
-fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: readAt
 instructions: null
 name: 'Date read'

@@ -1,16 +1,17 @@
 columnSuffix: mxxqdoes
 contentColumnType: string
-fieldGroup: 72753318-2e64-40d2-bbb0-f64f138ab9f7 # Common
 handle: meta
 instructions: null
 name: Meta
 searchable: false
 settings:
-  contentTable: '{{%matrixcontent_meta}}'
-  maxBlocks: null
-  minBlocks: null
+  entryTypes:
+    - faf9797f-b632-4e47-8a8b-e676d6cd03f2
+  maxEntries: null
+  minEntries: null
   propagationKeyFormat: null
   propagationMethod: all
+  viewMode: blocks
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Matrix

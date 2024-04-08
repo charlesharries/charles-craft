@@ -1,5 +1,5 @@
 fieldLayouts:
-  c6e4eecd-0bd6-46b3-bda6-147e09712d08:
+  cd19ec3a-fe7e-4973-988f-321c6798bc5b:
     tabs:
       -
         elementCondition: null
@@ -26,48 +26,24 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 6b956645-3c9c-46f6-9eb8-4b7784118913
+            uid: 106e92d0-d048-421f-aa50-c90d2dd6f4b6
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
-            uid: f9035c76-b19a-477a-8074-7d3912962639
+            uid: b8aa8a87-7e90-4c1b-b953-9f5ef2b7e159
             userCondition: null
           -
             elementCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
             instructions: null
             label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 2ad7827c-b9fd-4ee6-a658-2a852d26230c
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: ea5aefda-6f68-4615-9cb3-81aae425e54c # Tags
-            instructions: null
-            label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 8091a8f9-e312-4acf-b6d0-348deddec7c2
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 2e93982b-f7c0-44b7-ad38-d813c2f37b0d
+            uid: 3939b050-6b9c-4a82-bd6a-700dd304c8c3
             userCondition: null
             warning: null
             width: 100
@@ -76,20 +52,19 @@ fieldLayouts:
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
             instructions: null
             label: null
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: baa6a81c-0cfa-487f-9fd8-372aef6b23a4
+            uid: acd1acd7-28d3-4cc4-8553-ee9a5ee7e1f7
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: c33cce76-a802-4465-b465-0077651867b9
+        uid: 937be67c-eb48-4045-9ac4-20b862d00940
         userCondition: null
-handle: default
+handle: samPosts_default
 hasTitleField: true
-name: Default
-section: 071255ac-4fb5-404c-b125-46fa49417bc2 # Posts
+name: 'Sam Posts - Default'
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

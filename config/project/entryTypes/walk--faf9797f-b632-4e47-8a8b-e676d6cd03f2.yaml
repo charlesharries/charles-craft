@@ -1,0 +1,66 @@
+color: null
+fieldLayouts:
+  c486fc0b-6541-40a2-8335-5d22acae5ac9:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 95d4c83b-f847-4f8c-9a88-4b31430507fd
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Timings
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e9f7545e-7bc9-495c-a7f1-24a9f7da419b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 1e3b399d-bfe5-42e0-b366-6f9ecaaaed86
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Total Walking Time'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 49c0a26d-f878-4682-aec9-97a341af4392
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: ad520050-ff35-4676-9b37-b1fbe96575b0
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Strava
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f6691bd-9b4f-4e22-bcf8-5663a9711ca5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2a83cd40-37b1-41c4-82da-a93a7f1d5bfd
+        userCondition: null
+handle: walk
+hasTitleField: false
+icon: null
+name: 'About the walk'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
