@@ -1,15 +1,14 @@
 {
   "require": {
-    "craftcms/aws-s3": "^2.0",
-    "craftcms/ckeditor": "^3.6",
-    "craftcms/cms": "^4.0.0",
-    "craftcms/element-api": "^3.0",
-    "craftcms/redactor": "^3.0.0",
+    "craftcms/aws-s3": "^2.1",
+    "craftcms/ckeditor": "^4.0",
+    "craftcms/cms": "^5.0.0",
+    "craftcms/element-api": "^4.0",
     "guzzlehttp/guzzle": "^7.4",
-    "illuminate/collections": "^9.1",
+    "illuminate/collections": "^10.0",
     "knplabs/knp-snappy": "^1.4",
-    "leowebguy/device-detect": "^2.0",
-    "mmikkel/retcon": "^2.5",
+    "leowebguy/device-detect": "^3.0",
+    "mmikkel/retcon": "^3.0",
     "scrivo/highlight.php": "v9.18.1.9",
     "vlucas/phpdotenv": "^3.4.0"
   },

@@ -1,29 +1,31 @@
 columnSuffix: null
-contentColumnType: string
-handle: featuredImage
+handle: image
 instructions: null
-name: 'Featured image'
+name: 'Flexible Content - Milestone - Image'
 searchable: false
 settings:
   allowSelfRelations: false
   allowSubfolders: false
   allowUploads: true
-  allowedKinds: null
+  allowedKinds:
+    - image
+    - video
   branchLimit: null
   defaultUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
   defaultUploadLocationSubpath: null
   localizeRelations: false
   maintainHierarchy: false
-  maxRelations: 2
+  maxRelations: 1
   minRelations: null
   previewMode: full
-  restrictFiles: false
+  restrictFiles: true
   restrictLocation: false
   restrictedDefaultUploadSubpath: null
   restrictedLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
   restrictedLocationSubpath: null
-  selectionLabel: 'Add a featured image'
-  showSiteMenu: true
+  selectionLabel: 'Add an image'
+  showCardsInGrid: false
+  showSiteMenu: false
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources: '*'

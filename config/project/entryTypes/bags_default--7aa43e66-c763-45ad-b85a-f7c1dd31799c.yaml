@@ -69,10 +69,9 @@ fieldLayouts:
         name: Content
         uid: 6778b7a9-057a-4046-89a3-8824d052cfb1
         userCondition: null
-handle: default
+handle: bags_default
 hasTitleField: false
-name: Default
-section: 50d39a93-8605-4001-81f0-d9852cf865e5 # Bags
+name: 'Bags - Default'
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

@@ -1,0 +1,55 @@
+columnSuffix: null
+handle: body2
+instructions: null
+name: 'Flexible Content - Milestone - Body'
+searchable: false
+settings:
+  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+  expectedType: craft\redactor\Field
+  settings:
+    __assoc__:
+      0:
+        - availableTransforms
+        - '*'
+      1:
+        - availableVolumes
+        - '*'
+      2:
+        - columnType
+        - text
+      3:
+        - configSelectionMode
+        - choose
+      4:
+        - defaultTransform
+        - ''
+      5:
+        - manualConfig
+        - ''
+      7:
+        - purifyHtml
+        - true
+      9:
+        - removeEmptyTags
+        - true
+      10:
+        - removeInlineStyles
+        - true
+      11:
+        - removeNbsp
+        - true
+      12:
+        - showHtmlButtonForNonAdmins
+        - false
+      13:
+        - showUnpermittedFiles
+        - false
+      14:
+        - showUnpermittedVolumes
+        - false
+      15:
+        - uiMode
+        - enlarged
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

@@ -1,4 +1,4 @@
-dateModified: 1706399043
+dateModified: 1712618211
 elementSources:
   craft\elements\Entry:
     -
@@ -81,16 +81,15 @@ meta:
     0d74ed0f-b46b-4094-9038-b30e655c7b30: Default # Default
     0dc92d8f-d943-4a05-b7c3-70f90413fb2b: Designations # Designations
     1ac502c3-2ca1-43a0-a4bf-2d13883aa576: 'Show title?' # Show title?
-    1e3b399d-bfe5-42e0-b366-6f9ecaaaed86: 'Total Walking Time' # Total Walking Time
     01ea27f8-8ac3-4d82-9d54-ed3faca4000b: Books # Books
     4b7c4f12-4502-4174-8b81-4a28b231036e: Meta # Meta
-    4c827962-66cf-4542-b561-aa8650e5f2de: Default # Default
+    4c827962-66cf-4542-b561-aa8650e5f2de: 'Books - Default' # Books - Default
     4ff40bad-6fd2-4bdc-9feb-65a47931998d: Length # Length
     5d2c5af2-9050-4e35-b1ef-96e1b26a23d9: 900w # 900w
     5ecf9283-524b-4a3f-a7a1-d27adb6f28e9: Extended # Extended
     6c3aa333-495e-4f08-af06-2176eb4d7a3a: Walks # Walks
     6dcb6011-4fe4-4cab-8aa4-2307909c8d66: 'Charles Harries' # Charles Harries
-    7aa43e66-c763-45ad-b85a-f7c1dd31799c: Default # Default
+    7aa43e66-c763-45ad-b85a-f7c1dd31799c: 'Bags - Default' # Bags - Default
     07f98a9a-ab5a-4984-b782-5f308a478bf0: 'Fiction?' # Fiction?
     7f5084cc-0fc8-472f-bcdf-9c5db26a3001: 'Featured image' # Featured image
     8c4a8cd9-3f50-49e9-aed5-f46067c94fb9: Writer # Writer
@@ -107,26 +106,19 @@ meta:
     72c1a424-d0c3-423d-b7d7-a07cffee8ee2: 'GitHub Link' # GitHub Link
     73c0a488-cfd0-483b-8bf9-f13b716fd0df: Designations # Designations
     74da0e66-e6c9-4eb8-a3fd-c603fdb2e1f3: 1500w # 1500w
-    75b63475-a9cc-45aa-b67e-de085416e457: Heading # Heading
-    75c64953-510f-4b4b-997c-5e015e3cb084: Body # Body
     75f81d9a-3f3c-4479-9949-7a535abd7e37: Stream # Stream
-    95d4c83b-f847-4f8c-9a88-4b31430507fd: Timings # Timings
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
-    664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c: Milestone # Milestone
     763fc5b6-7451-4ddc-969c-f16d0c2b6245: S3 # S3
-    845cdad7-de50-42e0-8b6d-b5600fe8a11a: Default # Default
+    845cdad7-de50-42e0-8b6d-b5600fe8a11a: 'Walks - Default' # Walks - Default
     1623a46f-6c10-445a-b3c5-c6c2b1cea84b: 'Test posts' # Test posts
     52047e94-5988-47b4-b9b5-6e061b5c2b49: Medium # Medium
-    61727a0a-6742-4674-930c-0a3f6a9fe2a1: Default # Default
+    61727a0a-6742-4674-930c-0a3f6a9fe2a1: 'Posts - Default' # Posts - Default
     071255ac-4fb5-404c-b125-46fa49417bc2: Posts # Posts
-    876291c4-dc5a-4b83-ada0-560a467fdc59: Default # Default
+    876291c4-dc5a-4b83-ada0-560a467fdc59: 'Projects - Default' # Projects - Default
     63230075-57c8-4786-aaa2-f1c58f46dbf5: 'Sam Posts' # Sam Posts
-    72753318-2e64-40d2-bbb0-f64f138ab9f7: Common # Common
-    a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: Default # Default
-    ad520050-ff35-4676-9b37-b1fbe96575b0: Strava # Strava
+    a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: 'Sam Posts - Default' # Sam Posts - Default
     ae766d71-5a92-43ba-9546-3a8225552940: 'Created At' # Created At
     b73342c0-9657-40f5-b802-e3ad79e55eaa: Simple # Simple
-    baa13c65-0a57-43bf-8c5b-5dc010d1cd1c: Songs # Songs
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
@@ -136,9 +128,6 @@ meta:
     e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
-    f2f7b225-26f3-426a-8678-c089918dacf9: Year # Year
-    f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316: Image # Image
-    faf9797f-b632-4e47-8a8b-e676d6cd03f2: 'About the walk' # About the walk
 plugins:
   aws-s3:
     edition: standard
@@ -177,7 +166,7 @@ system:
   live: true
   name: 'Charles Harries'
   retryDuration: null
-  schemaVersion: 4.5.3.0
+  schemaVersion: 5.0.0.20
   timeZone: Europe/London
 users:
   allowPublicRegistration: false

@@ -1,14 +1,12 @@
-columnSuffix: hwfqthil
-contentColumnType: string(1020)
-handle: createdAt
+columnSuffix: null
+handle: totalWalkingTime
 instructions: null
-name: 'Created At'
+name: 'Meta - About the walk - Total Walking Time'
 searchable: false
 settings:
   byteLimit: null
-  charLimit: 255
+  charLimit: null
   code: false
-  columnType: null
   initialRows: 4
   multiline: false
   placeholder: null
