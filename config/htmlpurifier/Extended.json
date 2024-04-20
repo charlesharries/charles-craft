@@ -7,6 +7,6 @@
       "pagebreak"
     ],
     "HTML.SafeIframe": true,
-    "URI.SafeIframeRegexp": "%^(https?:)?//(www.youtube.com/embed/|player.vimeo.com/video/|codepen.io|bandcamp.com|https://embed.music.apple.com)%"
+    "URI.SafeIframeRegexp": "%^(https?:)?//(www.youtube.com/embed/|player.vimeo.com/video/|codepen.io|bandcamp.com|embed.music.apple.com)%"
   }
   
