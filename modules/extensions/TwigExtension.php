@@ -151,6 +151,18 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
                 continue;
             }
 
+            $ratio = null;
+
+            /** @var \DOMElement */
+            $img = $node->firstElementChild;
+            if ($img) {
+                $ratio = (
+                    $img->attributes->getNamedItem("width")->nodeValue /
+                    $img->attributes->getNamedItem("height")->nodeValue
+                );
+                $node->setAttribute("style", "flex: {$ratio};");
+            }
+
             if (!$wrapperNode) {
                 $wrapperNode = $dom->getDoc()->createElement("div");
                 $wrapperNode->setAttribute("class", "gallery");
