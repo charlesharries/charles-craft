@@ -60,7 +60,8 @@ class ImageNode
      */
     private function filename()
     {
-        return \basename($this->element->getAttribute('src'));
+        $filepath = \basename($this->element->getAttribute('src'));
+        return explode("#", $filepath)[0];
     }
 
     /**
