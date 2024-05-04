@@ -305,6 +305,15 @@ button {
     padding: 0;
 }
 
+a, .link { transition: all 0.15s ease; }
+
+:is(a, .link):not(.nostyle):hover,
+:is(a, .link):not(.nostyle):focus-visible {
+    background-color: var(--muted);
+    color: var(--background);
+    outline: none;
+}
+
 .ml-sm { margin-left: 0.5rem; }
 .ml-md { margin-left: 1rem; }
 .mr-xs { margin-right: 0.25rem; }
