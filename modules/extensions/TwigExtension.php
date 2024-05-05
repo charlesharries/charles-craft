@@ -156,8 +156,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
 
             /** @var \DOMElement */
             $img = $node->firstElementChild;
-            $hasSiblings = $node->parentNode->childElementCount > 1;
-            if ($img && $hasSiblings) {
+            if ($img) {
                 $ratio = (
                     $img->attributes->getNamedItem("width")->nodeValue /
                     $img->attributes->getNamedItem("height")->nodeValue
