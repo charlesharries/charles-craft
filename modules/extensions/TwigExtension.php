@@ -142,6 +142,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         }
 
         $dom = new RetconDom($string);
+        /** @var \DOMElement[] */
         $elements = $dom->filter("retcon > * ");
         $parent = $dom->filter("retcon")[0];
         $wrapperNode = null;
@@ -155,7 +156,8 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
 
             /** @var \DOMElement */
             $img = $node->firstElementChild;
-            if ($img) {
+            $hasSiblings = $node->parentNode->childElementCount > 1;
+            if ($img && $hasSiblings) {
                 $ratio = (
                     $img->attributes->getNamedItem("width")->nodeValue /
                     $img->attributes->getNamedItem("height")->nodeValue
