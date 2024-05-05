@@ -662,6 +662,7 @@ dialog::backdrop {
         left: 100%;
         width: calc((100vw - var(--container) - 2*var(--space-md)) / 2);
         max-width: 300px;
-        margin-top: var(--space-md)
+        margin-top: var(--space-md);
+        padding-left: var(--space-md);
     }
 }
