@@ -419,6 +419,7 @@ a, .link { transition: all 0.15s ease; }
 .entry h2:not(:first-child) {
     margin-top: var(--space-xl);
 }
+.entry.container { position: relative; }
 
 .Posts,
 .Books {
@@ -516,8 +517,8 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
-.gallery:not(:first-child),
-.gallery + * {
+.gallery:has(.image:nth-child(2)):not(:first-child),
+.gallery:has(.image:nth-child(2)) + * {
     margin-top: var(--space-lg);
 }
 
@@ -645,5 +646,22 @@ dialog::backdrop {
 
     .month_items {
         margin-left: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 1175px) {
+    .content .gallery:not(:has(.image:nth-child(2))) {
+        display: block;
+        position: relative;
+        margin-top: 0;
+        height: 0;
+    }
+
+    .content .gallery:not(:has(.image:nth-child(2))) figure {
+        position: relative;
+        left: 100%;
+        width: calc((100vw - var(--container) - 2*var(--space-md)) / 2);
+        max-width: 300px;
+        margin-top: var(--space-md)
     }
 }
