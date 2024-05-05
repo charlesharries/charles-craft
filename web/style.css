@@ -499,7 +499,7 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
-.gallery {
+.gallery:has(.image:nth-child(2)) {
     --offset: calc((100vw - var(--container)) / -8);
 
     display: flex;
