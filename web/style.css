@@ -658,11 +658,16 @@ dialog::backdrop {
     }
 
     .content .gallery:not(:has(.image:nth-child(2))) figure {
+        --leftimage-width: calc((100vw - var(--container) - 2*var(--space-md)) / 2);
+        --leftimage-maxwidth: 250px;
         position: relative;
-        left: 100%;
-        width: calc((100vw - var(--container) - 2*var(--space-md)) / 2);
-        max-width: 250px;
+        left: max(
+            calc(-1 * var(--leftimage-width)),
+            calc(-1 * var(--leftimage-maxwidth))
+        );
+        width: var(--leftimage-width);
+        max-width: var(--leftimage-maxwidth);
         margin-top: var(--space-md);
-        padding-left: var(--space-md);
+        padding-right: var(--space-md);
     }
 }
