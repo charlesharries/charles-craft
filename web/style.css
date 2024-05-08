@@ -500,7 +500,9 @@ img:not(.no-lightbox) {
 }
 
 .gallery:has(.image:nth-child(2)) {
-    --offset: calc((100vw - var(--container)) / -8);
+    /* How far should galleries stick out from text? */
+    /* --offset: calc((100vw - var(--container)) / -8); */
+    --offset: 0;
 
     display: flex;
     gap: var(--space-md);
