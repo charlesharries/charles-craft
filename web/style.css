@@ -109,7 +109,7 @@
     --space-md: 1rem;
     --space-lg: 2rem;
     --space-xl: 3rem;
-    --container: 800px;
+    --container: 700px;
 }
 
 html.light {
@@ -360,12 +360,18 @@ a, .link { transition: all 0.15s ease; }
 }
 
 .container {
+    --sidebar-width: 0px;
+
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: var(--container);
-    padding-left: 20px;
-    padding-right: 20px;
+    max-width: calc(var(--container) + var(--sidebar-width));
+    padding-inline: var(--space-md);
+}
+
+.container .content *:not(.gallery) {
+    width: 100%;
+    max-width: calc(var(--container) - 2*var(--space-md));
 }
 
 .stack {
@@ -651,7 +657,14 @@ dialog::backdrop {
     }
 }
 
-@media screen and (min-width: 1175px) {
+@media screen and (min-width: 950px) {
+    .container {
+        --sidebar-width: min(
+            calc((100vw - var(--container) - 2*var(--space-md)) / 2),
+            250px
+        );
+    }
+
     .content .gallery:not(:has(.image:nth-child(2))) {
         display: block;
         position: relative;
@@ -660,16 +673,10 @@ dialog::backdrop {
     }
 
     .content .gallery:not(:has(.image:nth-child(2))) figure {
-        --leftimage-width: calc((100vw - var(--container) - 2*var(--space-md)) / 2);
-        --leftimage-maxwidth: 250px;
         position: relative;
-        left: max(
-            calc(-1 * var(--leftimage-width)),
-            calc(-1 * var(--leftimage-maxwidth))
-        );
-        width: var(--leftimage-width);
-        max-width: var(--leftimage-maxwidth);
+        left: calc(var(--container) - 2*var(--space-md));
+        width: var(--sidebar-width);
         margin-top: var(--space-md);
-        padding-right: var(--space-md);
+        padding-left: var(--space-md);
     }
 }
