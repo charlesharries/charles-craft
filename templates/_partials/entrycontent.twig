@@ -1,16 +1,25 @@
-{% macro content(entry) %}
+{% macro content(entry, isFirst=false, isSingle=false) %}
 	{% import "_partials/posts" as posts %}
 	{% import "_partials/walks" as walks %}
+
+	{% if not isFirst %}
+		<hr class="short" style="margin-bottom: var(--stack-spacing);" />
+	{% endif %}
+
+	{% set headingTag = "h2" %}
+	{% if isFirst %}
+		{% set headingTag = "h1" %}
+	{% endif %}
 
 	<p class="muted">
 		{{ posts.meta(entry) }}
 	</p>
 
-	<h1 class="mt-xs sans">
+	<{{headingTag}} class="mt-xs sans">
 		<a href="{{ entry.url }}">
 			{{ entry.title }}
 		</a>
-	</h1>
+	</{{headingTag}}>
 
 	{% if entry.section == "Books" %}
 		<div class="mt-xs">
@@ -32,5 +41,7 @@
 		{{ posts.tags(entry) }}
 	</div>
 
-	{{ posts.nextPrev(entry) }}
+	{% if isSingle %}
+		{{ posts.nextPrev(entry) }}
+	{% endif %}
 {% endmacro %}
