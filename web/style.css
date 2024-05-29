@@ -109,7 +109,7 @@
     --space-md: 1rem;
     --space-lg: 2rem;
     --space-xl: 3rem;
-    --container: 700px;
+    --container: 650px;
 }
 
 html.light {
@@ -661,9 +661,10 @@ dialog::backdrop {
 
 @media screen and (min-width: 950px) {
     .container {
+        --sidebar-maxwidth: 300px;
         --sidebar-width: min(
             calc((100vw - var(--container) - 2*var(--space-md)) / 2),
-            250px
+            var(--sidebar-maxwidth)
         );
     }
 
