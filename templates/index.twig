@@ -1,8 +1,9 @@
 {% extends "_layout.twig" %}
 {% import "_partials/entrycontent" as entrycontent %}
 
-{%- set postsToShow = 1 -%}
-{%- set archivedPostsToShow = 19 %}
+{%- set postsToShow = 5 -%}
+{%- set totalPostsToShow = 20 %}
+{%- set archivedPostsToShow = totalPostsToShow - postsToShow %}
 {%- set isFiltered = section is defined -%}
 {%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
 {%- set lastMonth = date("1 month ago")|date -%}
@@ -42,10 +43,10 @@
 
 {% block content %}
 	<main class="container mt-huge">
-		<ul role="list" class="stack mt-lg" data-size="lg">
+		<ul role="list" class="latest stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
 				<li>
-					{{ entrycontent.content(entry) }}
+					{{ entrycontent.content(entry, loop.index==1) }}
 				</li>
 			{% endfor %}
 		</ul>
@@ -79,7 +80,7 @@
 			<div class="mt-lg text-right" id="loadall">
 				<p>
 					<small class="muted sans">Currently showing latest
-						{{archivedPostsToShow+1}}
+						{{totalPostsToShow}}
 						posts</small>
 				</p>
 				<button type="button" class="button mt-sm" id="loadall_btn">Load all posts</button>

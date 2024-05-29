@@ -155,12 +155,14 @@ hr {
     background-color: var(--accents);
 }
 
+hr.short { width: 150px; }
+
 h1 {
     font-size: var(--font-2xl);
 }
 
 h2 {
-    font-size: var(--font-lg);
+    font-size: var(--font-xl);
 }
 
 h1, h2, h3 {
