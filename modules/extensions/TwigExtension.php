@@ -156,7 +156,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
 
             /** @var \DOMElement */
             $img = $node->firstElementChild;
-            if ($img) {
+            if ($img && $img->attributes->getNamedItem("width")) {
                 $ratio = (
                     $img->attributes->getNamedItem("width")->nodeValue /
                     $img->attributes->getNamedItem("height")->nodeValue
