@@ -3,7 +3,7 @@
 
 <article class="{{ entry.section }}">
 	<p class="muted sans">
-		{{ posts.meta(entry) }}
+		{{ posts.date(entry) }}
 	</p>
 	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs" id="{{ entry.slug }}">
 		<a href="{{ entry.url }}">

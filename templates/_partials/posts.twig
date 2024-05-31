@@ -1,4 +1,4 @@
-{% macro meta(entry) %}
+{% macro date(entry) %}
 	<time datetime="{{ entry.postDate|date("Y-m-d") }}">
 		{{ entry.postDate|date("l, j M Y g:i a") }}
 	</time>

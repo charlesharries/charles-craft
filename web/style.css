@@ -94,12 +94,22 @@
     --font-serif: "Bitter", Georgia, serif;
     --font-sans: "Fira Sans", sans-serif;
 
-    --font-xs: clamp(0.64rem, -0.34vw + 0.72rem, 0.56rem);
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1240,16,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --font-xs: clamp(0.64rem, 0.7134rem + -0.0947vi, 0.6944rem);
+    --font-sm: clamp(0.8rem, 0.8449rem + -0.058vi, 0.8333rem);
+    --font-base: clamp(1rem, 1rem + 0vi, 1rem);
+    --font-md: clamp(1.2rem, 1.1826rem + 0.087vi, 1.25rem);
+    --font-lg: clamp(1.44rem, 1.3974rem + 0.213vi, 1.5625rem);
+    --font-xl: clamp(1.728rem, 1.6497rem + 0.3915vi, 1.9531rem);
+    --font-2xl: clamp(2.0736rem, 1.9457rem + 0.6397vi, 2.4414rem);
+    --font-3xl: clamp(2.4883rem, 2.2923rem + 0.9799vi, 3.0518rem);
+
+    /* --font-xs: clamp(0.64rem, -0.34vw + 0.72rem, 0.56rem);
     --font-sm: clamp(0.8rem, -0.02vw + 0.8rem, 0.8rem);
     --font-md: clamp(0.95rem, 0.54vw + 0.86rem, 1.08rem);
     --font-lg: clamp(1.25rem, 1.48vw + 0.88rem, 1.59rem);
     --font-xl: clamp(1.56rem, 2.99vw + 0.82rem, 2.25rem);
-    --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem);
+    --font-2xl: clamp(1.95rem, 5.34vw + 0.62rem, 3.18rem); */
 
     --shadow: 0 4px 8px rgba(0 0 0 / 60%);
 
@@ -130,7 +140,7 @@ html.light {
 html {
     min-height: 100%;
     border: var(--border) solid var(--muted);
-    font-size: var(--font-md);
+    font-size: var(--font-base);
 }
 
 body {
@@ -329,6 +339,7 @@ a, .link { transition: all 0.15s ease; }
 .text-xl { font-size: var(--font-xl); line-height: 1.2; }
 .text-lg { font-size: var(--font-lg); line-height: 1.25; }
 .text-md { font-size: var(--font-md); }
+.text-base { font-size: var(--font-base); }
 .text-sm { font-size: var(--font-sm); }
 .text-right { text-align: right; }
 
@@ -582,7 +593,7 @@ hr.dots {
 #search input {
     background-color: transparent;
     border: none;
-    font-size: var(--font-md);
+    font-size: var(--font-base);
     font-family: var(--font-sans);
     font-style: italic;
     width: 100%;
