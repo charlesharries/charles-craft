@@ -98,18 +98,6 @@
 					<time datetime="{{ entry.postDate|date("Y-m-d") }}">
 						{{ entry.postDate|date("j M Y g:i a") }}
 					</time>
-					|
-					{% if entry.tags and entry.tags.exists() %}
-						{% for tag in entry.tags.all() %}
-							<span>
-								{{ tag.title }}{{loop.last ? "" : ", " }}
-							</span>
-						{% endfor %}
-					{% else %}
-						<span>
-							{{ entry.section }}
-						</span>
-					{% endif %}
 				</p>
 				<h1 class="title">{{ entry.title }}</h1>
 			</p>
