@@ -166,7 +166,7 @@ system:
   live: true
   name: 'Charles Harries'
   retryDuration: null
-  schemaVersion: 4.5.3.0
+  schemaVersion: 5.0.0.20
   timeZone: Europe/London
 users:
   allowPublicRegistration: false
