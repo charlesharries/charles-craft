@@ -382,7 +382,7 @@ a, .link { transition: all 0.15s ease; }
     padding-inline: var(--space-md);
 }
 
-.container .content *:not(.gallery) {
+.container .content > *:not(.gallery) {
     width: 100%;
     max-width: calc(var(--container) - 2*var(--space-md));
 }
