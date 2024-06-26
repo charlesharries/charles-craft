@@ -160,12 +160,12 @@ body {
 hr {
     margin-block: 0;
     border: 0;
-    height: 1px;
+    height: 2px;
     width: 100%;
     background-color: var(--accents);
 }
 
-hr.short { width: 150px; }
+hr.short { width: 60px; }
 
 h1 {
     font-size: var(--font-2xl);
@@ -431,6 +431,9 @@ a, .link { transition: all 0.15s ease; }
 .button:hover {
     background-color: var(--callout-background);
 }
+
+.stars { color: orange; }
+
 
 .muted { color: var(--muted); }
 .darkish { color: var(--accents); }

@@ -15,7 +15,7 @@
 		{{ posts.date(entry) }}
 	</p>
 
-	<{{headingTag}} class="mt-xs sans">
+	<{{headingTag}} class="sans">
 		<a href="{{ entry.url }}">
 			{{ entry.title }}
 		</a>
@@ -37,9 +37,11 @@
 		{{ walks.timings(entry) }}
 	{% endif %}
 
-	<div class="mt-lg">
-		{{ posts.tags(entry) }}
-	</div>
+	{% if entry.tags and entry.tags.exists() %}
+		<div class="mt-lg">
+			{{ posts.tags(entry) }}
+		</div>
+	{% endif %}
 
 	{% if isSingle %}
 		{{ posts.nextPrev(entry) }}
