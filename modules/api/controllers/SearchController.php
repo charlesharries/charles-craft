@@ -77,7 +77,7 @@ class SearchController extends Controller
     public function actionGet($q): Response
     {
         $entries = new Collection(Entry::find()
-            ->section("not projects")
+            ->section(["posts", "stream", "walks", "books"])
             ->search('"' . $q . '"')
             ->all());
 

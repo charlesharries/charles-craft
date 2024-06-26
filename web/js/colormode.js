@@ -61,4 +61,4 @@ function colorMode() {
     return { COLOR, BW, STORAGE_KEY, toggle, getColor }
 }
 
-const ColorMode = colorMode();
+// const ColorMode = colorMode();
