@@ -2,7 +2,7 @@
 	by
 	{{ entry.writer.one().title }}
 </p>
-<small class="cluster mt-xs">
+<small class="cluster mt-xs align-center">
 	<span class="muted">
 		Published
 		{{ entry.publicationYear }}
@@ -13,7 +13,7 @@
 			pages
 		</span>
 	{% endif %}
-	<span class="ml-sm muted mt-xs">
+	<span class="ml-sm muted">
 		{% include "_partials/stars" with {'count': entry.rating} only %}
 	</span>
 </small>
