@@ -18,7 +18,15 @@
         {% for entry in entries %}
             <item>
                 <title><![CDATA[ {{ entry.title }} ]]></title>
-                <description><![CDATA[ {{ entry.summary }} ]]></description>
+                <description><![CDATA[ 
+                    {%- if entry.section.handle == "walks" -%}
+                        Outside again - {{ entry.title }}
+                    {%- elseif entry.section.handle == "books" -%}
+                        Just finished reading - {{ entry.title }} by {{ entry.writer.one().title }} 
+                    {%- else -%}
+                        {{ entry.summary }}
+                    {%- endif -%}
+                ]]></description>
                 <link>{{ entry.url }}</link>
                 <guid isPermalink="true">{{ entry.url }}</guid>
                 <pubDate>{{ entry.postDate|rss }}</pubDate>
