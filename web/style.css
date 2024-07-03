@@ -80,6 +80,8 @@
     --lighter: hsl(var(--primary), var(--saturation, 25%), 80%);
     --lightish: hsl(var(--primary), var(--saturation, 30%), 70%);
 
+    --selection: #ffb700;
+
     --background: var(--dark);
     --callout-background: var(--darker);
     --accents: var(--darkish);
@@ -153,8 +155,8 @@ body {
 }
 
 ::selection {
-    background: var(--muted);
-    color: var(--background);
+    background: var(--selection);
+    color: var(--dark);
 }
 
 hr {
@@ -527,7 +529,7 @@ img:not(.no-lightbox) {
     --offset: 0;
 
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     align-items: flex-start;
 }
 
