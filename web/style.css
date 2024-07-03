@@ -80,7 +80,7 @@
     --lighter: hsl(var(--primary), var(--saturation, 25%), 80%);
     --lightish: hsl(var(--primary), var(--saturation, 30%), 70%);
 
-    --selection: #ffb700;
+    --selection: hsla(43, 100%, 50%, 0.99);
 
     --background: var(--dark);
     --callout-background: var(--darker);
