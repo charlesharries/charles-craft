@@ -1,0 +1,9 @@
+siteUid: null
+sortOrder: 2
+template: index.twig
+uriParts:
+  - 'type:'
+  -
+    - tag
+    - '[^\/]+'
+uriPattern: 'type:<tag:[^\/]+>'
