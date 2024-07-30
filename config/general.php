@@ -38,4 +38,7 @@ return [
 
     // Don't transform gifs, causes timeouts
     'transformGifs' => false,
+
+    // Avoid cache hit reduction
+    'asyncCsrfInputs' => true,
 ];
