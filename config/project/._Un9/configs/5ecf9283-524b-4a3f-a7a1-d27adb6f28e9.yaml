@@ -1,0 +1,34 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+listPlugin: DocumentList
+name: Extended
+options:
+  htmlSupport:
+    allow:
+      -
+        attributes: true
+        key: p
+      -
+        attributes: true
+        key: li
+toolbar:
+  - heading
+  - '|'
+  - bold
+  - italic
+  - code
+  - superscript
+  - blockQuote
+  - insertImage
+  - bulletedList
+  - numberedList
+  - horizontalLine
+  - codeBlock
+  - link
+  - '|'
+  - sourceEditing
