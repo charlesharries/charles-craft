@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: featuredImage
 instructions: null
 name: 'Featured image'
@@ -10,23 +9,25 @@ settings:
   allowUploads: true
   allowedKinds: null
   branchLimit: null
-  defaultUploadLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
+  defaultUploadLocationSource: 'volume:763fc5b6-7451-4ddc-969c-f16d0c2b6245' # S3
   defaultUploadLocationSubpath: null
   localizeRelations: false
   maintainHierarchy: false
-  maxRelations: 2
+  maxRelations: 1
   minRelations: null
   previewMode: full
   restrictFiles: false
-  restrictLocation: false
+  restrictLocation: true
   restrictedDefaultUploadSubpath: null
-  restrictedLocationSource: 'volume:c59415d9-dcf6-439b-8d6a-146665a862e6' # Local
+  restrictedLocationSource: 'volume:763fc5b6-7451-4ddc-969c-f16d0c2b6245' # S3
   restrictedLocationSubpath: null
   selectionLabel: 'Add a featured image'
+  showCardsInGrid: false
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
-  sources: '*'
+  sources:
+    - 'volume:763fc5b6-7451-4ddc-969c-f16d0c2b6245' # S3
   targetSiteId: null
   validateRelatedElements: false
   viewMode: large

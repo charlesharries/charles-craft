@@ -60,22 +60,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: cc5d231c-c7c3-4cb4-902b-8470054dcfba
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: 9a56c3ed-c9b0-4a12-a02e-8ab2559b748e # Mountains
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: f6b61dc3-e109-4a63-9397-8035c97ebf30
+            uid: 41c402d2-7119-4e87-b15d-22b79193f401
             userCondition: null
             warning: null
             width: 100
@@ -91,21 +76,6 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 611588c7-cddf-46c8-af88-40004ab6e1e0
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 719cdd53-f36f-4f4c-ac7b-c5f5ab56b02e
             userCondition: null
             warning: null
             width: 50
