@@ -13,7 +13,8 @@ class PostsController extends Controller
     public function actionIndex()
     {
         $section = Craft::$app->request->queryParams['section'] ?? null;
+        $offset = Craft::$app->request->queryParams['offset'] ?? 1;
 
-        return $this->renderTemplate("api/all-posts.twig", compact('section'));
+        return $this->renderTemplate("api/all-posts.twig", compact('section', 'offset'));
     }
 }

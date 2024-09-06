@@ -1,6 +1,6 @@
 {%- set isFiltered = section is not null -%}
 {%- set section = isFiltered ? section : ["stream", "posts", "books", "walks"] -%}
-{%- set entries = craft.entries.section(section).offset(1) -%}
+{%- set entries = craft.entries.section(section).offset(offset) -%}
 
 {% for year, months in sortByYear(entries) %}
 	{% include "_partials/year.twig" with {
