@@ -2,7 +2,7 @@
   "require": {
     "craftcms/aws-s3": "^2.1",
     "craftcms/ckeditor": "^4.0",
-    "craftcms/cms": "^5.0.0",
+    "craftcms/cms": "5.4.1",
     "craftcms/element-api": "^4.0",
     "guzzlehttp/guzzle": "^7.4",
     "illuminate/collections": "^10.0",
@@ -38,5 +38,12 @@
     ]
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.craftcms.com",
+      "canonical": false
+    }
+  ]
 }
