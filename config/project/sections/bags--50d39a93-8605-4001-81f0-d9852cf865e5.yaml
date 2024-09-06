@@ -14,13 +14,10 @@ previewTargets:
       -
         - urlFormat
         - '{url}'
-      -
-        - refresh
-        - ''
 propagationMethod: all
 siteSettings:
   6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries
-    enabledByDefault: false
+    enabledByDefault: true
     hasUrls: true
     template: bags/_entry
     uriFormat: 'bags/{slug}'
