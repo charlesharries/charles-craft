@@ -30,7 +30,7 @@
 	{# {{ posts.featuredImage(entry) }} #}
 
 	<div class="content stack mt-md">
-		{{ entry.body|syntaxHighlight|srcset|groupFigures }}
+		{{ entry.body|syntaxHighlight|ratings|srcset|groupFigures }}
 	</div>
 
 	{% if entry.section == "Walks" %}

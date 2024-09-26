@@ -80,6 +80,7 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             new TwigFilter('syntaxHighlight', [$this, 'syntaxHighlight']),
             new TwigFilter('srcset', [$this, 'srcset']),
             new TwigFilter('groupFigures', [$this, 'groupFigures']),
+            new TwigFilter('ratings', [$this, 'ratings']),
         ];
     }
 
@@ -108,6 +109,23 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         }
 
         return SyntaxHighlighter::highlight($string);
+    }
+
+    public function ratings($string)
+    {
+        if (empty($string)) {
+            return $string;
+        }
+
+        $renderStars = function ($matches) use ($string) {
+            if (! $matches) {
+                return $string;
+            }
+
+            return Craft::$app->getView()->renderTemplate('_partials/stars', ['count' => $matches[1]]);
+        };
+
+        return preg_replace_callback('/(\d)\/5 stars\.?/i', $renderStars, $string);
     }
 
     public function srcset($string)
