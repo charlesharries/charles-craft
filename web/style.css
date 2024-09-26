@@ -347,6 +347,7 @@ a, .link { transition: all 0.15s ease; }
 
 .flex { display: flex; }
 .flex-1 { flex: 1; }
+.inline-flex { display: inline-flex; }
 .inline-block { display: inline-block; }
 .justify-start { justify-content: flex-start; }
 .justify-between { justify-content: space-between; }
@@ -434,7 +435,11 @@ a, .link { transition: all 0.15s ease; }
     background-color: var(--callout-background);
 }
 
-.stars { color: orange; }
+.stars {
+    color: orange;
+    position: relative;
+    top: 2px;
+}
 
 
 .muted { color: var(--muted); }
