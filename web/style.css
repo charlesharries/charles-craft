@@ -385,7 +385,7 @@ a, .link { transition: all 0.15s ease; }
     padding-inline: var(--space-md);
 }
 
-.container .content > *:not(.gallery) {
+.container .content > *:not(.gallery:has(:nth-child(2))) {
     width: 100%;
     max-width: calc(var(--container) - 2*var(--space-md));
 }
@@ -549,7 +549,7 @@ img:not(.no-lightbox) {
 }
 
 .gallery:has(.image:nth-child(2)):not(:first-child),
-.gallery:has(.image:nth-child(2)) + * {
+.gallery + * {
     margin-top: var(--space-lg);
 }
 
@@ -689,7 +689,7 @@ dialog::backdrop {
         );
     }
 
-    .content .gallery:not(:has(.image:nth-child(2))) {
+    /* .content .gallery:not(:has(.image:nth-child(2))) {
         display: block;
         position: relative;
         margin-top: 0;
@@ -702,5 +702,5 @@ dialog::backdrop {
         width: var(--sidebar-width);
         margin-top: var(--space-md);
         padding-left: var(--space-md);
-    }
+    } */
 }
