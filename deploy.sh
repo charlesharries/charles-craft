@@ -1,7 +1,7 @@
 #!/bin/bash
 
 VERSION=$(openssl rand -hex 4)
-git checkout -- ./templates
+git checkout HEAD -- ./templates
 git pull origin main
 composer install
 grep -rl '{|{VERSION}|}' ./templates | xargs sed -i "s/{|{VERSION}|}/$VERSION/g"

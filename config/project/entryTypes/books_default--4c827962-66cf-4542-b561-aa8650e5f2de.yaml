@@ -1,3 +1,4 @@
+color: red
 fieldLayouts:
   d03205f5-9d96-4497-a345-c22567b54a60:
     tabs:
@@ -9,9 +10,12 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2024-10-11T22:40:05+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -19,6 +23,7 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -31,10 +36,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: eb252ecb-0d63-4fff-aca5-fd61b5e729d2 # Writer
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -43,10 +52,14 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 07f98a9a-ab5a-4984-b782-5f308a478bf0 # Fiction?
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -55,10 +68,14 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -67,10 +84,14 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 69d1b4e6-4981-4ef6-ac2d-34691c18c906 # Date read
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -79,10 +100,14 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d # Publication year
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -91,10 +116,14 @@ fieldLayouts:
             warning: null
             width: 25
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 4ff40bad-6fd2-4bdc-9feb-65a47931998d # Length
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -103,10 +132,14 @@ fieldLayouts:
             warning: null
             width: 25
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 52047e94-5988-47b4-b9b5-6e061b5c2b49 # Medium
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -115,10 +148,14 @@ fieldLayouts:
             warning: null
             width: 25
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 0be8bfd9-86e6-48dd-8142-9020d3adb154 # Rating
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -127,10 +164,14 @@ fieldLayouts:
             warning: null
             width: 25
           -
+            dateAdded: '2024-10-11T22:40:05+00:00'
             elementCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -143,11 +184,12 @@ fieldLayouts:
         userCondition: null
 handle: books_default
 hasTitleField: true
+icon: book
 name: 'Books - Default'
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-sortOrder: 1
-titleFormat: null
+titleFormat: ''
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

@@ -1,3 +1,4 @@
+color: sky
 fieldLayouts:
   c6e4eecd-0bd6-46b3-bda6-147e09712d08:
     tabs:
@@ -9,9 +10,12 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2024-10-11T22:33:52+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -19,6 +23,7 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -31,15 +36,36 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-10-11T22:35:40+00:00'
+            elementCondition: null
+            fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: true
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f39a1196-9bf2-4fe2-aea7-66aa194e3ede
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-10-11T22:33:52+00:00'
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: f9035c76-b19a-477a-8074-7d3912962639
             userCondition: null
           -
+            dateAdded: '2024-10-11T22:33:52+00:00'
             elementCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -48,10 +74,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-10-11T22:33:52+00:00'
             elementCondition: null
             fieldUid: ea5aefda-6f68-4615-9cb3-81aae425e54c # Tags
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -60,10 +90,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-10-11T22:33:52+00:00'
             elementCondition: null
             fieldUid: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -72,10 +106,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-10-11T22:33:52+00:00'
             elementCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -88,11 +126,12 @@ fieldLayouts:
         userCondition: null
 handle: posts_default
 hasTitleField: true
+icon: file
 name: 'Posts - Default'
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-sortOrder: 1
-titleFormat: null
+titleFormat: ''
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
