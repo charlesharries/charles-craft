@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 0d74ed0f-b46b-4094-9038-b30e655c7b30 # Default
+  - 0d74ed0f-b46b-4094-9038-b30e655c7b30 # Stream
 handle: stream
 maxAuthors: 1
 name: Stream
