@@ -2,7 +2,7 @@
   "require": {
     "craftcms/aws-s3": "^2.1",
     "craftcms/ckeditor": "^4.0",
-    "craftcms/cms": "5.4.1",
+    "craftcms/cms": "^5.5",
     "craftcms/element-api": "^4.0",
     "guzzlehttp/guzzle": "^7.4",
     "illuminate/collections": "^10.0",
