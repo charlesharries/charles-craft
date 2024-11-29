@@ -389,6 +389,23 @@ a, .link { transition: all 0.15s ease; }
     max-width: calc(var(--container) - 2*var(--space-md));
 }
 
+.content p:has(iframe[src^="https://www.youtube.com"]) {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.content p iframe[src^="https://www.youtube.com"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 .stack {
     --stack-spacing: 1em;
 
