@@ -10,6 +10,7 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2025-02-17T20:48:00+00:00'
             disabled: false
             elementCondition: null
             id: null
@@ -24,7 +25,7 @@ fieldLayouts:
             placeholder: null
             providesThumbs: false
             readonly: false
-            requirable: false
+            required: true
             size: null
             step: null
             tip: null
@@ -35,6 +36,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-02-17T20:48:00+00:00'
             elementCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
             handle: null
@@ -50,13 +52,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-02-17T20:48:00+00:00'
             elementCondition: null
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
             handle: null
             includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
+            providesThumbs: true
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -65,6 +68,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-02-17T20:48:00+00:00'
             elementCondition: null
             fieldUid: 31c45503-813a-4655-b6fd-01408609c555 # Bags
             handle: null
@@ -80,6 +84,7 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2025-02-17T20:48:00+00:00'
             elementCondition: null
             fieldUid: 4b7c4f12-4502-4174-8b81-4a28b231036e # Meta
             handle: null
@@ -95,11 +100,13 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-02-17T20:48:00+00:00'
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: f99ec2b8-55a0-4df1-afe1-632017c0fe72
             userCondition: null
           -
+            dateAdded: '2025-02-17T20:48:00+00:00'
             elementCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
             handle: null
@@ -119,12 +126,12 @@ fieldLayouts:
         userCondition: null
 handle: walks_default
 hasTitleField: true
-icon: ''
+icon: null
 name: 'Walks - Default'
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
