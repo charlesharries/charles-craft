@@ -23,7 +23,7 @@ class AltTextGenerator
             return $asset->alt;
         }
 
-        // try {
+        try {
             $response = $this->client->chat()->create([
                 'model' => 'gpt-4o-mini',
                 'messages' => [
@@ -37,7 +37,7 @@ class AltTextGenerator
                             [
                                 'type' => 'image_url',
                                 'image_url' => [
-                                    'url' => 'data:image/jpeg;base64,' . base64_encode(file_get_contents($asset->content))
+                                    'url' => 'data:image/jpeg;base64,' . base64_encode($asset->getContents())
                                 ]
                             ],
                         ],
@@ -53,9 +53,9 @@ class AltTextGenerator
             Craft::$app->elements->saveElement($asset);
 
             return $altText;
-        // } catch (\Exception $e) {
-        //     Craft::error('Failed to generate alt text: ' . $e->getMessage(), __METHOD__);
-        //     return null;
-        // }
+        } catch (\Exception $e) {
+            Craft::error('Failed to generate alt text: ' . $e->getMessage(), __METHOD__);
+            return null;
+        }
     }
 }
