@@ -1,5 +1,6 @@
 {
   "require": {
+    "openai-php/client": "^0.8.0",
     "craftcms/aws-s3": "^2.1",
     "craftcms/ckeditor": "^4.0",
     "craftcms/cms": "^5.5",
