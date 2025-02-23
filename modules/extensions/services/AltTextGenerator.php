@@ -23,9 +23,9 @@ class AltTextGenerator
             return $asset->alt;
         }
 
-        try {
+        // try {
             $response = $this->client->chat()->create([
-                'model' => 'gpt-4-vision-preview',
+                'model' => 'gpt-4o-mini',
                 'messages' => [
                     [
                         'role' => 'user',
@@ -53,9 +53,9 @@ class AltTextGenerator
             Craft::$app->elements->saveElement($asset);
 
             return $altText;
-        } catch (\Exception $e) {
-            Craft::error('Failed to generate alt text: ' . $e->getMessage(), __METHOD__);
-            return null;
-        }
+        // } catch (\Exception $e) {
+        //     Craft::error('Failed to generate alt text: ' . $e->getMessage(), __METHOD__);
+        //     return null;
+        // }
     }
 }
