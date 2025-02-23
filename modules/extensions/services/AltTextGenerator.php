@@ -25,7 +25,7 @@ class AltTextGenerator
 
         try {
             $response = $this->client->chat()->create([
-                'model' => 'gpt-4o-mini',
+                'model' => 'gpt-4-vision-preview',
                 'messages' => [
                     [
                         'role' => 'user',
@@ -36,7 +36,9 @@ class AltTextGenerator
                             ],
                             [
                                 'type' => 'image_url',
-                                'image_url' => $asset->getUrl(),
+                                'image_url' => [
+                                    'url' => $asset->getUrl()
+                                ]
                             ],
                         ],
                     ],
