@@ -37,7 +37,7 @@ class AltTextGenerator
                             [
                                 'type' => 'image_url',
                                 'image_url' => [
-                                    'url' => $asset->getUrl()
+                                    'url' => 'data:image/jpeg;base64,' . base64_encode(file_get_contents($asset->getPath()))
                                 ]
                             ],
                         ],
