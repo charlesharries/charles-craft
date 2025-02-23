@@ -5,6 +5,7 @@ namespace extensions;
 use Craft;
 use craft\elements\Asset;
 use craft\elements\Entry;
+use extensions\services\AltTextGenerator;
 use craft\helpers\App;
 use DateTime;
 use extensions\jobs\NotifyUmami;
@@ -128,6 +129,13 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
         return preg_replace_callback('/(\d)\/5 stars\.?/i', $renderStars, $string);
     }
 
+    private $altTextGenerator;
+
+    public function __construct()
+    {
+        $this->altTextGenerator = new AltTextGenerator();
+    }
+
     public function srcset($string)
     {
         if (empty($string)) {
@@ -148,6 +156,14 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             }
 
             $image->processNode($asset);
+            
+            // Generate and set alt text if needed
+            if (!$element->getAttribute('alt')) {
+                $altText = $this->altTextGenerator->generateAltText($asset);
+                if ($altText) {
+                    $element->setAttribute('alt', $altText);
+                }
+            }
         }
 
         return $dom->getHtml();
