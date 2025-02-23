@@ -4,6 +4,7 @@ namespace extensions\services;
 
 use Craft;
 use craft\elements\Asset;
+use craft\helpers\App;
 use OpenAI;
 
 class AltTextGenerator
@@ -12,7 +13,7 @@ class AltTextGenerator
     
     public function __construct()
     {
-        $this->client = OpenAI::client(Craft::parseEnv('$OPENAI_API_KEY'));
+        $this->client = OpenAI::client(App::parseEnv('$OPENAI_API_KEY'));
     }
 
     public function generateAltText(Asset $asset): ?string
@@ -24,7 +25,7 @@ class AltTextGenerator
 
         try {
             $response = $this->client->chat()->create([
-                'model' => 'gpt-4-vision-preview',
+                'model' => 'gpt-4o-mini',
                 'messages' => [
                     [
                         'role' => 'user',
