@@ -4,3 +4,4 @@
 /web/assets
 .DS_Store
 /cpresources
+.aider*
