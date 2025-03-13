@@ -3,6 +3,7 @@
 namespace modules\api\controllers;
 
 use Craft;
+use craft\elements\Entry;
 use craft\web\Controller;
 use craft\web\Response;
 use yii\web\NotFoundHttpException;
@@ -16,52 +17,7 @@ class RssFeedController extends Controller
      */
     public function actionFeed(): Response
     {
-        $postsToShow = 10;
-        $sections = ["stream", "posts", "books", "walks"];
-        $entries = \Craft::$app->getElements()->createElementQuery('craft\\elements\\Entry')
-            ->section($sections)
-            ->limit($postsToShow)
-            ->all();
-            
-        if (empty($entries)) {
-            throw new NotFoundHttpException('No entries found');
-        }
-        
-        // Get the latest post date for Last-Modified header
-        $latestDate = max(array_map(function($entry) {
-            return $entry->postDate->getTimestamp();
-        }, $entries));
-        
-        // Generate ETag based on content
-        $etag = md5(json_encode(array_map(function($entry) {
-            return [
-                'id' => $entry->id,
-                'title' => $entry->title,
-                'dateUpdated' => $entry->dateUpdated->getTimestamp()
-            ];
-        }, $entries)));
-        
-        // Check if client has a valid cached version
-        $response = Craft::$app->getResponse();
-        $response->getHeaders()->set('Last-Modified', gmdate('D, d M Y H:i:s', $latestDate) . ' GMT');
-        $response->getHeaders()->set('ETag', '"' . $etag . '"');
-        
-        // Set cache control headers
-        $response->getHeaders()->set('Cache-Control', 'public, max-age=3600');
-        
-        // Check if we can return 304 Not Modified
-        if ($this->checkNotModified($latestDate, $etag)) {
-            return $response;
-        }
-        
-        $response->format = Response::FORMAT_RAW;
-        $response->headers->set('Content-Type', 'application/rss+xml; charset=utf-8');
-        
-        $response->data = Craft::$app->getView()->renderTemplate('feed.xml.twig', [
-            'entries' => $entries
-        ]);
-        
-        return $response;
+        return $this->getResponse("feed.xml.twig");
     }
     
     /**
@@ -69,30 +25,49 @@ class RssFeedController extends Controller
      */
     public function actionSummaryFeed(): Response
     {
+        return $this->getResponse("summary-feed.xml.twig");
+    }
+
+    private function getPosts()
+    {
         $postsToShow = 10;
         $sections = ["stream", "posts", "books", "walks"];
-        $entries = \Craft::$app->getElements()->createElementQuery('craft\\elements\\Entry')
+        $entries =  Entry::find()
             ->section($sections)
+            ->orderBy("postDate DESC")
             ->limit($postsToShow)
             ->all();
-            
+
         if (empty($entries)) {
-            throw new NotFoundHttpException('No entries found');
+            throw new NotFoundHttpException("No entries found");
         }
-        
-        // Get the latest post date for Last-Modified header
-        $latestDate = max(array_map(function($entry) {
+
+        return $entries;
+    }
+
+    private function getLatestDate(array $entries)
+    {
+        return max(array_map(function($entry) {
             return $entry->postDate->getTimestamp();
-        }, $entries));
-        
-        // Generate ETag based on content
-        $etag = md5(json_encode(array_map(function($entry) {
+        }, $entries)); 
+    }
+
+    private function getEtag(array $entries)
+    {
+        return md5(json_encode(array_map(function($entry) {
             return [
                 'id' => $entry->id,
                 'title' => $entry->title,
                 'dateUpdated' => $entry->dateUpdated->getTimestamp()
             ];
         }, $entries)));
+    }
+
+    private function getResponse(string $template)
+    {
+        $entries = $this->getPosts();
+        $latestDate = $this->getLatestDate($entries);
+        $etag = $this->getEtag($entries);
         
         // Check if client has a valid cached version
         $response = Craft::$app->getResponse();
@@ -109,8 +84,7 @@ class RssFeedController extends Controller
         
         $response->format = Response::FORMAT_RAW;
         $response->headers->set('Content-Type', 'application/rss+xml; charset=utf-8');
-        
-        $response->data = Craft::$app->getView()->renderTemplate('summary-feed.xml.twig', [
+        $response->data = Craft::$app->getView()->renderTemplate($template, [
             'entries' => $entries
         ]);
         
