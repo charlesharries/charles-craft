@@ -158,12 +158,12 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
             $image->processNode($asset);
             
             // Generate and set alt text if needed
-            if (!$element->getAttribute('alt')) {
-                $altText = $this->altTextGenerator->generateAltText($asset);
-                if ($altText) {
-                    $element->setAttribute('alt', $altText);
-                }
-            }
+            // if (!$element->getAttribute('alt')) {
+            //     $altText = $this->altTextGenerator->generateAltText($asset);
+            //     if ($altText) {
+            //         $element->setAttribute('alt', $altText);
+            //     }
+            // }
         }
 
         return $dom->getHtml();
