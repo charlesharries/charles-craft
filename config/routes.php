@@ -27,4 +27,6 @@ return [
     'api/latest-tracks' => 'api/latest-tracks/get',
     'api/search' => 'api/search/get',
     'images/favicon' => 'api/favicon/get',
+    'feed.xml' => 'api/rss-feed/feed',
+    'summary-feed.xml' => 'api/rss-feed/summary-feed',
 ];
