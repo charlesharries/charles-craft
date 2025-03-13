@@ -30,6 +30,12 @@
                 <link>{{ entry.url }}</link>
                 <guid isPermalink="true">{{ entry.url }}</guid>
                 <pubDate>{{ entry.postDate|rss }}</pubDate>
+                {% if entry.tags and entry.tags.exists() %}
+                    {% for tag in entry.tags.all() %}
+                        <category>{{ tag.title }}</category>
+                    {% endfor %}
+                {% endif %}
+                <category>{{ entry.section.name }}</category>
             </item>
         {% endfor %}
     </channel>
