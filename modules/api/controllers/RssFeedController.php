@@ -83,7 +83,7 @@ class RssFeedController extends Controller
         }
         
         $response->format = Response::FORMAT_RAW;
-        $response->headers->set('Content-Type', 'application/rss+xml; charset=utf-8');
+        $response->headers->set('Content-Type', 'application/xml; charset=utf-8');
         $response->data = Craft::$app->getView()->renderTemplate($template, [
             'entries' => $entries
         ]);
