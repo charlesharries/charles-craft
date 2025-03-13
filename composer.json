@@ -29,7 +29,8 @@
     "optimize-autoloader": true,
     "allow-plugins": {
       "craftcms/plugin-installer": true,
-      "yiisoft/yii2-composer": true
+      "yiisoft/yii2-composer": true,
+      "php-http/discovery": true
     }
   },
   "scripts": {
