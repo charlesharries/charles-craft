@@ -3,6 +3,11 @@
 
 {%- set postsToShow = 5 -%}
 {%- set totalPostsToShow = 20 %}
+
+{% if craft.app.request.getQueryParam("loadall") == "true" %}
+	{% set totalPostsToShow = 10000 %}
+{% endif %}
+
 {%- set archivedPostsToShow = totalPostsToShow - postsToShow %}
 {%- set isFiltered = section is defined -%}
 {%- set isTagged = craft.app.request.getQueryParam('tags') is not empty -%}
