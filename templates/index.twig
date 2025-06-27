@@ -46,8 +46,8 @@
 	<meta name="twitter:image:src" content="{{ image }}"/>
 {% endblock %}
 
-{% macro filterDescription() %}
-	{% if craft.app.request.getQueryParam("tags") is not null %}
+{% macro filterDescription(section) %}
+	{% if craft.app.request.getQueryParam("tags") is not null or section is not empty %}
 		{% set tagNames = craft.app.request.getQueryParam("tags")|split(",") %}
 		<p class="flex align-center text-sm sans">
 			Showing posts for
@@ -55,9 +55,14 @@
 				<span class="cluster ml-sm">
 					{% for tagName in tagNames %}
 						{% set tag = craft.tags().slug(tagName).one() %}
-						{% if tag is not null %}
+						{% if tag is not empty and tagName is not empty %}
 							<span class="tag">
 								{{ tag.title }}
+							</span>
+						{% endif %}
+						{% if section is not empty %}
+							<span class="tag">
+								{{ section|title }}
 							</span>
 						{% endif %}
 					{% endfor %}
@@ -70,7 +75,7 @@
 {% block content %}
 	<main class="container mt-huge">
 
-		{{ _self.filterDescription() }}
+		{{ _self.filterDescription(isFiltered ? section : "") }}
 
 		<ul role="list" class="latest stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
