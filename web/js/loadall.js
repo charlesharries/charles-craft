@@ -17,7 +17,7 @@ function loadAll() {
 
         queryParams.append("offset", getOffset());
         if (url.pathname.includes("only:")) {
-            queryParams.append(section, url.pathname.split("only:")[1]);
+            queryParams.append("section", url.pathname.split("only:")[1]);
         }
         
         endpoint += `?${queryParams.toString()}`;
