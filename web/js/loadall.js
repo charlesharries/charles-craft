@@ -25,11 +25,12 @@ function loadAll() {
         const data = await fetch(endpoint).then(r => r.text());
         $container.innerHTML = data;
 
+        url.searchParams.set("loadall", "true");
+        window.history.replaceState({}, "", url);
+
         $trigger.removeEventListener("click", load);
         $loadAll.remove();
     }
-
-    console.log(getOffset());
 
     $trigger.addEventListener("click", load);
 }
