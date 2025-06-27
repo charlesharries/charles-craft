@@ -544,6 +544,8 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
+.tag.is-active { color: var(--selection); }
+
 .gallery:has(.image:nth-child(2)) {
     /* How far should galleries stick out from text? */
     /* --offset: calc((100vw - var(--container)) / -8); */
