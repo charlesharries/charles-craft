@@ -72,6 +72,7 @@
 
 :root {
     --primary: 97;
+    --highlight-h: 43;
 
     --dark: hsl(var(--primary), var(--saturation, 80%), 5%);
     --darker: hsl(var(--primary), var(--saturation, 40%), 15%);
@@ -80,7 +81,9 @@
     --lighter: hsl(var(--primary), var(--saturation, 25%), 80%);
     --lightish: hsl(var(--primary), var(--saturation, 30%), 70%);
 
-    --selection: hsla(43, 100%, 50%, 0.99);
+    --selection: hsla(var(--highlight-h), 100%, 50%, 0.99);
+    --highlight: var(--selection);
+    --highlight-muted: hsla(var(--highlight-h), 100%, 50%, 0.1);
 
     --background: var(--dark);
     --callout-background: var(--darker);
@@ -132,6 +135,11 @@ html.light {
     --muted: var(--darker);
 
     --shadow: 0 4px 8px rgba(0 0 0 / 15%);
+
+    --highlight-h: 226;
+    --highlight: hsla(var(--highlight-h), 100%, 50%, 0.99);
+    --highlight-muted: hsla(var(--highlight-h), 100%, 80%, 0.2);
+    --selection: hsla(var(--highlight-h), 100%, 70%, 0.99);
 }
 
 *, *::before, *::after {
@@ -252,7 +260,7 @@ ol[role="list"] {
 }
 
 blockquote {
-    border-left: 1px solid var(--selection);
+    border-left: 1px solid var(--highlight);
     margin-inline: 0;
     padding-inline: 40px;
     padding-left: 1rem;
@@ -295,17 +303,20 @@ pre {
 }
 
 pre code {
+    color: var(--light);
     background: none;
     border-radius: 0;
     box-shadow: none;
     padding: 0;
+    font-size: var(--font-sm);
 }
 
 code {
-    background: var(--callout-background);
-    box-shadow: 0 1px 0 var(--accents);
+    color: var(--highlight);
+    background: var(--highlight-muted);
     border-radius: 2px;
-    padding: 3px 4px;
+    padding: 2px 4px;
+    font-size: 0.9em;
 }
 
 button {
@@ -544,7 +555,7 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
-.tag.is-active { color: var(--selection); }
+.tag.is-active { color: var(--highlight); }
 
 .gallery:has(.image:nth-child(2)) {
     /* How far should galleries stick out from text? */
