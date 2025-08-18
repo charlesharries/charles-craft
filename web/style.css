@@ -234,6 +234,7 @@ em, i {
     font-style: italic;
     font-family: var(--font-sans);
 }
+.serif { font-family: var(--font-serif); }
 
 .italic { font-style: italic; }
 .normal { font-style: normal; }
@@ -260,13 +261,12 @@ ol[role="list"] {
 }
 
 blockquote {
-    border-left: 1px solid var(--highlight);
+    border-left: 2px solid var(--highlight);
     margin-inline: 0;
     padding-inline: 40px;
     padding-left: 1rem;
     padding-right: 0;
     font-style: italic;
-    color: var(--muted);
 }
 
 blockquote > * + * {
@@ -345,6 +345,7 @@ a, .link { transition: all 0.15s ease; }
 .mt-sm { margin-top: 0.5rem; }
 .mt-md { margin-top: 1rem; }
 .mt-lg { margin-top: 2rem; }
+.mt-xl { margin-top: 4rem; }
 .mt-huge { margin-top: 20vh; }
 
 .text-2xl { font-size: var(--font-2xl); line-height: 1.2; }
@@ -364,6 +365,17 @@ a, .link { transition: all 0.15s ease; }
 .align-start { align-items: flex-start; }
 .align-center { align-items: center; }
 .align-middle { vertical-align: middle; }
+
+.highlight { color: var(--highlight); }
+
+.keyline::before {
+    content: "";
+    display: block;
+    margin-block: 8px;
+    height: 2px;
+    width: 40px;
+    background-color: var(--highlight);
+}
 
 .caps {
     text-transform: uppercase;

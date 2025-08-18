@@ -47,29 +47,20 @@
 {% endblock %}
 
 {% macro filterDescription(section) %}
-	{% if craft.app.request.getQueryParam("tags") is not null or section is not empty %}
-		{% set tagNames = craft.app.request.getQueryParam("tags")|split(",") %}
-		<p class="flex align-center text-sm sans">
-			Showing posts for
-			<span class="ml-sm">
-				<span class="cluster ml-sm">
-					{% for tagName in tagNames %}
-						{% set tag = craft.tags().slug(tagName).one() %}
-						{% if tag is not empty and tagName is not empty %}
-							<span class="tag is-active">
-								{{ tag.title }}
-							</span>
-						{% endif %}
-						{% if section is not empty %}
-							<span class="tag is-active">
-								{{ section|title }}
-							</span>
-						{% endif %}
-					{% endfor %}
-				<span>
-			</span>
-		</p>
-	{% endif %}
+	{% set tagNames = craft.app.request.getQueryParam("tags")|split(",") %}
+	<h1 class="serif highlight text-md keyline">
+		{% if tagNames|filter is not empty %}
+			{{ section ? section|title : "Post" }}s for
+			{% for tagName in tagNames %}
+				{% set tag = craft.tags().slug(tagName).one() %}
+				{% if tag is not empty and tagName is not empty %}
+					{{ tag.title }}
+				{% endif %}
+			{% endfor %}
+		{% else %}
+			Latest {{ section ? section : "from the blog mines" }}
+		{% endif %}
+	</h1>
 {% endmacro %}
 
 {% block content %}
@@ -80,18 +71,19 @@
 		<ul role="list" class="latest stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
 				<li>
-					{{ entrycontent.content(entry, loop.index==1) }}
+					<article>
+						{{ entrycontent.content(entry, loop.index==1) }}
+					</article>
 				</li>
 			{% endfor %}
 		</ul>
 
-		<hr class="mt-lg"/>
 
 		{%- set remainingEntries = remainingEntries.all() -%}
 		{% if remainingEntries is not empty %}
-			<h2 class="text-xl mt-lg">Archive</h2>
+			<h2 class="serif highlight text-md keyline mt-xl">aaaand the Rest of It</h2>
 
-			<p class="cluster mt-sm">
+			<p class="cluster mt-md">
 				<a href="/only:posts">Posts</a>
 				<a href="/only:stream">Stream</a>
 				<a href="/only:books">Books</a>
