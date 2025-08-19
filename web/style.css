@@ -484,9 +484,6 @@ a, .link { transition: all 0.15s ease; }
 .muted { color: var(--muted); }
 .darkish { color: var(--accents); }
 
-.entry h2:not(:first-child) {
-    margin-top: var(--space-xl);
-}
 .entry.container { position: relative; }
 
 .Posts,
