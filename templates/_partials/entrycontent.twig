@@ -6,20 +6,15 @@
 		<hr class="short" style="margin-bottom: var(--stack-spacing);" />
 	{% endif %}
 
-	{% set headingTag = "h2" %}
-	{% if isFirst %}
-		{% set headingTag = "h1" %}
-	{% endif %}
-
 	<p class="muted">
 		{{ posts.date(entry) }}
 	</p>
 
-	<{{headingTag}} class="sans">
+	<h2 class="sans {{ entry.section == 'Stream' ? 'text-lg' : '' }}">
 		<a href="{{ entry.url }}">
 			{{ entry.title }}
 		</a>
-	</{{headingTag}}>
+	</h2>
 
 	{% if entry.section == "Books" %}
 		<div class="mt-xs">
