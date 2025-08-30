@@ -77,7 +77,7 @@
     --dark: hsl(var(--primary), var(--saturation, 80%), 5%);
     --darker: hsl(var(--primary), var(--saturation, 40%), 15%);
     --darkish: hsl(var(--primary), var(--saturation, 30%), 40%);
-    --light: hsl(var(--primary), var(--saturation, 20%), 90%);
+    --light: hsl(var(--primary), var(--saturation, 20%), 95%);
     --lighter: hsl(var(--primary), var(--saturation, 25%), 80%);
     --lightish: hsl(var(--primary), var(--saturation, 30%), 70%);
 
