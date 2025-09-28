@@ -3,6 +3,8 @@
       "_blank"
     ],
     "Attr.EnableID": true,
+      "HTML.AllowedElements": "video,source,iframe,figure,figcaption,img,a,strong,em,p,ul,ol,li,blockquote,span,br",
+    "HTML.AllowedAttributes": "video[controls|src|poster|width|height|loop|muted|playsinline|autoplay],source[src|type],iframe[src|width|height|frameborder|allowfullscreen],a[href|target],img[src|alt|width|height],*[*]",
     "HTML.AllowedComments": [
       "pagebreak"
     ],
@@ -10,4 +12,4 @@
     "HTML.SafeIframe": true,
     "URI.SafeIframeRegexp": "%^(https?:)?//(www.youtube.com/embed/|player.vimeo.com/video/|codepen.io|bandcamp.com|embed.music.apple.com)%"
   }
-  
+
