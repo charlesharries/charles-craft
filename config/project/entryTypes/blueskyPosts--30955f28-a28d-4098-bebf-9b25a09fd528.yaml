@@ -1,0 +1,153 @@
+color: null
+fieldLayouts:
+  3c50295f-16fc-4d07-aca2-1ef89d3345b4:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: '2026-01-03T18:41:58+00:00'
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3813b1f8-a32d-43ce-ad1c-95cbadfb5cb2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-03T18:43:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 3230d26a-2cad-451c-a91c-b9ef9110c470 # Bluesky URI
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 85c8cacd-2862-4d1c-a455-a45fee0c8a1a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-03T18:43:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: c14c9bee-db2a-461e-add7-b0aef0fbd74c # Bluesky Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f46759a2-35b5-42a5-948c-522f32dda420
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-03T18:43:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 210691b9-9096-4843-a410-a28d79204198 # Bluesky Created At
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 010bd889-b3f4-4524-8618-4e10d624a371
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-03T18:43:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1f2366c1-b8d5-413b-95d1-a3b7a56f381c # Bluesky Repost Count
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b20684c4-c960-41c1-92f5-ef3fabe59040
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-03T18:43:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 422bee50-7591-44e2-bf3b-166e98f9029c # Bluesky Reply Count
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 722ac2f8-144c-4e54-aa77-51472de7da9b
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-03T18:43:44+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 5626606d-32ce-4f03-a215-38b14458936a # Bluesky Like Count
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8e4288a7-7b80-46c8-91e1-4ff6c9e02a09
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2a3fae0b-795a-416b-a84c-d5dedab58c9a
+        userCondition: null
+handle: blueskyPosts
+hasTitleField: true
+icon: null
+name: 'Bluesky Posts'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
