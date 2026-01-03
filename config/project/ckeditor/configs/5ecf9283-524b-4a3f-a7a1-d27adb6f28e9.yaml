@@ -26,6 +26,7 @@ toolbar:
   - superscript
   - blockQuote
   - insertImage
+  - mediaEmbed
   - bulletedList
   - numberedList
   - horizontalLine
