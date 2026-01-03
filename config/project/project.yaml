@@ -1,4 +1,4 @@
-dateModified: 1750102267
+dateModified: 1767481027
 elementSources:
   craft\elements\Entry:
     -
@@ -82,6 +82,7 @@ meta:
     0dc92d8f-d943-4a05-b7c3-70f90413fb2b: Designations # Designations
     1ac502c3-2ca1-43a0-a4bf-2d13883aa576: 'Show title?' # Show title?
     01ea27f8-8ac3-4d82-9d54-ed3faca4000b: Books # Books
+    1f2366c1-b8d5-413b-95d1-a3b7a56f381c: 'Bluesky Repost Count' # Bluesky Repost Count
     4b7c4f12-4502-4174-8b81-4a28b231036e: Meta # Meta
     4c827962-66cf-4542-b561-aa8650e5f2de: 'Books - Default' # Books - Default
     4ff40bad-6fd2-4bdc-9feb-65a47931998d: Length # Length
@@ -107,20 +108,26 @@ meta:
     73c0a488-cfd0-483b-8bf9-f13b716fd0df: Designations # Designations
     74da0e66-e6c9-4eb8-a3fd-c603fdb2e1f3: 1500w # 1500w
     75f81d9a-3f3c-4479-9949-7a535abd7e37: Stream # Stream
+    422bee50-7591-44e2-bf3b-166e98f9029c: 'Bluesky Reply Count' # Bluesky Reply Count
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
     763fc5b6-7451-4ddc-969c-f16d0c2b6245: S3 # S3
     845cdad7-de50-42e0-8b6d-b5600fe8a11a: 'Walks - Default' # Walks - Default
     1623a46f-6c10-445a-b3c5-c6c2b1cea84b: 'Test posts' # Test posts
+    3230d26a-2cad-451c-a91c-b9ef9110c470: 'Bluesky URI' # Bluesky URI
+    30955f28-a28d-4098-bebf-9b25a09fd528: 'Bluesky Posts' # Bluesky Posts
     52047e94-5988-47b4-b9b5-6e061b5c2b49: Medium # Medium
     61727a0a-6742-4674-930c-0a3f6a9fe2a1: 'Posts - Default' # Posts - Default
     071255ac-4fb5-404c-b125-46fa49417bc2: Posts # Posts
+    210691b9-9096-4843-a410-a28d79204198: 'Bluesky Created At' # Bluesky Created At
     876291c4-dc5a-4b83-ada0-560a467fdc59: 'Projects - Default' # Projects - Default
+    5626606d-32ce-4f03-a215-38b14458936a: 'Bluesky Like Count' # Bluesky Like Count
     63230075-57c8-4786-aaa2-f1c58f46dbf5: 'Sam Posts' # Sam Posts
     a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: 'Sam Posts - Default' # Sam Posts - Default
     ae766d71-5a92-43ba-9546-3a8225552940: 'Created At' # Created At
     b73342c0-9657-40f5-b802-e3ad79e55eaa: Simple # Simple
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
+    c14c9bee-db2a-461e-add7-b0aef0fbd74c: 'Bluesky Text' # Bluesky Text
     c59415d9-dcf6-439b-8d6a-146665a862e6: Local # Local
     d2f95b40-d14e-47c3-a705-54d605e9f1fe: Gender # Gender
     d84dc500-3212-4518-89ad-70a547974d1b: Projects # Projects
@@ -128,6 +135,7 @@ meta:
     e15d799f-8a04-46a2-ad3f-6d341d431477: 450w # 450w
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
+    fdbe53af-0f3d-4868-8ae2-c96c900bd122: 'Bluesky Posts' # Bluesky Posts
 plugins:
   aws-s3:
     edition: standard
