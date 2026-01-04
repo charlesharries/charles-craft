@@ -1,0 +1,26 @@
+columnSuffix: null
+handle: blueskyAuthor
+instructions: null
+name: 'Bluesky Author'
+searchable: false
+settings:
+  createButtonLabel: 'New author'
+  defaultIndexViewMode: cards
+  enableVersioning: false
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - efa0ce78-bc84-4b95-8040-18b6a9b91a44 # Bluesky Authors
+  includeTableView: false
+  maxEntries: null
+  minEntries: 1
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

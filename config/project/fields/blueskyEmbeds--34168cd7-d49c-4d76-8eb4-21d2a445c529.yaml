@@ -1,0 +1,94 @@
+columnSuffix: null
+handle: blueskyEmbeds
+instructions: null
+name: 'Bluesky Embeds'
+searchable: false
+settings:
+  addRowLabel: 'Add an embed'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - URL
+            -
+              - handle
+              - url
+            -
+              - width
+              - ''
+            -
+              - type
+              - url
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - 'Alt text'
+            -
+              - handle
+              - alt
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+      -
+        - col3
+        -
+          __assoc__:
+            -
+              - heading
+              - Width
+            -
+              - handle
+              - width
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+      -
+        - col4
+        -
+          __assoc__:
+            -
+              - heading
+              - Height
+            -
+              - handle
+              - height
+            -
+              - width
+              - ''
+            -
+              - type
+              - number
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - ''
+        -
+          - col2
+          - ''
+        -
+          - col3
+          - ''
+        -
+          - col4
+          - ''
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

@@ -1,0 +1,92 @@
+color: null
+fieldLayouts:
+  1d7315a7-d659-4ce6-ba68-f31d3e3b7a85:
+    cardView:
+      - 'layoutElement:b850fe2e-8ff7-48b7-9513-41020fe822b9'
+      - 'layoutElement:69cfe215-a11a-403a-8918-d27246923989'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2026-01-04T11:44:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: b3282527-7ee0-410a-86ab-c05fdff8901b # DID
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 95c7d096-d8bd-47c4-b842-9f46a7c8ce89
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-04T11:44:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 6750c6ad-7ac5-4ca4-88f1-710ccacdaf6d # Bluesky Handle
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 69cfe215-a11a-403a-8918-d27246923989
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-04T11:44:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 1ca3d254-f513-4fec-bbe9-954baa4ab92a # Display Name
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b850fe2e-8ff7-48b7-9513-41020fe822b9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-04T11:44:34+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 70cc176e-cfff-46db-a9af-fe72e609b18d # Avatar
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d5cd81a0-667a-450c-8d3b-332acda68493
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ec971bf2-5e07-4f21-afc4-7f0ba7519f9b
+        userCondition: null
+handle: blueskyAuthors
+hasTitleField: false
+icon: null
+name: 'Bluesky Authors'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

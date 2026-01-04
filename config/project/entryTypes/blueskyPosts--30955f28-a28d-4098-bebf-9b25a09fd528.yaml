@@ -53,6 +53,23 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2026-01-04T11:45:21+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: d1bf05bc-8e59-4b13-b4bb-50eec8171095 # Bluesky Author
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a0283ddf-cf5e-40b8-b520-33424c007de6
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
@@ -66,6 +83,23 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: f46759a2-35b5-42a5-948c-522f32dda420
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2026-01-04T11:08:00+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 34168cd7-d49c-4d76-8eb4-21d2a445c529 # Bluesky Embeds
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f3866433-267f-40ea-b798-9e82d399a323
             userCondition: null
             warning: null
             width: 100
