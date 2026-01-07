@@ -71,7 +71,7 @@
 		<ul role="list" class="latest stack mt-lg" data-size="lg">
 			{% for entry in entries.limit(postsToShow).all() %}
 				<li>
-					<article>
+					<article class="h-entry">
 						{{ entrycontent.content(entry, loop.index==1) }}
 					</article>
 				</li>
