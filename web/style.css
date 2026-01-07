@@ -153,6 +153,9 @@ html {
     font-size: var(--font-base);
 }
 
+html:not(.light) .light-only { display: none !important; }
+.light .dark-only { display: none !important; }
+
 body {
     font-family: var(--font-serif);
     background-color: var(--background);
@@ -701,6 +704,8 @@ dialog::backdrop {
     border-radius: 4px;
     background-color: var(--callout-background);
 }
+
+.social-logo { width: 25px; height: auto; }
 
 @media screen and (min-width: 599px) {
     .md\:text-right { text-align: right; }
