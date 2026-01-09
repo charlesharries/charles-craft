@@ -54,17 +54,31 @@
 					{% include "_partials/animatedname.twig" %}
 				</a>
 
-				<ul role="list" class="cluster">
+				<ul role="list" class="cluster align-center">
 					{% if currentUser %}
 						<li><a href="/admin/entries" class="sans">Control Panel</a></li>
 					{% endif %}
 					<li>
+						<a href="https://github.com/charlesharries" rel="me">
+							<img src="/images/logo-github-light.svg" class="dark-only social-logo no-lightbox"
+								alt="Charles Harries on GitHub" />
+							<img src="/images/logo-github-dark.svg" class="light-only social-logo no-lightbox"
+								alt="Charles Harries on GitHub" />
+						</a>
+					</li>
+					<li>
+						<a href="https://bsky.app/profile/charlesharri.es" rel="me">
+							<img src="/images/logo-bluesky.svg" class="social-logo no-lightbox"
+								alt="Charles Harries on Bluesky" />
+						</a>
+					</li>
+					<li>
 						<a href="/about" rel="me">About</a>
 					</li>
-					<li>
+					<li hidden>
 						<button id="theme-toggle"></button>
 					</li>
-					<li>
+					<li hidden>
 						<button id="color-theme-toggle"></button>
 					</li>
 				</ul>
