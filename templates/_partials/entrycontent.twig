@@ -10,8 +10,8 @@
 		{{ posts.date(entry) }}
 	</p>
 
-	<h2 class="sans {{ entry.section == 'Stream' ? 'text-lg' : '' }}">
-		<a href="{{ entry.url }}">
+	<h2 class="sans {{ entry.section == 'Stream' ? 'text-lg' : '' }} p-name">
+		<a href="{{ entry.url }}" class="u-url">
 			{{ entry.title }}
 		</a>
 	</h2>
@@ -24,7 +24,7 @@
 
 	{# {{ posts.featuredImage(entry) }} #}
 
-	<div class="content stack mt-md">
+	<div class="content stack mt-md e-content">
 		{{ entry.body|syntaxHighlight|ratings|srcset|groupFigures }}
 	</div>
 
