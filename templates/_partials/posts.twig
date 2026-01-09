@@ -18,7 +18,7 @@
 		{% set currentFilter = craft.app.request.getQueryParam("tags")|split(",") %}
 		<p class="cluster" data-size="sm">
 			{% for tag in entry.tags.all() %}
-				<a href="/?tags={{ tag.slug }}" class="tag {{ tag.slug in currentFilter ? "is-active" : "" }}">
+				<a href="/?tags={{ tag.slug }}" class="tag {{ tag.slug in currentFilter ? "is-active" : "" }} p-category">
 					{{ tag.title }}
 				</a>
 			{% endfor %}
