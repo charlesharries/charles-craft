@@ -5,8 +5,8 @@
 	<p class="muted sans">
 		{{ posts.date(entry) }}
 	</p>
-	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs" id="{{ entry.slug }}">
-		<a href="{{ entry.url }}">
+	<h2 class="{{ entry.section == "Posts" ? "text-xl" : "" }} mt-xs p-name" id="{{ entry.slug }}">
+		<a href="{{ entry.url }}" class="u-url">
 			{{ entry.title }}
 		</a>
 	</h2>
