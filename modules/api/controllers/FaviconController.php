@@ -35,7 +35,8 @@ class FaviconController extends Controller
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;
         $headers->add('Content-Type', 'image/png');
-        // TODO: Set headers for caching.
+        $headers->add('Cache-Control', 'public, max-age=3600');
+        $headers->add('Expires', gmdate('D, d M Y H:i:s \G\M\T', strtotime('+1 hour')));
 
         return $this->asRaw($output);
     }
