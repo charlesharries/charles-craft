@@ -37,7 +37,8 @@ class PostImageController extends Controller
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;
         $headers->add('Content-Type', 'image/jpeg');
-        // TODO: Set headers for caching.
+        $headers->add('Cache-Control', 'public, max-age=604800');
+        $headers->add('Expires', gmdate('D, d M Y H:i:s \G\M\T', strtotime('+1 week')));
 
         return $this->asRaw($output);
     }
