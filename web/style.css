@@ -592,7 +592,7 @@ img:not(.no-lightbox) {
     border-radius: 3px;
 }
 
-.gallery:has(.image:nth-child(2)):not(:first-child),
+.gallery,
 .gallery + * {
     margin-top: var(--space-lg);
 }
