@@ -337,7 +337,6 @@ a, .link { transition: all 0.15s ease; }
 
 hidden { display: none !important; }
 
-:is(a, .link):not(.nostyle):hover,
 :is(a, .link):not(.nostyle):focus-visible {
     background-color: var(--muted);
     color: var(--background);
