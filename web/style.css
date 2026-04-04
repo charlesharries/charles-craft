@@ -597,6 +597,12 @@ img:not(.no-lightbox) {
     margin-top: var(--space-lg);
 }
 
+/* https://jakub.kr/writing/details-that-make-interfaces-feel-better#add-outline-to-images */
+.image {
+    outline: 1px solid rgba(0,0,0,0.1);
+    outline-offset: -1px;
+}
+
 [id^="fn"] {
     font-size: var(--font-sm);
 }
