@@ -1,146 +1,106 @@
-{% set hour = entry.postDate|date('G') + 0 %}
-{% set isDark = hour >= 19 or hour < 7 %}
-
-{% set primary = 97 %}
-{% set highlightH = isDark ? 43 : 226 %}
-{% set background = isDark ? 'hsl(' ~ primary ~ ', 80%, 5%)' : 'hsl(' ~ primary ~ ', 20%, 95%)' %}
-{% set text = isDark ? 'hsl(' ~ primary ~ ', 20%, 95%)' : 'hsl(' ~ primary ~ ', 80%, 5%)' %}
-{% set muted = isDark ? 'hsl(' ~ primary ~ ', 30%, 70%)' : 'hsl(' ~ primary ~ ', 40%, 15%)' %}
-{% set accent = 'hsla(' ~ highlightH ~ ', 100%, 50%, 0.99)' %}
-
-{% set type = entry.section.name %}
-{% set tagNames = entry.tags.all()|map(tag => tag.title) %}
-
-{% set fontsPath = 'file://' ~ alias('@webroot') ~ '/fonts' %}
-
 <html>
 	<head>
 		<style>
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Regular.woff2') format('woff2');
-				font-weight: 400;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Bold.woff2') format('woff2');
-				font-weight: 700;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Italic.woff2') format('woff2');
-				font-weight: 400;
-				font-style: italic;
-			}
-			@font-face {
-				font-family: 'Fira Sans';
-				src: url('{{ fontsPath }}/FiraSans-Regular.woff2') format('woff2');
-				font-weight: 400;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Fira Sans';
-				src: url('{{ fontsPath }}/FiraSans-Italic.woff2') format('woff2');
-				font-weight: 400;
-				font-style: italic;
-			}
+			{% include "api/lupino-serif.twig" %}
+
+			{% set featuredImage = entry.featuredImage.one() %}
 
 			* {
 				margin: 0;
+				-moz-box-sizing: border-box;
 				box-sizing: border-box;
+				font-weight: 200;
 			}
 
 			body {
-				font-family: 'Bitter', Georgia, serif;
-				background: {{ background }};
-				color: {{ text }};
+				font-family: "Lupino", serif;
 			}
 
 			.container {
 				width: 1200px;
 				height: 630px;
-				padding: 80px 90px;
+				position: relative;
+				{% if featuredImage %}
+					background-image: url({{featuredImage.url}});
+					background-fit: cover;
+					background-position: center center;
+					color: white;
+				{% else %}
+					background-color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 80%, 5%);
+					color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 20%, 90%);
+					border: 26px solid hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				{% endif %}
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -moz-box;
+				display: -ms-flexbox;
 				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: column;
+				-moz-box-orient: vertical;
+				-moz-box-direction: normal;
+				-ms-flex-direction: column;
 				flex-direction: column;
+				-webkit-box-pack: justify;
+				-webkit-justify-content: space-between;
+				-moz-box-pack: justify;
+				-ms-flex-pack: justify;
 				justify-content: space-between;
+				padding: 50px;
 			}
 
-			.eyebrow {
-				font-family: 'Fira Sans', sans-serif;
-				font-style: italic;
-				font-size: 36px;
-				color: {{ accent }};
-				letter-spacing: -0.01em;
-				text-transform: lowercase;
+			.heading {
+				font-size: 64px;
 			}
 
-			.eyebrow .divider {
-				margin: 0 0.5em;
-				opacity: 0.6;
+			.text {
+				position: relative;
+				z-index: 10;
+			}
+
+			{% if featuredImage %}
+				.container::after {
+					position: absolute;
+					content: '';
+					height: 50%;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0,0,0,0.6)));
+					z-index: 1;
+				}
+			{% endif %}
+
+			.meta {
+				{% if featuredImage %}
+					color: white;
+				{% else %}
+					color: hsl({{percentThroughDay(entry.postDate|date('j M Y g:i a')) * 360}}, 30%, 70%);
+				{% endif %}
+				font-size: 44px;
 			}
 
 			.title {
-				font-family: 'Fira Sans', sans-serif;
-				font-style: italic;
-				font-weight: 400;
+				margin-top: 5px;
 				font-size: 96px;
-				line-height: 1.05;
-				letter-spacing: -0.03em;
-				margin-top: 24px;
-				color: {{ text }};
+				line-height: 1;
 			}
 
-			.summary {
-				font-family: 'Bitter', Georgia, serif;
-				font-size: 34px;
-				line-height: 1.4;
-				margin-top: 32px;
-				color: {{ muted }};
-				max-width: 900px;
-			}
-
-			.footer {
-				display: flex;
-				justify-content: space-between;
-				align-items: flex-end;
-				font-family: 'Fira Sans', sans-serif;
-				font-size: 28px;
-				color: {{ muted }};
-			}
-
-			.footer .url {
-				font-style: italic;
-			}
-
-			.footer .date {
-				letter-spacing: 0.02em;
-			}
 		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			<div>
-				<p class="eyebrow">
-					<span class="type">{{ type }}</span>
-					{% if tagNames|length %}
-						<span class="divider">|</span>
-						<span class="tags">{{ tagNames|join(', ') }}</span>
-					{% endif %}
+			<h4 class="heading"></h4>
+			<div class="text">
+				<p class="meta">
+					<time datetime="{{ entry.postDate|date("Y-m-d") }}">
+						{{ entry.postDate|date("j M Y g:i a") }}
+					</time>
 				</p>
 				<h1 class="title">{{ entry.title }}</h1>
-				{% if entry.summary %}
-					<p class="summary">{{ entry.summary }}</p>
-				{% endif %}
-			</div>
-			<div class="footer">
-				<span class="url">charlesharri.es</span>
-				<time class="date" datetime="{{ entry.postDate|date('Y-m-d') }}">
-					{{ entry.postDate|date('j M Y') }}
-				</time>
-			</div>
+			</p>
 		</div>
 	</body>
 </html>

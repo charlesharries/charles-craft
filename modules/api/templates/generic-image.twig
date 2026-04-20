@@ -1,89 +1,64 @@
-{% set hour = 'now'|date('G') + 0 %}
-{% set isDark = hour >= 19 or hour < 7 %}
-
-{% set primary = 97 %}
-{% set highlightH = isDark ? 43 : 226 %}
-{% set background = isDark ? 'hsl(' ~ primary ~ ', 80%, 5%)' : 'hsl(' ~ primary ~ ', 20%, 95%)' %}
-{% set text = isDark ? 'hsl(' ~ primary ~ ', 20%, 95%)' : 'hsl(' ~ primary ~ ', 80%, 5%)' %}
-{% set muted = isDark ? 'hsl(' ~ primary ~ ', 30%, 70%)' : 'hsl(' ~ primary ~ ', 40%, 15%)' %}
-{% set accent = 'hsla(' ~ highlightH ~ ', 100%, 50%, 0.99)' %}
-
-{% set fontsPath = 'file://' ~ alias('@webroot') ~ '/fonts' %}
-
 <html>
 	<head>
 		<style>
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Regular.woff2') format('woff2');
-				font-weight: 400;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Fira Sans';
-				src: url('{{ fontsPath }}/FiraSans-Italic.woff2') format('woff2');
-				font-weight: 400;
-				font-style: italic;
-			}
+			{% include "api/lupino-serif.twig" %}
 
 			* {
 				margin: 0;
+				-moz-box-sizing: border-box;
 				box-sizing: border-box;
+				font-weight: 200;
 			}
 
 			body {
-				font-family: 'Bitter', Georgia, serif;
-				background: {{ background }};
-				color: {{ text }};
+				font-family: "Lupino", serif;
 			}
 
 			.container {
 				width: 1200px;
 				height: 630px;
-				padding: 80px 90px;
+				position: relative;
+				background-color: hsl(180, 80%, 5%);
+				color: hsl(180, 20%, 90%);
+				border: 26px solid hsl(180, 30%, 70%);
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -moz-box;
+				display: -ms-flexbox;
 				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-webkit-flex-direction: column;
+				-moz-box-orient: vertical;
+				-moz-box-direction: normal;
+				-ms-flex-direction: column;
 				flex-direction: column;
+				-webkit-box-pack: justify;
+				-webkit-justify-content: space-between;
+				-moz-box-pack: justify;
+				-ms-flex-pack: justify;
 				justify-content: space-between;
+				padding: 50px;
 			}
 
-			.eyebrow {
-				font-family: 'Fira Sans', sans-serif;
-				font-style: italic;
-				font-size: 36px;
-				color: {{ accent }};
-				letter-spacing: -0.01em;
-				text-transform: lowercase;
+			.heading {
+				font-size: 64px;
 			}
 
 			.title {
-				font-family: 'Fira Sans', sans-serif;
-				font-style: italic;
-				font-weight: 400;
-				font-size: 112px;
-				line-height: 1.05;
-				letter-spacing: -0.03em;
-				margin-top: 24px;
-				color: {{ text }};
+				margin-top: 5px;
+				font-size: 96px;
 			}
 
-			.footer {
-				font-family: 'Fira Sans', sans-serif;
-				font-size: 28px;
-				color: {{ muted }};
-				font-style: italic;
-			}
 		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			<div>
-				<p class="eyebrow">writing, walks, books, and other things</p>
+            <div></div>
+			<div class="text">
 				<h1 class="title">Charles Harries</h1>
-			</div>
-			<div class="footer">
-				<span class="url">charlesharri.es</span>
-			</div>
+			</p>
 		</div>
 	</body>
 </html>
