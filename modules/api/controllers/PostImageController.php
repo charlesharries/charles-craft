@@ -14,15 +14,15 @@ class PostImageController extends Controller
 
     public function actionGet($slug = null): Response
     {
-        return $this->render($slug, 'v1');
+        return $this->renderImage($slug, 'v1');
     }
 
     public function actionGetV2($slug = null): Response
     {
-        return $this->render($slug, 'v2');
+        return $this->renderImage($slug, 'v2');
     }
 
-    private function render(?string $slug, string $version): Response
+    private function renderImage(?string $slug, string $version): Response
     {
         $entry = null;
 
