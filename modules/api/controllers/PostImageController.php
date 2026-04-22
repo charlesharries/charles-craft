@@ -14,20 +14,31 @@ class PostImageController extends Controller
 
     public function actionGet($slug = null): Response
     {
+        return $this->render($slug, 'v1');
+    }
+
+    public function actionGetV2($slug = null): Response
+    {
+        return $this->render($slug, 'v2');
+    }
+
+    private function render(?string $slug, string $version): Response
+    {
         $entry = null;
 
         if ($slug) {
             $entry = Entry::find()->slug($slug)->one();
         }
 
-        $template = "api/postimage.twig";
+        $templates = [
+            'v1' => ['post' => 'api/postimage.twig', 'generic' => 'api/generic-image.twig'],
+            'v2' => ['post' => 'api/postimage-v2.twig', 'generic' => 'api/generic-image-v2.twig'],
+        ];
 
-        if (!$entry) {
-            $template = "api/generic-image.twig";
-        }
+        $template = $entry ? $templates[$version]['post'] : $templates[$version]['generic'];
 
         // Cache is good for a week.
-        $output = Craft::$app->cache->getOrSet(['postimage', $slug], function () use ($entry, $template) {
+        $output = Craft::$app->cache->getOrSet(['postimage', $version, $slug], function () use ($entry, $template) {
             $wkHtmlToImage = Craft::$app->config->custom->wkhtmltoimagePath;
             $html = Craft::$app->getView()->renderTemplate($template, compact('entry'));
             $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
