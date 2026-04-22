@@ -11,7 +11,7 @@
 {% block head %}
 	{%- set title = entry.title -%}
 	{%- set description = entry.summary -%}
-	{%- set image = url(url() ~ "api/post-images-v2/" ~ entry.slug) -%}
+	{%- set image = url(url() ~ "api/post-images/" ~ entry.slug) -%}
 	{%- set url = url() -%}
 	<meta property="og:description" content="{{ description }}"/>
 	<meta property="og:image" content="{{ image }}"/>
