@@ -15,107 +15,83 @@
 
 <html>
 	<head>
-		<style>
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Regular.woff2') format('woff2');
-				font-weight: 400;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Bold.woff2') format('woff2');
-				font-weight: 700;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Bitter';
-				src: url('{{ fontsPath }}/Bitter-Italic.woff2') format('woff2');
-				font-weight: 400;
-				font-style: italic;
-			}
-			@font-face {
-				font-family: 'Fira Sans';
-				src: url('{{ fontsPath }}/FiraSans-Regular.woff2') format('woff2');
-				font-weight: 400;
-				font-style: normal;
-			}
-			@font-face {
-				font-family: 'Fira Sans';
-				src: url('{{ fontsPath }}/FiraSans-Italic.woff2') format('woff2');
-				font-weight: 400;
-				font-style: italic;
-			}
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+		<style>
 			* {
 				margin: 0;
 				box-sizing: border-box;
 			}
 
 			body {
-				font-family: 'Bitter', Georgia, serif;
+				font-family: "Bitter";
 				background: {{ background }};
 				color: {{ text }};
-			}
-
-			.container {
-				width: 1200px;
-				height: 630px;
-				padding: 80px 90px;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-			}
-
-			.eyebrow {
-				font-family: 'Fira Sans', sans-serif;
-				font-style: italic;
 				font-size: 36px;
-				color: {{ accent }};
-				letter-spacing: -0.01em;
-				text-transform: lowercase;
-			}
-
-			.eyebrow .divider {
-				margin: 0 0.5em;
-				opacity: 0.6;
+				max-height: 630px;
+				max-width: 1200px;
 			}
 
 			.title {
-				font-family: 'Fira Sans', sans-serif;
-				font-style: italic;
+				margin-top: 15px;
+				font-family: "Fira Sans";
 				font-weight: 400;
 				font-size: 96px;
-				line-height: 1.05;
 				letter-spacing: -0.03em;
-				margin-top: 24px;
-				color: {{ text }};
+				font-style: italic;
 			}
 
-			.summary {
-				font-family: 'Bitter', Georgia, serif;
-				font-size: 34px;
-				line-height: 1.4;
-				margin-top: 32px;
-				color: {{ muted }};
-				max-width: 900px;
+			.eyebrow {
+				font-size: 30px;
+			}
+
+			.accent {
+				color: {{ accent }};
+			}
+
+			{# .eyebrow::before {
+				content: "";
+				display: block;
+				height: 6px;
+				width: 80px;
+				background: {{ accent }};
+				margin-bottom: 20px;
+			} #}
+
+			.desc {
+				margin-top: 15px;
+			}
+
+			.container {
+				position: relative;
+				width: 1200px;
+				height: 630px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding-inline: 80px;
+			}
+
+			.divider {
+				margin-inline: 10px;
 			}
 
 			.footer {
+				position: absolute;
+				left: 80px;
+				bottom: 40px;
+				width: calc(100% - 160px);
+				color: {{ accent }};
+				font-size: 24px;
+				margin-top: 60px;
 				display: flex;
 				justify-content: space-between;
-				align-items: flex-end;
-				font-family: 'Fira Sans', sans-serif;
-				font-size: 28px;
-				color: {{ muted }};
-			}
-
-			.footer .url {
-				font-style: italic;
-			}
-
-			.footer .date {
-				letter-spacing: 0.02em;
 			}
 		</style>
 	</head>
@@ -124,15 +100,15 @@
 		<div class="container">
 			<div>
 				<p class="eyebrow">
-					<span class="type">{{ type }}</span>
+					<span class="type accent">{{ type }}</span>
 					{% if tagNames|length %}
-						<span class="divider">|</span>
+						<span class="divider">&bull;</span>
 						<span class="tags">{{ tagNames|join(', ') }}</span>
 					{% endif %}
 				</p>
 				<h1 class="title">{{ entry.title }}</h1>
 				{% if entry.summary %}
-					<p class="summary">{{ entry.summary }}</p>
+					<p class="desc">{{ entry.summary }}</p>
 				{% endif %}
 			</div>
 			<div class="footer">

@@ -1,12 +1,12 @@
 {
   "require": {
+    "chrome-php/chrome": "^1.15",
     "craftcms/aws-s3": "^2.1",
     "craftcms/ckeditor": "^4.0",
     "craftcms/cms": "^5.5",
     "craftcms/element-api": "^4.0",
     "guzzlehttp/guzzle": "^7.4",
     "illuminate/collections": "^10.0",
-    "knplabs/knp-snappy": "^1.4",
     "leowebguy/device-detect": "^3.0",
     "mmikkel/retcon": "^3.0",
     "scrivo/highlight.php": "v9.18.1.9",
