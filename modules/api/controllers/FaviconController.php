@@ -3,10 +3,9 @@
 namespace modules\api\controllers;
 
 use Craft;
-use craft\helpers\App;
 use craft\web\Controller;
 use DateTime;
-use yii\web\NotFoundHttpException;
+use HeadlessChromium\Communication\Message;
 use yii\web\Response;
 
 class FaviconController extends Controller
@@ -19,17 +18,34 @@ class FaviconController extends Controller
 
         // Cache is good for a week.
         $output = Craft::$app->cache->getOrSet(['postimage', $date], function () use ($date) {
-            $wkHtmlToImage = Craft::$app->config->custom->wkhtmltoimagePath;
+            $chromiumPath = Craft::$app->config->custom->chromiumPath;
             $size = 180;
             $html = Craft::$app->getView()->renderTemplate("api/favicon.twig", compact('date', 'size'));
-            $snappy = new \Knp\Snappy\Image($wkHtmlToImage, [
-                'format' => 'png',
-                'height' => $size,
-                'width' => $size,
-                'transparent' => true,
-                'quality' => 1,
+
+            $browserFactory = new \HeadlessChromium\BrowserFactory($chromiumPath);
+            $browser = $browserFactory->createBrowser([
+                'headless' => true,
+                'noSandbox' => true,
+                'windowSize' => [$size, $size],
             ]);
-            return $snappy->getOutputFromHtml($html);
+
+            try {
+                $page = $browser->createPage();
+                $page->setViewport($size, $size);
+                $page->setHtml($html, 5000);
+                $page->evaluate('document.fonts.ready.then(() => true)')->getReturnValue(5000);
+
+                // Transparent background: override the default white page background.
+                $page->getSession()->sendMessageSync(new Message(
+                    'Emulation.setDefaultBackgroundColorOverride',
+                    ['color' => ['r' => 0, 'g' => 0, 'b' => 0, 'a' => 0]]
+                ));
+
+                $screenshot = $page->screenshot(['format' => 'png']);
+                return $screenshot->getRawBinary();
+            } finally {
+                $browser->close();
+            }
         }, 60 * 60 * 24 * 365);
 
         // Set Content-Type and Cache headers

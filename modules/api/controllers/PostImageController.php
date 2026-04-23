@@ -38,12 +38,34 @@ class PostImageController extends Controller
         $template = $entry ? $templates[$version]['post'] : $templates[$version]['generic'];
 
         // Cache is good for a week.
-        $output = Craft::$app->cache->getOrSet(['postimage', $version, $slug], function () use ($entry, $template) {
-            $wkHtmlToImage = Craft::$app->config->custom->wkhtmltoimagePath;
+        // $cacheTime = 60 * 60 * 24 * 7;
+        $cacheTime = 1;
+
+        $output = Craft::$app->cache->getOrSet(['pp', $version, $slug], function () use ($entry, $template) {
+            $chromiumPath = Craft::$app->config->custom->chromiumPath;
             $html = Craft::$app->getView()->renderTemplate($template, compact('entry'));
-            $snappy = new \Knp\Snappy\Image($wkHtmlToImage);
-            return $snappy->getOutputFromHtml($html);
-        }, 60 * 60 * 24 * 7);
+
+            $browserFactory = new \HeadlessChromium\BrowserFactory($chromiumPath);
+            $browser = $browserFactory->createBrowser([
+                'headless' => true,
+                'noSandbox' => true,
+                'windowSize' => [1200, 630],
+            ]);
+
+            try {
+                $page = $browser->createPage();
+                $page->setViewport(1200, 630);
+                $page->setHtml($html, 5000);
+                $page->evaluate('document.fonts.ready.then(() => true)')->getReturnValue(5000);
+                $screenshot = $page->screenshot([
+                    'format' => 'jpeg',
+                    'quality' => 90,
+                ]);
+                return $screenshot->getRawBinary();
+            } finally {
+                $browser->close();
+            }
+        }, $cacheTime);
 
         // Set Content-Type and Cache headers
         $headers = Craft::$app->response->headers;

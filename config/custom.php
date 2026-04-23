@@ -3,6 +3,6 @@
 use craft\helpers\App;
 
 return [
-    // Set path to wkhtmltoiamge for image transforms
-    'wkhtmltoimagePath' => App::env('WKHTMLTOIMAGE_PATH'),
+    // Path to the Chromium/Chrome binary used for rendering HTML to images
+    'chromiumPath' => App::env('CHROMIUM_PATH'),
 ];
