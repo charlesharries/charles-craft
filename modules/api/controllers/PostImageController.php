@@ -38,8 +38,7 @@ class PostImageController extends Controller
         $template = $entry ? $templates[$version]['post'] : $templates[$version]['generic'];
 
         // Cache is good for a week.
-        // $cacheTime = 60 * 60 * 24 * 7;
-        $cacheTime = 1;
+        $cacheTime = 60 * 60 * 24 * 7;
 
         $output = Craft::$app->cache->getOrSet(['pp', $version, $slug], function () use ($entry, $template) {
             $chromiumPath = Craft::$app->config->custom->chromiumPath;

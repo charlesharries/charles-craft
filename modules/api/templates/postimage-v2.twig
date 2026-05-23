@@ -9,7 +9,7 @@
 {% set accent = 'hsla(' ~ highlightH ~ ', 100%, 50%, 0.99)' %}
 
 {% set type = entry.section.name %}
-{% set tagNames = entry.tags.all()|map(tag => tag.title) %}
+{% set tagNames = entry.tags ? entry.tags.all()|map(tag => tag.title) : [] %}
 
 {% set fontsPath = 'file://' ~ alias('@webroot') ~ '/fonts' %}
 
@@ -43,6 +43,7 @@
 				font-family: "Fira Sans";
 				font-weight: 400;
 				font-size: 96px;
+				line-height: 0.8;
 				letter-spacing: -0.03em;
 				font-style: italic;
 			}
@@ -65,7 +66,7 @@
 			} #}
 
 			.desc {
-				margin-top: 15px;
+				margin-top: 30px;
 			}
 
 			.container {
