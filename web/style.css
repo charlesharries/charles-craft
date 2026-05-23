@@ -412,7 +412,7 @@ hidden { display: none !important; }
     padding-inline: var(--space-md);
 }
 
-.container .content > *:not(.gallery:has(:nth-child(2))) {
+.container .content > *:not(.gallery:has(> :nth-child(2))) {
     width: 100%;
     max-width: calc(var(--container) - 2*var(--space-md));
 }
@@ -597,7 +597,7 @@ img:not(.no-lightbox) {
 }
 
 /* https://jakub.kr/writing/details-that-make-interfaces-feel-better#add-outline-to-images */
-.image {
+.image img {
     outline: 1px solid rgba(0,0,0,0.1);
     outline-offset: -1px;
 }
