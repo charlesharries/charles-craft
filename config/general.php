@@ -41,4 +41,6 @@ return [
 
     // Avoid cache hit reduction
     'asyncCsrfInputs' => true,
+
+    'maxUploadFileSize' => 40 * 1024 * 1024,
 ];
