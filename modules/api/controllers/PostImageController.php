@@ -45,11 +45,13 @@ class PostImageController extends Controller
             $chromiumPath = Craft::$app->config->custom->chromiumPath;
             $html = Craft::$app->getView()->renderTemplate($template, compact('entry'));
 
+            putenv('HOME=/tmp/chrome-home');
             $browserFactory = new \HeadlessChromium\BrowserFactory($chromiumPath);
             $browser = $browserFactory->createBrowser([
                 'headless' => true,
                 'noSandbox' => true,
                 'windowSize' => [1200, 630],
+                'customFlags' => ['--disable-dev-shm-usage', '--disable-crash-reporter', '--crash-dumps-dir=/tmp/chrome-crashes'],
             ]);
 
             try {
