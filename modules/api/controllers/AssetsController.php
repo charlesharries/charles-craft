@@ -14,8 +14,6 @@ class AssetsController extends Controller
 
     public function beforeAction($action): bool
     {
-        // Prevent the session from starting so no Set-Cookie header is sent,
-        // which would cause Cloudflare to bypass its cache.
         Craft::$app->getUser()->enableSession = false;
         return parent::beforeAction($action);
     }
@@ -31,6 +29,10 @@ class AssetsController extends Controller
         $headers->set('Content-Type', $res->get('ContentType'));
         $headers->set('Cache-Control', "public, max-age={$maxAge}, immutable");
         $headers->set('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + $maxAge));
+
+        Craft::$app->getSession()->close();
+        Craft::$app->response->cookies->removeAll();
+        header_remove('Set-Cookie');
 
         return $this->asRaw($res->get('Body'));
     }
