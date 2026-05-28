@@ -12,14 +12,18 @@ class AssetsController extends Controller
 {
     protected array|bool|int $allowAnonymous = self::ALLOW_ANONYMOUS_LIVE;
 
+    public function beforeAction($action): bool
+    {
+        // Prevent the session from starting so no Set-Cookie header is sent,
+        // which would cause Cloudflare to bypass its cache.
+        Craft::$app->getUser()->enableSession = false;
+        return parent::beforeAction($action);
+    }
+
     public function actionS3(string $rest)
     {
         $aws = new S3Client(['region' => App::env("AWS_S3_LOCATION"), 'version' => '2006-03-01']);
         $res = $aws->getObject(['Bucket' => App::env("AWS_S3_BUCKET"), 'Key' => $rest]);
-
-        // Close the session before responding so Craft doesn't emit a Set-Cookie header,
-        // which would cause Cloudflare to bypass its cache for this response.
-        Craft::$app->getSession()->close();
 
         $maxAge = 60 * 60 * 24 * 365; // 1 year
 
