@@ -33,7 +33,7 @@ class AssetsController extends Controller
         Craft::$app->getSession()->close();
         Craft::$app->response->cookies->removeAll();
         header_remove('Set-Cookie');
-        header_remove('X-Powered-By');
+        header_remove('x-powered-by');
         header_remove('Pragma');
 
         return $this->asRaw($res->get('Body'));
