@@ -5,7 +5,6 @@ namespace modules\api\controllers;
 use Craft;
 use craft\elements\Entry;
 use craft\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class PostImageController extends Controller
@@ -37,8 +36,7 @@ class PostImageController extends Controller
 
         $template = $entry ? $templates[$version]['post'] : $templates[$version]['generic'];
 
-        // Cache is good for a week.
-        $cacheTime = 60 * 60 * 24 * 7;
+        $cacheTime = (int) (getenv('POST_IMAGE_CACHE_TTL') ?: 60 * 60 * 24 * 7);
 
         $output = Craft::$app->cache->getOrSet(['pp', $version, $slug], function () use ($entry, $template) {
             $chromiumPath = Craft::$app->config->custom->chromiumPath;
