@@ -9,7 +9,9 @@
 {% set accent = 'hsla(' ~ highlightH ~ ', 100%, 50%, 0.99)' %}
 
 {% set type = entry.section.name %}
+{% set isBook = entry.section.handle == 'books' %}
 {% set tagNames = entry.tags ? entry.tags.all()|map(tag => tag.title) : [] %}
+{% set bookAuthor = isBook ? entry.writer.one() : null %}
 
 {% set fontsPath = 'file://' ~ alias('@webroot') ~ '/fonts' %}
 
@@ -39,11 +41,11 @@
 			}
 
 			.title {
-				margin-top: 15px;
+				margin-top: 30px;
 				font-family: "Fira Sans";
 				font-weight: 400;
 				font-size: 96px;
-				line-height: 0.8;
+				line-height: 0.9;
 				letter-spacing: -0.03em;
 				font-style: italic;
 			}
@@ -69,6 +71,27 @@
 				margin-top: 30px;
 			}
 
+			.book-meta {
+				margin-top: 30px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 12px;
+				color: {{ muted }};
+			}
+
+			.book-meta .stars {
+				margin-top: 15px;
+				display: inline-flex;
+				align-items: center;
+				color: {{ accent }};
+			}
+
+			.book-meta .stars svg {
+				width: 36px;
+				height: 36px;
+			}
+
 			.container {
 				position: relative;
 				width: 1200px;
@@ -77,6 +100,7 @@
 				flex-direction: column;
 				justify-content: center;
 				padding-inline: 80px;
+				padding-block-end: 60px;
 			}
 
 			.divider {
@@ -90,7 +114,6 @@
 				width: calc(100% - 160px);
 				color: {{ accent }};
 				font-size: 24px;
-				margin-top: 60px;
 				display: flex;
 				justify-content: space-between;
 			}
@@ -108,7 +131,16 @@
 					{% endif %}
 				</p>
 				<h1 class="title">{{ entry.title }}</h1>
-				{% if entry.summary %}
+				{% if isBook %}
+					<div class="book-meta">
+						{% if bookAuthor %}
+							<span class="author">by {{ bookAuthor.title }}</span>
+						{% endif %}
+						{% if entry.rating %}
+							{% include "_partials/stars" with {'count': entry.rating} only %}
+						{% endif %}
+					</div>
+				{% elseif entry.summary %}
 					<p class="desc">{{ entry.summary }}</p>
 				{% endif %}
 			</div>
