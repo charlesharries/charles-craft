@@ -9,7 +9,9 @@
 {% set accent = 'hsla(' ~ highlightH ~ ', 100%, 50%, 0.99)' %}
 
 {% set type = entry.section.name %}
+{% set isBook = entry.section.handle == 'books' %}
 {% set tagNames = entry.tags ? entry.tags.all()|map(tag => tag.title) : [] %}
+{% set bookAuthor = isBook ? entry.writer.one() : null %}
 
 {% set fontsPath = 'file://' ~ alias('@webroot') ~ '/fonts' %}
 
@@ -69,6 +71,25 @@
 				margin-top: 30px;
 			}
 
+			.book-meta {
+				margin-top: 30px;
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				color: {{ muted }};
+			}
+
+			.book-meta .stars {
+				display: inline-flex;
+				align-items: center;
+				color: {{ accent }};
+			}
+
+			.book-meta .stars svg {
+				width: 36px;
+				height: 36px;
+			}
+
 			.container {
 				position: relative;
 				width: 1200px;
@@ -108,7 +129,16 @@
 					{% endif %}
 				</p>
 				<h1 class="title">{{ entry.title }}</h1>
-				{% if entry.summary %}
+				{% if isBook %}
+					<div class="book-meta">
+						{% if bookAuthor %}
+							<span class="author">by {{ bookAuthor.title }}</span>
+						{% endif %}
+						{% if entry.rating %}
+							{% include "_partials/stars" with {'count': entry.rating} only %}
+						{% endif %}
+					</div>
+				{% elseif entry.summary %}
 					<p class="desc">{{ entry.summary }}</p>
 				{% endif %}
 			</div>
