@@ -8,6 +8,8 @@
 	{{ entry.title }}
 {% endblock %}
 
+{% block metaDescription %}{{ entry.summary }}{% endblock %}
+
 {% block head %}
 	{%- set title = entry.title -%}
 	{%- set description = entry.summary -%}
