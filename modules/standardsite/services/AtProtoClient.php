@@ -84,6 +84,28 @@ class AtProtoClient
         }
     }
 
+    public function listRecords(string $collection, int $limit = 100, ?string $cursor = null): array
+    {
+        $query = [
+            'repo' => $this->did,
+            'collection' => $collection,
+            'limit' => $limit,
+        ];
+
+        if ($cursor) {
+            $query['cursor'] = $cursor;
+        }
+
+        $response = $this->client->get('com.atproto.repo.listRecords', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->accessToken,
+            ],
+            'query' => $query,
+        ]);
+
+        return json_decode($response->getBody(), true);
+    }
+
     public function deleteRecord(string $collection, string $rkey): void
     {
         $this->client->post('com.atproto.repo.deleteRecord', [

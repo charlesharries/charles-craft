@@ -59,15 +59,36 @@ class StandardSiteService
             return null;
         }
 
-        // Extract DID from publication URI: at://did:plc:xxx/site.standard.publication/self
         $parts = explode('/', $publicationUri);
         $did = $parts[2] ?? null;
         if (!$did) {
             return null;
         }
 
-        $rkey = $entry->section->handle . '-' . $entry->slug;
+        $rkey = self::tidForEntry($entry);
         return 'at://' . $did . '/' . self::DOCUMENT_COLLECTION . '/' . $rkey;
+    }
+
+    public static function tidForEntry(Entry $entry): string
+    {
+        $timestampMicros = $entry->postDate->getTimestamp() * 1000000;
+        $clockId = $entry->id % 1024;
+        $value = ($timestampMicros << 10) | $clockId;
+
+        return self::encodeTid($value);
+    }
+
+    private static function encodeTid(int $value): string
+    {
+        $charset = '234567abcdefghijklmnopqrstuvwxyz';
+        $result = '';
+
+        for ($i = 0; $i < 13; $i++) {
+            $result = $charset[$value & 0x1f] . $result;
+            $value >>= 5;
+        }
+
+        return $result;
     }
 
     public function createOrUpdateDocument(Entry $entry): string
@@ -118,9 +139,7 @@ class StandardSiteService
 
     private function rKeyForEntry(Entry $entry): string
     {
-        // AT Protocol rkeys must be alphanumeric. Use the entry slug prefixed
-        // with the section handle to avoid collisions across sections.
-        return $entry->section->handle . '-' . $entry->slug;
+        return self::tidForEntry($entry);
     }
 
     private function pathForEntry(Entry $entry): string

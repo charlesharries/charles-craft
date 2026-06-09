@@ -20,6 +20,7 @@ class Module extends \yii\base\Module
             $this->controllerNamespace = 'modules\\standardsite\\console\\controllers';
         } else {
             $this->controllerNamespace = 'modules\\standardsite\\controllers';
+            Craft::$app->view->registerTwigExtension(new TwigExtension());
         }
 
         Event::on(
