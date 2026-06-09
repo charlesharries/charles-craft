@@ -13,7 +13,7 @@ class StandardSiteService
     public const SUPPORTED_SECTIONS = ['posts', 'stream', 'books', 'walks'];
     private const PUBLICATION_COLLECTION = 'site.standard.publication';
     private const DOCUMENT_COLLECTION = 'site.standard.document';
-    private const PUBLICATION_RKEY = 'self';
+    private ?string $publicationRkey = null;
 
     public function __construct()
     {
@@ -27,6 +27,9 @@ class StandardSiteService
 
     public function createOrUpdatePublication(): string
     {
+        $existingUri = $this->getPublicationUri();
+        $rkey = $existingUri ? basename($existingUri) : self::generateTid();
+
         $record = [
             '$type' => self::PUBLICATION_COLLECTION,
             'url' => 'https://charlesharri.es',
@@ -37,7 +40,7 @@ class StandardSiteService
 
         $result = $this->client->putRecord(
             self::PUBLICATION_COLLECTION,
-            self::PUBLICATION_RKEY,
+            $rkey,
             $record
         );
 
@@ -73,6 +76,15 @@ class StandardSiteService
     {
         $timestampMicros = $entry->postDate->getTimestamp() * 1000000;
         $clockId = $entry->id % 1024;
+        $value = ($timestampMicros << 10) | $clockId;
+
+        return self::encodeTid($value);
+    }
+
+    public static function generateTid(): string
+    {
+        $timestampMicros = (int)(microtime(true) * 1000000);
+        $clockId = random_int(0, 1023);
         $value = ($timestampMicros << 10) | $clockId;
 
         return self::encodeTid($value);
