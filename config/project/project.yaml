@@ -1,4 +1,4 @@
-dateModified: 1767528479
+dateModified: 1781041601
 elementSources:
   craft\elements\Entry:
     -
@@ -176,6 +176,8 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+standardsite:
+  publicationUri: 'at://did:plc:swxoj3wjlwodcqs5ipmvgnug/site.standard.publication/self'
 system:
   edition: solo
   live: true

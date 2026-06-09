@@ -28,6 +28,10 @@
 	<meta name="twitter:description" content="{{ description }}"/>
 	<meta name="twitter:creator" content="@charlesharries"/>
 	<meta name="twitter:image:src" content="{{ image }}"/>
+	{% set pubUri = craft.app.projectConfig.get('standardsite.publicationUri') %}
+	{% if pubUri %}
+	<link rel="site.standard.document" href="at://{{ pubUri|split('/')[2] }}/site.standard.document/{{ entry.section.handle }}-{{ entry.slug }}">
+	{% endif %}
 {% endblock %}
 
 {% block content %}
