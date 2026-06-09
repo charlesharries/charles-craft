@@ -26,6 +26,7 @@ return [
         'api' => modules\api\Module::class,
         'deploy' => deploy\Module::class,
         'extensions' => extensions\Module::class,
+        'standardsite' => modules\standardsite\Module::class,
     ],
-    'bootstrap' => ['api', 'deploy', 'extensions'],
+    'bootstrap' => ['api', 'deploy', 'extensions', 'standardsite'],
 ];

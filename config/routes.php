@@ -20,6 +20,7 @@
  */
 
 return [
+    '.well-known/site.standard.publication' => 'standardsite/well-known/publication',
     'assets/s3/<rest:.*>' => 'api/assets/s3',
     'only:<section>' => ['template' => 'index'],
     'api/post-images' => 'api/post-image/get',
