@@ -19,11 +19,56 @@ class StandardSiteController extends Controller
             return 1;
         }
 
+        $existingUri = Craft::$app->projectConfig->get('standardsite.publicationUri');
+        if ($existingUri) {
+            $oldRkey = basename($existingUri);
+            $this->stdout("Existing publication record found ($oldRkey), will update in place.\n");
+        }
+
         $service = new StandardSiteService();
         $service->authenticate();
         $uri = $service->createOrUpdatePublication();
 
         $this->stdout("Publication record created: $uri\n");
+        return 0;
+    }
+
+    public function actionResetPublication(): int
+    {
+        $this->stdout("Deleting existing publication record and creating a fresh one...\n");
+
+        if (!getenv('BLUESKY_APP_PASSWORD')) {
+            $this->stderr("No Bluesky credentials set.\n");
+            return 1;
+        }
+
+        $client = new AtProtoClient();
+        $client->authenticate();
+
+        $deleted = 0;
+        $cursor = null;
+        do {
+            $result = $client->listRecords('site.standard.publication', 100, $cursor);
+            $records = $result['records'] ?? [];
+            $cursor = $result['cursor'] ?? null;
+
+            foreach ($records as $record) {
+                $rkey = basename($record['uri']);
+                $client->deleteRecord('site.standard.publication', $rkey);
+                $deleted++;
+                $this->stdout("  Deleted publication: $rkey\n");
+            }
+        } while ($cursor && !empty($records));
+
+        $this->stdout("Deleted $deleted publication record(s).\n");
+
+        Craft::$app->projectConfig->remove('standardsite.publicationUri');
+
+        $service = new StandardSiteService();
+        $service->authenticate();
+        $uri = $service->createOrUpdatePublication();
+
+        $this->stdout("New publication record created: $uri\n");
         return 0;
     }
 
