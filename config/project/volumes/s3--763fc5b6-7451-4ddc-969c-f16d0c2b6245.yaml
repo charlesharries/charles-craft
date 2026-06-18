@@ -62,6 +62,23 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            dateAdded: '2026-06-18T19:59:56+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 636f8707-9eea-4a34-bd7f-3d184e4b85f2 # Orientation
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 938a1ee6-777f-4f6c-a190-dc0f836d0e8e
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 3fddcb8a-853f-4915-84a9-e90919b4aa5f
         userCondition: null
