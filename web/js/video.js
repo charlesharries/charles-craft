@@ -59,12 +59,17 @@ function VideoPlayer() {
             timeEl.textContent = formatTime(video.duration - video.currentTime);
         }
 
+        let observer;
+
         function togglePlay() {
             if (video.ended) {
                 video.currentTime = 0;
                 video.play();
+            } else if (video.paused) {
+                video.play();
             } else {
-                video.paused ? video.play() : video.pause();
+                observer?.disconnect();
+                video.pause();
             }
         }
 
@@ -84,6 +89,16 @@ function VideoPlayer() {
 
         updatePlayIcon();
         updateMuteIcon();
+
+        observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                video.play().catch(() => {});
+            } else {
+                video.pause();
+            }
+        }, { threshold: 1.0 });
+
+        observer.observe(wrapper);
     }
 
     videos.forEach(initVideo);
