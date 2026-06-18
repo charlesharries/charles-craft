@@ -15,12 +15,6 @@ options:
       -
         attributes: true
         key: li
-      -
-        attributes: true
-        key: video
-      -
-        attributes: true
-        key: source
   removePlugins:
     - ImageEditor
 toolbar:

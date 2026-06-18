@@ -32,8 +32,8 @@ class VideoAssetBundle extends BaseCkeditorPackageAsset
                 'muted' => 'Bool',
                 'poster' => 'URI',
                 'playsinline' => 'Bool',
-                'width' => 'Length',
-                'height' => 'Length',
+                'width' => 'Number',
+                'height' => 'Number',
             ]);
             $def->addElement('source', 'Inline', 'Empty', 'Core', [
                 'src' => 'URI',
