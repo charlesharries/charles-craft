@@ -7,6 +7,7 @@ use craft\awss3\S3Client;
 use craft\elements\Asset;
 use craft\helpers\App;
 use craft\web\Controller;
+use yii\web\Response;
 
 class AssetsController extends Controller
 {
@@ -16,6 +17,21 @@ class AssetsController extends Controller
     {
         Craft::$app->getUser()->enableSession = false;
         return parent::beforeAction($action);
+    }
+
+    public function actionVideoOrientation(): Response
+    {
+        $assetId = (int) Craft::$app->request->getRequiredParam('assetId');
+        $asset = Craft::$app->assets->getAssetById($assetId);
+
+        if (!$asset) {
+            return $this->asFailure('Asset not found');
+        }
+
+        $fieldValue = $asset->getFieldValue('orientation');
+        $orientation = ($fieldValue && $fieldValue->value) ? $fieldValue->value : 'landscape';
+
+        return $this->asJson(['orientation' => $orientation]);
     }
 
     public function actionS3(string $rest)
