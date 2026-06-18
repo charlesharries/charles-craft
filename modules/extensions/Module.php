@@ -3,6 +3,7 @@
 namespace extensions;
 
 use Craft;
+use extensions\assetbundles\VideoAssetBundle;
 
 class Module extends \yii\base\Module
 {
@@ -16,5 +17,7 @@ class Module extends \yii\base\Module
             $extension = new TwigExtension();
             Craft::$app->view->registerTwigExtension($extension);
         }
+
+        VideoAssetBundle::boot();
     }
 }
