@@ -437,12 +437,16 @@ hidden { display: none !important; }
 .video-player {
     position: relative;
     width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 .video-player video {
     display: block;
     width: 100%;
     height: auto;
+    outline: 1px solid rgba(0,0,0,0.1);
+    outline-offset: -1px;
 }
 
 .video-controls {
