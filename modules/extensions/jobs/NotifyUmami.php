@@ -30,7 +30,7 @@ class NotifyUmami extends \craft\queue\BaseJob
     {
         if (!$this->client) {
             $this->client = Craft::createGuzzleClient([
-                "base_uri" => "https://stats.charlesharri.es",
+                "base_uri" => App::env("UMAMI_BASE_URI"),
             ]);
         }
 
