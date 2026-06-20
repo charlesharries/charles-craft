@@ -4,7 +4,6 @@
     "craftcms/aws-s3": "^2.1",
     "craftcms/ckeditor": "^5.6",
     "craftcms/cms": "^5.5",
-    "craftcms/element-api": "^4.0",
     "guzzlehttp/guzzle": "^7.4",
     "illuminate/collections": "^10.0",
     "leowebguy/device-detect": "^3.0",
