@@ -12,7 +12,7 @@ class LatestTracksController extends Controller
 {
     protected array|bool|int $allowAnonymous = self::ALLOW_ANONYMOUS_LIVE;
 
-    private $baseURL = "http://ws.audioscrobbler.com/2.0/";
+    private $baseURL = "https://ws.audioscrobbler.com/2.0/";
 
     public function actionGet()
     {
@@ -35,7 +35,7 @@ class LatestTracksController extends Controller
                 ]
             ]);
 
-            if (!$response->getStatusCode() > 399) {
+            if ($response->getStatusCode() > 399) {
                 throw new \yii\web\ServerErrorHttpException("error from lastfm");
             }
 
