@@ -1,0 +1,79 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Access to an undefined static property mmikkel\\retcon\\Retcon\:\:\$plugin\.$#'
+			identifier: staticProperty.notFound
+			count: 2
+			path: modules/helpers/models/Book.php
+
+		-
+			message: '#^Access to an undefined static property mmikkel\\retcon\\Retcon\:\:\$plugin\.$#'
+			identifier: staticProperty.notFound
+			count: 2
+			path: modules/helpers/models/Post.php
+
+		-
+			message: '#^Access to an undefined static property mmikkel\\retcon\\Retcon\:\:\$plugin\.$#'
+			identifier: staticProperty.notFound
+			count: 1
+			path: modules/helpers/models/Project.php
+
+		-
+			message: '#^Access to an undefined static property mmikkel\\retcon\\Retcon\:\:\$plugin\.$#'
+			identifier: staticProperty.notFound
+			count: 1
+			path: modules/helpers/models/Stream.php
+
+		-
+			message: '#^Access to an undefined static property mmikkel\\retcon\\Retcon\:\:\$plugin\.$#'
+			identifier: staticProperty.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Access to property \$strava on an unknown class craft\\elements\\MatrixBlock\.$#'
+			identifier: class.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Access to property \$timings on an unknown class craft\\elements\\MatrixBlock\.$#'
+			identifier: class.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Access to property \$totalWalkingTime on an unknown class craft\\elements\\MatrixBlock\.$#'
+			identifier: class.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Access to property \$type on an unknown class craft\\elements\\MatrixBlock\.$#'
+			identifier: class.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Parameter \$block of anonymous function has invalid type craft\\elements\\MatrixBlock\.$#'
+			identifier: class.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Parameter \$block of method helpers\\models\\Walk\:\:toAboutTheWalk\(\) has invalid type craft\\elements\\MatrixBlock\.$#'
+			identifier: class.notFound
+			count: 1
+			path: modules/helpers/models/Walk.php
+
+		-
+			message: '#^Anonymous function has an unused use \$cache\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: modules/helpers/spotify/Track.php
+
+		-
+			message: '#^Anonymous function has an unused use \$cacheKey\.$#'
+			identifier: closure.unusedUse
+			count: 1
+			path: modules/helpers/spotify/Track.php
