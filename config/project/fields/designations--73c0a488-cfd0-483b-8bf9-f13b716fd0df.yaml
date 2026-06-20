@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: designations
 instructions: null
 name: Designations
@@ -7,16 +6,17 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: null
-  localizeRelations: false
+  defaultPlacement: end
   maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a designation'
+  showSearchInput: true
   showSiteMenu: true
   source: 'taggroup:0dc92d8f-d943-4a05-b7c3-70f90413fb2b' # Designations
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Tags

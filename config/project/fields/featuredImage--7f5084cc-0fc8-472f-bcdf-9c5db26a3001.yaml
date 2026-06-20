@@ -9,9 +9,9 @@ settings:
   allowUploads: true
   allowedKinds: null
   branchLimit: null
+  defaultPlacement: end
   defaultUploadLocationSource: 'volume:763fc5b6-7451-4ddc-969c-f16d0c2b6245' # S3
   defaultUploadLocationSubpath: null
-  localizeRelations: false
   maintainHierarchy: false
   maxRelations: 1
   minRelations: null
@@ -22,7 +22,7 @@ settings:
   restrictedLocationSource: 'volume:763fc5b6-7451-4ddc-969c-f16d0c2b6245' # S3
   restrictedLocationSubpath: null
   selectionLabel: 'Add a featured image'
-  showCardsInGrid: false
+  showSearchInput: true
   showSiteMenu: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
@@ -30,7 +30,7 @@ settings:
     - 'volume:763fc5b6-7451-4ddc-969c-f16d0c2b6245' # S3
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: large
+  viewMode: thumbs
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Assets

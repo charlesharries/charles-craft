@@ -1,5 +1,4 @@
 columnSuffix: hplecfpx
-contentColumnType: string(1020)
 handle: summary
 instructions: null
 name: Summary
@@ -8,7 +7,6 @@ settings:
   byteLimit: null
   charLimit: 255
   code: false
-  columnType: null
   initialRows: 4
   multiline: false
   placeholder: 'This post is about...'

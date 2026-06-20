@@ -1,13 +1,14 @@
 columnSuffix: zcmocqse
-contentColumnType: string(255)
 handle: githubLink
 instructions: null
 name: 'GitHub Link'
 searchable: false
 settings:
+  fullGraphqlData: false
   maxLength: 255
+  showLabelField: false
   types:
     - url
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Url
+type: craft\fields\Link

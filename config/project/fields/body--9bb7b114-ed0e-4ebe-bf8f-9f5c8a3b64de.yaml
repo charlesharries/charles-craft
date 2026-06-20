@@ -1,5 +1,4 @@
 columnSuffix: mqwtrmyh
-contentColumnType: text
 handle: body
 instructions: null
 name: Body
@@ -8,15 +7,80 @@ settings:
   availableTransforms: '*'
   availableVolumes:
     - 763fc5b6-7451-4ddc-969c-f16d0c2b6245 # S3
-  ckeConfig: 5ecf9283-524b-4a3f-a7a1-d27adb6f28e9 # Extended
-  columnType: text
+  characterLimit: null
+  css: null
+  cssFile: null
   defaultTransform: null
-  enableSourceEditingForNonAdmins: false
+  defaultUploadLocationSubpath: null
+  defaultUploadLocationVolume: null
+  fullGraphqlData: false
+  headingLevels:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  imageEntryTypeUid: null
+  imageFieldUid: null
+  imageMode: img
+  js: null
+  jsFile: null
+  options:
+    __assoc__:
+      -
+        - htmlSupport
+        -
+          __assoc__:
+            -
+              - allow
+              -
+                -
+                  __assoc__:
+                    -
+                      - attributes
+                      - true
+                    -
+                      - key
+                      - p
+                -
+                  __assoc__:
+                    -
+                      - attributes
+                      - true
+                    -
+                      - key
+                      - li
+      -
+        - removePlugins
+        -
+          - ImageEditor
+  parseEmbeds: false
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  toolbar:
+    - heading
+    - '|'
+    - bold
+    - italic
+    - code
+    - superscript
+    - blockQuote
+    - insertImage
+    - insertVideo
+    - mediaEmbed
+    - bulletedList
+    - numberedList
+    - horizontalLine
+    - codeBlock
+    - link
+    - '|'
+    - sourceEditing
   wordLimit: null
 translationKeyFormat: null
 translationMethod: none

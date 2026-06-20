@@ -1,5 +1,4 @@
 columnSuffix: kzwluixy
-contentColumnType: integer(10)
 handle: length
 instructions: null
 name: Length
@@ -13,6 +12,7 @@ settings:
   previewCurrency: null
   previewFormat: decimal
   size: null
+  step: null
   suffix: null
 translationKeyFormat: null
 translationMethod: none

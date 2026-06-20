@@ -1,0 +1,4 @@
+graphql:
+  publicToken:
+    enabled: true
+    expiryDate: null

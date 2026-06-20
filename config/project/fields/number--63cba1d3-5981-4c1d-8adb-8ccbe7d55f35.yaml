@@ -1,5 +1,4 @@
 columnSuffix: qorazqgf
-contentColumnType: integer(10)
 handle: number
 instructions: null
 name: Number
@@ -13,6 +12,7 @@ settings:
   previewCurrency: null
   previewFormat: decimal
   size: null
+  step: null
   suffix: null
 translationKeyFormat: null
 translationMethod: none

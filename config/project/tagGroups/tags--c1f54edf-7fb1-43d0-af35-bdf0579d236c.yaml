@@ -1,5 +1,6 @@
 fieldLayouts:
   9b2b59e9-b88b-4712-938b-c7f9c6fb70e4:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +10,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -33,5 +36,6 @@ fieldLayouts:
         name: Content
         uid: 99417381-e5f6-49a3-aeda-f5b049743fc8
         userCondition: null
+    thumbFieldKey: null
 handle: tags
 name: Tags

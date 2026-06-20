@@ -1,5 +1,9 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
 fieldLayouts:
   d03205f5-9d96-4497-a345-c22567b54a60:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +13,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -34,7 +40,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: eb252ecb-0d63-4fff-aca5-fd61b5e729d2 # Writer
+            handle: null
             instructions: null
             label: null
             required: false
@@ -48,7 +56,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 07f98a9a-ab5a-4984-b782-5f308a478bf0 # Fiction?
+            handle: null
             instructions: null
             label: null
             required: false
@@ -62,7 +72,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
+            handle: null
             instructions: null
             label: null
             required: false
@@ -76,7 +88,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 69d1b4e6-4981-4ef6-ac2d-34691c18c906 # Date read
+            handle: null
             instructions: null
             label: null
             required: false
@@ -90,7 +104,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d # Publication year
+            handle: null
             instructions: null
             label: null
             required: false
@@ -104,7 +120,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 4ff40bad-6fd2-4bdc-9feb-65a47931998d # Length
+            handle: null
             instructions: null
             label: null
             required: false
@@ -118,7 +136,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 52047e94-5988-47b4-b9b5-6e061b5c2b49 # Medium
+            handle: null
             instructions: null
             label: null
             required: false
@@ -132,7 +152,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 0be8bfd9-86e6-48dd-8142-9020d3adb154 # Rating
+            handle: null
             instructions: null
             label: null
             required: false
@@ -146,7 +168,9 @@ fieldLayouts:
             dateAdded: '2024-10-11T22:40:05+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
+            handle: null
             instructions: null
             label: null
             required: false
@@ -162,11 +186,13 @@ fieldLayouts:
     thumbFieldKey: 'layoutElement:62a98f3a-15ec-47cd-b145-49377384f243'
 handle: books_default
 hasTitleField: true
+icon: null
 name: 'Books - Default'
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

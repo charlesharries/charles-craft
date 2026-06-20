@@ -1,5 +1,9 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
 fieldLayouts:
   9ff6666e-54e6-448f-b20e-34685d779889:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +13,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -20,7 +26,7 @@ fieldLayouts:
             orientation: null
             placeholder: null
             readonly: false
-            requirable: false
+            required: true
             size: null
             step: null
             tip: null
@@ -31,8 +37,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 1ac502c3-2ca1-43a0-a4bf-2d13883aa576 # Show title?
+            handle: null
             instructions: null
             label: null
             required: false
@@ -43,13 +53,18 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: 39620ada-05eb-46af-a046-a8dfafcb6fd7
             userCondition: null
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
+            handle: null
             instructions: null
             label: null
             required: false
@@ -60,8 +75,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
+            handle: null
             instructions: null
             label: null
             required: true
@@ -72,8 +91,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: ea5aefda-6f68-4615-9cb3-81aae425e54c # Tags
+            handle: null
             instructions: null
             label: null
             required: false
@@ -84,8 +107,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
+            handle: null
             instructions: null
             label: null
             required: false
@@ -98,13 +125,16 @@ fieldLayouts:
         name: Content
         uid: 06da6cb0-0f3a-4103-a569-a97f71fdf865
         userCondition: null
+    thumbFieldKey: null
 handle: default
 hasTitleField: true
+icon: null
 name: Default
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,5 +1,4 @@
 columnSuffix: emwkejao
-contentColumnType: smallint(1)
 handle: rating
 instructions: null
 name: Rating
@@ -13,6 +12,7 @@ settings:
   previewCurrency: null
   previewFormat: decimal
   size: null
+  step: null
   suffix: stars
 translationKeyFormat: null
 translationMethod: none

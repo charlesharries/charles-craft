@@ -1,6 +1,9 @@
+allowLineBreaksInTitles: false
 color: null
+description: null
 fieldLayouts:
   1d7315a7-d659-4ce6-ba68-f31d3e3b7a85:
+    cardThumbAlignment: end
     cardView:
       - 'layoutElement:b850fe2e-8ff7-48b7-9513-41020fe822b9'
       - 'layoutElement:69cfe215-a11a-403a-8918-d27246923989'
@@ -12,6 +15,7 @@ fieldLayouts:
             dateAdded: '2026-01-04T11:44:34+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: b3282527-7ee0-410a-86ab-c05fdff8901b # DID
             handle: null
             instructions: null
@@ -27,6 +31,7 @@ fieldLayouts:
             dateAdded: '2026-01-04T11:44:34+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 6750c6ad-7ac5-4ca4-88f1-710ccacdaf6d # Bluesky Handle
             handle: null
             instructions: null
@@ -42,6 +47,7 @@ fieldLayouts:
             dateAdded: '2026-01-04T11:44:34+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 1ca3d254-f513-4fec-bbe9-954baa4ab92a # Display Name
             handle: null
             instructions: null
@@ -57,6 +63,7 @@ fieldLayouts:
             dateAdded: '2026-01-04T11:44:34+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 70cc176e-cfff-46db-a9af-fe72e609b18d # Avatar
             handle: null
             instructions: null
@@ -71,6 +78,7 @@ fieldLayouts:
         name: Content
         uid: ec971bf2-5e07-4f21-afc4-7f0ba7519f9b
         userCondition: null
+    thumbFieldKey: null
 handle: blueskyAuthors
 hasTitleField: false
 icon: null
@@ -82,3 +90,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

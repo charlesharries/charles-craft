@@ -1,6 +1,7 @@
 defaultPlacement: end
 fieldLayouts:
   3abd3970-56db-4aca-948b-1055a43bc3f2:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -10,9 +11,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -32,8 +35,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: d2f95b40-d14e-47c3-a705-54d605e9f1fe # Gender
+            handle: null
             instructions: null
             label: null
             required: false
@@ -46,6 +53,7 @@ fieldLayouts:
         name: Content
         uid: 758bbffe-2862-48ed-9e18-c7c7148fd932
         userCondition: null
+    thumbFieldKey: null
 handle: writer
 name: Writer
 siteSettings:

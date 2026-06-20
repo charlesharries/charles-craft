@@ -1,5 +1,6 @@
 fieldLayouts:
   0810f3f5-9ebd-4538-ad5e-9f73bb5727cc:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +10,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -31,8 +34,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 73c0a488-cfd0-483b-8bf9-f13b716fd0df # Designations
+            handle: null
             instructions: null
             label: null
             required: false
@@ -45,5 +52,6 @@ fieldLayouts:
         name: Content
         uid: 6c14113c-806a-47df-9fa4-7843ee55f09c
         userCondition: null
+    thumbFieldKey: null
 handle: mountains
 name: Mountains

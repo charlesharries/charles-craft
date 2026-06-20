@@ -1,4 +1,4 @@
-dateModified: 1781968432
+dateModified: 1781970903
 elementSources:
   craft\elements\Entry:
     -
@@ -82,6 +82,7 @@ meta:
     0dc92d8f-d943-4a05-b7c3-70f90413fb2b: Designations # Designations
     1ac502c3-2ca1-43a0-a4bf-2d13883aa576: 'Show title?' # Show title?
     1ca3d254-f513-4fec-bbe9-954baa4ab92a: 'Display Name' # Display Name
+    1e3b399d-bfe5-42e0-b366-6f9ecaaaed86: 'Meta - About the walk - Total Walking Time' # Meta - About the walk - Total Walking Time
     01ea27f8-8ac3-4d82-9d54-ed3faca4000b: Books # Books
     1f2366c1-b8d5-413b-95d1-a3b7a56f381c: 'Bluesky Repost Count' # Bluesky Repost Count
     4b7c4f12-4502-4174-8b81-4a28b231036e: Meta # Meta
@@ -109,7 +110,10 @@ meta:
     72c1a424-d0c3-423d-b7d7-a07cffee8ee2: 'GitHub Link' # GitHub Link
     73c0a488-cfd0-483b-8bf9-f13b716fd0df: Designations # Designations
     74da0e66-e6c9-4eb8-a3fd-c603fdb2e1f3: 1500w # 1500w
+    75b63475-a9cc-45aa-b67e-de085416e457: 'Flexible Content - Milestone - Heading' # Flexible Content - Milestone - Heading
+    75c64953-510f-4b4b-997c-5e015e3cb084: 'Flexible Content - Milestone - Body' # Flexible Content - Milestone - Body
     75f81d9a-3f3c-4479-9949-7a535abd7e37: Stream # Stream
+    95d4c83b-f847-4f8c-9a88-4b31430507fd: 'Meta - About the walk - Timings' # Meta - About the walk - Timings
     422bee50-7591-44e2-bf3b-166e98f9029c: 'Bluesky Reply Count' # Bluesky Reply Count
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
     636f8707-9eea-4a34-bd7f-3d184e4b85f2: Orientation # Orientation
@@ -124,14 +128,17 @@ meta:
     52047e94-5988-47b4-b9b5-6e061b5c2b49: Medium # Medium
     61727a0a-6742-4674-930c-0a3f6a9fe2a1: 'Posts - Default' # Posts - Default
     071255ac-4fb5-404c-b125-46fa49417bc2: Posts # Posts
+    83376ba5-3763-41bb-b41b-a716bed11d0e: Cloudinary # Cloudinary
     210691b9-9096-4843-a410-a28d79204198: 'Bluesky Created At' # Bluesky Created At
     876291c4-dc5a-4b83-ada0-560a467fdc59: 'Projects - Default' # Projects - Default
     5626606d-32ce-4f03-a215-38b14458936a: 'Bluesky Like Count' # Bluesky Like Count
     63230075-57c8-4786-aaa2-f1c58f46dbf5: 'Sam Posts' # Sam Posts
     a13bbb59-bb25-4ea6-82ae-0b4cfa786aeb: 'Sam Posts - Default' # Sam Posts - Default
+    ad520050-ff35-4676-9b37-b1fbe96575b0: 'Meta - About the walk - Strava' # Meta - About the walk - Strava
     ae766d71-5a92-43ba-9546-3a8225552940: 'Created At' # Created At
     b73342c0-9657-40f5-b802-e3ad79e55eaa: Simple # Simple
     b3282527-7ee0-410a-86ab-c05fdff8901b: DID # DID
+    baa13c65-0a57-43bf-8c5b-5dc010d1cd1c: 'Flexible Content - Milestone - Songs' # Flexible Content - Milestone - Songs
     bb4f3d4d-8a2c-4b6c-a0a7-0861b1d7a09d: 'Publication year' # Publication year
     c1f54edf-7fb1-43d0-af35-bdf0579d236c: Tags # Tags
     c14c9bee-db2a-461e-add7-b0aef0fbd74c: 'Bluesky Text' # Bluesky Text
@@ -144,6 +151,8 @@ meta:
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
     efa0ce78-bc84-4b95-8040-18b6a9b91a44: 'Bluesky Authors' # Bluesky Authors
+    f2f7b225-26f3-426a-8678-c089918dacf9: 'Flexible Content - Milestone - Year' # Flexible Content - Milestone - Year
+    f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316: 'Flexible Content - Milestone - Image' # Flexible Content - Milestone - Image
     faf9797f-b632-4e47-8a8b-e676d6cd03f2: 'About the walk' # About the walk
     fdbe53af-0f3d-4868-8ae2-c96c900bd122: 'Bluesky Posts' # Bluesky Posts
 plugins:
@@ -154,7 +163,7 @@ plugins:
   ckeditor:
     edition: standard
     enabled: true
-    schemaVersion: 3.0.0.0
+    schemaVersion: 5.6.0.0
   cloudinary:
     edition: standard
     enabled: false

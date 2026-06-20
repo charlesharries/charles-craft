@@ -1,5 +1,8 @@
+altTranslationKeyFormat: null
+altTranslationMethod: site
 fieldLayouts:
   129ea2ce-a101-476b-9ab4-32287ebc600a:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +12,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -33,10 +38,12 @@ fieldLayouts:
         name: Content
         uid: 853afc5a-7494-4631-9a9a-ae41250a000e
         userCondition: null
+    thumbFieldKey: null
 fs: local
 handle: local
 name: Local
 sortOrder: 3
+subpath: ''
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 transformFs: null

@@ -1,6 +1,9 @@
+allowLineBreaksInTitles: false
 color: null
+description: null
 fieldLayouts:
   551eea73-02a6-480a-b2cf-294e61f5d217:
+    cardThumbAlignment: end
     cardView:
       - 'layoutElement:88a4830b-e0ce-4ed2-94ff-fd913f9bbd27'
     tabs:
@@ -8,8 +11,11 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: 75b63475-a9cc-45aa-b67e-de085416e457
+            elementEditCondition: null
+            fieldUid: 75b63475-a9cc-45aa-b67e-de085416e457 # Flexible Content - Milestone - Heading
             handle: null
             instructions: null
             label: Heading
@@ -21,8 +27,11 @@ fieldLayouts:
             warning: null
             width: 75
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: f2f7b225-26f3-426a-8678-c089918dacf9
+            elementEditCondition: null
+            fieldUid: f2f7b225-26f3-426a-8678-c089918dacf9 # Flexible Content - Milestone - Year
             handle: null
             instructions: null
             label: Year
@@ -34,8 +43,11 @@ fieldLayouts:
             warning: null
             width: 25
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: 75c64953-510f-4b4b-997c-5e015e3cb084
+            elementEditCondition: null
+            fieldUid: 75c64953-510f-4b4b-997c-5e015e3cb084 # Flexible Content - Milestone - Body
             handle: body
             instructions: null
             label: Body
@@ -47,8 +59,11 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: baa13c65-0a57-43bf-8c5b-5dc010d1cd1c
+            elementEditCondition: null
+            fieldUid: baa13c65-0a57-43bf-8c5b-5dc010d1cd1c # Flexible Content - Milestone - Songs
             handle: null
             instructions: null
             label: Songs
@@ -60,8 +75,11 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316
+            elementEditCondition: null
+            fieldUid: f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316 # Flexible Content - Milestone - Image
             handle: null
             instructions: null
             label: Image
@@ -87,3 +105,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

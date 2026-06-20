@@ -1,5 +1,9 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
 fieldLayouts:
   cd19ec3a-fe7e-4973-988f-321c6798bc5b:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -9,9 +13,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: null
             disabled: false
             elementCondition: null
             id: null
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -20,7 +26,7 @@ fieldLayouts:
             orientation: null
             placeholder: null
             readonly: false
-            requirable: false
+            required: true
             size: null
             step: null
             tip: null
@@ -31,13 +37,18 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: b8aa8a87-7e90-4c1b-b953-9f5ef2b7e159
             userCondition: null
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 526bb8da-d5c2-4a46-b9ac-a969de860ce5 # Summary
+            handle: null
             instructions: null
             label: null
             required: false
@@ -48,8 +59,12 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 9bb7b114-ed0e-4ebe-bf8f-9f5c8a3b64de # Body
+            handle: null
             instructions: null
             label: null
             required: false
@@ -62,13 +77,16 @@ fieldLayouts:
         name: Content
         uid: 937be67c-eb48-4045-9ac4-20b862d00940
         userCondition: null
+    thumbFieldKey: null
 handle: samPosts_default
 hasTitleField: true
+icon: null
 name: 'Sam Posts - Default'
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

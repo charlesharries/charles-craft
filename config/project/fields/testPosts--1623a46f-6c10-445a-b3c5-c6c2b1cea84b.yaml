@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: testPosts
 instructions: null
 name: 'Test posts'
@@ -7,17 +6,20 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: null
-  localizeRelations: false
+  defaultPlacement: end
   maintainHierarchy: false
   maxRelations: 1
   minRelations: null
   selectionLabel: 'Add a post'
+  showSearchInput: true
   showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
   sources:
     - 'section:071255ac-4fb5-404c-b125-46fa49417bc2' # Posts
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Entries

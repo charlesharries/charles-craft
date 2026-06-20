@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: bags
 instructions: 'Climbed any mountains of note?'
 name: Bags
@@ -7,17 +6,20 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: null
-  localizeRelations: false
+  defaultPlacement: end
   maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a bag'
+  showSearchInput: true
   showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
   sources:
     - 'section:50d39a93-8605-4001-81f0-d9852cf865e5' # Bags
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Entries

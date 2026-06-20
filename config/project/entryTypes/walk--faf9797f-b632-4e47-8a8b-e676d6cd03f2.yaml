@@ -1,6 +1,9 @@
+allowLineBreaksInTitles: false
 color: null
+description: null
 fieldLayouts:
   c486fc0b-6541-40a2-8335-5d22acae5ac9:
+    cardThumbAlignment: end
     cardView:
       - 'layoutElement:49c0a26d-f878-4682-aec9-97a341af4392'
     tabs:
@@ -8,8 +11,11 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: 95d4c83b-f847-4f8c-9a88-4b31430507fd
+            elementEditCondition: null
+            fieldUid: 95d4c83b-f847-4f8c-9a88-4b31430507fd # Meta - About the walk - Timings
             handle: null
             instructions: null
             label: Timings
@@ -21,8 +27,11 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: 1e3b399d-bfe5-42e0-b366-6f9ecaaaed86
+            elementEditCondition: null
+            fieldUid: 1e3b399d-bfe5-42e0-b366-6f9ecaaaed86 # Meta - About the walk - Total Walking Time
             handle: null
             instructions: null
             label: 'Total Walking Time'
@@ -34,8 +43,11 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: null
+            editCondition: null
             elementCondition: null
-            fieldUid: ad520050-ff35-4676-9b37-b1fbe96575b0
+            elementEditCondition: null
+            fieldUid: ad520050-ff35-4676-9b37-b1fbe96575b0 # Meta - About the walk - Strava
             handle: null
             instructions: null
             label: Strava
@@ -49,6 +61,7 @@ fieldLayouts:
         name: Content
         uid: 2a83cd40-37b1-41c4-82da-a93a7f1d5bfd
         userCondition: null
+    thumbFieldKey: null
 handle: walk
 hasTitleField: false
 icon: null
@@ -60,3 +73,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

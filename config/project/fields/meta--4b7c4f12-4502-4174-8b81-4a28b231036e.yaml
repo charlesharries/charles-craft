@@ -1,16 +1,25 @@
 columnSuffix: mxxqdoes
-contentColumnType: string
 handle: meta
 instructions: null
 name: Meta
 searchable: false
 settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
   entryTypes:
-    - faf9797f-b632-4e47-8a8b-e676d6cd03f2 # About the walk
+    -
+      __assoc__:
+        -
+          - uid
+          - faf9797f-b632-4e47-8a8b-e676d6cd03f2 # About the walk
+  includeTableView: false
   maxEntries: null
   minEntries: null
+  pageSize: null
   propagationKeyFormat: null
   propagationMethod: all
+  showCardsInGrid: false
   viewMode: blocks
 translationKeyFormat: null
 translationMethod: site

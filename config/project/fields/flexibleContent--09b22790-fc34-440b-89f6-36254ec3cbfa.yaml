@@ -1,16 +1,25 @@
 columnSuffix: null
-contentColumnType: string
 handle: flexibleContent
 instructions: null
 name: 'Flexible Content'
 searchable: false
 settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  enableVersioning: false
   entryTypes:
-    - 664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c # Milestone
+    -
+      __assoc__:
+        -
+          - uid
+          - 664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c # Milestone
+  includeTableView: false
   maxEntries: null
   minEntries: null
+  pageSize: null
   propagationKeyFormat: null
   propagationMethod: all
+  showCardsInGrid: false
   viewMode: blocks
 translationKeyFormat: null
 translationMethod: site

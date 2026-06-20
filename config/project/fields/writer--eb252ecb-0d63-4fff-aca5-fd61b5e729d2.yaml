@@ -1,5 +1,4 @@
 columnSuffix: yvcicctm
-contentColumnType: string
 handle: writer
 instructions: null
 name: Writer
@@ -7,16 +6,17 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: 1
-  localizeRelations: false
+  defaultPlacement: end
   maintainHierarchy: true
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a writer'
+  showSearchInput: true
   showSiteMenu: true
   source: 'group:8c4a8cd9-3f50-49e9-aed5-f46067c94fb9' # Writer
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Categories

@@ -2,6 +2,7 @@ altTranslationKeyFormat: null
 altTranslationMethod: none
 fieldLayouts:
   aa8e5baf-2a22-40fc-9783-a1f3fe60ab8d:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -62,6 +63,7 @@ fieldLayouts:
             dateAdded: '2026-06-18T19:59:56+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 636f8707-9eea-4a34-bd7f-3d184e4b85f2 # Orientation
             handle: null
             instructions: null
@@ -76,6 +78,7 @@ fieldLayouts:
         name: Content
         uid: 3fddcb8a-853f-4915-84a9-e90919b4aa5f
         userCondition: null
+    thumbFieldKey: null
 fs: s3
 handle: s3
 name: S3

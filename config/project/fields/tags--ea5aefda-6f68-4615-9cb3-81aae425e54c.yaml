@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: tags
 instructions: null
 name: Tags
@@ -7,16 +6,17 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: null
-  localizeRelations: false
+  defaultPlacement: end
   maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionLabel: null
+  showSearchInput: true
   showSiteMenu: true
   source: 'taggroup:c1f54edf-7fb1-43d0-af35-bdf0579d236c' # Tags
   targetSiteId: null
   validateRelatedElements: true
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Tags

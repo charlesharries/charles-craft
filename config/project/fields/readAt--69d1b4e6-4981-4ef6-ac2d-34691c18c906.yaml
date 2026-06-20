@@ -1,5 +1,4 @@
 columnSuffix: aettekyu
-contentColumnType: datetime
 handle: readAt
 instructions: null
 name: 'Date read'

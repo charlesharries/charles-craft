@@ -1,6 +1,9 @@
+allowLineBreaksInTitles: false
 color: null
+description: null
 fieldLayouts:
   3c50295f-16fc-4d07-aca2-1ef89d3345b4:
+    cardThumbAlignment: end
     tabs:
       -
         elementCondition: null
@@ -37,6 +40,7 @@ fieldLayouts:
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 3230d26a-2cad-451c-a91c-b9ef9110c470 # Bluesky URI
             handle: null
             instructions: null
@@ -52,6 +56,7 @@ fieldLayouts:
             dateAdded: '2026-01-04T11:45:21+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: d1bf05bc-8e59-4b13-b4bb-50eec8171095 # Bluesky Author
             handle: null
             instructions: null
@@ -67,6 +72,7 @@ fieldLayouts:
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: c14c9bee-db2a-461e-add7-b0aef0fbd74c # Bluesky Text
             handle: null
             instructions: null
@@ -82,6 +88,7 @@ fieldLayouts:
             dateAdded: '2026-01-04T11:08:00+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 34168cd7-d49c-4d76-8eb4-21d2a445c529 # Bluesky Embeds
             handle: null
             instructions: null
@@ -97,6 +104,7 @@ fieldLayouts:
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 210691b9-9096-4843-a410-a28d79204198 # Bluesky Created At
             handle: null
             instructions: null
@@ -112,6 +120,7 @@ fieldLayouts:
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 1f2366c1-b8d5-413b-95d1-a3b7a56f381c # Bluesky Repost Count
             handle: null
             instructions: null
@@ -127,6 +136,7 @@ fieldLayouts:
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 422bee50-7591-44e2-bf3b-166e98f9029c # Bluesky Reply Count
             handle: null
             instructions: null
@@ -142,6 +152,7 @@ fieldLayouts:
             dateAdded: '2026-01-03T18:43:44+00:00'
             editCondition: null
             elementCondition: null
+            elementEditCondition: null
             fieldUid: 5626606d-32ce-4f03-a215-38b14458936a # Bluesky Like Count
             handle: null
             instructions: null
@@ -156,6 +167,7 @@ fieldLayouts:
         name: Content
         uid: 2a3fae0b-795a-416b-a84c-d5dedab58c9a
         userCondition: null
+    thumbFieldKey: null
 handle: blueskyPosts
 hasTitleField: true
 icon: null
@@ -167,3 +179,4 @@ slugTranslationMethod: site
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
+uiLabelFormat: '{title}'

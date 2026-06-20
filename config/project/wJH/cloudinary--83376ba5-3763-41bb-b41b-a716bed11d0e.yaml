@@ -1,20 +1,15 @@
 fieldLayouts:
-  40d4804e-581f-466b-b68d-e577ef4065c7:
-    cardThumbAlignment: end
+  b46bda5b-18bc-4735-af12-8b64ab8bf3cb:
     tabs:
       -
-        elementCondition: null
         elements:
           -
             autocapitalize: true
             autocomplete: false
             autocorrect: true
             class: null
-            dateAdded: null
             disabled: false
-            elementCondition: null
             id: null
-            inputType: null
             instructions: null
             label: null
             max: null
@@ -28,14 +23,22 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
-            uid: e15df783-18f3-449c-9993-04d14cce6777
-            userCondition: null
+            type: craft\fieldlayoutelements\AssetTitleField
             warning: null
             width: 100
         name: Content
-        uid: 5f72fb76-5942-4e37-917b-a81006a596a7
-        userCondition: null
-    thumbFieldKey: null
-handle: designations
-name: Designations
+        sortOrder: 1
+handle: cloudinary
+hasUrls: true
+name: Cloudinary
+settings:
+  apiKey: '521931841136364'
+  apiSecret: 4cfeY1Q-zW8Nnl3-KvV1pN1ACKg
+  cloudName: dnz9qbnn1
+  overwrite: true
+  subfolder: ''
+sortOrder: 2
+titleTranslationKeyFormat: null
+titleTranslationMethod: null
+type: craft\cloudinary\Volume
+url: 'https://res.cloudinary.com/dnz9qbnn1/image/upload/v1638906922/'

@@ -1,5 +1,4 @@
 columnSuffix: nvpnlhme
-contentColumnType: boolean
 handle: fiction
 instructions: null
 name: 'Fiction?'
@@ -8,6 +7,7 @@ settings:
   default: true
   offLabel: Nonfiction
   onLabel: Fiction
+  showLabelsInCards: false
 translationKeyFormat: null
 translationMethod: none
 type: craft\fields\Lightswitch

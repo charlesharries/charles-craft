@@ -1,13 +1,14 @@
 columnSuffix: wfmbdipo
-contentColumnType: string(255)
 handle: externalURL
 instructions: null
 name: 'External URL'
 searchable: false
 settings:
+  fullGraphqlData: false
   maxLength: 255
+  showLabelField: false
   types:
     - url
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\Url
+type: craft\fields\Link

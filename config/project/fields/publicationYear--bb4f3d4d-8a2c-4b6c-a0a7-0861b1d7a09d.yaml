@@ -1,5 +1,4 @@
 columnSuffix: pbmwfpqc
-contentColumnType: integer(10)
 handle: publicationYear
 instructions: null
 name: 'Publication year'
@@ -13,6 +12,7 @@ settings:
   previewCurrency: null
   previewFormat: none
   size: null
+  step: null
   suffix: null
 translationKeyFormat: null
 translationMethod: none

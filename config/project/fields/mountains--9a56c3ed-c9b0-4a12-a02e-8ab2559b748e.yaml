@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: mountains
 instructions: null
 name: Mountains
@@ -7,16 +6,17 @@ searchable: false
 settings:
   allowSelfRelations: false
   branchLimit: null
-  localizeRelations: false
+  defaultPlacement: end
   maintainHierarchy: false
   maxRelations: null
   minRelations: null
   selectionLabel: 'Add a mountain'
+  showSearchInput: true
   showSiteMenu: false
   source: 'taggroup:59ce730c-2dc9-446d-bd6c-828a58fedaa9' # Mountains
   targetSiteId: null
   validateRelatedElements: false
-  viewMode: null
+  viewMode: list
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Tags

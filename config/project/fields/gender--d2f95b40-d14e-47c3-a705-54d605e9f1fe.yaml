@@ -1,11 +1,10 @@
 columnSuffix: rzvlgzzn
-contentColumnType: string(6)
 handle: gender
 instructions: null
 name: Gender
 searchable: false
 settings:
-  columnType: null
+  customOptions: false
   options:
     -
       __assoc__:
