@@ -12,7 +12,9 @@ class VideoAssetBundle extends BaseCkeditorPackageAsset
 {
     public $sourcePath = '@webroot/js/ckeditor';
 
-    public $js = ['video-plugin.js'];
+    public string $namespace = '@charles/ckeditor5-video';
+
+    public $js = [['video-plugin.js', 'type' => 'module']];
 
     public array $pluginNames = ['InsertVideo'];
 
@@ -20,7 +22,7 @@ class VideoAssetBundle extends BaseCkeditorPackageAsset
 
     public static function boot(): void
     {
-        CKEditorPlugin::registerCkeditorPackage(static::class);
+        CKEditorPlugin::registerCkeditorPackage(static::class, 'video-plugin.js');
 
         Event::on(CKEditorField::class, CKEditorField::EVENT_MODIFY_PURIFIER_CONFIG, function (ModifyPurifierConfigEvent $event) {
             $def = $event->config->getHTMLDefinition(true);

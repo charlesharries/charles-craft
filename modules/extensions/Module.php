@@ -18,6 +18,8 @@ class Module extends \yii\base\Module
             Craft::$app->view->registerTwigExtension($extension);
         }
 
-        VideoAssetBundle::boot();
+        if (Craft::$app->request->getIsCpRequest()) {
+            VideoAssetBundle::boot();
+        }
     }
 }
