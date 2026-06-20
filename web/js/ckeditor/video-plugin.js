@@ -6,6 +6,12 @@
 
     const icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M14 7.94V6a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-1.94l4 2v-8l-4 2z"/></svg>';
 
+    function getMimeType(src) {
+        const ext = src.split('.').pop().split('?')[0].toLowerCase();
+        const types = { mov: 'video/quicktime', mp4: 'video/mp4', webm: 'video/webm', ogv: 'video/ogg', m4v: 'video/mp4' };
+        return types[ext] || null;
+    }
+
     class InsertVideo extends Plugin {
         static get pluginName() {
             return 'InsertVideo';
@@ -28,7 +34,7 @@
                 isObject: true,
                 isBlock: true,
                 allowWhere: '$block',
-                allowAttributes: ['src', 'controls', 'muted', 'width', 'height'],
+                allowAttributes: ['src', 'controls', 'muted', 'width', 'height', 'type'],
             });
         }
 
@@ -79,7 +85,10 @@
             conversion.for('dataDowncast').elementToElement({
                 model: 'videoBlock',
                 view: (modelEl, { writer }) => {
-                    const attrs = { src: modelEl.getAttribute('src') };
+                    const src = modelEl.getAttribute('src');
+                    const attrs = { src };
+                    const type = getMimeType(src);
+                    if (type) attrs.type = type;
                     if (modelEl.getAttribute('controls')) attrs.controls = 'controls';
                     if (modelEl.getAttribute('muted')) attrs.muted = 'muted';
                     if (modelEl.getAttribute('width')) attrs.width = modelEl.getAttribute('width');

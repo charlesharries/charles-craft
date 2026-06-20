@@ -182,6 +182,14 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
 
             /** @var \DOMElement */
             $img = $node->firstElementChild;
+            if ($img && $img->nodeName === 'video' && !$img->getAttribute('type')) {
+                $src = $img->getAttribute('src');
+                $ext = strtolower(pathinfo(parse_url($src, PHP_URL_PATH), PATHINFO_EXTENSION));
+                $mimeTypes = ['mov' => 'video/quicktime', 'mp4' => 'video/mp4', 'webm' => 'video/webm', 'ogv' => 'video/ogg', 'm4v' => 'video/mp4'];
+                if (isset($mimeTypes[$ext])) {
+                    $img->setAttribute('type', $mimeTypes[$ext]);
+                }
+            }
             if ($img && $img->attributes->getNamedItem("width")) {
                 $ratio = (
                     $img->attributes->getNamedItem("width")->nodeValue /
