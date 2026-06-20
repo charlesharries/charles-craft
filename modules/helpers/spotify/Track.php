@@ -48,7 +48,7 @@ class Track
         $cache = Craft::$app->getCache();
         $cacheKey = 'track:' . $this->trackID;
 
-        return $cache->getOrSet($cacheKey, function () use ($cache, $cacheKey) {
+        return $cache->getOrSet($cacheKey, function () {
             $accessToken = $this->getAccessToken();
             $client = Craft::createGuzzleClient();
 

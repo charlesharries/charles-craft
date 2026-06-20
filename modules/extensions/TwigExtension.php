@@ -190,11 +190,10 @@ class TwigExtension extends \Twig\Extension\AbstractExtension
                     $img->setAttribute('type', $mimeTypes[$ext]);
                 }
             }
-            if ($img && $img->attributes->getNamedItem("width")) {
-                $ratio = (
-                    $img->attributes->getNamedItem("width")->nodeValue /
-                    $img->attributes->getNamedItem("height")->nodeValue
-                );
+            $widthAttr = $img?->attributes->getNamedItem("width");
+            $heightAttr = $img?->attributes->getNamedItem("height");
+            if ($widthAttr && $heightAttr && (float) $heightAttr->nodeValue > 0) {
+                $ratio = (float) $widthAttr->nodeValue / (float) $heightAttr->nodeValue;
                 $node->setAttribute("style", "flex: {$ratio};");
             }
 

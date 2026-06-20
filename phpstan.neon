@@ -1,0 +1,25 @@
+parameters:
+    level: 3
+    paths:
+        - modules
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    stubFiles:
+        - stubs/craft/web/Application.stub
+        - stubs/craft/console/Application.stub
+        - stubs/yii/BaseYii.stub
+    earlyTerminatingMethodCalls:
+        Craft:
+            - dd
+        yii\base\Application:
+            - end
+        yii\base\ErrorHandler:
+            - convertExceptionToError
+    ignoreErrors:
+        # craft\elements\Entry custom fields are resolved via Yii behaviors at runtime;
+        # PHPStan can't follow the behavior system without craftcms/phpstan (incompatible with PHPStan 2).
+        - message: '#Access to an undefined property craft\\elements\\Entry::#'
+          identifier: property.notFound
+    tmpDir: storage/phpstan
+includes:
+    - phpstan-baseline.neon

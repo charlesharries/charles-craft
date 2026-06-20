@@ -6,3 +6,4 @@
 /cpresources
 .aider*
 config/license.key
+/storage/phpstan
