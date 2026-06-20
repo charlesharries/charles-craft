@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f3dc139c89974341841002e3aed093c",
+    "content-hash": "60fc1f643dacc4ecd7086b3d76a61e94",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -5011,11 +5011,11 @@
         },
         {
             "name": "scrivo/highlight.php",
-            "version": "v9.18.1.9",
+            "version": "v9.18.1.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/d45585504777e6194a91dffc7270ca39833787f8",
-                "reference": "d45585504777e6194a91dffc7270ca39833787f8",
+                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/850f4b44697a2552e892ffe71490ba2733c2fc6e",
+                "reference": "850f4b44697a2552e892ffe71490ba2733c2fc6e",
                 "shasum": ""
             },
             "require": {
@@ -5063,7 +5063,7 @@
                 "highlight.php",
                 "syntax"
             ],
-            "time": "2021-12-03T06:45:28+00:00"
+            "time": "2022-12-17T21:53:22+00:00"
         },
         {
             "name": "seld/cli-prompt",
