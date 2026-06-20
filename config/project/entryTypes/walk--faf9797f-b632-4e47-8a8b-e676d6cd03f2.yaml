@@ -1,6 +1,8 @@
 color: null
 fieldLayouts:
   c486fc0b-6541-40a2-8335-5d22acae5ac9:
+    cardView:
+      - 'layoutElement:49c0a26d-f878-4682-aec9-97a341af4392'
     tabs:
       -
         elementCondition: null
@@ -9,10 +11,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 95d4c83b-f847-4f8c-9a88-4b31430507fd
             handle: null
-            includeInCards: false
             instructions: null
             label: Timings
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -24,10 +24,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 1e3b399d-bfe5-42e0-b366-6f9ecaaaed86
             handle: null
-            includeInCards: true
             instructions: null
             label: 'Total Walking Time'
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -39,10 +37,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: ad520050-ff35-4676-9b37-b1fbe96575b0
             handle: null
-            includeInCards: false
             instructions: null
             label: Strava
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

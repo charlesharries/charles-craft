@@ -14,10 +14,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: b3282527-7ee0-410a-86ab-c05fdff8901b # DID
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -31,10 +29,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 6750c6ad-7ac5-4ca4-88f1-710ccacdaf6d # Bluesky Handle
             handle: null
-            includeInCards: true
             instructions: null
             label: null
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -48,10 +44,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 1ca3d254-f513-4fec-bbe9-954baa4ab92a # Display Name
             handle: null
-            includeInCards: true
             instructions: null
             label: null
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -65,10 +59,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 70cc176e-cfff-46db-a9af-fe72e609b18d # Avatar
             handle: null
-            includeInCards: false
             instructions: null
             label: null
-            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField

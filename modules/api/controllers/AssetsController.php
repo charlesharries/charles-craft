@@ -37,7 +37,14 @@ class AssetsController extends Controller
     public function actionS3(string $rest)
     {
         $aws = new S3Client(['region' => App::env("AWS_S3_LOCATION"), 'version' => '2006-03-01']);
-        $res = $aws->getObject(['Bucket' => App::env("AWS_S3_BUCKET"), 'Key' => $rest]);
+
+        $params = ['Bucket' => App::env("AWS_S3_BUCKET"), 'Key' => $rest];
+        $rangeHeader = Craft::$app->request->headers->get('Range');
+        if ($rangeHeader) {
+            $params['Range'] = $rangeHeader;
+        }
+
+        $res = $aws->getObject($params);
 
         $maxAge = 60 * 60 * 24 * 365; // 1 year
 
@@ -45,6 +52,13 @@ class AssetsController extends Controller
         $headers->set('Content-Type', $res->get('ContentType'));
         $headers->set('Cache-Control', "public, max-age={$maxAge}, immutable");
         $headers->set('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + $maxAge));
+        $headers->set('Accept-Ranges', 'bytes');
+
+        if ($rangeHeader) {
+            Craft::$app->response->setStatusCode(206);
+            $headers->set('Content-Range', $res->get('ContentRange'));
+            $headers->set('Content-Length', $res->get('ContentLength'));
+        }
 
         Craft::$app->getSession()->close();
         Craft::$app->response->cookies->removeAll();

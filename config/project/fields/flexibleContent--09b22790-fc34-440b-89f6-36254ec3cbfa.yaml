@@ -6,7 +6,7 @@ name: 'Flexible Content'
 searchable: false
 settings:
   entryTypes:
-    - 664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c
+    - 664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c # Milestone
   maxEntries: null
   minEntries: null
   propagationKeyFormat: null

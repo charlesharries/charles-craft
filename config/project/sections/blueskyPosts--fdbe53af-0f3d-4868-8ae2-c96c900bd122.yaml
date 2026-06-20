@@ -5,19 +5,13 @@ entryTypes:
     uid: 30955f28-a28d-4098-bebf-9b25a09fd528 # Bluesky Posts
 handle: blueskyPosts
 maxAuthors: 1
+minAuthors: 1
 name: 'Bluesky Posts'
 previewTargets:
   -
-    __assoc__:
-      -
-        - label
-        - 'Primary entry page'
-      -
-        - urlFormat
-        - '{url}'
-      -
-        - refresh
-        - '1'
+    label: 'Primary entry page'
+    refresh: '1'
+    urlFormat: '{url}'
 propagationMethod: all
 siteSettings:
   6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries

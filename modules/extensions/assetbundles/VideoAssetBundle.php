@@ -26,6 +26,7 @@ class VideoAssetBundle extends BaseCkeditorPackageAsset
             $def = $event->config->getHTMLDefinition(true);
             $def->addElement('video', 'Block', 'Optional: (source, Flow) | Flow', 'Common', [
                 'src' => 'URI',
+                'type' => 'Text',
                 'controls' => 'Bool',
                 'autoplay' => 'Bool',
                 'loop' => 'Bool',
