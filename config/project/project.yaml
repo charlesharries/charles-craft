@@ -1,4 +1,4 @@
-dateModified: 1781812796
+dateModified: 1781968432
 elementSources:
   craft\elements\Entry:
     -
@@ -113,6 +113,7 @@ meta:
     422bee50-7591-44e2-bf3b-166e98f9029c: 'Bluesky Reply Count' # Bluesky Reply Count
     526bb8da-d5c2-4a46-b9ac-a969de860ce5: Summary # Summary
     636f8707-9eea-4a34-bd7f-3d184e4b85f2: Orientation # Orientation
+    664bd8f6-2dbe-4074-aa10-8d3b9f9bb78c: Milestone # Milestone
     763fc5b6-7451-4ddc-969c-f16d0c2b6245: S3 # S3
     845cdad7-de50-42e0-8b6d-b5600fe8a11a: 'Walks - Default' # Walks - Default
     1623a46f-6c10-445a-b3c5-c6c2b1cea84b: 'Test posts' # Test posts
@@ -143,6 +144,7 @@ meta:
     ea5aefda-6f68-4615-9cb3-81aae425e54c: Tags # Tags
     eb252ecb-0d63-4fff-aca5-fd61b5e729d2: Writer # Writer
     efa0ce78-bc84-4b95-8040-18b6a9b91a44: 'Bluesky Authors' # Bluesky Authors
+    faf9797f-b632-4e47-8a8b-e676d6cd03f2: 'About the walk' # About the walk
     fdbe53af-0f3d-4868-8ae2-c96c900bd122: 'Bluesky Posts' # Bluesky Posts
 plugins:
   aws-s3:
@@ -184,7 +186,7 @@ system:
   live: true
   name: 'Charles Harries'
   retryDuration: null
-  schemaVersion: 5.7.0.3
+  schemaVersion: 5.10.0.0
   timeZone: Europe/London
 users:
   allowPublicRegistration: false

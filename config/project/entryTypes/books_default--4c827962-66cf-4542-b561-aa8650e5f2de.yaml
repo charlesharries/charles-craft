@@ -65,7 +65,6 @@ fieldLayouts:
             fieldUid: 7f5084cc-0fc8-472f-bcdf-9c5db26a3001 # Featured image
             instructions: null
             label: null
-            providesThumbs: true
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -160,6 +159,7 @@ fieldLayouts:
         name: Content
         uid: 335adbae-7914-48f2-9fc2-5494eab9b34c
         userCondition: null
+    thumbFieldKey: 'layoutElement:62a98f3a-15ec-47cd-b145-49377384f243'
 handle: books_default
 hasTitleField: true
 name: 'Books - Default'

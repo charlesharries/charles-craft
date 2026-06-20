@@ -1,22 +1,17 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 7aa43e66-c763-45ad-b85a-f7c1dd31799c # Bags - Default
+  -
+    uid: 7aa43e66-c763-45ad-b85a-f7c1dd31799c # Bags - Default
 handle: bags
 maxAuthors: 1
+minAuthors: 1
 name: Bags
 previewTargets:
   -
-    __assoc__:
-      -
-        - label
-        - 'Primary entry page'
-      -
-        - urlFormat
-        - '{url}'
-      -
-        - refresh
-        - ''
+    label: 'Primary entry page'
+    refresh: ''
+    urlFormat: '{url}'
 propagationMethod: all
 siteSettings:
   6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries

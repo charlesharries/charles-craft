@@ -1,6 +1,8 @@
 color: null
 fieldLayouts:
   551eea73-02a6-480a-b2cf-294e61f5d217:
+    cardView:
+      - 'layoutElement:88a4830b-e0ce-4ed2-94ff-fd913f9bbd27'
     tabs:
       -
         elementCondition: null
@@ -9,10 +11,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 75b63475-a9cc-45aa-b67e-de085416e457
             handle: null
-            includeInCards: true
             instructions: null
             label: Heading
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -24,10 +24,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: f2f7b225-26f3-426a-8678-c089918dacf9
             handle: null
-            includeInCards: false
             instructions: null
             label: Year
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -39,10 +37,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: 75c64953-510f-4b4b-997c-5e015e3cb084
             handle: body
-            includeInCards: false
             instructions: null
             label: Body
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -54,10 +50,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: baa13c65-0a57-43bf-8c5b-5dc010d1cd1c
             handle: null
-            includeInCards: false
             instructions: null
             label: Songs
-            providesThumbs: false
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -69,10 +63,8 @@ fieldLayouts:
             elementCondition: null
             fieldUid: f44d3203-84a7-4d9f-8cfa-cf2cbb0a2316
             handle: null
-            includeInCards: false
             instructions: null
             label: Image
-            providesThumbs: true
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -83,6 +75,7 @@ fieldLayouts:
         name: Content
         uid: e8a801d0-1191-4788-b7ab-e604611f6a32
         userCondition: null
+    thumbFieldKey: 'layoutElement:c4960bba-c573-442d-80dd-b998e99bc5f3'
 handle: milestone
 hasTitleField: false
 icon: null
