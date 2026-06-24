@@ -9,7 +9,7 @@
     "leowebguy/device-detect": "^3.0",
     "mmikkel/retcon": "^3.0",
     "scrivo/highlight.php": "v9.18.1.9",
-    "vlucas/phpdotenv": "^3.4.0"
+    "vlucas/phpdotenv": "^5.6.3"
   },
   "require-dev": {
     "phpstan/phpstan": "^2.0",
