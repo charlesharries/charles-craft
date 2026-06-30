@@ -13,7 +13,7 @@ function Lightbox() {
     }
 
     function openLightbox(event) {
-        if (!window.matchMedia('(min-width: 769px)').matches) return;
+        if (!globalThis.matchMedia('(min-width: 769px)').matches) return;
 
         clearLightbox();
         
@@ -79,7 +79,7 @@ function Lightbox() {
     images.forEach((img) => img.addEventListener('click', openLightbox));
     images.forEach((img) => img.addEventListener('hover', (e) => preloadLightbox(e.target)));
     lightbox.addEventListener('click', closeLightbox)
-    window.addEventListener('keydown', handleKeydown);
+    globalThis.addEventListener('keydown', handleKeydown);
 }
 
 Lightbox();
