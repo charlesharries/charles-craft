@@ -13,6 +13,8 @@ function Lightbox() {
     }
 
     function openLightbox(event) {
+        if (!window.matchMedia('(min-width: 769px)').matches) return;
+
         clearLightbox();
         
         const img = document.createElement('img');
