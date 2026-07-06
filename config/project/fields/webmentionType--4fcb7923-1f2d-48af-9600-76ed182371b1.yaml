@@ -1,0 +1,77 @@
+columnSuffix: lwcomaeg
+handle: webmentionType
+instructions: null
+name: 'Webmention Type'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Reply
+        -
+          - value
+          - in-reply-to
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Like
+        -
+          - value
+          - like-of
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Repost
+        -
+          - value
+          - repost-of
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Bookmark
+        -
+          - value
+          - bookmark-of
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Mention
+        -
+          - value
+          - mention-of
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - RSVP
+        -
+          - value
+          - rsvp
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

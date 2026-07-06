@@ -1,0 +1,214 @@
+allowLineBreaksInTitles: false
+color: null
+description: null
+fieldLayouts:
+  c20574d2-6747-49db-8eea-2a77e2ab66f3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 6fbddac1-3391-437d-b189-8eaded897921
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: bc1688ff-60c0-4e35-a92f-f4dd85b555d6 # Webmention ID
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3967c723-2811-495f-8d4b-dc75d8208064
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: c3f718b4-9b94-4dc9-b666-c23936b3ec0e # Webmention Source URL
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 36887c12-df5e-4ef5-a284-d08e8e919e84
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: edcbeea9-7705-4bf7-854d-4b863cf3a505 # Webmention Target URL
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3c1c07d0-e96d-43fe-8c56-90b31bb27020
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 38817614-85a9-4bfa-a5ad-4bde6a1c75a1 # Webmention Target Entry
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f49f3101-0a72-4a70-ae6c-2e7e276eb8e8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 4fcb7923-1f2d-48af-9600-76ed182371b1 # Webmention Type
+            handle: null
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 17362c0a-3f55-4d85-9793-a3abdb9bef7c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 85ae4068-266f-401e-be7b-8cc6255f8a02 # Webmention Author Name
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ae758ccf-d7ad-40b6-9653-58cd89a66740
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: af632663-1b10-4d35-84e0-7046b599ce3a # Webmention Author URL
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ea4efb72-cc65-4487-a28b-a6dfa02ee618
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 0f12c47b-5908-4a00-a515-a78c588be2fb # Webmention Author Photo
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9fa94a8a-25b3-44f6-b8ab-3b18fea6c568
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: bbc12cf1-0a4c-4254-a87c-25c40e04a659 # Webmention Content
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b926efb6-69bf-47d2-985d-0c7bda7a5301
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ce0de573-de87-4ee8-b7dc-504491b7246e # Webmention Published At
+            handle: null
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9161b88b-c585-4b0f-868e-bc15fd4dff90
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 17852dee-4843-4146-8d86-b6293cbe7451
+        userCondition: null
+    thumbFieldKey: null
+handle: webmentions_default
+hasTitleField: true
+icon: null
+name: 'Webmentions - Default'
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

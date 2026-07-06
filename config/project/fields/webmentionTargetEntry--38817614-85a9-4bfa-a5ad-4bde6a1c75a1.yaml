@@ -1,0 +1,28 @@
+columnSuffix: null
+handle: webmentionTargetEntry
+instructions: 'The entry this webmention is about, if it could be resolved automatically.'
+name: 'Webmention Target Entry'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  defaultPlacement: end
+  maintainHierarchy: false
+  maxRelations: 1
+  minRelations: null
+  selectionLabel: null
+  showSearchInput: true
+  showSiteMenu: false
+  showUnpermittedEntries: true
+  showUnpermittedSections: true
+  sources:
+    - 'section:071255ac-4fb5-404c-b125-46fa49417bc2' # Posts
+    - 'section:75f81d9a-3f3c-4479-9949-7a535abd7e37' # Stream
+    - 'section:01ea27f8-8ac3-4d82-9d54-ed3faca4000b' # Books
+    - 'section:6c3aa333-495e-4f08-af06-2176eb4d7a3a' # Walks
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

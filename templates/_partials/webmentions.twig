@@ -1,0 +1,74 @@
+{% macro list(entry) %}
+	{% set mentions = craft.entries()
+		.section('webmentions')
+		.webmentionTargetEntry(entry.id)
+		.status('enabled')
+		.orderBy('webmentionPublishedAt asc')
+		.all() %}
+
+	{% if mentions|length %}
+		{% set likesAndReposts = [] %}
+		{% set replies = [] %}
+		{% set other = [] %}
+
+		{% for mention in mentions %}
+			{% if mention.webmentionType in ['like-of', 'repost-of'] %}
+				{% set likesAndReposts = likesAndReposts|merge([mention]) %}
+			{% elseif mention.webmentionType == 'in-reply-to' %}
+				{% set replies = replies|merge([mention]) %}
+			{% else %}
+				{% set other = other|merge([mention]) %}
+			{% endif %}
+		{% endfor %}
+
+		<div class="webmentions mt-lg stack">
+			{% if likesAndReposts|length %}
+				<p class="cluster" data-size="2xs">
+					{% for mention in likesAndReposts %}
+						<a href="{{ mention.webmentionAuthorUrl ?: mention.webmentionSourceUrl }}" class="webmention-avatar" title="{{ mention.webmentionAuthorName ?: 'Someone' }} {{ mention.webmentionType == 'like-of' ? 'liked' : 'reposted' }} this">
+							{% if mention.webmentionAuthorPhoto %}
+								<img src="{{ mention.webmentionAuthorPhoto }}" alt="{{ mention.webmentionAuthorName }}" loading="lazy">
+							{% else %}
+								{{ mention.webmentionAuthorName|slice(0, 1) }}
+							{% endif %}
+						</a>
+					{% endfor %}
+				</p>
+			{% endif %}
+
+			{% if replies|length %}
+				<div class="stack" data-size="md">
+					{% for mention in replies %}
+						<div class="webmention-reply">
+							<p class="cluster" data-size="sm">
+								{% if mention.webmentionAuthorPhoto %}
+									<img src="{{ mention.webmentionAuthorPhoto }}" alt="{{ mention.webmentionAuthorName }}" class="webmention-avatar" loading="lazy">
+								{% endif %}
+								<a href="{{ mention.webmentionAuthorUrl ?: mention.webmentionSourceUrl }}" class="font-bold">{{ mention.webmentionAuthorName ?: 'Someone' }}</a>
+								<time class="text-sm muted sans" datetime="{{ mention.webmentionPublishedAt|date('Y-m-d') }}">
+									{{ mention.webmentionPublishedAt|date('j M Y') }}
+								</time>
+							</p>
+							{% if mention.webmentionContent %}
+								<p class="text-sm mt-xs">{{ mention.webmentionContent }}</p>
+							{% endif %}
+							<p class="text-sm mt-xs"><a href="{{ mention.webmentionSourceUrl }}">{{ mention.webmentionSourceUrl }}</a></p>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			{% if other|length %}
+				<div class="stack" data-size="sm">
+					{% for mention in other %}
+						<p class="text-sm">
+							<a href="{{ mention.webmentionAuthorUrl ?: mention.webmentionSourceUrl }}">{{ mention.webmentionAuthorName ?: 'Someone' }}</a>
+							mentioned this &mdash;
+							<a href="{{ mention.webmentionSourceUrl }}">{{ mention.webmentionSourceUrl }}</a>
+						</p>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+	{% endif %}
+{% endmacro %}

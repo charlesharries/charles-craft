@@ -1,0 +1,18 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: dd87fb3b-f59d-424e-a0a8-58d480cd1e54 # Webmentions - Default
+handle: webmentions
+maxAuthors: 1
+minAuthors: 1
+name: Webmentions
+previewTargets: []
+propagationMethod: all
+siteSettings:
+  6dcb6011-4fe4-4cab-8aa4-2307909c8d66: # Charles Harries
+    enabledByDefault: false
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel
