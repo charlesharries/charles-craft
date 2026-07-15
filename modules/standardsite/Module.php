@@ -29,6 +29,10 @@ class Module extends \yii\base\Module
             function (ModelEvent $event) {
                 $entry = $event->sender;
 
+                if ($entry->getIsDraft() || $entry->getIsRevision() || $entry->isProvisionalDraft) {
+                    return;
+                }
+
                 if (!$entry->section || !in_array($entry->section->handle, StandardSiteService::SUPPORTED_SECTIONS)) {
                     return;
                 }
