@@ -18,15 +18,15 @@ function Lightbox() {
         clearLightbox();
         
         const img = document.createElement('img');
-        img.src = event.target.src;
+        img.src = event.target.currentSrc || event.target.src;
         img.alt = event.target.alt;
         lightbox.appendChild(img);
-        
+
         lightbox.style.display = 'block';
         currentImg = event.target;
 
-        preloadLightbox(getNextImage()?.src);
-        preloadLightbox(getPrevImage()?.src);
+        preloadLightbox(getNextImage()?.currentSrc);
+        preloadLightbox(getPrevImage()?.currentSrc);
     }
 
     function preloadLightbox(src) {

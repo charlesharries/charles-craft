@@ -8,7 +8,7 @@
 	{% if entry.featuredImage is not empty and entry.featuredImage.all() is not empty %}
 		{%- set image = entry.featuredImage.one() -%}
 		<div class="mt-md">
-			<img src="{{ image.url }}" alt="{{ image.title }}" srcset="{{ image.getUrl('sm')}} 450w, {{ image.getUrl('md')}} 900w, {{ image.getUrl('lg')}} 1500w" sizes="100w">
+			<img src="{{ image.getUrl('lg') }}" alt="{{ image.title }}" srcset="{{ image.getUrl('sm')}} 450w, {{ image.getUrl('md')}} 900w, {{ image.getUrl('lg')}} 1500w" sizes="100w">
 		</div>
 	{% endif %}
 {% endmacro %}

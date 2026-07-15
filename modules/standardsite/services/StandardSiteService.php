@@ -75,7 +75,7 @@ class StandardSiteService
     public static function tidForEntry(Entry $entry): string
     {
         $timestampMicros = $entry->postDate->getTimestamp() * 1000000;
-        $clockId = $entry->id % 1024;
+        $clockId = $entry->getCanonicalId() % 1024;
         $value = ($timestampMicros << 10) | $clockId;
 
         return self::encodeTid($value);

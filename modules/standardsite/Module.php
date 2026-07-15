@@ -29,20 +29,7 @@ class Module extends \yii\base\Module
             function (ModelEvent $event) {
                 $entry = $event->sender;
 
-                if (!$entry->section || !in_array($entry->section->handle, StandardSiteService::SUPPORTED_SECTIONS)) {
-                    return;
-                }
-
-                if (!$entry->enabled || !$entry->getEnabledForSite()) {
-                    return;
-                }
-
-                $publicationUri = Craft::$app->projectConfig->get('standardsite.publicationUri');
-                if (!$publicationUri) {
-                    return;
-                }
-
-                if (!getenv('BLUESKY_APP_PASSWORD')) {
+                if (!self::shouldSyncEntry($entry)) {
                     return;
                 }
 
@@ -58,5 +45,26 @@ class Module extends \yii\base\Module
                 }
             }
         );
+    }
+
+    private static function shouldSyncEntry(Entry $entry): bool
+    {
+        if ($entry->getIsDraft() || $entry->getIsRevision() || $entry->isProvisionalDraft) {
+            return false;
+        }
+
+        if (!$entry->section || !in_array($entry->section->handle, StandardSiteService::SUPPORTED_SECTIONS)) {
+            return false;
+        }
+
+        if (!$entry->enabled || !$entry->getEnabledForSite()) {
+            return false;
+        }
+
+        if (!Craft::$app->projectConfig->get('standardsite.publicationUri')) {
+            return false;
+        }
+
+        return (bool) getenv('BLUESKY_APP_PASSWORD');
     }
 }
