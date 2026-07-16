@@ -5,6 +5,7 @@ namespace modules\api;
 use Craft;
 use craft\events\RegisterTemplateRootsEvent;
 use craft\web\View;
+use modules\api\jobs\RefreshTealFmStatsJob;
 use yii\base\Event;
 
 class Module extends \yii\base\Module
@@ -30,5 +31,13 @@ class Module extends \yii\base\Module
                 }
             }
         );
+
+        // Kick off the self-requeuing teal.fm stats refresh job, once. The
+        // cache flag means this only ever pushes a single job onto the
+        // queue - after that the job keeps itself alive by requeuing with
+        // a delay each time it runs.
+        if (Craft::$app->cache->add('teal-fm-stats-job-seeded', true, 0)) {
+            Craft::$app->queue->push(new RefreshTealFmStatsJob());
+        }
     }
 }
