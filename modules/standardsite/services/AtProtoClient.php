@@ -61,6 +61,26 @@ class AtProtoClient
         return json_decode($response->getBody(), true);
     }
 
+    /**
+     * Uploads raw bytes as a blob and returns the blob ref to embed in a record.
+     *
+     * @return array<string, mixed>
+     */
+    public function uploadBlob(string $bytes, string $mimeType): array
+    {
+        $response = $this->client->post('com.atproto.repo.uploadBlob', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $this->accessToken,
+                'Content-Type' => $mimeType,
+            ],
+            'body' => $bytes,
+        ]);
+
+        $data = json_decode($response->getBody(), true);
+
+        return $data['blob'];
+    }
+
     public function getRecord(string $collection, string $rkey): ?array
     {
         try {
