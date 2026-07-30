@@ -26,11 +26,7 @@ class TealFmController extends Controller
             $period = '7days';
         }
 
-        $data = Craft::$app->cache->getOrSet(
-            TealFmStats::cacheKey($period),
-            fn () => TealFmStats::compute($identifier, $period),
-            TealFmStats::CACHE_DURATION
-        );
+        $data = TealFmStats::compute($period);
 
         $headers = Craft::$app->response->headers;
         $headers->add("Cache-Control", "public, max-age=300, stale-while-revalidate=60");

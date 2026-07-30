@@ -9,22 +9,11 @@ class TealFmStats
         '30days' => 30,
     ];
 
-    // A long safety-net TTL for the request-path cache read - it's not what
-    // keeps this data fresh (RefreshTealFmStatsJob does that, every ~5
-    // minutes), it just guarantees a request is never left blocking on a
-    // live fetch if the job has fallen behind.
-    const CACHE_DURATION = 86400;
-
-    public static function cacheKey(string $period): string
-    {
-        return "teal-fm-stats:$period";
-    }
-
-    public static function compute(string $identifier, string $period): array
+    public static function compute(string $period): array
     {
         $days = self::PERIODS[$period] ?? self::PERIODS['7days'];
         $since = (new \DateTimeImmutable())->modify("-$days days");
-        $plays = (new TealFmClient($identifier))->getPlaysSince($since);
+        $plays = (new TealFmListenRepository())->forPeriod($since);
 
         $artistCounts = [];
         $albums = [];

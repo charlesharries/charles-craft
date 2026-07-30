@@ -24,12 +24,12 @@ class TealFmClient
      * this collection, confirmed against the live PDS - `reverse=true`
      * flips it to oldest-first, so it's deliberately omitted here.
      */
-    public function getPlaysSince(\DateTimeInterface $since, int $maxPages = 20): array
+    public function getPlaysSince(\DateTimeInterface $since, ?int $maxPages = 20): array
     {
         $plays = [];
         $cursor = null;
 
-        for ($page = 0; $page < $maxPages; $page++) {
+        for ($page = 0; $maxPages === null || $page < $maxPages; $page++) {
             $query = [
                 'repo' => $this->identifier,
                 'collection' => self::COLLECTION,
@@ -51,7 +51,7 @@ class TealFmClient
             $reachedCutoff = false;
 
             foreach ($records as $record) {
-                $play = self::normalize($record['value'] ?? []);
+                $play = self::normalize($record);
 
                 if (!$play['playedTime']) {
                     continue;
@@ -95,11 +95,13 @@ class TealFmClient
         $data = json_decode($response->getBody(), true);
         $record = $data['records'][0] ?? null;
 
-        return $record ? self::normalize($record['value']) : null;
+        return $record ? self::normalize($record) : null;
     }
 
-    protected static function normalize(array $value): array
+    protected static function normalize(array $record): array
     {
+        $value = $record['value'] ?? [];
+
         if (!empty($value['artists'])) {
             $artistNames = array_map(fn ($artist) => $artist['artistName'], $value['artists']);
         } else {
@@ -124,6 +126,7 @@ class TealFmClient
         }
 
         return [
+            'uri' => $record['uri'] ?? null,
             'trackName' => $value['trackName'] ?? null,
             'artistNames' => $artistNames,
             'releaseName' => $value['releaseName'] ?? null,
