@@ -1,9 +1,9 @@
 <?php
 
-namespace modules\standardsite;
+namespace modules\atproto;
 
 use craft\elements\Entry;
-use modules\standardsite\services\StandardSiteService;
+use modules\atproto\services\StandardSiteService;
 use Twig\TwigFunction;
 
 class TwigExtension extends \Twig\Extension\AbstractExtension
