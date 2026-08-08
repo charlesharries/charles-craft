@@ -1,3 +1,5 @@
+atproto:
+  publicationUri: 'at://did:plc:swxoj3wjlwodcqs5ipmvgnug/site.standard.publication/3mnv7gbn3czno'
 dateModified: 1781970903
 elementSources:
   craft\elements\Entry:
@@ -188,8 +190,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-standardsite:
-  publicationUri: 'at://did:plc:swxoj3wjlwodcqs5ipmvgnug/site.standard.publication/3mnv7gbn3czno'
 system:
   edition: solo
   live: true

@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\standardsite\controllers;
+namespace modules\atproto\controllers;
 
 use Craft;
 use craft\web\Controller;
@@ -12,7 +12,7 @@ class WellKnownController extends Controller
 
     public function actionPublication(): Response
     {
-        $uri = Craft::$app->projectConfig->get('standardsite.publicationUri');
+        $uri = Craft::$app->projectConfig->get('atproto.publicationUri');
 
         if (!$uri) {
             throw new \yii\web\NotFoundHttpException();
