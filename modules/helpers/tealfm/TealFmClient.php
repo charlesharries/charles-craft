@@ -20,16 +20,6 @@ class TealFmClient
     /**
      * Fetch normalized plays recorded after $afterUri, newest first. A null
      * $afterUri fetches the whole collection.
-     *
-     * The cutoff is a URI rather than a timestamp because the record key is
-     * the only ordering the PDS guarantees: listRecords sorts by key
-     * descending (no `reverse` param, which would flip it to oldest-first),
-     * keys are TIDs minted when the record is written, and every URI in one
-     * repo/collection differs only in that trailing key. `playedTime` does
-     * not follow that order - teal.fm backdates plays submitted late, so one
-     * can sit mid-listing carrying a timestamp months older than its
-     * neighbours, and a sync that stopped there would strand every newer play
-     * behind it permanently.
      */
     public function getPlaysAfter(?string $afterUri, ?int $maxPages = 20): array
     {
@@ -37,44 +27,19 @@ class TealFmClient
         $cursor = null;
 
         for ($page = 0; $maxPages === null || $page < $maxPages; $page++) {
-            $query = [
-                'repo' => $this->identifier,
-                'collection' => self::COLLECTION,
-                'limit' => 100,
-            ];
-
-            if ($cursor) {
-                $query['cursor'] = $cursor;
-            }
-
-            $response = $this->client->get('com.atproto.repo.listRecords', ['query' => $query]);
-            $data = json_decode($response->getBody(), true);
+            $data = $this->listRecords($cursor);
             $records = $data['records'] ?? [];
 
             if (empty($records)) {
                 break;
             }
 
-            $reachedCutoff = false;
-
-            foreach ($records as $record) {
-                $uri = $record['uri'] ?? null;
-
-                if ($afterUri !== null && $uri !== null && $uri <= $afterUri) {
-                    $reachedCutoff = true;
-                    break;
-                }
-
-                $plays[] = self::normalize($record);
-            }
-
-            if ($reachedCutoff) {
-                break;
-            }
+            [$pagePlays, $reachedCutoff] = self::normalizeUntil($records, $afterUri);
+            $plays = array_merge($plays, $pagePlays);
 
             $cursor = $data['cursor'] ?? null;
 
-            if (!$cursor) {
+            if ($reachedCutoff || !$cursor) {
                 break;
             }
         }
@@ -87,18 +52,56 @@ class TealFmClient
      */
     public function getLatestPlay(): ?array
     {
-        $response = $this->client->get('com.atproto.repo.listRecords', [
-            'query' => [
-                'repo' => $this->identifier,
-                'collection' => self::COLLECTION,
-                'limit' => 1,
-            ],
-        ]);
-
-        $data = json_decode($response->getBody(), true);
+        $data = $this->listRecords(limit: 1);
         $record = $data['records'][0] ?? null;
 
         return $record ? self::normalize($record) : null;
+    }
+
+    /**
+     * Fetch a single page of raw records, newest first.
+     */
+    protected function listRecords(?string $cursor = null, int $limit = 100): array
+    {
+        $query = [
+            'repo' => $this->identifier,
+            'collection' => self::COLLECTION,
+            'limit' => $limit,
+        ];
+
+        if ($cursor) {
+            $query['cursor'] = $cursor;
+        }
+
+        $response = $this->client->get('com.atproto.repo.listRecords', ['query' => $query]);
+
+        return json_decode($response->getBody(), true) ?? [];
+    }
+
+    /**
+     * Normalize records until one at or older than $afterUri shows up. Returns
+     * the plays collected and whether that cutoff was reached.
+     */
+    protected static function normalizeUntil(array $records, ?string $afterUri): array
+    {
+        $plays = [];
+
+        foreach ($records as $record) {
+            if (self::isAtOrBefore($record, $afterUri)) {
+                return [$plays, true];
+            }
+
+            $plays[] = self::normalize($record);
+        }
+
+        return [$plays, false];
+    }
+
+    protected static function isAtOrBefore(array $record, ?string $afterUri): bool
+    {
+        $uri = $record['uri'] ?? null;
+
+        return $afterUri !== null && $uri !== null && $uri <= $afterUri;
     }
 
     protected static function normalize(array $record): array

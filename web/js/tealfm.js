@@ -24,24 +24,6 @@ function TealFm() {
         albums.forEach((album, idx) => $albums.append(albumItem(album, idx)));
     }
 
-    function albumItem(album, idx) {
-        const art = album.mbid
-            ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(album.mbid)}/front-250" alt="${escapeHtml(album.name)}" width="64" height="64" class="no-lightbox" onerror="this.remove()">`)
-            : "";
-
-        return html`
-            <li class="flex align-center">
-                <div class="monospace muted align-self-start">${idx+1}.</div>
-                <div class="rounded ml-sm" style="width: 64px; flex-shrink: 0;">${art}</div>
-                <div class="ml-sm flex-1">
-                    <p class="bold">${album.name}</p>
-                    <p class="muted text-sm">${album.artist}</p>
-                    <p class="muted text-sm">${album.playCount === 1 ? "1 play" : `${album.playCount} plays`}</p>
-                </div>
-            </li>
-        `;
-    }
-
     function renderRecent(tracks) {
         if (!tracks.length) {
             $recentEmpty.hidden = false;
@@ -49,27 +31,6 @@ function TealFm() {
         }
 
         tracks.forEach(track => $recent.append(recentItem(track)));
-    }
-
-    function recentItem(track) {
-        const art = track.mbid
-            ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(track.mbid)}/front-250" alt="${escapeHtml(track.releaseName ?? track.trackName)}" width="48" height="48" class="no-lightbox" onerror="this.remove()">`)
-            : "";
-
-        const title = track.playCount > 1
-            ? raw(`<span class="bold">${track.releaseName}</span> &bull; ${track.playCount} plays`)
-            : raw(`<span class="bold">${track.trackName}</span>`);
-
-        return html`
-            <li class="flex align-center">
-                <div class="rounded" style="width: 48px; flex-shrink: 0;">${art}</div>
-                <div class="ml-sm flex-1">
-                    <p>${title}</p>
-                    <p class="muted text-sm">${track.artist}</p>
-                </div>
-                <p class="muted text-sm">${timeAgo(track.playedTime)}</p>
-            </li>
-        `;
     }
 
     const $totalSongs = document.getElementById("tealFm_totalSongs");
@@ -81,6 +42,45 @@ function TealFm() {
     const $recentEmpty = document.getElementById("tealFm_recentEmpty");
 
     load();
+}
+
+function albumItem(album, idx) {
+    const art = album.mbid
+        ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(album.mbid)}/front-250" alt="${escapeHtml(album.name)}" width="64" height="64" class="no-lightbox" onerror="this.remove()">`)
+        : "";
+
+    return html`
+        <li class="flex align-center">
+            <div class="monospace muted align-self-start">${idx+1}.</div>
+            <div class="rounded ml-sm" style="width: 64px; flex-shrink: 0;">${art}</div>
+            <div class="ml-sm flex-1">
+                <p class="bold">${album.name}</p>
+                <p class="muted text-sm">${album.artist}</p>
+                <p class="muted text-sm">${album.playCount === 1 ? "1 play" : `${album.playCount} plays`}</p>
+            </div>
+        </li>
+    `;
+}
+
+function recentItem(track) {
+    const art = track.mbid
+        ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(track.mbid)}/front-250" alt="${escapeHtml(track.releaseName ?? track.trackName)}" width="48" height="48" class="no-lightbox" onerror="this.remove()">`)
+        : "";
+
+    const title = track.playCount > 1
+        ? raw(`<span class="bold">${track.releaseName}</span> &bull; ${track.playCount} plays`)
+        : raw(`<span class="bold">${track.trackName}</span>`);
+
+    return html`
+        <li class="flex align-center">
+            <div class="rounded" style="width: 48px; flex-shrink: 0;">${art}</div>
+            <div class="ml-sm flex-1">
+                <p>${title}</p>
+                <p class="muted text-sm">${track.artist}</p>
+            </div>
+            <p class="muted text-sm">${timeAgo(track.playedTime)}</p>
+        </li>
+    `;
 }
 
 /**
