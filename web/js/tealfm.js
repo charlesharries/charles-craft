@@ -1,22 +1,12 @@
 function TealFm() {
-    url = "/api/teal-fm/stats?period=30days";
+    const url = "/api/teal-fm/stats?period=30days";
 
-    const $totalSongs = document.getElementById("tealFm_totalSongs");
-    const $totalArtists = document.getElementById("tealFm_totalArtists");
-    const $totalAlbums = document.getElementById("tealFm_totalAlbums");
-    const $albums = document.getElementById("tealFm_albums");
-    const $albumsEmpty = document.getElementById("tealFm_albumsEmpty");
-    const $recent = document.getElementById("tealFm_recent");
-    const $recentEmpty = document.getElementById("tealFm_recentEmpty");
+    async function load() {
+        const response = await fetch(url).then(r => r.json());
 
-    fetch();
-
-    async function fetch() {
-        const response = await fetch(this.url).then(r => r.json());
-
-        this.renderTotals(response.totals || {});
-        this.renderAlbums(response.albums || []);
-        this.renderRecent(response.recent || []);
+        renderTotals(response.totals || {});
+        renderAlbums(response.albums || []);
+        renderRecent(response.recent || []);
     }
 
     function renderTotals(totals) {
@@ -81,6 +71,16 @@ function TealFm() {
             </li>
         `;
     }
+
+    const $totalSongs = document.getElementById("tealFm_totalSongs");
+    const $totalArtists = document.getElementById("tealFm_totalArtists");
+    const $totalAlbums = document.getElementById("tealFm_totalAlbums");
+    const $albums = document.getElementById("tealFm_albums");
+    const $albumsEmpty = document.getElementById("tealFm_albumsEmpty");
+    const $recent = document.getElementById("tealFm_recent");
+    const $recentEmpty = document.getElementById("tealFm_recentEmpty");
+
+    load();
 }
 
 /**

@@ -3,6 +3,8 @@ function loadAll() {
     const $trigger = document.getElementById("loadall_btn");
     const $container = document.getElementById("archive");
 
+    if (!$trigger) return;
+
     function getOffset() {
         const $latest = document.querySelector(".latest");
         if (!$latest) return 1;
