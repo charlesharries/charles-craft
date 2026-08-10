@@ -46,7 +46,7 @@ function TealFm() {
 
 function albumItem(album, idx) {
     const art = album.mbid
-        ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(album.mbid)}/front-250" alt="${escapeHtml(album.name)}" width="64" height="64" class="no-lightbox" onerror="this.remove()">`)
+        ? raw(`<img src="/api/album-art/${encodeURIComponent(album.mbid)}" alt="${escapeHtml(album.name)}" width="64" height="64" class="no-lightbox" onerror="this.remove()">`)
         : "";
 
     return html`
@@ -64,7 +64,7 @@ function albumItem(album, idx) {
 
 function recentItem(track) {
     const art = track.mbid
-        ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(track.mbid)}/front-250" alt="${escapeHtml(track.releaseName ?? track.trackName)}" width="48" height="48" class="no-lightbox" onerror="this.remove()">`)
+        ? raw(`<img src="/api/album-art/${encodeURIComponent(track.mbid)}" alt="${escapeHtml(track.releaseName ?? track.trackName)}" width="48" height="48" class="no-lightbox" onerror="this.remove()">`)
         : "";
 
     const title = track.playCount > 1
