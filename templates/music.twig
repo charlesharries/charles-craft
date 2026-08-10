@@ -1,0 +1,55 @@
+{% import "_partials/head.twig" as head %}
+
+{% extends "_layout.twig" %}
+
+{% block title %}
+	Music
+{% endblock %}
+
+{% block metaDescription %}Charles Harries' most-played albums on teal.fm over the last 30 days.{% endblock %}
+
+{% block head %}
+	{{ head.meta(
+        "Music",
+        "My most-played albums on teal.fm over the last 30 days.",
+        url(url() ~ "music")
+    ) }}
+{% endblock %}
+
+{% block content %}
+	<main class="music container mt-lg">
+		<h1>Music</h1>
+		<p class="mt-sm muted">My most-played albums on <a href="https://teal.fm">teal.fm</a> over the last 30 days.</p>
+
+		<div class="mt-lg grid" data-columns="3">
+			<div>
+				<p class="text-2xl bold serif" id="tealFm_totalSongs">&ndash;</p>
+				<p class="muted text-sm">Songs played</p>
+			</div>
+			<div>
+				<p class="text-2xl bold serif" id="tealFm_totalArtists">&ndash;</p>
+				<p class="muted text-sm">Unique artists</p>
+			</div>
+			<div>
+				<p class="text-2xl bold serif" id="tealFm_totalAlbums">&ndash;</p>
+				<p class="muted text-sm">Unique albums</p>
+			</div>
+		</div>
+
+		<div class="mt-lg grid" data-columns="2">
+			<section>
+				<h2 class="text-md">Top albums</h2>
+				<ol role="list" class="stack mt-sm" id="tealFm_albums"></ol>
+				<p class="muted text-sm mt-sm" id="tealFm_albumsEmpty" hidden>No plays found in the last 30 days.</p>
+			</section>
+
+			<section>
+				<h2 class="text-md">Latest songs</h2>
+				<ol role="list" class="stack mt-sm" id="tealFm_recent"></ol>
+				<p class="muted text-sm mt-sm" id="tealFm_recentEmpty" hidden>No plays found in the last 30 days.</p>
+			</section>
+		</div>
+	</main>
+
+	<script src="/js/tealfm.js?v={|{VERSION}|}" type="text/javascript"></script>
+{% endblock %}

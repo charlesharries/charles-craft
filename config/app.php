@@ -22,11 +22,14 @@ use craft\helpers\App;
 
 return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
+    'aliases' => [
+        '@modules' => dirname(__DIR__) . '/modules',
+    ],
     'modules' => [
         'api' => modules\api\Module::class,
         'deploy' => deploy\Module::class,
         'extensions' => extensions\Module::class,
-        'standardsite' => modules\standardsite\Module::class,
+        'atproto' => modules\atproto\Module::class,
     ],
-    'bootstrap' => ['api', 'deploy', 'extensions', 'standardsite'],
+    'bootstrap' => ['api', 'deploy', 'extensions', 'atproto'],
 ];

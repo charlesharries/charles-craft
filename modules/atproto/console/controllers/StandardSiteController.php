@@ -1,12 +1,14 @@
 <?php
 
-namespace modules\standardsite\console\controllers;
+namespace modules\atproto\console\controllers;
 
 use Craft;
 use craft\console\Controller;
 use craft\elements\Entry;
-use modules\standardsite\services\AtProtoClient;
-use modules\standardsite\services\StandardSiteService;
+use modules\atproto\builders\StandardSiteRecordBuilder;
+use modules\atproto\RecordBuilderMap;
+use modules\atproto\services\AtProtoClient;
+use modules\atproto\services\StandardSiteService;
 
 class StandardSiteController extends Controller
 {
@@ -19,7 +21,7 @@ class StandardSiteController extends Controller
             return 1;
         }
 
-        $existingUri = Craft::$app->projectConfig->get('standardsite.publicationUri');
+        $existingUri = Craft::$app->projectConfig->get('atproto.publicationUri');
         if ($existingUri) {
             $oldRkey = basename($existingUri);
             $this->stdout("Existing publication record found ($oldRkey), will update in place.\n");
@@ -62,7 +64,7 @@ class StandardSiteController extends Controller
 
         $this->stdout("Deleted $deleted publication record(s).\n");
 
-        Craft::$app->projectConfig->remove('standardsite.publicationUri');
+        Craft::$app->projectConfig->remove('atproto.publicationUri');
 
         $service = new StandardSiteService();
         $service->authenticate();
@@ -81,17 +83,17 @@ class StandardSiteController extends Controller
             return 1;
         }
 
-        $publicationUri = Craft::$app->projectConfig->get('standardsite.publicationUri');
+        $publicationUri = Craft::$app->projectConfig->get('atproto.publicationUri');
         if (!$publicationUri) {
-            $this->stderr("Publication not set up yet. Run standardsite/standard-site/setup first.\n");
+            $this->stderr("Publication not set up yet. Run atproto/standard-site/setup first.\n");
             return 1;
         }
 
-        $service = new StandardSiteService();
-        $service->authenticate();
+        $client = new AtProtoClient();
+        $client->authenticate();
 
         $entries = Entry::find()
-            ->section(StandardSiteService::SUPPORTED_SECTIONS)
+            ->section(RecordBuilderMap::allSectionHandles())
             ->status('live')
             ->all();
 
@@ -102,13 +104,21 @@ class StandardSiteController extends Controller
         $failed = 0;
 
         foreach ($entries as $entry) {
-            try {
-                $uri = $service->createOrUpdateDocument($entry);
-                $synced++;
-                $this->stdout("  [$synced/$total] {$entry->title} -> $uri\n");
-            } catch (\Throwable $e) {
-                $failed++;
-                $this->stderr("  [FAIL] {$entry->title}: {$e->getMessage()}\n");
+            foreach (RecordBuilderMap::buildersFor($entry) as $builderClass) {
+                $builder = new $builderClass();
+                $record = $builder->build($entry);
+                if ($record === null) {
+                    continue;
+                }
+
+                try {
+                    $result = $client->putRecord($builderClass::collection(), $builderClass::rkeyFor($entry), $record);
+                    $synced++;
+                    $this->stdout("  [$synced/$total] {$entry->title} ({$builderClass::collection()}) -> {$result['uri']}\n");
+                } catch (\Throwable $e) {
+                    $failed++;
+                    $this->stderr("  [FAIL] {$entry->title} ({$builderClass::collection()}): {$e->getMessage()}\n");
+                }
             }
         }
 
@@ -132,13 +142,13 @@ class StandardSiteController extends Controller
         $cursor = null;
 
         do {
-            $result = $client->listRecords('site.standard.document', 100, $cursor);
+            $result = $client->listRecords(StandardSiteRecordBuilder::collection(), 100, $cursor);
             $records = $result['records'] ?? [];
             $cursor = $result['cursor'] ?? null;
 
             foreach ($records as $record) {
                 $rkey = basename($record['uri']);
-                $client->deleteRecord('site.standard.document', $rkey);
+                $client->deleteRecord(StandardSiteRecordBuilder::collection(), $rkey);
                 $deleted++;
                 $this->stdout("  Deleted: $rkey\n");
             }

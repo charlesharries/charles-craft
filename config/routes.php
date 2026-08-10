@@ -20,7 +20,7 @@
  */
 
 return [
-    '.well-known/site.standard.publication' => 'standardsite/well-known/publication',
+    '.well-known/site.standard.publication' => 'atproto/well-known/publication',
     'assets/s3/<rest:.*>' => 'api/assets/s3',
     'only:<section>' => ['template' => 'index'],
     'api/post-images' => 'api/post-image/get',
@@ -28,6 +28,7 @@ return [
     'api/post-images/v2' => 'api/post-image/get-v2',
     'api/post-images/v2/<slug>' => 'api/post-image/get-v2',
     'api/latest-tracks' => 'api/latest-tracks/get',
+    'api/teal-fm/stats' => 'api/teal-fm/stats',
     'api/search' => 'api/search/get',
     'images/favicon' => 'api/favicon/get',
     'feed.xml' => 'api/rss-feed/feed',

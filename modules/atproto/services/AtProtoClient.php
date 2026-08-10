@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\standardsite\services;
+namespace modules\atproto\services;
 
 use GuzzleHttp\Client;
 
