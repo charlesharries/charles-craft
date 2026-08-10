@@ -1,19 +1,17 @@
-class TealFm {
+function TealFm() {
     url = "/api/teal-fm/stats?period=30days";
 
-    constructor() {
-        this.$totalSongs = document.getElementById("tealFm_totalSongs");
-        this.$totalArtists = document.getElementById("tealFm_totalArtists");
-        this.$totalAlbums = document.getElementById("tealFm_totalAlbums");
-        this.$albums = document.getElementById("tealFm_albums");
-        this.$albumsEmpty = document.getElementById("tealFm_albumsEmpty");
-        this.$recent = document.getElementById("tealFm_recent");
-        this.$recentEmpty = document.getElementById("tealFm_recentEmpty");
+    const $totalSongs = document.getElementById("tealFm_totalSongs");
+    const $totalArtists = document.getElementById("tealFm_totalArtists");
+    const $totalAlbums = document.getElementById("tealFm_totalAlbums");
+    const $albums = document.getElementById("tealFm_albums");
+    const $albumsEmpty = document.getElementById("tealFm_albumsEmpty");
+    const $recent = document.getElementById("tealFm_recent");
+    const $recentEmpty = document.getElementById("tealFm_recentEmpty");
 
-        this.fetch();
-    }
+    fetch();
 
-    async fetch() {
+    async function fetch() {
         const response = await fetch(this.url).then(r => r.json());
 
         this.renderTotals(response.totals || {});
@@ -21,22 +19,22 @@ class TealFm {
         this.renderRecent(response.recent || []);
     }
 
-    renderTotals(totals) {
-        this.$totalSongs.innerText = totals.songs ?? 0;
-        this.$totalArtists.innerText = totals.artists ?? 0;
-        this.$totalAlbums.innerText = totals.albums ?? 0;
+    function renderTotals(totals) {
+        $totalSongs.innerText = totals.songs ?? 0;
+        $totalArtists.innerText = totals.artists ?? 0;
+        $totalAlbums.innerText = totals.albums ?? 0;
     }
 
-    renderAlbums(albums) {
+    function renderAlbums(albums) {
         if (!albums.length) {
-            this.$albumsEmpty.hidden = false;
+            $albumsEmpty.hidden = false;
             return;
         }
 
-        albums.forEach((album, idx) => this.$albums.append(this.albumItem(album, idx)));
+        albums.forEach((album, idx) => $albums.append(albumItem(album, idx)));
     }
 
-    albumItem(album, idx) {
+    function albumItem(album, idx) {
         const art = album.mbid
             ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(album.mbid)}/front-250" alt="${escapeHtml(album.name)}" width="64" height="64" class="no-lightbox" onerror="this.remove()">`)
             : "";
@@ -54,16 +52,16 @@ class TealFm {
         `;
     }
 
-    renderRecent(tracks) {
+    function renderRecent(tracks) {
         if (!tracks.length) {
-            this.$recentEmpty.hidden = false;
+            $recentEmpty.hidden = false;
             return;
         }
 
-        tracks.forEach(track => this.$recent.append(this.recentItem(track)));
+        tracks.forEach(track => $recent.append(recentItem(track)));
     }
 
-    recentItem(track) {
+    function recentItem(track) {
         const art = track.mbid
             ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(track.mbid)}/front-250" alt="${escapeHtml(track.releaseName ?? track.trackName)}" width="48" height="48" class="no-lightbox" onerror="this.remove()">`)
             : "";
@@ -131,4 +129,4 @@ function timeAgo(isoString) {
     return `${Math.floor(seconds / 86400)}d ago`;
 }
 
-new TealFm();
+TealFm();
