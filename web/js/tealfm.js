@@ -68,11 +68,15 @@ class TealFm {
             ? raw(`<img src="https://coverartarchive.org/release/${encodeURIComponent(track.mbid)}/front-250" alt="${escapeHtml(track.releaseName ?? track.trackName)}" width="48" height="48" class="no-lightbox" onerror="this.remove()">`)
             : "";
 
+        const title = track.playCount > 1
+            ? raw(`<span class="bold">${track.releaseName}</span> &bull; ${track.playCount} plays`)
+            : raw(`<span class="bold">${track.trackName}</span>`);
+
         return html`
             <li class="flex align-center">
                 <div class="rounded" style="width: 48px; flex-shrink: 0;">${art}</div>
                 <div class="ml-sm flex-1">
-                    <p class="bold">${track.trackName}</p>
+                    <p>${title}</p>
                     <p class="muted text-sm">${track.artist}</p>
                 </div>
                 <p class="muted text-sm">${timeAgo(track.playedTime)}</p>

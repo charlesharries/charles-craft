@@ -18,13 +18,20 @@ class TealFmClient
     }
 
     /**
-     * Fetch normalized plays newer than $since, newest first.
+     * Fetch normalized plays recorded after $afterUri, newest first. A null
+     * $afterUri fetches the whole collection.
      *
-     * listRecords' default order (no `reverse` param) is newest-first for
-     * this collection, confirmed against the live PDS - `reverse=true`
-     * flips it to oldest-first, so it's deliberately omitted here.
+     * The cutoff is a URI rather than a timestamp because the record key is
+     * the only ordering the PDS guarantees: listRecords sorts by key
+     * descending (no `reverse` param, which would flip it to oldest-first),
+     * keys are TIDs minted when the record is written, and every URI in one
+     * repo/collection differs only in that trailing key. `playedTime` does
+     * not follow that order - teal.fm backdates plays submitted late, so one
+     * can sit mid-listing carrying a timestamp months older than its
+     * neighbours, and a sync that stopped there would strand every newer play
+     * behind it permanently.
      */
-    public function getPlaysSince(\DateTimeInterface $since, ?int $maxPages = 20): array
+    public function getPlaysAfter(?string $afterUri, ?int $maxPages = 20): array
     {
         $plays = [];
         $cursor = null;
@@ -51,18 +58,14 @@ class TealFmClient
             $reachedCutoff = false;
 
             foreach ($records as $record) {
-                $play = self::normalize($record);
+                $uri = $record['uri'] ?? null;
 
-                if (!$play['playedTime']) {
-                    continue;
-                }
-
-                if ($play['playedTime'] < $since) {
+                if ($afterUri !== null && $uri !== null && $uri <= $afterUri) {
                     $reachedCutoff = true;
                     break;
                 }
 
-                $plays[] = $play;
+                $plays[] = self::normalize($record);
             }
 
             if ($reachedCutoff) {

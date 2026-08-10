@@ -8,6 +8,7 @@ use craft\helpers\Db;
 use craft\helpers\StringHelper;
 use DateTimeImmutable;
 use DateTimeInterface;
+use DateTimeZone;
 
 class TealFmListenRepository
 {
@@ -16,11 +17,15 @@ class TealFmListenRepository
     /**
      * Upserts a batch of normalized plays (as produced by TealFmClient),
      * keyed on `uri` so re-running a sync over overlapping plays is safe.
+     *
+     * Returns the number of plays that weren't already stored - a sync that
+     * only re-covers plays we've already seen reports 0, not the batch size.
      */
     public function upsertMany(array $plays): int
     {
         $db = Craft::$app->getDb();
         $now = Db::prepareDateForDb(new DateTimeImmutable());
+        $known = $this->knownUris(array_filter(array_column($plays, 'uri')));
         $count = 0;
 
         $transaction = $db->beginTransaction();
@@ -47,7 +52,12 @@ class TealFmListenRepository
                     ...$values,
                 ], $values)->execute();
 
-                $count++;
+                // Marking it known as we go also keeps a URI that shows up
+                // twice in one batch from counting twice.
+                if (!isset($known[$play['uri']])) {
+                    $known[$play['uri']] = true;
+                    $count++;
+                }
             }
 
             $transaction->commit();
@@ -59,13 +69,46 @@ class TealFmListenRepository
         return $count;
     }
 
-    public function latestPlayedTime(): ?DateTimeImmutable
+    /**
+     * The sync's high-water mark: the URI of the most recently *written*
+     * record we hold. Every URI here shares one `at://<did>/<collection>/`
+     * prefix and ends in a TID, so the highest URI is the newest record -
+     * see TealFmClient::getPlaysAfter() for why write order, and not
+     * `playedTime`, is what a sync has to page against.
+     */
+    public function latestUri(): ?string
     {
-        $max = (new Query())
+        return (new Query())
             ->from(self::TABLE)
-            ->max('[[playedTime]]');
+            ->max('[[uri]]');
+    }
 
-        return $max ? new DateTimeImmutable($max) : null;
+    /**
+     * Returns the subset of $uris that's already stored, as a lookup set.
+     */
+    protected function knownUris(array $uris): array
+    {
+        if (!$uris) {
+            return [];
+        }
+
+        $found = (new Query())
+            ->select(['uri'])
+            ->from(self::TABLE)
+            ->where(['uri' => $uris])
+            ->column();
+
+        return array_flip($found);
+    }
+
+    /**
+     * Db::prepareDateForDb() writes UTC into a column that carries no zone of
+     * its own, so reads have to say so - otherwise PHP reads them back in the
+     * system time zone and every value silently shifts by the UTC offset.
+     */
+    protected static function toDateTime(string $value): DateTimeImmutable
+    {
+        return new DateTimeImmutable($value, new DateTimeZone('UTC'));
     }
 
     /**
@@ -87,7 +130,7 @@ class TealFmListenRepository
             'artistNames' => json_decode($row['artistNames'], true) ?? [],
             'releaseName' => $row['releaseName'],
             'releaseMbId' => $row['releaseMbId'],
-            'playedTime' => new DateTimeImmutable($row['playedTime']),
+            'playedTime' => self::toDateTime($row['playedTime']),
         ], $rows);
     }
 }

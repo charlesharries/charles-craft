@@ -70,16 +70,50 @@ class TealFmStats
         return array_slice($albums, 0, $limit);
     }
 
-    // $plays is already newest-first (TealFmClient::getPlaysSince), so this
-    // is just a slice + reshape, not a resort.
+    // $plays is already newest-first (TealFmListenRepository::forPeriod), so this is
+    // just a group + reshape, not a resort. A run of consecutive plays from
+    // one album collapses into a single row carrying the run's playCount, so
+    // sitting through a whole album doesn't fill the list on its own.
     protected static function recentPlays(array $plays, int $limit = 20): array
     {
-        return array_map(fn ($play) => [
-            'trackName' => $play['trackName'],
-            'artist' => implode(', ', $play['artistNames']),
-            'releaseName' => $play['releaseName'],
-            'mbid' => $play['releaseMbId'],
-            'playedTime' => $play['playedTime']?->format(DATE_ATOM),
-        ], array_slice($plays, 0, $limit));
+        $rows = [];
+        $lastKey = null;
+
+        foreach ($plays as $play) {
+            $key = self::albumKey($play);
+
+            if ($key !== null && $key === $lastKey) {
+                $rows[array_key_last($rows)]['playCount']++;
+                continue;
+            }
+
+            // Checked after the grouping above so the last row still picks up
+            // the rest of its run before we stop.
+            if (count($rows) >= $limit) {
+                break;
+            }
+
+            $rows[] = [
+                'trackName' => $play['trackName'],
+                'artist' => implode(', ', $play['artistNames']),
+                'releaseName' => $play['releaseName'],
+                'mbid' => $play['releaseMbId'],
+                'playedTime' => $play['playedTime']?->format(DATE_ATOM),
+                'playCount' => 1,
+            ];
+
+            $lastKey = $key;
+        }
+
+        return $rows;
+    }
+
+    /**
+     * Identifies the album a play belongs to, or null when teal.fm gave us no
+     * release at all - those plays never group, even with each other.
+     */
+    protected static function albumKey(array $play): ?string
+    {
+        return $play['releaseMbId'] ?: ($play['releaseName'] ?: null);
     }
 }

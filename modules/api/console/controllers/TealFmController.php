@@ -9,6 +9,12 @@ use helpers\tealfm\TealFmSyncService;
 
 class TealFmController extends Controller
 {
+    /**
+     * Re-syncs every listen played on or after this date instead of resuming
+     * from the newest one stored. Use it to pick up plays a PDS backdated.
+     */
+    public ?string $since = null;
+
     public function options($actionID): array
     {
         return match ($actionID) {
@@ -21,7 +27,7 @@ class TealFmController extends Controller
      * Syncs listens from the PDS since the last one stored locally. Backfills
      * the full history the first time it's run against an empty table.
      */
-    public function actionSync(?string $since = null): int
+    public function actionSync(): int
     {
         $identifier = App::env('BLUESKY_IDENTIFIER');
 
@@ -33,7 +39,7 @@ class TealFmController extends Controller
         $this->stdout("Syncing teal.fm listens...\n");
 
         try {
-            $sinceDate = $since ? new DateTimeImmutable($since) : null;
+            $sinceDate = $this->since ? new DateTimeImmutable($this->since) : null;
         } catch (\Exception $e) {
             $this->stderr("Invalid --since date: {$e->getMessage()}\n");
             return 1;
@@ -41,7 +47,7 @@ class TealFmController extends Controller
 
         $count = (new TealFmSyncService($identifier))->sync($sinceDate);
 
-        $this->stdout("Synced $count listen(s).\n");
+        $this->stdout("Synced $count new listen(s).\n");
         return 0;
     }
 }
