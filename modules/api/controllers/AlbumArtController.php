@@ -53,31 +53,6 @@ class AlbumArtController extends Controller
         }
 
         throw new NotFoundHttpException('release cover art not yet synced');
-
-        // Not getOrSet(): hits and misses are cached for different durations,
-        // and getOrSet() takes a single duration up front.
-        $art = Craft::$app->cache->get(['album-art', $mbid]);
-
-        if ($art === false) {
-            $art = $this->fetch($mbid);
-
-            Craft::$app->cache->set(
-                ['album-art', $mbid],
-                $art,
-                isset($art['found']) ? self::MISS_CACHE_TTL : $cacheTime,
-            );
-        }
-
-        if (isset($art['found'])) {
-            throw new NotFoundHttpException('no cover art for this release');
-        }
-
-        $headers = Craft::$app->response->headers;
-        $headers->add('Content-Type', $art['contentType']);
-        $headers->add('Cache-Control', "public, max-age=$cacheTime");
-        $headers->add('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheTime));
-
-        return $this->asRaw($art['body']);
     }
 
     /**
