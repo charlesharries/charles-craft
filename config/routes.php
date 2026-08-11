@@ -27,7 +27,6 @@ return [
     'api/post-images/<slug>' => 'api/post-image/get',
     'api/post-images/v2' => 'api/post-image/get-v2',
     'api/post-images/v2/<slug>' => 'api/post-image/get-v2',
-    'api/album-art/<mbid>' => 'api/album-art/get',
     'api/latest-tracks' => 'api/latest-tracks/get',
     'api/search' => 'api/search/get',
     'images/favicon' => 'api/favicon/get',

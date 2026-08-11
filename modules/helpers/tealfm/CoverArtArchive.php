@@ -30,9 +30,6 @@ class CoverArtArchive
      *
      * Deliberately more permissive than craft\helpers\StringHelper::isUUID(),
      * which insists on a v4 UUID; not every MusicBrainz ID sets those bits.
-     *
-     * Duplicated from modules\api\controllers\AlbumArtController, which goes
-     * away with the client-rendered /music page - collapse the two when it does.
      */
     public static function normalizeMbid(?string $mbid): ?string
     {
