@@ -7,14 +7,20 @@ use craft\helpers\App;
 use craft\web\Controller;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use helpers\tealfm\AlbumArtStore;
+use helpers\tealfm\TealFmAlbumArtRepository;
 use yii\web\BadRequestHttpException;
 use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 /**
- * Proxies release cover art from the Cover Art Archive, so that visitors to
- * /music don't hotlink it a couple of dozen times per page load.
+ * Points callers at the release cover art the teal.fm sync stored in S3.
+ *
+ * A compatibility shim, really: art now arrives via TealFmSyncService, and
+ * anything that can derive the URL from a release's MBID should call
+ * AlbumArtStore::url() and skip the round trip. What's left here is the
+ * fallback to the Cover Art Archive for releases the sync hasn't resolved yet.
  */
 class AlbumArtController extends Controller
 {
@@ -34,30 +40,19 @@ class AlbumArtController extends Controller
 
         $cacheTime = (int) (App::env('ALBUM_ART_CACHE_TTL') ?: 60 * 60 * 24 * 30);
 
-        // Not getOrSet(): hits and misses are cached for different durations,
-        // and getOrSet() takes a single duration up front.
-        $art = Craft::$app->cache->get(['album-art', $mbid]);
+        $status = (new TealFmAlbumArtRepository())->status($mbid);
 
-        if ($art === false) {
-            $art = $this->fetch($mbid);
+        if ($status === TealFmAlbumArtRepository::STATUS_STORED) {
+            Craft::$app->response->headers->add('Cache-Control', "public, max-age=$cacheTime");
 
-            Craft::$app->cache->set(
-                ['album-art', $mbid],
-                $art,
-                isset($art['found']) ? self::MISS_CACHE_TTL : $cacheTime,
-            );
+            return $this->redirect(AlbumArtStore::url((string) App::env('ENVIRONMENT'), $mbid));
         }
 
-        if (isset($art['found'])) {
+        if ($status === TealFmAlbumArtRepository::STATUS_MISSING) {
             throw new NotFoundHttpException('no cover art for this release');
         }
 
-        $headers = Craft::$app->response->headers;
-        $headers->add('Content-Type', $art['contentType']);
-        $headers->add('Cache-Control', "public, max-age=$cacheTime");
-        $headers->add('Expires', gmdate('D, d M Y H:i:s \G\M\T', time() + $cacheTime));
-
-        return $this->asRaw($art['body']);
+        throw new NotFoundHttpException('release cover art not yet synced');
     }
 
     /**
