@@ -44,10 +44,6 @@ class TealFmSyncService
     {
         $client = new TealFmClient($this->identifier);
 
-        // Left to itself the sync resumes from the newest record it already
-        // holds. An explicit $since is a manual re-sync of a date range
-        // instead, so it walks the whole collection and filters on playedTime
-        // - the one case where paying for a full scan is the point.
         $plays = $client->getPlaysAfter($since ? null : $this->repository->latestUri(), maxPages: null);
 
         if ($since) {

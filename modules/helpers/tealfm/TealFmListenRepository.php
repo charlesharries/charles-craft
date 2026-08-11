@@ -17,9 +17,6 @@ class TealFmListenRepository
     /**
      * Upserts a batch of normalized plays (as produced by TealFmClient),
      * keyed on `uri` so re-running a sync over overlapping plays is safe.
-     *
-     * Returns the number of plays that weren't already stored - a sync that
-     * only re-covers plays we've already seen reports 0, not the batch size.
      */
     public function upsertMany(array $plays): int
     {
@@ -70,11 +67,10 @@ class TealFmListenRepository
     }
 
     /**
-     * The sync's high-water mark: the URI of the most recently *written*
-     * record we hold. Every URI here shares one `at://<did>/<collection>/`
-     * prefix and ends in a TID, so the highest URI is the newest record -
-     * see TealFmClient::getPlaysAfter() for why write order, and not
-     * `playedTime`, is what a sync has to page against.
+     * What's the most recent thing we fetched?
+     * 
+     * Use the record's TID rather than the playedTime in case we're syncing
+     * something that was played a little while ago.
      */
     public function latestUri(): ?string
     {
@@ -112,9 +108,8 @@ class TealFmListenRepository
     }
 
     /**
-     * Returns listens played in [$start, $end), newest first. The range is
-     * half-open so a caller walking one day at a time - the homepage does -
-     * never renders a play landing exactly on midnight in both days.
+     * Returns listens played in ($start, $end), newest first, not inclusive
+     * of $end.
      */
     public function between(DateTimeInterface $start, DateTimeInterface $end): array
     {

@@ -27,9 +27,6 @@ class CoverArtArchive
 
     /**
      * Lowercased MBID, or null if it isn't a UUID.
-     *
-     * Deliberately more permissive than craft\helpers\StringHelper::isUUID(),
-     * which insists on a v4 UUID; not every MusicBrainz ID sets those bits.
      */
     public static function normalizeMbid(?string $mbid): ?string
     {
@@ -42,12 +39,6 @@ class CoverArtArchive
 
     /**
      * The front cover for a release, or null when the archive holds none.
-     *
-     * A 4xx is a settled fact about the release, and comes back as null for the
-     * caller to record as a miss. Anything else - a timeout, a 5xx, the 503
-     * archive.org serves when it's throttling - is a fact about the network
-     * instead, and throws: recording those as misses would leave releases
-     * permanently marked art-less over one bad afternoon.
      *
      * @return array{contentType: string, body: string}|null
      */
