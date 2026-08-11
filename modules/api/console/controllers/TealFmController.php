@@ -45,9 +45,17 @@ class TealFmController extends Controller
             return 1;
         }
 
-        $count = (new TealFmSyncService($identifier))->sync($sinceDate);
+        $result = (new TealFmSyncService($identifier))->sync($sinceDate);
 
-        $this->stdout("Synced $count new listen(s).\n");
+        $this->stdout("Synced {$result['listens']} new listen(s).\n");
+        $this->stdout("Cover art: {$result['stored']} stored, {$result['missing']} with none.\n");
+
+        // The listens are safely written either way, so a flaky archive isn't
+        // worth a non-zero exit and a shouting cron job.
+        if ($result['failed']) {
+            $this->stderr("{$result['failed']} release(s) couldn't be resolved; they'll be retried next run.\n");
+        }
+
         return 0;
     }
 }
