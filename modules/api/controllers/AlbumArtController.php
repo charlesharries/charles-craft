@@ -13,8 +13,8 @@ use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 /**
- * Proxies release cover art from the Cover Art Archive, so that visitors to
- * /music don't hotlink it a couple of dozen times per page load.
+ * Proxies release cover art from the Cover Art Archive, so that a page listing
+ * a run of listens doesn't hotlink it a couple of dozen times per load.
  */
 class AlbumArtController extends Controller
 {

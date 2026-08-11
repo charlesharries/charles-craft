@@ -112,25 +112,39 @@ class TealFmListenRepository
     }
 
     /**
-     * Returns listens played since $since, newest first, reshaped to match
-     * the array format TealFmClient::normalize() produces.
+     * Returns listens played in [$start, $end), newest first. The range is
+     * half-open so a caller walking one day at a time - the homepage does -
+     * never renders a play landing exactly on midnight in both days.
      */
-    public function forPeriod(DateTimeInterface $since): array
+    public function between(DateTimeInterface $start, DateTimeInterface $end): array
     {
         $rows = (new Query())
             ->select(['uri', 'trackName', 'artistNames', 'releaseName', 'releaseMbId', 'playedTime'])
             ->from(self::TABLE)
-            ->where(['>=', 'playedTime', Db::prepareDateForDb($since)])
+            ->where(['>=', 'playedTime', Db::prepareDateForDb($start)])
+            ->andWhere(['<', 'playedTime', Db::prepareDateForDb($end)])
             ->orderBy(['playedTime' => SORT_DESC])
             ->all();
 
-        return array_map(fn ($row) => [
+        return array_map(self::hydrate(...), $rows);
+    }
+
+    /**
+     * Reshapes a stored row into the array format TealFmClient::normalize()
+     * produces, plus the joined `artist` string every caller ends up needing.
+     */
+    public static function hydrate(array $row): array
+    {
+        $artistNames = json_decode($row['artistNames'], true) ?? [];
+
+        return [
             'uri' => $row['uri'],
             'trackName' => $row['trackName'],
-            'artistNames' => json_decode($row['artistNames'], true) ?? [],
+            'artistNames' => $artistNames,
+            'artist' => implode(', ', $artistNames),
             'releaseName' => $row['releaseName'],
             'releaseMbId' => $row['releaseMbId'],
             'playedTime' => self::toDateTime($row['playedTime']),
-        ], $rows);
+        ];
     }
 }
