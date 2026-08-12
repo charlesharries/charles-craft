@@ -32,14 +32,22 @@ class ListeningLogTest extends TestCase
         return ListeningLog::days($plays, new DateTimeZone($zone));
     }
 
-    /** The entries of a log with only one day in it. */
-    private function entries(array $plays, string $zone = 'UTC'): array
+    /** The rows of a log with only one day in it. */
+    private function rows(array $plays, string $zone = 'UTC'): array
     {
         $days = $this->days($plays, $zone);
 
         $this->assertCount(1, $days);
 
-        return $days[0]['entries'];
+        return $days[0]['rows'];
+    }
+
+    /** ...and its listens, for the tests that don't care how they're rowed. */
+    private function entries(array $plays, string $zone = 'UTC'): array
+    {
+        $rows = $this->rows($plays, $zone);
+
+        return $rows ? array_merge(...array_column($rows, 'listens')) : [];
     }
 
     public function test_collapses_a_run_off_one_album_into_a_single_entry(): void
@@ -185,7 +193,7 @@ class ListeningLogTest extends TestCase
         ]);
 
         $this->assertSame(['2026-08-10', '2026-08-09', '2026-08-08'], array_column($days, 'day'));
-        $this->assertSame([1, 1, 1], array_map(fn ($day) => count($day['entries']), $days));
+        $this->assertSame([1, 1, 1], array_map(fn ($day) => count($day['rows']), $days));
     }
 
     public function test_does_not_run_an_album_across_a_day_boundary(): void
@@ -207,6 +215,62 @@ class ListeningLogTest extends TestCase
         ], 'Australia/Sydney');
 
         $this->assertSame(['2026-08-11'], array_column($days, 'day'));
+    }
+
+    public function test_gathers_the_songs_between_two_albums_into_one_row(): void
+    {
+        $rows = $this->rows([
+            $this->play('Smile', '2026-08-10 22:30:00'),
+            $this->play('Delicious Things', '2026-08-10 22:26:00'),
+            $this->play('Some Single', '2026-08-10 22:22:00', release: null),
+            $this->play('Another Single', '2026-08-10 22:18:00', 'CCFX', release: null),
+            $this->play('Sprained Ankle', '2026-08-10 22:14:00', 'Julien Baker', 'Sprained Ankle'),
+            $this->play('Appointments', '2026-08-10 22:10:00', 'Julien Baker', 'Sprained Ankle'),
+        ]);
+
+        $this->assertSame([ListeningLog::ALBUM, ListeningLog::SONGS, ListeningLog::ALBUM], array_column($rows, 'type'));
+        $this->assertSame(
+            ['Some Single', 'Another Single'],
+            array_column($rows[1]['listens'], 'trackName'),
+        );
+    }
+
+    public function test_gives_an_album_a_row_to_itself(): void
+    {
+        $rows = $this->rows([
+            $this->play('Smile', '2026-08-10 22:30:00'),
+            $this->play('Delicious Things', '2026-08-10 22:26:00'),
+        ]);
+
+        $this->assertCount(1, $rows);
+        $this->assertCount(1, $rows[0]['listens']);
+    }
+
+    public function test_starts_a_new_row_of_songs_after_each_album(): void
+    {
+        // Songs either side of an album are two shuffles, not one - the album
+        // between them is the whole reason the log is ordered.
+        $rows = $this->rows([
+            $this->play('Some Single', '2026-08-10 22:30:00', release: null),
+            $this->play('Smile', '2026-08-10 22:26:00'),
+            $this->play('Delicious Things', '2026-08-10 22:22:00'),
+            $this->play('Another Single', '2026-08-10 22:18:00', 'CCFX', release: null),
+        ]);
+
+        $this->assertSame([ListeningLog::SONGS, ListeningLog::ALBUM, ListeningLog::SONGS], array_column($rows, 'type'));
+    }
+
+    public function test_gathers_a_whole_day_of_shuffling_into_one_row(): void
+    {
+        $rows = $this->rows([
+            $this->play('Some Single', '2026-08-10 22:30:00', release: null),
+            $this->play('Another Single', '2026-08-10 22:26:00', 'CCFX', release: null),
+            $this->play('Kaputt', '2026-08-10 22:22:00', 'Destroyer', 'Kaputt'),
+        ]);
+
+        $this->assertCount(1, $rows);
+        $this->assertSame(ListeningLog::SONGS, $rows[0]['type']);
+        $this->assertCount(3, $rows[0]['listens']);
     }
 
     public function test_handles_nothing_played(): void

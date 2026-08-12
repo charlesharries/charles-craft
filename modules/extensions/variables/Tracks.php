@@ -45,7 +45,7 @@ class Tracks
      * The last $days days of listening, newest day first, with cover art
      * resolved for anything we hold it for.
      *
-     * @return array<int, array{day: string, entries: array<int, array>}>
+     * @return array<int, array{day: string, rows: array<int, array>}>
      */
     public function listening(int $days = self::DAYS): array
     {
@@ -59,7 +59,7 @@ class Tracks
     }
 
     /**
-     * Hangs an `art` URL - or null - on every entry in the log.
+     * Hangs an `art` URL - or null - on every listen in the log.
      *
      * The whole page's releases are looked up in one go: a row at a time would
      * be a query per listen.
@@ -70,10 +70,13 @@ class Tracks
 
         return array_map(fn ($day) => [
             ...$day,
-            'entries' => array_map(
-                fn ($entry) => [...$entry, 'art' => $this->artUrl($entry['releaseMbIds'], $stored)],
-                $day['entries'],
-            ),
+            'rows' => array_map(fn ($row) => [
+                ...$row,
+                'listens' => array_map(
+                    fn ($listen) => [...$listen, 'art' => $this->artUrl($listen['releaseMbIds'], $stored)],
+                    $row['listens'],
+                ),
+            ], $day['rows']),
         ], $days);
     }
 
@@ -88,11 +91,11 @@ class Tracks
         $mbids = [];
 
         foreach ($days as $day) {
-            foreach ($day['entries'] as $entry) {
-                foreach ($entry['releaseMbIds'] as $mbid) {
-                    // Listens might be uppercase UUIDs, but art is always
-                    // lowercase: normalise!
-                    $mbids[] = CoverArtArchive::normalizeMbid($mbid);
+            foreach ($day['rows'] as $row) {
+                foreach ($row['listens'] as $listen) {
+                    foreach ($listen['releaseMbIds'] as $mbid) {
+                        $mbids[] = CoverArtArchive::normalizeMbid($mbid);
+                    }
                 }
             }
         }

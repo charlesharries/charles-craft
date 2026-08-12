@@ -7,20 +7,14 @@ use DateTimeZone;
 /**
  * Reads a stretch of plays back as a diary: a day at a time, a row per sitting
  * rather than a row per play.
- *
- * A play is too small a unit to be worth reading on its own - an evening with
- * an album is one decision that arrives as twelve of them, and printing all
- * twelve buries the two singles either side. So a run of plays off one release
- * collapses into the album, counted; anything played on its own stays a song.
- *
- * Runs are consecutive, not totalled over the range: the same album twice in a
- * week was two listens, and the log is there to say when.
  */
 class ListeningLog
 {
     const ALBUM = 'album';
 
     const SONG = 'song';
+
+    const SONGS = 'songs';
 
     /** A run touching this many of a release's tracks reads as an album. */
     const ALBUM_AFTER_TRACKS = 2;
@@ -30,7 +24,7 @@ class ListeningLog
      *
      * @param array<int, array> $plays newest first, as hydrated by TealFmListenRepository
      * @param DateTimeZone $zone the zone the days are reckoned in
-     * @return array<int, array{day: string, entries: array<int, array>}>
+     * @return array<int, array{day: string, rows: array<int, array{type: string, listens: array<int, array>}>}>
      */
     public static function days(array $plays, DateTimeZone $zone): array
     {
@@ -44,10 +38,39 @@ class ListeningLog
         }
 
         return array_map(
-            fn ($day, $plays) => ['day' => $day, 'entries' => self::collapse($plays)],
+            fn ($day, $plays) => ['day' => $day, 'rows' => self::rows(self::collapse($plays))],
             array_keys($days),
             $days,
         );
+    }
+
+    /**
+     * A day's listens as the rows the log prints.
+     *
+     * An album is a row to itself. Everything played between two albums shares
+     * one - which is the whole point of the row layer: a row is a thing worth
+     * looking at, and a hundred singles are one thing.
+     *
+     * @param array<int, array> $entries
+     * @return array<int, array{type: string, listens: array<int, array>}>
+     */
+    protected static function rows(array $entries): array
+    {
+        $rows = [];
+
+        foreach ($entries as $entry) {
+            $last = array_key_last($rows);
+
+            if ($entry['type'] === self::ALBUM) {
+                $rows[] = ['type' => self::ALBUM, 'listens' => [$entry]];
+            } elseif ($last !== null && $rows[$last]['type'] === self::SONGS) {
+                $rows[$last]['listens'][] = $entry;
+            } else {
+                $rows[] = ['type' => self::SONGS, 'listens' => [$entry]];
+            }
+        }
+
+        return $rows;
     }
 
     /**

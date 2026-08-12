@@ -7,6 +7,7 @@ use craft\db\Query;
 use craft\helpers\Db;
 use craft\helpers\StringHelper;
 use DateTimeImmutable;
+use yii\db\Expression;
 
 /**
  * Projects the store of album art metadata in the database.
@@ -27,9 +28,10 @@ class TealFmAlbumArtRepository
     {
         $played = (new Query())
             ->select(['releaseMbId'])
-            ->distinct()
             ->from(TealFmListenRepository::TABLE)
             ->where(['not', ['releaseMbId' => null]])
+            ->groupBy('releaseMbId')
+            ->orderBy(new Expression('MAX([[playedTime]]) DESC'))
             ->column();
 
         // Listens might be uppercase UUIDs, but art is always lowercase: normalise!
