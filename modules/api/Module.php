@@ -15,11 +15,6 @@ class Module extends \yii\base\Module
 
         parent::init();
 
-        // Set the controllerNamespace
-        if (Craft::$app->getRequest()->getIsConsoleRequest()) {
-            $this->controllerNamespace = 'modules\\api\\console\\controllers';
-        }
-
         // Base template directory
         Event::on(
             View::class,

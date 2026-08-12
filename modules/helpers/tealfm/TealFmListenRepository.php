@@ -17,9 +17,6 @@ class TealFmListenRepository
     /**
      * Upserts a batch of normalized plays (as produced by TealFmClient),
      * keyed on `uri` so re-running a sync over overlapping plays is safe.
-     *
-     * Returns the number of plays that weren't already stored - a sync that
-     * only re-covers plays we've already seen reports 0, not the batch size.
      */
     public function upsertMany(array $plays): int
     {
@@ -70,11 +67,10 @@ class TealFmListenRepository
     }
 
     /**
-     * The sync's high-water mark: the URI of the most recently *written*
-     * record we hold. Every URI here shares one `at://<did>/<collection>/`
-     * prefix and ends in a TID, so the highest URI is the newest record -
-     * see TealFmClient::getPlaysAfter() for why write order, and not
-     * `playedTime`, is what a sync has to page against.
+     * What's the most recent thing we fetched?
+     * 
+     * Use the record's TID rather than the playedTime in case we're syncing
+     * something that was played a little while ago.
      */
     public function latestUri(): ?string
     {
@@ -112,25 +108,38 @@ class TealFmListenRepository
     }
 
     /**
-     * Returns listens played since $since, newest first, reshaped to match
-     * the array format TealFmClient::normalize() produces.
+     * Returns listens played in ($start, $end), newest first, not inclusive
+     * of $end.
      */
-    public function forPeriod(DateTimeInterface $since): array
+    public function between(DateTimeInterface $start, DateTimeInterface $end): array
     {
         $rows = (new Query())
             ->select(['uri', 'trackName', 'artistNames', 'releaseName', 'releaseMbId', 'playedTime'])
             ->from(self::TABLE)
-            ->where(['>=', 'playedTime', Db::prepareDateForDb($since)])
+            ->where(['>=', 'playedTime', Db::prepareDateForDb($start)])
+            ->andWhere(['<', 'playedTime', Db::prepareDateForDb($end)])
             ->orderBy(['playedTime' => SORT_DESC])
             ->all();
 
-        return array_map(fn ($row) => [
+        return array_map(self::hydrate(...), $rows);
+    }
+
+    /**
+     * Reshapes a stored row into the array format TealFmClient::normalize()
+     * produces, plus the joined `artist` string every caller ends up needing.
+     */
+    public static function hydrate(array $row): array
+    {
+        $artistNames = json_decode($row['artistNames'], true) ?? [];
+
+        return [
             'uri' => $row['uri'],
             'trackName' => $row['trackName'],
-            'artistNames' => json_decode($row['artistNames'], true) ?? [],
+            'artistNames' => $artistNames,
+            'artist' => implode(', ', $artistNames),
             'releaseName' => $row['releaseName'],
             'releaseMbId' => $row['releaseMbId'],
             'playedTime' => self::toDateTime($row['playedTime']),
-        ], $rows);
+        ];
     }
 }

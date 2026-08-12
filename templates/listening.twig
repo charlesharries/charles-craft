@@ -1,0 +1,81 @@
+{% import "_partials/head.twig" as head %}
+
+{% extends "_layout.twig" %}
+
+{%- set days = craft.tracks.listening() -%}
+{%- set description = "What I've been listening to over the last five days." -%}
+
+{% block title %}
+	Listening
+{% endblock %}
+
+{% block metaDescription %}{{ description }}{% endblock %}
+
+{% block head %}
+	{{ head.meta("Listening", description, url(url() ~ "listening")) }}
+{% endblock %}
+
+{% macro art(listen, label = "") %}
+	<div class="listen_art rounded"{% if label %} title="{{ label }}"{% endif %}>
+		{% if listen.art %}
+			<img src="{{ listen.art }}" alt="{{ label }}" class="no-lightbox" loading="lazy"/>
+		{% endif %}
+	</div>
+{% endmacro %}
+
+{% macro album(listen) %}
+	{% import _self as m %}
+
+	<li class="listen flex align-center">
+		{{ m.art(listen) }}
+
+		<div class="ml-sm flex-1">
+			<p class="bold">{{ listen.releaseName }} <span class="trackCount ml-sm">{{ listen.trackCount }}</span></p>
+			<p class="muted text-sm">{{ listen.artist }}</p>
+		</div>
+
+		<p class="listen_meta muted text-sm sans text-right">
+			<time datetime="{{ listen.playedTime|atom }}">{{ listen.playedTime|date("H:i") }}</time>
+		</p>
+	</li>
+{% endmacro %}
+
+{% macro songs(listens) %}
+	{% import _self as m %}
+
+	<li class="listen_songs">
+		<ul role="list" class="listen_strip cluster" data-size="2xs">
+			{% for listen in listens %}
+				<li>
+					{{ m.art(listen, listen.trackName ~ " — " ~ listen.artist ~ (listen.playCount > 1 ? " (×" ~ listen.playCount ~ ")" : "")) }}
+				</li>
+			{% endfor %}
+		</ul>
+	</li>
+{% endmacro %}
+
+{% block content %}
+	<main class="listening container mt-lg">
+		<h1>Listening</h1>
+
+		{% for day in days %}
+			<section class="mt-xl">
+				<h2 class="serif highlight text-md keyline">
+					{{ day.day|date("l j F") }}
+				</h2>
+
+				<ol role="list" class="listens stack mt-md" data-size="md">
+					{% for row in day.rows %}
+						{% if row.type == "album" %}
+							{{ _self.album(row.listens|first) }}
+						{% else %}
+							{{ _self.songs(row.listens) }}
+						{% endif %}
+					{% endfor %}
+				</ol>
+			</section>
+		{% else %}
+			<p class="mt-lg muted">Nothing played in the last five days.</p>
+		{% endfor %}
+	</main>
+{% endblock %}

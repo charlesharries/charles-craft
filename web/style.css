@@ -524,12 +524,11 @@ hidden { display: none !important; }
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: calc(-1 * var(--cluster-spacing));
+    gap: var(--cluster-spacing)
 }
 
 .cluster > * {
     margin-left: var(--cluster-spacing);
-    margin-top: 0;
 }
 .cluster[data-size="sm"] { --cluster-spacing: var(--space-sm); }
 .cluster[data-size="2xs"] { --cluster-spacing: var(--space-2xs); }
@@ -791,6 +790,32 @@ dialog::backdrop {
 }
 
 .social-logo { width: 25px; height: auto; }
+
+.listen_art {
+    flex: 0 0 auto;
+    width: var(--listen-art, 64px);
+    aspect-ratio: 1;
+    background-color: var(--accents);
+}
+
+.listen_art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.listen_meta { flex: 0 0 auto; margin-left: var(--space-sm); }
+
+.listen_strip {
+    --listen-art: 36px;
+
+    row-gap: var(--space-2xs);
+}
+
+.listen_strip .listen_art { cursor: help; }
+
+.trackCount {
+    font-family: var(--font-sans);
+    background-color: var(--callout-background);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
 
 @media screen and (min-width: 599px) {
     .md\:text-right { text-align: right; }

@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\api\console\controllers;
+namespace modules\atproto\console\controllers;
 
 use craft\console\Controller;
 use craft\helpers\App;
@@ -9,10 +9,7 @@ use helpers\tealfm\TealFmSyncService;
 
 class TealFmController extends Controller
 {
-    /**
-     * Re-syncs every listen played on or after this date instead of resuming
-     * from the newest one stored. Use it to pick up plays a PDS backdated.
-     */
+    /** In case you want to do a hard sync from a specific date */
     public ?string $since = null;
 
     public function options($actionID): array
@@ -23,10 +20,7 @@ class TealFmController extends Controller
         };
     }
 
-    /**
-     * Syncs listens from the PDS since the last one stored locally. Backfills
-     * the full history the first time it's run against an empty table.
-     */
+    /** Syncs listens from the PDS since the last one stored locally. */
     public function actionSync(): int
     {
         $identifier = App::env('BLUESKY_IDENTIFIER');
