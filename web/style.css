@@ -792,6 +792,23 @@ dialog::backdrop {
 
 .social-logo { width: 25px; height: auto; }
 
+.listens { --stack-spacing: var(--space-md); }
+
+/* Held at a square whether or not there's art to put in it, so a release the
+   sync hasn't reached doesn't shunt its row out of line with the others. */
+.listen_art {
+    flex: 0 0 auto;
+    width: 64px;
+    aspect-ratio: 1;
+    background-color: var(--accents);
+}
+
+.listen_art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.listen_meta { flex: 0 0 auto; margin-left: var(--space-sm); }
+
+.listen_meta span { display: block; }
+
 @media screen and (min-width: 599px) {
     .md\:text-right { text-align: right; }
 }

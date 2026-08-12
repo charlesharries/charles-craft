@@ -2,7 +2,15 @@
 
 namespace extensions\variables;
 
+use Craft;
+use craft\helpers\App;
+use DateTimeImmutable;
 use DateTimeInterface;
+use DateTimeZone;
+use helpers\tealfm\AlbumArtStore;
+use helpers\tealfm\CoverArtArchive;
+use helpers\tealfm\ListeningLog;
+use helpers\tealfm\TealFmAlbumArtRepository;
 use helpers\tealfm\TealFmListenRepository;
 
 /**
@@ -12,11 +20,17 @@ use helpers\tealfm\TealFmListenRepository;
  */
 class Tracks
 {
+    /** How far back the listening log reaches, in days, counting today. */
+    const DAYS = 5;
+
     protected TealFmListenRepository $repository;
+
+    protected TealFmAlbumArtRepository $artRepository;
 
     public function __construct()
     {
         $this->repository = new TealFmListenRepository();
+        $this->artRepository = new TealFmAlbumArtRepository();
     }
 
     /**
@@ -25,5 +39,90 @@ class Tracks
     public function between(DateTimeInterface $start, DateTimeInterface $end): array
     {
         return $this->repository->between($start, $end);
+    }
+
+    /**
+     * The last $days days of listening, newest day first, with cover art
+     * resolved for anything we hold it for.
+     *
+     * @return array<int, array{day: string, entries: array<int, array>}>
+     */
+    public function listening(int $days = self::DAYS): array
+    {
+        $zone = new DateTimeZone(Craft::$app->getTimeZone());
+        // Whole days, so "5 days" reads the same to a template as it does to
+        // someone looking at the headings - today and the four before it.
+        $end = new DateTimeImmutable('tomorrow', $zone);
+        $start = $end->modify("-$days days");
+
+        return $this->withArt(ListeningLog::days($this->between($start, $end), $zone));
+    }
+
+    /**
+     * Hangs an `art` URL - or null - on every entry in the log.
+     *
+     * The whole page's releases are looked up in one go: a row at a time would
+     * be a query per listen.
+     */
+    protected function withArt(array $days): array
+    {
+        $stored = $this->artRepository->storedMbIds($this->releaseMbIds($days));
+
+        return array_map(fn ($day) => [
+            ...$day,
+            'entries' => array_map(
+                fn ($entry) => [...$entry, 'art' => $this->artUrl($entry['releaseMbIds'], $stored)],
+                $day['entries'],
+            ),
+        ], $days);
+    }
+
+    /**
+     * Every release the log mentions, normalized the way the art table stores
+     * them.
+     *
+     * @return string[]
+     */
+    protected function releaseMbIds(array $days): array
+    {
+        $mbids = [];
+
+        foreach ($days as $day) {
+            foreach ($day['entries'] as $entry) {
+                foreach ($entry['releaseMbIds'] as $mbid) {
+                    // Listens might be uppercase UUIDs, but art is always
+                    // lowercase: normalise!
+                    $mbids[] = CoverArtArchive::normalizeMbid($mbid);
+                }
+            }
+        }
+
+        return array_values(array_unique(array_filter($mbids)));
+    }
+
+    /**
+     * The first of $mbids we actually hold art for. An album played under two
+     * releases only needs one of them to have resolved.
+     *
+     * @param string[] $mbids
+     * @param array<string, int> $stored
+     */
+    protected function artUrl(array $mbids, array $stored): ?string
+    {
+        $environment = trim((string) App::env('ENVIRONMENT'));
+
+        if ($environment === '') {
+            return null;
+        }
+
+        foreach ($mbids as $mbid) {
+            $normalized = CoverArtArchive::normalizeMbid($mbid);
+
+            if ($normalized !== null && isset($stored[$normalized])) {
+                return AlbumArtStore::url($environment, $normalized);
+            }
+        }
+
+        return null;
     }
 }
