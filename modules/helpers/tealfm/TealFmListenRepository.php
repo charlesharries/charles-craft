@@ -67,15 +67,18 @@ class TealFmListenRepository
     }
 
     /**
-     * What's the most recent thing we fetched?
+     * What's the most recent thing we fetched from $collection?
      *
      * Use the record's TID rather than the playedTime in case we're syncing
-     * something that was played a little while ago.
+     * something that was played a little while ago. Per collection because a
+     * URI carries its collection in the middle, so a max across both is only
+     * ever the NSID that sorts last.
      */
-    public function latestUri(): ?string
+    public function latestUri(string $collection): ?string
     {
         return (new Query())
             ->from(self::TABLE)
+            ->where(['like', 'uri', "/$collection/"])
             ->max('[[uri]]');
     }
 

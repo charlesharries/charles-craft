@@ -10,7 +10,11 @@ class TealFmClient
 
     const BASE_URI = 'https://bsky.social/xrpc/';
 
-    const COLLECTION = 'fm.teal.alpha.feed.play';
+    /**
+     * teal.fm's play lexicon graduated out of alpha, so a repo holds plays
+     * under both NSIDs.
+     */
+    const COLLECTIONS = ['fm.teal.feed.play', 'fm.teal.alpha.feed.play'];
 
     public function __construct(protected string $identifier)
     {
@@ -18,16 +22,36 @@ class TealFmClient
     }
 
     /**
-     * Fetch normalized plays recorded after $afterUri, newest first. A null
+     * Fetch normalized plays from every collection, each picking up after its
+     * own entry in $afterUris.
+     *
+     * @param array<string, string|null> $afterUris keyed by collection
+     */
+    public function getPlaysAfter(array $afterUris, ?int $maxPages = 20): array
+    {
+        $plays = [];
+
+        foreach (self::COLLECTIONS as $collection) {
+            $plays = array_merge(
+                $plays,
+                $this->getCollectionPlaysAfter($collection, $afterUris[$collection] ?? null, $maxPages),
+            );
+        }
+
+        return $plays;
+    }
+
+    /**
+     * Fetch normalized plays from a single collection, newest first. A null
      * $afterUri fetches the whole collection.
      */
-    public function getPlaysAfter(?string $afterUri, ?int $maxPages = 20): array
+    protected function getCollectionPlaysAfter(string $collection, ?string $afterUri, ?int $maxPages): array
     {
         $plays = [];
         $cursor = null;
 
         for ($page = 0; $maxPages === null || $page < $maxPages; $page++) {
-            $data = $this->listRecords($cursor);
+            $data = $this->listRecords($collection, $cursor);
             $records = $data['records'] ?? [];
 
             if (empty($records)) {
@@ -52,20 +76,47 @@ class TealFmClient
      */
     public function getLatestPlay(): ?array
     {
-        $data = $this->listRecords(limit: 1);
-        $record = $data['records'][0] ?? null;
+        $latest = null;
 
-        return $record ? self::normalize($record) : null;
+        foreach (self::COLLECTIONS as $collection) {
+            $data = $this->listRecords($collection, limit: 1);
+            $record = $data['records'][0] ?? null;
+
+            if (!$record) {
+                continue;
+            }
+
+            $play = self::normalize($record);
+
+            if (self::isNewer($play, $latest)) {
+                $latest = $play;
+            }
+        }
+
+        return $latest;
+    }
+
+    protected static function isNewer(array $play, ?array $latest): bool
+    {
+        if ($latest === null) {
+            return true;
+        }
+
+        if (!$play['playedTime']) {
+            return false;
+        }
+
+        return !$latest['playedTime'] || $play['playedTime'] > $latest['playedTime'];
     }
 
     /**
      * Fetch a single page of raw records, newest first.
      */
-    protected function listRecords(?string $cursor = null, int $limit = 100): array
+    protected function listRecords(string $collection, ?string $cursor = null, int $limit = 100): array
     {
         $query = [
             'repo' => $this->identifier,
-            'collection' => self::COLLECTION,
+            'collection' => $collection,
             'limit' => $limit,
         ];
 
