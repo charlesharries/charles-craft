@@ -3,6 +3,7 @@
 {% extends "_layout.twig" %}
 
 {%- set days = craft.tracks.listening() -%}
+{%- set chart = craft.tracks.chart() -%}
 {%- set description = "What I've been listening to over the last five days." -%}
 
 {% block title %}
@@ -54,14 +55,47 @@
 	</li>
 {% endmacro %}
 
+{% macro chart(chart) %}
+	<figure class="listenchart mt-md">
+		<svg
+			class="listenchart_plot mt-sm"
+			viewBox="0 0 {{ chart.width }} {{ chart.height }}"
+			preserveAspectRatio="none"
+			role="img"
+			aria-label="Plays a day over the last {{ chart.days|length }} days: {{ chart.total }} in all, up to {{ chart.max }} in a day."
+		>
+			<polygon class="listenchart_area" points="0,{{ chart.baseline }} {{ chart.line }} {{ chart.width }},{{ chart.baseline }}"/>
+			<polyline class="listenchart_line" points="{{ chart.line }}"/>
+			<line class="listenchart_rule" x1="0" y1="{{ chart.baseline }}" x2="{{ chart.width }}" y2="{{ chart.baseline }}"/>
+
+			{# A column a day, for the pointer to find - the line itself is too thin to hover. #}
+			{% for day in chart.days %}
+				<rect class="listenchart_day" x="{{ day.x - chart.step / 2 }}" y="0" width="{{ chart.step }}" height="{{ chart.height }}">
+					<title>{{ day.day|date("D j M") }} — {{ day.count }} {{ day.count == 1 ? "play" : "plays" }}</title>
+				</rect>
+			{% endfor %}
+		</svg>
+
+		<p class="listenchart_axis flex justify-between muted text-sm sans">
+			<span>{{ (chart.days|first).day|date("j M") }}</span>
+			<span>{{ (chart.days|last).day|date("j M") }}</span>
+		</p>
+	</figure>
+{% endmacro %}
+
 {% block content %}
 	<main class="listening container mt-lg">
 		<h1>Listening</h1>
 
+		{% if chart.total %}
+			{{ _self.chart(chart) }}
+		{% endif %}
+
 		{% for day in days %}
 			<section class="mt-xl">
-				<h2 class="serif highlight text-md keyline">
-					{{ day.day|date("l j F") }}
+				<h2 class="serif text-md keyline">
+					<span class="highlight">{{ day.day|date("l j F") }}</span>
+					<span class="trackCount ml-sm">{{ day.total }}</span>
 				</h2>
 
 				<ol role="list" class="listens stack mt-md" data-size="md">

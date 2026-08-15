@@ -17,7 +17,10 @@ class ListeningLogTest extends TestCase
         ?string $mbid = null,
     ): array {
         return [
-            'uri' => 'at://did:plc:abc/fm.teal.alpha.feed.play/' . md5($trackName . $artist . $playedTime),
+            // Unique per play, and readable in a failure: the log falls back to
+            // the uri to tell two plays apart, so a fixture that reads as which
+            // play it is beats a digest.
+            'uri' => 'at://did:plc:abc/fm.teal.alpha.feed.play/' . rawurlencode("$trackName-$artist-$playedTime"),
             'trackName' => $trackName,
             'artistNames' => [$artist],
             'artist' => $artist,
