@@ -38,7 +38,11 @@ class ListeningLog
         }
 
         return array_map(
-            fn ($day, $plays) => ['day' => $day, 'rows' => self::rows(self::collapse($plays))],
+            fn ($day, $plays) => [
+                'day' => $day,
+                'total' => count($plays), 
+                'rows' => self::rows(self::collapse($plays))
+            ],
             array_keys($days),
             $days,
         );

@@ -93,8 +93,9 @@
 
 		{% for day in days %}
 			<section class="mt-xl">
-				<h2 class="serif highlight text-md keyline">
-					{{ day.day|date("l j F") }}
+				<h2 class="serif text-md keyline">
+					<span class="highlight">{{ day.day|date("l j F") }}</span>
+					<span class="trackCount ml-sm">{{ day.total }}</span>
 				</h2>
 
 				<ol role="list" class="listens stack mt-md" data-size="md">
