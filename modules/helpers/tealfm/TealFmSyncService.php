@@ -44,7 +44,7 @@ class TealFmSyncService
     {
         $client = new TealFmClient($this->identifier);
 
-        $plays = $client->getPlaysAfter($since ? null : $this->repository->latestUri(), maxPages: null);
+        $plays = $client->getPlaysAfter($since ? [] : $this->latestUris(), maxPages: null);
 
         if ($since) {
             $plays = array_filter(
@@ -64,6 +64,20 @@ class TealFmSyncService
             'missing' => $art['missing'],
             'failed' => $art['failed'],
         ];
+    }
+
+    /**
+     * @return array<string, string|null>
+     */
+    protected function latestUris(): array
+    {
+        $uris = [];
+
+        foreach (TealFmClient::COLLECTIONS as $collection) {
+            $uris[$collection] = $this->repository->latestUri($collection);
+        }
+
+        return $uris;
     }
 
     /**

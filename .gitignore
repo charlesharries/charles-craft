@@ -7,3 +7,4 @@
 .aider*
 config/license.key
 /storage/phpstan
+.phpunit.result.cache
