@@ -68,7 +68,7 @@ class TealFmListenRepository
 
     /**
      * What's the most recent thing we fetched?
-     * 
+     *
      * Use the record's TID rather than the playedTime in case we're syncing
      * something that was played a little while ago.
      */
@@ -122,6 +122,25 @@ class TealFmListenRepository
             ->all();
 
         return array_map(self::hydrate(...), $rows);
+    }
+
+    /**
+     * When each play in [$start, $end) was played, and nothing else - enough
+     * to count days by, without hydrating a month of rows to throw all but
+     * one column of them away.
+     *
+     * @return DateTimeImmutable[]
+     */
+    public function playedTimesBetween(DateTimeInterface $start, DateTimeInterface $end): array
+    {
+        $times = (new Query())
+            ->select(['playedTime'])
+            ->from(self::TABLE)
+            ->where(['>=', 'playedTime', Db::prepareDateForDb($start)])
+            ->andWhere(['<', 'playedTime', Db::prepareDateForDb($end)])
+            ->column();
+
+        return array_map(self::toDateTime(...), $times);
     }
 
     /**

@@ -9,6 +9,7 @@ use DateTimeInterface;
 use DateTimeZone;
 use helpers\tealfm\AlbumArtStore;
 use helpers\tealfm\CoverArtArchive;
+use helpers\tealfm\ListeningChart;
 use helpers\tealfm\ListeningLog;
 use helpers\tealfm\TealFmAlbumArtRepository;
 use helpers\tealfm\TealFmListenRepository;
@@ -22,6 +23,9 @@ class Tracks
 {
     /** How far back the listening log reaches, in days, counting today. */
     const DAYS = 5;
+
+    /** How far back the chart above it reaches. */
+    const CHART_DAYS = 30;
 
     protected TealFmListenRepository $repository;
 
@@ -50,12 +54,37 @@ class Tracks
     public function listening(int $days = self::DAYS): array
     {
         $zone = new DateTimeZone(Craft::$app->getTimeZone());
-        // Whole days, so "5 days" reads the same to a template as it does to
-        // someone looking at the headings - today and the four before it.
-        $end = new DateTimeImmutable('tomorrow', $zone);
-        $start = $end->modify("-$days days");
+        [$start, $end] = $this->window($days, $zone);
 
         return $this->withArt(ListeningLog::days($this->between($start, $end), $zone));
+    }
+
+    /**
+     * How many plays a day over the last $days days, as the geometry to draw
+     * them as a line.
+     */
+    public function chart(int $days = self::CHART_DAYS): array
+    {
+        $zone = new DateTimeZone(Craft::$app->getTimeZone());
+        [$start, $end] = $this->window($days, $zone);
+
+        return ListeningChart::of($this->repository->playedTimesBetween($start, $end), $start, $days, $zone);
+    }
+
+    /**
+     * The last $days days as the half-open range [$start, $end) to read plays
+     * out of.
+     *
+     * Whole days, so "5 days" reads the same to a template as it does to
+     * someone looking at the headings - today and the four before it.
+     *
+     * @return array{0: DateTimeImmutable, 1: DateTimeImmutable}
+     */
+    protected function window(int $days, DateTimeZone $zone): array
+    {
+        $end = new DateTimeImmutable('tomorrow', $zone);
+
+        return [$end->modify("-$days days"), $end];
     }
 
     /**
