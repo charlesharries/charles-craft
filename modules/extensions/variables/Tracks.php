@@ -24,8 +24,8 @@ class Tracks
     /** How far back the listening log reaches, in days, counting today. */
     const DAYS = 5;
 
-    /** How far back the chart above it reaches. */
-    const CHART_DAYS = 30;
+    /** How far back the grid above it reaches, before it's run back to a Monday. */
+    const CHART_DAYS = 365;
 
     protected TealFmListenRepository $repository;
 
@@ -61,12 +61,13 @@ class Tracks
 
     /**
      * How many plays a day over the last $days days, as the geometry to draw
-     * them as a line.
+     * them as a grid.
      */
     public function chart(int $days = self::CHART_DAYS): array
     {
         $zone = new DateTimeZone(Craft::$app->getTimeZone());
-        [$start, $end] = $this->window($days, $zone);
+        $end = new DateTimeImmutable('tomorrow', $zone);
+        [$start, $days] = ListeningChart::window($end, $days);
 
         return ListeningChart::of($this->repository->playedTimesBetween($start, $end), $start, $days, $zone);
     }
