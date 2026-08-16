@@ -810,36 +810,30 @@ dialog::backdrop {
 
 .listen_strip .listen_art { cursor: help; }
 
-.listenchart_plot {
+.listenchart {
+    /* --weeks, the number of columns the year came out as, is set on the
+       figure by the template. */
+    --weeks-shown: 26;
+
+    overflow: hidden;
+}
+
+/* A whole year's worth of columns is too fine to read on a phone, so the grid
+   is drawn wide enough for --weeks-shown of them to fill the figure and pulled
+   left until only the most recent are left in it. */
+.listenchart_grid {
     display: block;
-    width: 100%;
-    /* The line stretches to whatever width it's given, so the plot's own
-       coordinates only ever have to be in proportion to each other. */
-    height: 120px;
+    width: calc(100% * var(--weeks, 53) / var(--weeks-shown));
+    margin-left: calc(100% * (var(--weeks-shown) - var(--weeks, 53)) / var(--weeks-shown));
 }
 
-.listenchart_line {
-    fill: none;
-    stroke: var(--highlight);
-    stroke-width: 2;
-    stroke-linejoin: round;
-    /* ...which would stretch the stroke along with it, without this. */
-    vector-effect: non-scaling-stroke;
-}
+.listenchart_day { cursor: help; }
 
-.listenchart_area { fill: var(--highlight-muted); }
-
-.listenchart_rule {
-    stroke: var(--accents);
-    stroke-width: 1;
-    vector-effect: non-scaling-stroke;
-}
-
-.listenchart_day { fill: transparent; }
-
-.listenchart_day:hover { fill: var(--highlight-muted); }
-
-.listenchart_axis { margin-top: var(--space-2xs); }
+.listenchart_day[data-level="0"] { fill: var(--callout-background); }
+.listenchart_day[data-level="1"] { fill: hsla(var(--highlight-h), 100%, 50%, 0.25); }
+.listenchart_day[data-level="2"] { fill: hsla(var(--highlight-h), 100%, 50%, 0.5); }
+.listenchart_day[data-level="3"] { fill: hsla(var(--highlight-h), 100%, 50%, 0.75); }
+.listenchart_day[data-level="4"] { fill: var(--highlight); }
 
 .trackCount {
     font-family: var(--font-sans);
@@ -850,6 +844,12 @@ dialog::backdrop {
 
 @media screen and (min-width: 599px) {
     .md\:text-right { text-align: right; }
+
+    /* Room for the whole year without the boxes getting too small to tell apart. */
+    .listenchart_grid {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 @media screen and (min-width: 769px) {
