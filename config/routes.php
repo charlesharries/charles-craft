@@ -23,6 +23,7 @@ return [
     '.well-known/site.standard.publication' => 'atproto/well-known/publication',
     'assets/s3/<rest:.*>' => 'api/assets/s3',
     'only:<section>' => ['template' => 'index'],
+    'listening/<day:\d{4}-\d{2}-\d{2}>' => ['template' => 'listening/_day'],
     'api/post-images' => 'api/post-image/get',
     'api/post-images/<slug>' => 'api/post-image/get',
     'api/post-images/v2' => 'api/post-image/get-v2',

@@ -828,6 +828,13 @@ dialog::backdrop {
 }
 
 .listenchart_day { cursor: help; }
+.listenchart a .listenchart_day { cursor: pointer; }
+
+.listenchart a:hover .listenchart_day,
+.listenchart a:focus-visible .listenchart_day {
+    stroke: var(--text);
+    stroke-width: 1;
+}
 
 .listenchart_day[data-level="0"] { fill: var(--callout-background); }
 .listenchart_day[data-level="1"] { fill: hsla(var(--highlight-h), 100%, 50%, 0.25); }

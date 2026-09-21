@@ -60,6 +60,31 @@ class Tracks
     }
 
     /**
+     * A single day's listening, laid out the same way the log lays out a day,
+     * or null if $day isn't a real date or nothing was played on it.
+     *
+     * @param string $day a Y-m-d date, as the route hands it over
+     * @return array{day: string, total: int, rows: array<int, array>}|null
+     */
+    public function day(string $day): ?array
+    {
+        $zone = new DateTimeZone(Craft::$app->getTimeZone());
+        // The route only promises the shape of the date, not that it exists -
+        // "2026-02-31" matches the pattern and would roll over into March.
+        $start = DateTimeImmutable::createFromFormat('!Y-m-d', $day, $zone);
+
+        if ($start === false || $start->format('Y-m-d') !== $day) {
+            return null;
+        }
+
+        $listening = $this->withArt(
+            ListeningLog::days($this->between($start, $start->modify('+1 day')), $zone),
+        );
+
+        return $listening[0] ?? null;
+    }
+
+    /**
      * How many plays a day over the last $days days, as the geometry to draw
      * them as a grid.
      */
