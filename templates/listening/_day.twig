@@ -1,0 +1,35 @@
+{% import "_partials/head.twig" as head %}
+{% import "_partials/listens.twig" as listens %}
+
+{% extends "_layout.twig" %}
+
+{# `day` comes from the route, which vouches for its shape but not that it's a
+   date anyone listened to anything on. #}
+{%- set listening = craft.tracks.day(day) -%}
+
+{% if not listening %}
+	{% exit 404 %}
+{% endif %}
+
+{%- set title = listening.day|date("l j F Y") -%}
+{%- set description = "What I listened to on " ~ title ~ "." -%}
+
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+{% block metaDescription %}{{ description }}{% endblock %}
+
+{% block head %}
+	{{ head.meta(title, description, url(url() ~ "listening/" ~ listening.day)) }}
+{% endblock %}
+
+{% block content %}
+	<main class="listening container mt-lg">
+		<p class="muted text-sm sans">
+			<a href="{{ url("listening") }}">← Listening</a>
+		</p>
+
+		{{ listens.day(listening, "h1") }}
+	</main>
+{% endblock %}
