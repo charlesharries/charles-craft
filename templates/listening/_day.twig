@@ -26,8 +26,8 @@
 
 {% block content %}
 	<main class="listening container mt-lg">
-		<p class="muted text-sm sans">
-			<a href="{{ url("listening") }}">← Listening</a>
+		<p class="sans">
+			<a href="{{ url("listening") }}">&larr; Back to recent listening</a>
 		</p>
 
 		{{ listens.day(listening, "h1") }}

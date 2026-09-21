@@ -41,9 +41,11 @@
 {% macro day(day, heading = "h2") %}
 	{% import _self as m %}
 
+	{%- set format = day.day|date("Y") == "now"|date("Y") ? "l j F" : "l j F Y" -%}
+
 	<section class="mt-xl">
 		<{{ heading }} class="serif text-md keyline">
-			<span class="highlight">{{ day.day|date("l j F") }}</span>
+			<span class="highlight">{{ day.day|date(format) }}</span>
 			<span class="trackCount ml-sm">{{ day.total }}</span>
 		</{{ heading }}>
 
